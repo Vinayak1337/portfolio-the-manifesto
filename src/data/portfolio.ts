@@ -1,4 +1,5 @@
 export type ProjectCategory =
+  | "AI"
   | "WORK"
   | "INTERN"
   | "OSS"
@@ -17,6 +18,7 @@ export type Project = {
   image: string;
   link: string | null;
   blurb: string;
+  outcome?: string;
 };
 
 export type Experience = {
@@ -30,14 +32,14 @@ export const site = {
   name: "Vinayak Kumar - The Manifesto",
   url: "https://vinayak1337.me",
   description:
-    "Vinayak Kumar is an AI full-stack engineer in New Delhi who works on RAG pipelines, agent workflows, and the web and mobile surfaces around them.",
+    "Vinayak Kumar is an AI full-stack engineer in New Delhi who turns AI prototypes into product systems with RAG, workflow UX, analytics, auth, billing, and deployment.",
 };
 
 export const person = {
   name: "Vinayak Kumar",
   roleShort: "AI Full-Stack Engineer",
   roleLong:
-    "AI full-stack engineer working end-to-end on retrieval pipelines, agent workflows, and the production surfaces — web and mobile — around them.",
+    "AI full-stack engineer working end-to-end on retrieval pipelines, workflow UX, analytics, auth, billing, deployment, and the web and mobile surfaces around them.",
   location: "New Delhi, India",
   email: "vinayak111kumar@gmail.com",
   github: "Vinayak1337",
@@ -47,6 +49,7 @@ export const person = {
   website: "vinayak1337.me",
   resume: "/Vinayak_Kumar_Resume.pdf",
   yearsShipping: 5,
+  shippingSince: 2021,
 };
 
 export const seoKeywords = [
@@ -78,21 +81,21 @@ export const chapters = [
   {
     number: "01",
     label: "The Premise",
-    headline: "Five years across AI products, ed-tech, commerce, and internal tools.",
+    headline: "Three-plus professional years across AI products, ed-tech, commerce, and internal tools.",
     emphasis: "AI products",
     copy: [
-      "Different domains, same lesson: useful software is clearer than clever software, and the surface most users touch is the one most teams underinvest in.",
-      "What I care about: retrieval that cites sources users can verify, evals that catch regressions before users do, inline editing over heavy admin panels, and code teammates can read months later.",
+      "The throughline is product engineering: RAG flows users can inspect, dashboards teams can act on, mobile surfaces children can navigate, and CMS workflows non-technical admins can operate.",
+      "What I care about: retrieval with visible evidence, state that does not collapse under product complexity, analytics that explain friction, and code teammates can read months later.",
     ],
   },
   {
     number: "02",
     label: "The Method",
-    headline: "Full-stack because the hard problems live at the seams.",
-    emphasis: "at the seams",
+    headline: "Full-stack because AI products need more than a model.",
+    emphasis: "more than a model",
     copy: [
-      "Next.js App Router for web. React Native for reach. Node, MongoDB, Prisma, and Postgres for durable systems. LangChain and Flowise when the product needs agents, retrieval, scoring, and adaptive workflows.",
-      "The stack changes. The discipline does not: ship small, instrument everything, measure user friction, and make the next iteration obvious.",
+      "I build the product layer around AI: retrieval, adaptive workflows, app state, permissions, payments, credits, analytics events, deployment paths, and the interfaces that make the system usable.",
+      "Next.js App Router, React Native, Node, Prisma, MongoDB, Postgres, LangChain, and Flowise are tools. The discipline is shipping small, measuring friction, and making the next iteration obvious.",
     ],
   },
   {
@@ -108,18 +111,18 @@ export const chapters = [
 ];
 
 export const about = {
-  headline: "Full-stack by training. AI-focused by 2024.",
+  headline: "AI full-stack engineer. Product systems, not demos.",
   paragraphs: [
-    "I'm an AI full-stack engineer in New Delhi. The last two years I've focused on RAG, agents, and the production surfaces around them; before that, building React, Next.js, and React Native products in ed-tech and commerce.",
-    "At BPIT Tech Team I lead the rebuild of the college site on Next.js App Router with an inline click-to-edit CMS — admins edit rendered pages directly, no separate admin panel.",
-    "Before that, Immibot at RemoteHire: an AI immigration assistant with LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, and PostHog session analytics.",
-    "And 2.5 years at wonderHood across React, Next.js, and React Native — the e-commerce + content site on Shopify GraphQL, the kids' learning app rewritten from Ionic to React Native, and the teacher dashboard.",
+    "I'm an AI full-stack engineer in New Delhi with 3+ years of professional product engineering experience since 2021 across Next.js, React Native, Node, LangChain, and analytics-heavy systems.",
+    "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead the college-site rebuild on Next.js App Router with inline click-to-edit CMS workflows.",
+    "At RemoteHire, I re-architected Immibot: an AI immigration assistant with LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, and PostHog session analytics.",
+    "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
 };
 
 export const highlights = [
-  { stat: "5y", label: "production engineering" },
-  { stat: "4", label: "teams shipped with" },
+  { stat: "3+", label: "professional years" },
+  { stat: "2021", label: "shipping software since" },
   { stat: "~40%", label: "Immibot onboarding cut" },
 ];
 
@@ -131,8 +134,8 @@ export const experience: Experience[] = [
     bullets: [
       "Leading a team of 3 on a legacy PHP to Next.js App Router, TypeScript, and Tailwind rebuild of the BPIT website.",
       "Built an inline click-to-edit CMS so admins can update text, links, and images directly on rendered sections, persisted via MongoDB.",
-      "Developed reusable schemas and modular components to keep departments and pages consistent.",
-      "Integrated PostHog analytics, dynamic metadata, structured data, optimized routing, and Vercel preview deployments.",
+      "Modeled department and page content into reusable schemas so new sections stay consistent without a separate admin product.",
+      "Added PostHog analytics, dynamic metadata, structured data, optimized routing, and Vercel preview deployments so content and SEO changes are reviewable before release.",
     ],
   },
   {
@@ -172,22 +175,8 @@ export const experience: Experience[] = [
 
 export const projects: Project[] = [
   {
-    id: "bpit",
-    index: "01",
-    name: "BPIT Website",
-    company: "BPIT Tech Team",
-    year: "2025",
-    role: "Tech Lead",
-    category: "WORK",
-    tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
-    image: "/assets/bpit.png",
-    link: "https://bpit-site-redesign.vercel.app/",
-    blurb:
-      "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
-  },
-  {
     id: "immibot",
-    index: "02",
+    index: "01",
     name: "Immibot",
     company: "RemoteHire",
     year: "2024",
@@ -206,10 +195,56 @@ export const projects: Project[] = [
     link: "https://nextjsapp-immibot.vercel.app",
     blurb:
       "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
+    outcome: "Cut onboarding friction by ~40% with guest sessions, credit merge, adaptive RAG, and eligibility scoring.",
+  },
+  {
+    id: "autism-detection",
+    index: "02",
+    name: "Autism Detection App",
+    company: "Personal",
+    year: "2024",
+    role: "AI Product Engineer",
+    category: "AI",
+    tags: ["Next.js", "TypeScript", "TensorFlow.js", "BlazeFace", "Clerk"],
+    image: "/assets/autism-detection.svg",
+    link: "https://github.com/Vinayak1337/autism-detector",
+    blurb:
+      "Privacy-first browser screening prototype with local eye tracking, face detection, metric analysis, and heuristic risk bands.",
+    outcome: "Runs sensitive screening signals locally in-browser instead of sending camera frames to a backend.",
+  },
+  {
+    id: "storefront",
+    index: "03",
+    name: "StoreFront",
+    company: "Personal",
+    year: "2024",
+    role: "Product Engineer",
+    category: "PERSONAL",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Thermal Print"],
+    image: "/assets/storefront.svg",
+    link: "https://github.com/Vinayak1337/StoreFrontNextjs",
+    blurb:
+      "Billing and inventory app with item organization, order creation, analytics, secure sessions, and Bluetooth thermal printing.",
+    outcome: "Turns shop operations into one workflow: inventory, orders, analytics, and receipt printing.",
+  },
+  {
+    id: "bpit",
+    index: "04",
+    name: "BPIT Website",
+    company: "BPIT Tech Team",
+    year: "2025",
+    role: "Tech Lead",
+    category: "WORK",
+    tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
+    image: "/assets/bpit.png",
+    link: "https://bpit-site-redesign.vercel.app/",
+    blurb:
+      "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
+    outcome: "Replaced a separate admin-panel model with direct inline editing on rendered college pages.",
   },
   {
     id: "wonderlearn",
-    index: "03",
+    index: "05",
     name: "wonderLearn",
     company: "wonderHood",
     year: "2023",
@@ -220,10 +255,11 @@ export const projects: Project[] = [
     link: "https://thewonderlearn.com/",
     blurb:
       "Ed-tech hub with blogs, school resources, and a Shopify GraphQL-backed toy store, migrated from a static React build to Next.js with ISR and SSG.",
+    outcome: "Moved commerce and content from a static React build to a faster Next.js surface with Shopify GraphQL.",
   },
   {
     id: "wonderlearn-app",
-    index: "04",
+    index: "06",
     name: "wonderLearn App",
     company: "wonderHood",
     year: "2023",
@@ -234,6 +270,7 @@ export const projects: Project[] = [
     link: "https://wonderlearn.app.link/app",
     blurb:
       "Mobile app for kids aged 2-6 with games, videos, custom players, and resume states after an Ionic to React Native rewrite.",
+    outcome: "Rebuilt the kids' learning app in React Native with custom media, games, progress, and resume states.",
   },
   {
     id: "mylearning",
@@ -605,13 +642,23 @@ export const jsonLd = {
         addressLocality: "New Delhi",
         addressCountry: "IN",
       },
-      sameAs: [person.githubUrl, person.linkedinUrl],
-      knowsAbout: seoKeywords,
-      alumniOf: [
-        "Ambedkar Institute of Technology",
-        "Guru Gobind Singh Indraprastha University",
-      ],
-    },
+    sameAs: [person.githubUrl, person.linkedinUrl],
+    knowsAbout: seoKeywords,
+    alumniOf: [
+      "Ambedkar Institute of Technology",
+    ],
+    affiliation: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Guru Gobind Singh Indraprastha University",
+        description: "Current B.Tech in Computer Science & Engineering program, 2024-2027",
+      },
+      {
+        "@type": "Organization",
+        name: "BPIT Tech Team",
+      },
+    ],
+  },
     {
       "@type": "WebSite",
       "@id": `${site.url}/#website`,

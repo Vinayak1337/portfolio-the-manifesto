@@ -121,7 +121,7 @@ export default function Archive() {
           </h1>
           <div className="side">
             <p className="hero-blurb">
-              An index of {person.yearsShipping}+ years of shipped software.{" "}
+              An index of software shipped since {person.shippingSince}.{" "}
               <em>{totalCount} entries</em>. AI tooling, ed-tech, commerce, dating apps,
               tourism platforms, Discord automation, and one ambitious institutional CMS.
             </p>

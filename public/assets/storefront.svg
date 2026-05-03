@@ -1,0 +1,27 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F2EDE4"/>
+  <rect x="72" y="72" width="1056" height="756" fill="#0A0908"/>
+  <rect x="116" y="118" width="646" height="664" fill="#F8F4EC"/>
+  <rect x="796" y="118" width="288" height="664" fill="#E8E0D0"/>
+  <text x="154" y="178" fill="#0A0908" font-family="Arial, sans-serif" font-size="34" font-weight="700">StoreFront</text>
+  <text x="154" y="214" fill="#934000" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">BILLING / INVENTORY / PRINT</text>
+  <rect x="154" y="260" width="260" height="130" fill="#0A0908"/>
+  <rect x="446" y="260" width="260" height="130" fill="#D75C19"/>
+  <rect x="154" y="424" width="552" height="74" fill="#E8E0D0"/>
+  <rect x="154" y="522" width="552" height="74" fill="#E8E0D0"/>
+  <rect x="154" y="620" width="552" height="74" fill="#E8E0D0"/>
+  <text x="180" y="342" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="26" font-weight="700">Orders</text>
+  <text x="472" y="342" fill="#0A0908" font-family="Arial, sans-serif" font-size="26" font-weight="700">Analytics</text>
+  <text x="184" y="468" fill="#0A0908" font-family="Arial, sans-serif" font-size="22">Drag-and-drop item organization</text>
+  <text x="184" y="566" fill="#0A0908" font-family="Arial, sans-serif" font-size="22">Secure sessions + CSRF middleware</text>
+  <text x="184" y="664" fill="#0A0908" font-family="Arial, sans-serif" font-size="22">Bluetooth thermal receipt printing</text>
+  <rect x="836" y="168" width="208" height="392" fill="#F8F4EC" stroke="#0A0908" stroke-width="4"/>
+  <path d="M866 224H1014" stroke="#0A0908" stroke-width="4"/>
+  <path d="M866 286H1014" stroke="#0A0908" stroke-width="4"/>
+  <path d="M866 348H1014" stroke="#0A0908" stroke-width="4"/>
+  <path d="M866 410H1014" stroke="#0A0908" stroke-width="4"/>
+  <path d="M866 472H1014" stroke="#0A0908" stroke-width="4"/>
+  <rect x="858" y="596" width="164" height="90" fill="#0A0908"/>
+  <text x="884" y="652" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="22" font-weight="700">PRINT</text>
+  <path d="M834 726H1046" stroke="#934000" stroke-width="8" stroke-linecap="round"/>
+</svg>

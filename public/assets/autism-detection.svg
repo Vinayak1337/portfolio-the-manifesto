@@ -1,0 +1,29 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F2EDE4"/>
+  <rect x="72" y="72" width="1056" height="756" fill="#0A0908"/>
+  <rect x="110" y="112" width="980" height="676" fill="#151311"/>
+  <rect x="152" y="154" width="896" height="80" fill="#F2EDE4"/>
+  <text x="188" y="205" fill="#0A0908" font-family="Arial, sans-serif" font-size="28" font-weight="700">Autism Detection App</text>
+  <text x="840" y="205" fill="#934000" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">LOCAL INFERENCE</text>
+  <rect x="152" y="276" width="510" height="380" fill="#F8F4EC" stroke="#F2EDE4" stroke-width="2"/>
+  <ellipse cx="407" cy="466" rx="146" ry="168" fill="#E8E0D0" stroke="#0A0908" stroke-width="6"/>
+  <circle cx="354" cy="444" r="24" fill="#0A0908"/>
+  <circle cx="460" cy="444" r="24" fill="#0A0908"/>
+  <path d="M330 392C350 372 382 370 404 390" stroke="#C75A18" stroke-width="10" stroke-linecap="round"/>
+  <path d="M432 390C456 370 488 374 506 394" stroke="#C75A18" stroke-width="10" stroke-linecap="round"/>
+  <path d="M360 540C390 562 428 562 458 540" stroke="#0A0908" stroke-width="8" stroke-linecap="round"/>
+  <rect x="304" y="408" width="206" height="86" stroke="#C75A18" stroke-width="4" stroke-dasharray="14 10"/>
+  <path d="M176 692H638" stroke="#F2EDE4" stroke-width="2" stroke-dasharray="10 10"/>
+  <text x="190" y="736" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="20">eye tracking + saccade / fixation metrics</text>
+  <rect x="708" y="276" width="340" height="94" fill="#F2EDE4"/>
+  <text x="734" y="314" fill="#0A0908" font-family="Arial, sans-serif" font-size="18" font-weight="700">Risk band</text>
+  <text x="734" y="346" fill="#934000" font-family="Arial, sans-serif" font-size="30" font-weight="700">HEURISTIC</text>
+  <rect x="708" y="404" width="340" height="64" fill="#24201C" stroke="#F2EDE4" stroke-width="2"/>
+  <text x="734" y="444" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="20">TensorFlow.js</text>
+  <rect x="708" y="492" width="340" height="64" fill="#24201C" stroke="#F2EDE4" stroke-width="2"/>
+  <text x="734" y="532" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="20">BlazeFace</text>
+  <rect x="708" y="580" width="340" height="64" fill="#24201C" stroke="#F2EDE4" stroke-width="2"/>
+  <text x="734" y="620" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="20">Next.js + Clerk</text>
+  <path d="M708 704H1048" stroke="#C75A18" stroke-width="6" stroke-linecap="round"/>
+  <text x="708" y="748" fill="#F2EDE4" font-family="Arial, sans-serif" font-size="20">Camera frames stay in browser.</text>
+</svg>

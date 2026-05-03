@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Vinayak Kumar, AI full-stack engineer working at the seams of model, product, and data.";
+  "Vinayak Kumar, AI full-stack engineer turning AI prototypes into production product systems.";
 export const size = {
   width: 1200,
   height: 630,
@@ -57,7 +57,7 @@ export default function Image() {
               lineHeight: 0.95,
             }}
           >
-            at the seams.
+            prototype to production.
           </div>
         </div>
         <div

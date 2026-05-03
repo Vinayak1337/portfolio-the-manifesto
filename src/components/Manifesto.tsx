@@ -19,11 +19,11 @@ type WordToken = {
 };
 
 const railProjects = projects
-  .filter((project) => ["WORK", "FREELANCE", "OSS"].includes(project.category))
+  .filter((project) => ["AI", "WORK", "PERSONAL", "FREELANCE", "OSS"].includes(project.category))
   .slice(0, 10);
 
 const ledgerProjects = projects
-  .filter((project) => ["WORK", "FREELANCE", "OSS"].includes(project.category))
+  .filter((project) => ["AI", "WORK", "PERSONAL", "FREELANCE", "OSS"].includes(project.category))
   .slice(0, 14);
 
 function useReducedMotion() {
@@ -433,14 +433,14 @@ export default function Manifesto() {
       <section className="pin-type" ref={pinTypeRef} aria-label="Manifesto statement">
         <div className="pin">
           <div className="giant" ref={giantRef}>
-            Most AI products fail
+            I ship AI products
             <br />
-            at the <em>seams</em> between
+            that move from
             <br />
-            model, product, and <em>data.</em>
+            prototype to <em>production.</em>
           </div>
           <div className="sub-caption" aria-hidden="true">
-            I work on the seams.
+            RAG · UX · AUTH · BILLING · ANALYTICS · DEPLOYMENT
           </div>
         </div>
       </section>
@@ -491,7 +491,7 @@ export default function Manifesto() {
           </div>
 
           <div className="rail-track" ref={railTrackRef}>
-            {railProjects.map((project) => {
+            {railProjects.map((project, index) => {
               const link = externalLinkProps(project.link);
 
               return (
@@ -503,7 +503,7 @@ export default function Manifesto() {
                       alt={`${project.name} project screenshot`}
                       fill
                       sizes="(max-width: 768px) 82vw, 540px"
-                      priority={project.index === "01"}
+                      priority={index === 0}
                     />
                   </div>
                   <div className="rail-foot">
@@ -511,7 +511,7 @@ export default function Manifesto() {
                     <span>{project.year}</span>
                   </div>
                   <h3>{project.name}</h3>
-                  <p>{project.tags.slice(0, 4).join(" / ")}</p>
+                  <p>{project.outcome ?? project.tags.slice(0, 4).join(" / ")}</p>
                 </a>
               );
             })}
@@ -534,8 +534,9 @@ export default function Manifesto() {
           <p>selected work, by year</p>
         </div>
         <div className="work-list">
-          {ledgerProjects.map((project) => {
+          {ledgerProjects.map((project, index) => {
             const link = externalLinkProps(project.link);
+            const displayIndex = (index + 1).toString().padStart(2, "0");
 
             return (
               <a
@@ -544,7 +545,7 @@ export default function Manifesto() {
                 onMouseMove={(event) => onWorkPreviewMove(event, project.id)}
                 {...link}
               >
-                <span className="work-num">{project.index}</span>
+                <span className="work-num">{displayIndex}</span>
                 <span className="work-name">{project.name}</span>
                 <span className="work-tags">{project.tags.slice(0, 4).join(" / ")}</span>
                 <span className="work-year">{`'${project.year.slice(2)}`}</span>
@@ -577,9 +578,9 @@ export default function Manifesto() {
               id="about-title"
               className="about-title"
               tokens={[
-                { text: "Full-stack by training." },
+                { text: "Product systems." },
                 { text: "AI-focused", emphasis: true },
-                { text: "by 2024." },
+                { text: "full-stack." },
               ]}
             />
           </div>
