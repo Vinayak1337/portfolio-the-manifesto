@@ -1,21 +1,40 @@
 import type { Metadata } from "next";
-import Archive from "@/components/Archive";
+import { ArchiveClientView } from "@/components/archive/ArchiveClientView";
+import {
+  archiveCategories,
+  archiveLongTail,
+  archiveProjects,
+  archiveStrong,
+} from "@/constants/archive";
+import { archiveNavigationLinks, marqueeTech, person, site } from "@/constants/portfolio";
 import "./archive.css";
 
 export const metadata: Metadata = {
-  title: "The Archive — Vinayak Kumar",
+  title: "Projects — Vinayak Kumar",
   description:
-    "Index of every shipped project — five years of AI tools, ed-tech platforms, commerce apps, Discord automation, and an institutional CMS.",
+    "Project index of shipped Vinayak Kumar work across applied AI, full-stack systems, ed-tech, commerce, Discord automation, and institutional CMS builds.",
   alternates: { canonical: "/archive" },
   openGraph: {
-    title: "The Archive — Vinayak Kumar",
+    title: "Projects — Vinayak Kumar",
     description:
-      "Index of every shipped project — ranked by job-market fit and grouped into Strong picks and the long tail.",
+      "Project index for Vinayak1337 work, Relics systems, applied AI products, and full-stack engineering builds.",
     url: "/archive",
     type: "website",
+    siteName: site.name,
   },
 };
 
 export default function ArchivePage() {
-  return <Archive />;
+  return (
+    <ArchiveClientView
+      categories={archiveCategories}
+      longTail={archiveLongTail}
+      marqueeItems={marqueeTech}
+      navLinks={archiveNavigationLinks}
+      person={person}
+      projects={archiveProjects}
+      strong={archiveStrong}
+      variant="flux"
+    />
+  );
 }

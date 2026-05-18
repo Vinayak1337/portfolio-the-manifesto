@@ -1,3 +1,6 @@
+import { homeGridProjectIds } from "./archive-grid";
+import { mainProjectIds, portfolioGridProjects } from "./project-grid";
+
 export type ProjectCategory =
   | "AI"
   | "WORK"
@@ -6,7 +9,7 @@ export type ProjectCategory =
   | "FREELANCE"
   | "PERSONAL";
 
-export type Project = {
+export type Project = Readonly<{
   id: string;
   index: string;
   name: string;
@@ -14,32 +17,44 @@ export type Project = {
   year: string;
   role: string;
   category: ProjectCategory;
-  tags: string[];
+  tags: readonly string[];
   image: string;
   link: string | null;
+  links?: readonly ProjectLink[];
   blurb: string;
   outcome?: string;
-};
+}>;
 
-export type Experience = {
+export type ProjectLink = Readonly<{
+  label: string;
+  href: string;
+}>;
+
+export type Experience = Readonly<{
   title: string;
   company: string;
   date: string;
-  bullets: string[];
-};
+  bullets: readonly string[];
+}>;
+
+export type NavLink = Readonly<{
+  label: string;
+  href: string;
+  external?: boolean;
+}>;
 
 export const site = {
-  name: "Vinayak Kumar - The Manifesto",
+  name: "Vinayak Kumar - Applied AI / Full-stack Engineer",
   url: "https://vinayak1337.me",
   description:
-    "Vinayak Kumar is an AI full-stack engineer in New Delhi who turns AI prototypes into product systems with RAG, workflow UX, analytics, auth, billing, and deployment.",
+    "Vinayak Kumar is an applied AI and full-stack engineer in New Delhi, shipping production AI systems across RAG workflows, product UX, analytics, auth, billing, and deployment.",
 };
 
 export const person = {
   name: "Vinayak Kumar",
-  roleShort: "AI Full-Stack Engineer",
+  roleShort: "Applied AI / Full-stack Engineer",
   roleLong:
-    "AI full-stack engineer working end-to-end on retrieval pipelines, workflow UX, analytics, auth, billing, deployment, and the web and mobile surfaces around them.",
+    "Applied AI and full-stack engineer working end-to-end on retrieval pipelines, workflow UX, analytics, auth, billing, deployment, and the web and mobile surfaces around them.",
   location: "New Delhi, India",
   email: "vinayak111kumar@gmail.com",
   github: "Vinayak1337",
@@ -53,17 +68,41 @@ export const person = {
 };
 
 export const seoKeywords = [
-  "Vinayak Kumar AI full-stack engineer",
+  "Vinayak Kumar",
+  "Vinayak Kumar portfolio",
+  "Vinayak1337",
+  "Vinayak Relics",
+  "Relics Discord engineer",
+  "Applied AI / Full-stack Engineer",
+  "Applied AI Engineer",
+  "AI Engineer",
+  "AI Fullstack Developer",
+  "AI Full-Stack Engineer",
   "AI full-stack engineer India",
   "AI product engineer New Delhi",
   "LangChain RAG engineer",
   "agentic RAG developer",
+  "RAG product engineer",
   "Next.js engineer",
   "React Native engineer",
   "TypeScript product engineer",
   "Node.js MongoDB engineer",
   "PostHog analytics engineer",
   "Shopify GraphQL developer",
+];
+
+export const navigationLinks: NavLink[] = [
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+  { label: "Archive", href: "/archive" },
+  { label: "Resume", href: person.resume, external: true },
+];
+
+export const archiveNavigationLinks: NavLink[] = [
+  { label: "Portfolio", href: "/" },
+  { label: "Contact", href: "#contact" },
+  { label: "Resume", href: person.resume, external: true },
 ];
 
 export const marqueeTech = [
@@ -76,6 +115,22 @@ export const marqueeTech = [
   "TypeScript",
   "PostHog",
 ];
+
+export const homeHero = {
+  eyebrow: "NEW DELHI · IST",
+  titleTokens: [
+    { text: "Vinayak Kumar," },
+    { text: "applied AI / full-stack engineer", emphasis: true },
+    { text: "building since 2021." },
+  ],
+  summary:
+    "I build production AI products end-to-end: RAG pipelines, agent workflows, the web and mobile surfaces around them, and the analytics that prove they work.",
+};
+
+export const statement = {
+  headline: "I ship product systems\nthat move from\nprototype to production.",
+  caption: "RAG · UX · AUTH · BILLING · ANALYTICS · DEPLOYMENT",
+};
 
 export const chapters = [
   {
@@ -173,7 +228,7 @@ export const experience: Experience[] = [
   },
 ];
 
-export const projects: Project[] = [
+export const projectCatalog: Project[] = [
   {
     id: "immibot",
     index: "01",
@@ -195,7 +250,8 @@ export const projects: Project[] = [
     link: "https://nextjsapp-immibot.vercel.app",
     blurb:
       "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
-    outcome: "Cut onboarding friction by ~40% with guest sessions, credit merge, adaptive RAG, and eligibility scoring.",
+    outcome:
+      "An AI immigration advisor that helps applicants understand eligibility, compare pathways, and turn vague questions into structured next steps.",
   },
   {
     id: "autism-detection",
@@ -210,7 +266,8 @@ export const projects: Project[] = [
     link: "https://github.com/Vinayak1337/autism-detector",
     blurb:
       "Privacy-first browser screening prototype with local eye tracking, face detection, metric analysis, and heuristic risk bands.",
-    outcome: "Runs sensitive screening signals locally in-browser instead of sending camera frames to a backend.",
+    outcome:
+      "A browser-based screening prototype exploring how visual attention and behavior signals could support early autism risk assessment.",
   },
   {
     id: "storefront",
@@ -221,11 +278,12 @@ export const projects: Project[] = [
     role: "Product Engineer",
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Thermal Print"],
-    image: "/assets/storefront.svg",
+    image: "/assets/storefront-dashboard.png",
     link: "https://github.com/Vinayak1337/StoreFrontNextjs",
     blurb:
       "Billing and inventory app with item organization, order creation, analytics, secure sessions, and Bluetooth thermal printing.",
-    outcome: "Turns shop operations into one workflow: inventory, orders, analytics, and receipt printing.",
+    outcome:
+      "A shop operations system that helps small retailers manage orders, inventory, analytics, and receipts from one dashboard.",
   },
   {
     id: "bpit",
@@ -240,11 +298,28 @@ export const projects: Project[] = [
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
       "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
-    outcome: "Replaced a separate admin-panel model with direct inline editing on rendered college pages.",
+    outcome:
+      "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
+  },
+  {
+    id: "training-placement",
+    index: "05",
+    name: "T&P Dashboard",
+    company: "BPIT Demo",
+    year: "2025",
+    role: "Full-stack Engineer",
+    category: "PERSONAL",
+    tags: ["Next.js", "TypeScript", "Prisma", "Neon", "NextAuth"],
+    image: "/assets/training-placement-dashboard.png",
+    link: "https://github.com/Vinayak1337/training-and-placement-bpit",
+    blurb:
+      "Training and placement dashboard with coordinator and student flows, role-based access, placement drives, applications, and resume uploads.",
+    outcome:
+      "A demo placement operations system that shows student records, drive management, application status, and placement analytics in one dashboard.",
   },
   {
     id: "wonderlearn",
-    index: "05",
+    index: "06",
     name: "wonderLearn",
     company: "wonderHood",
     year: "2023",
@@ -255,11 +330,12 @@ export const projects: Project[] = [
     link: "https://thewonderlearn.com/",
     blurb:
       "Ed-tech hub with blogs, school resources, and a Shopify GraphQL-backed toy store, migrated from a static React build to Next.js with ISR and SSG.",
-    outcome: "Moved commerce and content from a static React build to a faster Next.js surface with Shopify GraphQL.",
+    outcome:
+      "An ed-tech commerce site that helps parents discover learning programs, toys, articles, and app-led activities for young children.",
   },
   {
     id: "wonderlearn-app",
-    index: "06",
+    index: "07",
     name: "wonderLearn App",
     company: "wonderHood",
     year: "2023",
@@ -270,11 +346,12 @@ export const projects: Project[] = [
     link: "https://wonderlearn.app.link/app",
     blurb:
       "Mobile app for kids aged 2-6 with games, videos, custom players, and resume states after an Ionic to React Native rewrite.",
-    outcome: "Rebuilt the kids' learning app in React Native with custom media, games, progress, and resume states.",
+    outcome:
+      "A kids' learning app for guided videos, games, and activities with parent-safe navigation and progress continuity.",
   },
   {
     id: "mylearning",
-    index: "05",
+    index: "08",
     name: "MyLearning",
     company: "wonderHood",
     year: "2023",
@@ -285,10 +362,12 @@ export const projects: Project[] = [
     link: "https://mylearning.thewonderlearn.com/",
     blurb:
       "Teacher dashboard for classroom rosters, per-student video watch percentage, game scores, and module completion.",
+    outcome:
+      "A classroom learning dashboard that helps teachers track student activity, course progress, assessment reports, and learning outcomes.",
   },
   {
     id: "wonderhood",
-    index: "06",
+    index: "09",
     name: "wonderHood",
     company: "wonderHood",
     year: "2022",
@@ -299,10 +378,12 @@ export const projects: Project[] = [
     link: "https://wonderhood.in/",
     blurb:
       "Parent-facing landing page and education journey surface for the wonderLearn ecosystem.",
+    outcome:
+      "A parent-facing education platform that explains the learning journey and converts interest into app downloads, plans, and purchases.",
   },
   {
     id: "dating-landing",
-    index: "07",
+    index: "10",
     name: "Dating App - Landing",
     company: "Possibillion",
     year: "2021",
@@ -316,7 +397,7 @@ export const projects: Project[] = [
   },
   {
     id: "dating-admin",
-    index: "08",
+    index: "11",
     name: "Dating App - Admin",
     company: "Possibillion",
     year: "2021",
@@ -330,7 +411,7 @@ export const projects: Project[] = [
   },
   {
     id: "dating-backend",
-    index: "09",
+    index: "12",
     name: "Dating App - Backend",
     company: "Possibillion",
     year: "2021",
@@ -344,7 +425,7 @@ export const projects: Project[] = [
   },
   {
     id: "levtours-landing",
-    index: "10",
+    index: "13",
     name: "LevTours - Landing",
     company: "Possibillion",
     year: "2021",
@@ -358,7 +439,7 @@ export const projects: Project[] = [
   },
   {
     id: "levtours-admin",
-    index: "11",
+    index: "14",
     name: "LevTours - Admin",
     company: "Possibillion",
     year: "2021",
@@ -372,7 +453,7 @@ export const projects: Project[] = [
   },
   {
     id: "levtours-backend",
-    index: "12",
+    index: "15",
     name: "LevTours - Backend",
     company: "Possibillion",
     year: "2021",
@@ -385,7 +466,7 @@ export const projects: Project[] = [
   },
   {
     id: "firework-fe",
-    index: "13",
+    index: "16",
     name: "Firework - Frontend",
     company: "Possibillion",
     year: "2021",
@@ -399,7 +480,7 @@ export const projects: Project[] = [
   },
   {
     id: "firework-be",
-    index: "14",
+    index: "17",
     name: "Firework - Backend",
     company: "Possibillion",
     year: "2021",
@@ -413,10 +494,10 @@ export const projects: Project[] = [
   },
   {
     id: "relics-audit",
-    index: "15",
+    index: "18",
     name: "Relics Audit",
     company: "Open Source",
-    year: "2023",
+    year: "2020",
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node", "MongoDB"],
@@ -424,13 +505,15 @@ export const projects: Project[] = [
     link: "https://github.com/Vinayak1337/RelicsAudit",
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
+    outcome:
+      "A Discord operations system that helps gaming communities monitor clubs, rankings, rewards, and player activity at scale.",
   },
   {
     id: "relics-general",
-    index: "16",
+    index: "19",
     name: "Relics General",
     company: "Open Source",
-    year: "2023",
+    year: "2020",
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node", "MongoDB"],
@@ -438,13 +521,15 @@ export const projects: Project[] = [
     link: "https://github.com/Vinayak1337/relics-general-bot",
     blurb:
       "Modmail, role management, cross-server announcements, and utility commands for Discord communities.",
+    outcome:
+      "A community management bot that helps Discord teams handle support, announcements, roles, moderation, and day-to-day operations.",
   },
   {
     id: "relics-banhammer",
-    index: "17",
+    index: "20",
     name: "Relics Ban Hammer",
     company: "Open Source",
-    year: "2023",
+    year: "2020",
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node"],
@@ -454,10 +539,10 @@ export const projects: Project[] = [
   },
   {
     id: "tourney",
-    index: "18",
+    index: "21",
     name: "Tourney Ticketeer",
     company: "Open Source",
-    year: "2022",
+    year: "2020",
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node"],
@@ -468,7 +553,7 @@ export const projects: Project[] = [
   },
   {
     id: "pdfy",
-    index: "19",
+    index: "22",
     name: "Pdfy",
     company: "Freelance",
     year: "2023",
@@ -482,7 +567,7 @@ export const projects: Project[] = [
   },
   {
     id: "pdfsplit",
-    index: "20",
+    index: "23",
     name: "PDF Splitter",
     company: "Freelance",
     year: "2022",
@@ -496,7 +581,7 @@ export const projects: Project[] = [
   },
   {
     id: "cadillacs",
-    index: "21",
+    index: "24",
     name: "Cadillacs Backend",
     company: "Freelance",
     year: "2022",
@@ -510,7 +595,7 @@ export const projects: Project[] = [
   },
   {
     id: "face-fe",
-    index: "22",
+    index: "25",
     name: "Face Recognition - Frontend",
     company: "Personal",
     year: "2021",
@@ -524,7 +609,7 @@ export const projects: Project[] = [
   },
   {
     id: "face-be",
-    index: "23",
+    index: "26",
     name: "Face Recognition - Backend",
     company: "Personal",
     year: "2021",
@@ -537,7 +622,7 @@ export const projects: Project[] = [
   },
   {
     id: "picmash-fe",
-    index: "24",
+    index: "27",
     name: "Picmash - Frontend",
     company: "Personal",
     year: "2020",
@@ -550,7 +635,7 @@ export const projects: Project[] = [
   },
   {
     id: "picmash-be",
-    index: "25",
+    index: "28",
     name: "Picmash - Backend",
     company: "Personal",
     year: "2020",
@@ -563,7 +648,7 @@ export const projects: Project[] = [
   },
   {
     id: "crwn",
-    index: "26",
+    index: "29",
     name: "Crwn Clothing",
     company: "Personal",
     year: "2021",
@@ -576,7 +661,7 @@ export const projects: Project[] = [
   },
   {
     id: "robo",
-    index: "27",
+    index: "30",
     name: "Monster Rolodex",
     company: "Personal",
     year: "2020",
@@ -588,6 +673,34 @@ export const projects: Project[] = [
     blurb: "Early React project with a filterable directory interface.",
   },
 ];
+
+export const projects: Project[] = portfolioGridProjects;
+
+export const featuredProjectCategories: ProjectCategory[] = [
+  "AI",
+  "WORK",
+  "PERSONAL",
+  "FREELANCE",
+  "OSS",
+  "INTERN",
+];
+
+export const railProjects = mainProjectIds
+  .map((id) => projects.find((project) => project.id === id))
+  .filter((project): project is Project => Boolean(project));
+
+export const ledgerProjects = homeGridProjectIds
+  .map((id) => projects.find((project) => project.id === id))
+  .filter((project): project is Project => Boolean(project));
+
+export const aboutWedges = ["web", "mobile", "ai", "data"] as const;
+
+export type AboutWedge = (typeof aboutWedges)[number];
+
+export const aboutParagraphs = about.paragraphs.map((paragraph, index) => ({
+  text: paragraph,
+  wedge: aboutWedges[index % aboutWedges.length],
+}));
 
 export const skills = {
   Languages: ["TypeScript", "JavaScript", "HTML", "CSS", "SASS", "Java", "C++"],
@@ -642,23 +755,27 @@ export const jsonLd = {
         addressLocality: "New Delhi",
         addressCountry: "IN",
       },
-    sameAs: [person.githubUrl, person.linkedinUrl],
-    knowsAbout: seoKeywords,
-    alumniOf: [
-      "Ambedkar Institute of Technology",
-    ],
-    affiliation: [
-      {
-        "@type": "CollegeOrUniversity",
-        name: "Guru Gobind Singh Indraprastha University",
-        description: "Current B.Tech in Computer Science & Engineering program, 2024-2027",
-      },
-      {
-        "@type": "Organization",
-        name: "BPIT Tech Team",
-      },
-    ],
-  },
+      sameAs: [person.githubUrl, person.linkedinUrl, site.url],
+      knowsAbout: seoKeywords,
+      alumniOf: ["Ambedkar Institute of Technology"],
+      affiliation: [
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Guru Gobind Singh Indraprastha University",
+          description:
+            "Current B.Tech in Computer Science & Engineering program, 2024-2027",
+        },
+        {
+          "@type": "Organization",
+          name: "BPIT Tech Team",
+        },
+        {
+          "@type": "Organization",
+          name: "Vinayak Relics",
+          url: person.githubUrl,
+        },
+      ],
+    },
     {
       "@type": "WebSite",
       "@id": `${site.url}/#website`,
@@ -672,7 +789,7 @@ export const jsonLd = {
     {
       "@type": "ProfilePage",
       "@id": `${site.url}/#profile`,
-      name: "Vinayak Kumar AI Full-Stack Engineer Portfolio",
+      name: "Vinayak Kumar Applied AI / Full-stack Engineer Portfolio",
       url: site.url,
       description: site.description,
       mainEntity: {
@@ -708,7 +825,7 @@ export const jsonLd = {
         },
       ],
     },
-    ...projects.slice(0, 6).map((project) => ({
+    ...railProjects.slice(0, 6).map((project) => ({
       "@type": "CreativeWork",
       name: project.name,
       creator: {

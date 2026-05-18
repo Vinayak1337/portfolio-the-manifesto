@@ -1,0 +1,116 @@
+<svg width="2048" height="1365" viewBox="0 0 2048 1365" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <radialGradient id="heat" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff2747"/>
+      <stop offset="0.18" stop-color="#ffdf24"/>
+      <stop offset="0.34" stop-color="#9ee03e"/>
+      <stop offset="0.55" stop-color="#6b59ff"/>
+      <stop offset="0.72" stop-color="#3e38bd" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#3e38bd" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="2048" height="1365" fill="url(#page)"/>
+
+  <text x="1024" y="135" text-anchor="middle" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="800">
+    Eye Tracking Assessment
+  </text>
+  <text x="1024" y="183" text-anchor="middle" fill="#566172" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500">
+    This test tracks your eye movements to analyze patterns that may help identify visual
+  </text>
+  <text x="1024" y="218" text-anchor="middle" fill="#566172" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500">
+    attention characteristics.
+  </text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="222" y="271" width="1604" height="1074" rx="22" fill="#ffffff"/>
+  </g>
+
+  <text x="1024" y="354" text-anchor="middle" fill="#050505" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">
+    Eye Tracking Results
+  </text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="422" y="386" width="1204" height="790" rx="16" fill="#ffffff" stroke="#edf1f6"/>
+  </g>
+
+  <text x="456" y="449" fill="#101114" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">
+    Analysis Summary
+  </text>
+  <text x="1218" y="447" fill="#697386" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">
+    Test completed: May 18, 2026 at 2:30 AM
+  </text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="456" y="502" fill="#697386" font-size="18" font-weight="700">Eye Tracking Assessment</text>
+    <rect x="456" y="515" width="246" height="48" rx="24" fill="#d7fae1"/>
+    <text x="473" y="547" fill="#067331" font-size="23" font-weight="600">Normal Eye Tracking</text>
+    <text x="456" y="584" fill="#697386" font-size="18" font-weight="500">93% tracking accuracy </text>
+    <text x="650" y="584" fill="#02a33d" font-size="18" font-weight="700">- Perfectly Normal</text>
+
+    <text x="456" y="628" fill="#697386" font-size="18" font-weight="700">Square Pattern Detection</text>
+    <rect x="456" y="641" width="289" height="48" rx="24" fill="#d7fae1"/>
+    <text x="473" y="674" fill="#067331" font-size="23" font-weight="600">Square Pattern Detected</text>
+    <text x="456" y="710" fill="#697386" font-size="18" font-weight="500">Eyes followed the square pattern successfully</text>
+
+    <text x="456" y="755" fill="#697386" font-size="18" font-weight="700">Tracking Accuracy</text>
+    <rect x="456" y="768" width="307" height="48" rx="24" fill="#d7fae1"/>
+    <text x="473" y="801" fill="#067331" font-size="23" font-weight="600">Excellent Tracking (80%+)</text>
+    <text x="456" y="837" fill="#697386" font-size="18" font-weight="500">Accuracy: 93%</text>
+
+    <text x="456" y="884" fill="#697386" font-size="19" font-weight="700">Saccade Frequency</text>
+    <text x="456" y="930" fill="#050505" font-size="37" font-weight="800">0.00</text>
+    <text x="536" y="928" fill="#697386" font-size="19" font-weight="500">Hz</text>
+
+    <text x="743" y="884" fill="#697386" font-size="19" font-weight="700">Fixation Duration</text>
+    <text x="743" y="930" fill="#050505" font-size="37" font-weight="800">1757</text>
+    <text x="825" y="928" fill="#697386" font-size="19" font-weight="500">ms</text>
+
+    <text x="456" y="982" fill="#697386" font-size="19" font-weight="700">Deviation Score</text>
+    <text x="456" y="1028" fill="#050505" font-size="37" font-weight="800">2392</text>
+    <text x="546" y="1026" fill="#697386" font-size="19" font-weight="500">%</text>
+
+    <text x="743" y="982" fill="#697386" font-size="19" font-weight="700">Fixation Rate</text>
+    <text x="743" y="1028" fill="#050505" font-size="37" font-weight="800">29</text>
+    <text x="795" y="1026" fill="#697386" font-size="19" font-weight="500">%</text>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="1121" y="502" fill="#697386" font-size="18" font-weight="700">Eye Movement Visualization</text>
+    <g filter="url(#cardShadow)">
+      <rect x="1121" y="520" width="392" height="280" rx="12" fill="#ffffff"/>
+    </g>
+    <circle cx="1326" cy="704" r="48" fill="url(#heat)"/>
+    <circle cx="1326" cy="704" r="26" fill="none" stroke="#ffeb3b" stroke-width="6"/>
+    <text x="1431" y="784" fill="#697386" font-size="16" font-weight="500">Points: 0</text>
+
+    <text x="1121" y="842" fill="#697386" font-size="20" font-weight="700">Eye Path Analysis</text>
+    <rect x="1121" y="860" width="392" height="281" rx="12" fill="#ffffff" stroke="#dfe5ee"/>
+    <text x="1136" y="883" fill="#4b5563" font-size="13" font-weight="800">Left Eye</text>
+    <rect x="1199" y="872" width="13" height="13" fill="#ff4040"/>
+    <text x="1136" y="904" fill="#4b5563" font-size="13" font-weight="800">Right Eye</text>
+    <rect x="1199" y="893" width="13" height="13" fill="#354cff"/>
+    <text x="1136" y="925" fill="#4b5563" font-size="13" font-weight="800">Ideal Path</text>
+    <rect x="1199" y="914" width="13" height="13" fill="#d1d5db"/>
+    <text x="1302" y="883" fill="#81b66d" font-size="13" font-weight="800">Square Pattern Detected</text>
+    <path d="M1316 902L1412 1000L1316 1098L1220 1000Z" stroke="#d7d9df" stroke-width="4" fill="none"/>
+    <path d="M1268 1038C1241 1016 1285 1017 1298 1041C1321 1085 1271 1010 1319 1037C1349 1055 1347 1011 1376 1023C1406 1036 1438 1025 1472 1014" stroke="#ff403d" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.72"/>
+    <path d="M1290 1030C1317 1069 1272 1035 1304 1020C1340 1002 1346 1056 1372 1046C1404 1033 1404 1017 1474 1004" stroke="#394dff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.72"/>
+    <circle cx="1316" cy="1038" r="13" fill="#ff403d" opacity="0.72"/>
+    <circle cx="1328" cy="1044" r="13" fill="#394dff" opacity="0.72"/>
+  </g>
+
+  <rect x="422" y="1208" width="1204" height="166" rx="14" fill="#eaf0ff"/>
+  <text x="456" y="1270" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">Interpretation &amp; Suggestions</text>
+  <circle cx="465" cy="1315" r="4" fill="#334155"/>
+  <text x="484" y="1322" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500">
+    Your eye movements are perfectly normal with excellent tracking accuracy.
+  </text>
+</svg>

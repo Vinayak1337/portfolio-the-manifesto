@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import { person, seoKeywords, site } from "@/data/portfolio";
+import { person, seoKeywords, site } from "@/constants/portfolio";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Vinayak Kumar - AI Full-Stack Engineer",
+    default: "Vinayak Kumar - Applied AI / Full-stack Engineer",
     template: "%s | Vinayak Kumar",
   },
   description: site.description,
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Vinayak Kumar - AI Full-Stack Engineer",
+    title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
     description: site.description,
     url: "/",
     siteName: site.name,
@@ -49,13 +48,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Vinayak Kumar, AI full-stack engineer building Next.js, React Native, TypeScript, LangChain, RAG, and product analytics systems.",
+        alt: "Vinayak Kumar, applied AI and full-stack engineer building production RAG, full-stack AI, analytics, and product systems.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vinayak Kumar - AI Full-Stack Engineer",
+    title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
     description: site.description,
     images: ["/opengraph-image"],
   },
@@ -73,8 +72,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F2EDE4",
-  colorScheme: "light",
+  themeColor: "#050507",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
