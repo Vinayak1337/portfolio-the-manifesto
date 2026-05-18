@@ -1,3 +1,6 @@
+import { archiveGridRaw } from "./archive-grid";
+import type { ProjectLink } from "./portfolio";
+
 export type ArchiveCategory =
   | "WORK"
   | "INTERN"
@@ -15,21 +18,23 @@ export type ArchiveVerdict =
   | "Portfolio candidate"
   | "Secondary / archive";
 
-export type ArchiveProject = {
+export type ArchiveProject = Readonly<{
   id: string;
   idx: string;
   name: string;
   company: string;
+  description?: string;
   year: string;
   category: ArchiveCategory;
   tier: ArchiveTier;
   verdict: ArchiveVerdict;
-  tags: string[];
+  tags: readonly string[];
   link: string | null;
+  links?: readonly ProjectLink[];
   repo: string | null;
   image: string;
   rankScore: number;
-};
+}>;
 
 const PLACEHOLDER = "/assets/archive/_placeholder.svg";
 
@@ -37,7 +42,7 @@ const PLACEHOLDER = "/assets/archive/_placeholder.svg";
 // Resume candidate), then ARCHIVE (Portfolio candidate → Secondary). Within each
 // verdict, ordered by Overall score from all_projects_ranked.md, with role-fit
 // boost from job_market_ranking.md applied as the first tiebreak.
-const RAW: Omit<ArchiveProject, "idx">[] = [
+export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   // ────────────────────────────────────────────────────────────────────────
   // STRONG · Strong portfolio (12)
   // ────────────────────────────────────────────────────────────────────────
@@ -168,20 +173,6 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     rankScore: 8.72,
   },
   {
-    id: "portfolio-3d",
-    name: "Portfolio (legacy 3D)",
-    company: "Personal",
-    year: "2023",
-    category: "PERSONAL",
-    tier: "STRONG",
-    verdict: "Strong portfolio",
-    tags: ["Next.js", "Three.js", "Framer Motion", "Tailwind"],
-    link: "https://github.com/Vinayak1337/Portfolio",
-    repo: "https://github.com/Vinayak1337/Portfolio",
-    image: PLACEHOLDER,
-    rankScore: 8.62,
-  },
-  {
     id: "kmrl-frontend",
     name: "KMRL — Frontend",
     company: "Personal",
@@ -195,21 +186,6 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     image: PLACEHOLDER,
     rankScore: 8.62,
   },
-  {
-    id: "brawlex-bot-org",
-    name: "Brawlex Bot",
-    company: "Brawlex",
-    year: "2023",
-    category: "OSS",
-    tier: "STRONG",
-    verdict: "Strong portfolio",
-    tags: ["TypeScript", "Discord.js", "Modular client", "Brawl Stars API"],
-    link: "https://github.com/Brawlex/brawlex-bot",
-    repo: "https://github.com/Brawlex/brawlex-bot",
-    image: PLACEHOLDER,
-    rankScore: 8.62,
-  },
-
   // ────────────────────────────────────────────────────────────────────────
   // STRONG · Use in Leadership / portfolio (5)
   // ────────────────────────────────────────────────────────────────────────
@@ -217,7 +193,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     id: "relics-audit",
     name: "RelicsAudit",
     company: "Relics Esports",
-    year: "2023",
+    year: "2020",
     category: "OSS",
     tier: "STRONG",
     verdict: "Use in Leadership / portfolio",
@@ -231,7 +207,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     id: "relics-general",
     name: "Relics General Bot",
     company: "Relics Esports",
-    year: "2023",
+    year: "2020",
     category: "OSS",
     tier: "STRONG",
     verdict: "Use in Leadership / portfolio",
@@ -242,24 +218,10 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     rankScore: 9.05,
   },
   {
-    id: "brawl-auditor",
-    name: "Brawl Auditor",
-    company: "OSS",
-    year: "2022",
-    category: "OSS",
-    tier: "STRONG",
-    verdict: "Use in Leadership / portfolio",
-    tags: ["Node", "Discord.js", "Custom command framework", "Brawl Stars API"],
-    link: "https://github.com/Vinayak1337/brawl_auditor",
-    repo: "https://github.com/Vinayak1337/brawl_auditor",
-    image: PLACEHOLDER,
-    rankScore: 8.97,
-  },
-  {
     id: "tourney-ticketeer",
     name: "Tourney Ticketeer",
     company: "OSS",
-    year: "2022",
+    year: "2020",
     category: "OSS",
     tier: "STRONG",
     verdict: "Use in Leadership / portfolio",
@@ -299,7 +261,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://nextjsapp-immibot.vercel.app",
     repo: null,
     image: "/assets/immibot.png",
-    rankScore: 9.20,
+    rankScore: 9.2,
   },
   {
     id: "wonderlearn-rn",
@@ -313,7 +275,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://wonderlearn.app.link/app",
     repo: null,
     image: "/assets/wonderlearn-app.png",
-    rankScore: 8.80,
+    rankScore: 8.8,
   },
   {
     id: "wonderhood-next",
@@ -327,7 +289,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://wonderhood.in/",
     repo: null,
     image: "/assets/wonderhood.png",
-    rankScore: 8.50,
+    rankScore: 8.5,
   },
   {
     id: "wonderlean-rn",
@@ -386,8 +348,8 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js App Router", "Prisma", "Postgres", "Web Bluetooth", "CSRF/rate-limit"],
     link: "https://github.com/Vinayak1337/StoreFrontNextjs",
     repo: "https://github.com/Vinayak1337/StoreFrontNextjs",
-    image: PLACEHOLDER,
-    rankScore: 9.10,
+    image: "/assets/storefront-dashboard.png",
+    rankScore: 9.1,
   },
   {
     id: "autism-detector",
@@ -450,20 +412,6 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     rankScore: 8.45,
   },
   {
-    id: "brawlex-bot-personal",
-    name: "Brawlex Bot (personal fork)",
-    company: "Personal",
-    year: "2023",
-    category: "PERSONAL",
-    tier: "ARCHIVE",
-    verdict: "Portfolio candidate",
-    tags: ["TypeScript", "Discord.js", "Modular client"],
-    link: "https://github.com/Vinayak1337/brawlex-bot",
-    repo: "https://github.com/Vinayak1337/brawlex-bot",
-    image: PLACEHOLDER,
-    rankScore: 8.42,
-  },
-  {
     id: "books-mgmt-frontend",
     name: "Books Management — Frontend",
     company: "Personal",
@@ -475,7 +423,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/books-management-system.frontend",
     repo: "https://github.com/Vinayak1337/books-management-system.frontend",
     image: PLACEHOLDER,
-    rankScore: 8.40,
+    rankScore: 8.4,
   },
   {
     id: "bettrhq-flask-react",
@@ -502,7 +450,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     tags: ["React Native", "Expo", "Supabase", "Redux Toolkit", "QR/Print/Haptics"],
     link: "https://github.com/Vinayak1337/StoreFront",
     repo: "https://github.com/Vinayak1337/StoreFront",
-    image: PLACEHOLDER,
+    image: "/assets/storefront-dashboard.png",
     rankScore: 8.35,
   },
   {
@@ -517,7 +465,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://firework-website.netlify.app/",
     repo: "https://github.com/Vinayak1337/firework.frontend",
     image: "/assets/firework-frontend.png",
-    rankScore: 8.30,
+    rankScore: 8.3,
   },
   {
     id: "firework-backend",
@@ -537,7 +485,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     id: "mteane",
     name: "MTEANE",
     company: "MTEANE",
-    year: "2023",
+    year: "2026",
     category: "FREELANCE",
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
@@ -643,7 +591,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/kmrl-backend",
     repo: "https://github.com/Vinayak1337/kmrl-backend",
     image: PLACEHOLDER,
-    rankScore: 7.90,
+    rankScore: 7.9,
   },
   {
     id: "books-mgmt-server",
@@ -713,13 +661,13 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/DefiThugs",
     repo: "https://github.com/Vinayak1337/DefiThugs",
     image: PLACEHOLDER,
-    rankScore: 7.70,
+    rankScore: 7.7,
   },
   {
     id: "nutrilife",
     name: "NutriLife",
     company: "Freelance",
-    year: "2022",
+    year: "2026",
     category: "FREELANCE",
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
@@ -755,7 +703,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/bettrhq-assessments/GHClassroom.AccessFix",
     repo: "https://github.com/bettrhq-assessments/GHClassroom.AccessFix",
     image: PLACEHOLDER,
-    rankScore: 7.60,
+    rankScore: 7.6,
   },
   {
     id: "levtours-server",
@@ -769,7 +717,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://levtours-server.onrender.com/docs",
     repo: "https://github.com/Vinayak1337/levtours.server",
     image: "/assets/levtours-backend.png",
-    rankScore: 7.60,
+    rankScore: 7.6,
   },
   {
     id: "callcoach",
@@ -783,7 +731,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/HackSquad-BPIT/CallCoach",
     repo: "https://github.com/HackSquad-BPIT/CallCoach",
     image: PLACEHOLDER,
-    rankScore: 7.60,
+    rankScore: 7.6,
   },
   {
     id: "star-wars-dashboard",
@@ -811,7 +759,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/chip-component",
     repo: "https://github.com/Vinayak1337/chip-component",
     image: PLACEHOLDER,
-    rankScore: 7.50,
+    rankScore: 7.5,
   },
   {
     id: "autism-detector-test",
@@ -825,7 +773,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/autism-detector-test",
     repo: "https://github.com/Vinayak1337/autism-detector-test",
     image: PLACEHOLDER,
-    rankScore: 7.50,
+    rankScore: 7.5,
   },
   {
     id: "levtours-website",
@@ -853,7 +801,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/movie-upload.server",
     repo: "https://github.com/Vinayak1337/movie-upload.server",
     image: PLACEHOLDER,
-    rankScore: 7.30,
+    rankScore: 7.3,
   },
   {
     id: "visualization-dashboard",
@@ -899,7 +847,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/pagewrite-ai",
     repo: "https://github.com/Vinayak1337/pagewrite-ai",
     image: PLACEHOLDER,
-    rankScore: 6.90,
+    rankScore: 6.9,
   },
   {
     id: "face-recognition-app",
@@ -927,7 +875,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/unyn",
     repo: "https://github.com/Vinayak1337/unyn",
     image: PLACEHOLDER,
-    rankScore: 6.80,
+    rankScore: 6.8,
   },
   {
     id: "levtours-admin",
@@ -941,7 +889,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://levtours-admin-panel.netlify.app",
     repo: "https://github.com/Vinayak1337/levtours.admin",
     image: "/assets/levtours-admin.png",
-    rankScore: 6.60,
+    rankScore: 6.6,
   },
   {
     id: "candy-crush-mini",
@@ -955,7 +903,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/candy-crush-mini",
     repo: "https://github.com/Vinayak1337/candy-crush-mini",
     image: PLACEHOLDER,
-    rankScore: 6.40,
+    rankScore: 6.4,
   },
   {
     id: "movie-upload-frontend",
@@ -975,7 +923,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     id: "relics-banhammer",
     name: "Relics Ban Hammer",
     company: "Relics Esports",
-    year: "2023",
+    year: "2020",
     category: "OSS",
     tier: "ARCHIVE",
     verdict: "Secondary / archive",
@@ -983,7 +931,7 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     link: "https://github.com/Vinayak1337/RelicsBanHammer",
     repo: "https://github.com/Vinayak1337/RelicsBanHammer",
     image: "/assets/relics-banhammer.png",
-    rankScore: 6.20,
+    rankScore: 6.2,
   },
   {
     id: "pdfy",
@@ -1014,6 +962,8 @@ const RAW: Omit<ArchiveProject, "idx">[] = [
     rankScore: 5.55,
   },
 ];
+
+const RAW: Omit<ArchiveProject, "idx">[] = archiveGridRaw;
 
 export const archiveProjects: ArchiveProject[] = RAW.map((project, i) => ({
   ...project,

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Vinayak Kumar, AI full-stack engineer turning AI prototypes into production product systems.";
+  "Vinayak Kumar, applied AI and full-stack engineer turning prototypes into production AI product systems.";
 export const size = {
   width: 1200,
   height: 630,
@@ -18,10 +18,10 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#F2EDE4",
-          color: "#0A0908",
+          background: "#050507",
+          color: "#F7F2FF",
           padding: "58px 64px",
-          border: "18px solid #0A0908",
+          border: "18px solid #7C4DFF",
           fontFamily: "serif",
         }}
       >
@@ -36,7 +36,7 @@ export default function Image() {
           }}
         >
           <span>VINAYAK KUMAR</span>
-          <span>AI Full-Stack Engineer</span>
+          <span>Applied AI / Full-stack Engineer</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
@@ -50,7 +50,7 @@ export default function Image() {
           </div>
           <div
             style={{
-              color: "#B95D1F",
+              color: "#C7B4FF",
               fontSize: 94,
               fontStyle: "italic",
               letterSpacing: -2,
@@ -74,7 +74,7 @@ export default function Image() {
           <span>React Native</span>
           <span>LangChain</span>
           <span>RAG</span>
-          <span>TypeScript</span>
+          <span>Vinayak1337</span>
         </div>
       </div>
     ),

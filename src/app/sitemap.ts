@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/data/portfolio";
+import { site } from "@/constants/portfolio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-04-26");
+  const lastModified = new Date("2026-05-08");
 
   return [
     {
