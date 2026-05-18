@@ -133,7 +133,7 @@ export const homeHero = {
     { text: "building software since 2020." },
   ],
   summary:
-    "I build React, Next.js, and TypeScript products end-to-end: dashboards, CMS workflows, mobile apps, APIs, analytics, and the applied AI layers around them.",
+    "I build frontend-heavy full-stack products with React, Next.js, and TypeScript: dashboards, CMS workflows, commerce and ed-tech surfaces, APIs, analytics, and applied AI features where they improve the workflow.",
   signals: [
     "React / Next.js / TypeScript",
     "Full-time / internship roles",
