@@ -45,7 +45,7 @@ export type NavLink = Readonly<{
 
 export const site = {
   name: "Vinayak Kumar - React / Next.js Software Engineer",
-  url: "https://vinayak1337.me",
+  url: "https://portfolio-the-manifesto.vercel.app",
   description:
     "React, Next.js, and TypeScript software engineer in New Delhi building frontend-heavy full-stack products, dashboards, CMS workflows, and AI features.",
 };
