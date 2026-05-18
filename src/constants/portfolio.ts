@@ -137,7 +137,6 @@ export const homeHero = {
   signals: [
     "React / Next.js / TypeScript",
     "Full-time / internship roles",
-    "India-first / remote ok",
   ],
 };
 
