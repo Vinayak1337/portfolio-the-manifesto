@@ -12,12 +12,12 @@ import "./archive.css";
 export const metadata: Metadata = {
   title: "Projects — Vinayak Kumar",
   description:
-    "Project index of shipped Vinayak Kumar work across applied AI, full-stack systems, ed-tech, commerce, Discord automation, and institutional CMS builds.",
+    "Project index of shipped Vinayak Kumar work across React, Next.js, full-stack systems, applied AI, ed-tech, commerce, Discord automation, and institutional CMS builds.",
   alternates: { canonical: "/archive" },
   openGraph: {
     title: "Projects — Vinayak Kumar",
     description:
-      "Project index for Vinayak1337 work, Relics systems, applied AI products, and full-stack engineering builds.",
+      "Project index for Vinayak1337 work, React and Next.js products, applied AI systems, and full-stack engineering builds.",
     url: "/archive",
     type: "website",
     siteName: site.name,

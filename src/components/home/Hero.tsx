@@ -5,11 +5,13 @@ import type { WordToken } from "@/components/shared/types";
 export function Hero({
   eyebrow,
   illustration,
+  signals,
   summary,
   titleTokens,
 }: Readonly<{
   eyebrow: string;
   illustration: ReactNode;
+  signals?: readonly string[];
   summary: string;
   titleTokens: readonly WordToken[];
 }>) {
@@ -28,6 +30,13 @@ export function Hero({
       />
       <div className="hero-sub" data-reveal>
         <p>{summary}</p>
+        {signals?.length ? (
+          <ul className="hero-signals" aria-label="Current hiring signals">
+            {signals.map((signal) => (
+              <li key={signal}>{signal}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
     </section>
   );

@@ -41,7 +41,7 @@ export function WorkIndex({
         />
         <div className="work-header-copy">
           <p>
-            ranked grid positions {startIndex.toString().padStart(2, "0")}-
+            additional shipped systems {startIndex.toString().padStart(2, "0")}-
             {(startIndex + projects.length - 1).toString().padStart(2, "0")}
           </p>
           <a href="/archive">All work ↗</a>

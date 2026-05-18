@@ -41,7 +41,7 @@ export function ArchiveHero({
             </div>
             <div>
               <div className="k">Stack</div>
-              <div className="v">Next.js · RN · Node.js · Python</div>
+              <div className="v">React · Next.js · TS · Node</div>
             </div>
             <div>
               <div className="k">Est.</div>
