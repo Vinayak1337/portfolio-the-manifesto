@@ -45,9 +45,9 @@ export type NavLink = Readonly<{
 
 export const site = {
   name: "Vinayak Kumar - React / Next.js Software Engineer",
-  url: "https://portfolio-the-manifesto.vercel.app",
+  url: "https://vinayak1337.me",
   description:
-    "React, Next.js, and TypeScript software engineer in New Delhi building frontend-heavy full-stack products, dashboards, CMS workflows, and AI features.",
+    "Product-minded React, Next.js, and TypeScript software engineer in New Delhi building frontend-heavy full-stack products, dashboards, CMS workflows, and AI features.",
 };
 
 export const person = {
@@ -76,6 +76,9 @@ export const seoKeywords = [
   "Next.js Software Engineer",
   "Frontend Software Engineer",
   "Full-stack Software Engineer",
+  "Product Engineer",
+  "Product Engineer India",
+  "Frontend Product Engineer",
   "Software Engineer India",
   "Frontend Engineer India",
   "Full-stack Engineer India",
