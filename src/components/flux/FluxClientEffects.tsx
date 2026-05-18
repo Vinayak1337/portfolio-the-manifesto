@@ -482,6 +482,82 @@ export function FluxClientEffects() {
     return () => rows.forEach((row) => row.removeEventListener("mousemove", movePreview));
   }, []);
 
+  useEffect(() => {
+    const scrollToHash = (hash: string, behavior: ScrollBehavior) => {
+      const id = decodeURIComponent(hash.replace(/^#/, ""));
+      const target = id ? document.getElementById(id) : null;
+
+      if (!target) {
+        return;
+      }
+
+      const navOffset = globalThis.innerWidth <= 640 ? 104 : 92;
+      const top = target.getBoundingClientRect().top + globalThis.scrollY - navOffset;
+
+      globalThis.scrollTo({
+        behavior,
+        top: Math.max(0, top),
+      });
+    };
+
+    const settleHashScroll = (hash: string, firstBehavior: ScrollBehavior = "smooth") => {
+      const timers = [0, 160, 420].map((delay, index) =>
+        globalThis.setTimeout(
+          () => scrollToHash(hash, index === 0 ? firstBehavior : "auto"),
+          delay,
+        ),
+      );
+
+      return () => timers.forEach((timer) => globalThis.clearTimeout(timer));
+    };
+
+    const onClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
+
+      const anchor = event.target.closest<HTMLAnchorElement>("a[href]");
+      const href = anchor?.getAttribute("href");
+
+      if (!href) {
+        return;
+      }
+
+      const url = new URL(href, globalThis.location.href);
+      const isSamePage =
+        url.origin === globalThis.location.origin &&
+        url.pathname === globalThis.location.pathname &&
+        Boolean(url.hash);
+
+      if (!isSamePage) {
+        return;
+      }
+
+      event.preventDefault();
+      globalThis.history.pushState(null, "", url.hash);
+      settleHashScroll(url.hash, reducedMotion ? "auto" : "smooth");
+    };
+
+    const onHashChange = () => {
+      if (globalThis.location.hash) {
+        settleHashScroll(globalThis.location.hash, reducedMotion ? "auto" : "smooth");
+      }
+    };
+
+    document.addEventListener("click", onClick);
+    globalThis.addEventListener("hashchange", onHashChange);
+
+    const clearInitial = globalThis.location.hash
+      ? settleHashScroll(globalThis.location.hash, "auto")
+      : undefined;
+
+    return () => {
+      clearInitial?.();
+      document.removeEventListener("click", onClick);
+      globalThis.removeEventListener("hashchange", onHashChange);
+    };
+  }, [reducedMotion]);
+
   return (
     <>
       <div className="scroll-progress" ref={scrollBarRef} />

@@ -174,7 +174,7 @@ export const chapters = [
     headline: "Outcomes that hold up.",
     emphasis: "hold up.",
     copy: [
-      "Immibot replaced a static intake with an agentic RAG flow — country-specific adapters, eligibility scoring, guest sessions that cut onboarding friction by about 40%.",
+      "Immibot replaced a static intake with an agentic RAG flow: country-specific adapters, eligibility scoring, guest sessions, persisted history, and credit merge.",
       "BPIT moved from a separate admin panel to inline click-to-edit on rendered pages, persisted via MongoDB. wonderLearn rebuilt its commerce and learning surfaces on Next.js + Shopify GraphQL.",
     ],
   },
@@ -183,9 +183,9 @@ export const chapters = [
 export const about = {
   headline: "Software engineer. Full-stack product systems with applied AI depth.",
   paragraphs: [
-    "I'm a software engineer in New Delhi with 3+ years of professional product engineering experience since 2021 across React, Next.js, React Native, Node, LangChain, and analytics-heavy systems.",
+    "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience since 2021 across web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
     "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead the college-site rebuild on Next.js App Router with inline click-to-edit CMS workflows.",
-    "At RemoteHire, I re-architected Immibot: an AI immigration assistant with LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, and PostHog session analytics.",
+    "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
 };
@@ -193,7 +193,8 @@ export const about = {
 export const highlights = [
   { stat: "3+", label: "professional years" },
   { stat: "2021", label: "shipping software since" },
-  { stat: "~40%", label: "Immibot onboarding cut" },
+  { stat: "Lead", label: "BPIT site rebuild" },
+  { stat: "4", label: "web / mobile / AI / data lanes" },
 ];
 
 export const experience: Experience[] = [
@@ -214,7 +215,7 @@ export const experience: Experience[] = [
     date: "Feb 2024 - Nov 2024",
     bullets: [
       "Re-architected Immibot, an AI immigration assistant, with modular country and domain adapters.",
-      "Launched one-click guest sessions with history and credit merge, cutting onboarding time by about 40 percent.",
+      "Launched one-click guest sessions with persisted history and credit merge so trial users could move into accounts without losing context.",
       "Built multi-mode chat and an agentic RAG pipeline with LangChain and Flowise for search, advice, document validation, and eligibility scoring.",
       "Unified app state through Context API and useReducer, then shipped PostHog plus session/video analytics for cohort analysis.",
       "Integrated Next.js, TypeScript, shadcn/ui, Tailwind, Clerk, Stripe, Prisma, Vercel, and PWA support.",

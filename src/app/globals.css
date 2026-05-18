@@ -37,6 +37,12 @@ html {
   background: var(--cream);
 }
 
+#work,
+#about,
+#contact {
+  scroll-margin-top: 96px;
+}
+
 body {
   min-height: 100%;
   margin: 0;

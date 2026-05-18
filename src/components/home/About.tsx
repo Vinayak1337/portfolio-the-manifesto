@@ -40,7 +40,7 @@ export function About({
             className="about-title"
             tokens={[
               { text: "Product systems." },
-              { text: "AI-focused", emphasis: true },
+              { text: "React-first", emphasis: true },
               { text: "full-stack." },
             ]}
           />
