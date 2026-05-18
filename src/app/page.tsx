@@ -38,18 +38,18 @@ import {
 } from "@/constants/portfolio";
 
 export const metadata: Metadata = {
-  title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+  title: "Vinayak Kumar - Software Engineer / Full-stack",
   description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+    title: "Vinayak Kumar - Software Engineer / Full-stack",
     description: site.description,
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+    title: "Vinayak Kumar - Software Engineer / Full-stack",
     description: site.description,
   },
 };
@@ -76,6 +76,7 @@ export default function Home() {
         <Hero
           eyebrow={homeHero.eyebrow}
           illustration={<FluxHeroIllustration />}
+          signals={homeHero.signals}
           summary={homeHero.summary}
           titleTokens={homeHero.titleTokens}
         />

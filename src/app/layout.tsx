@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+    default: "Vinayak Kumar - Software Engineer / Full-stack",
     template: "%s | Vinayak Kumar",
   },
   description: site.description,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+    title: "Vinayak Kumar - Software Engineer / Full-stack",
     description: site.description,
     url: "/",
     siteName: site.name,
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Vinayak Kumar, applied AI and full-stack engineer building production RAG, full-stack AI, analytics, and product systems.",
+        alt: "Vinayak Kumar, software engineer building React, Next.js, full-stack, applied AI, analytics, and product systems.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+    title: "Vinayak Kumar - Software Engineer / Full-stack",
     description: site.description,
     images: ["/opengraph-image"],
   },

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Vinayak Kumar, applied AI and full-stack engineer turning prototypes into production AI product systems.";
+  "Vinayak Kumar, software engineer turning prototypes into production full-stack product systems.";
 export const size = {
   width: 1200,
   height: 630,
@@ -36,7 +36,7 @@ export default function Image() {
           }}
         >
           <span>VINAYAK KUMAR</span>
-          <span>Applied AI / Full-stack Engineer</span>
+          <span>Software Engineer / Full-stack</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
@@ -71,9 +71,9 @@ export default function Image() {
           }}
         >
           <span>Next.js</span>
-          <span>React Native</span>
-          <span>LangChain</span>
-          <span>RAG</span>
+          <span>React</span>
+          <span>TypeScript</span>
+          <span>Node</span>
           <span>Vinayak1337</span>
         </div>
       </div>

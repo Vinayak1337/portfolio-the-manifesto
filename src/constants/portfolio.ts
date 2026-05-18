@@ -44,17 +44,17 @@ export type NavLink = Readonly<{
 }>;
 
 export const site = {
-  name: "Vinayak Kumar - Applied AI / Full-stack Engineer",
+  name: "Vinayak Kumar - Software Engineer / Full-stack",
   url: "https://vinayak1337.me",
   description:
-    "Vinayak Kumar is an applied AI and full-stack engineer in New Delhi, shipping production AI systems across RAG workflows, product UX, analytics, auth, billing, and deployment.",
+    "Vinayak Kumar is a software engineer in New Delhi building React, Next.js, TypeScript, and full-stack product systems with applied AI, analytics, auth, billing, and deployment depth.",
 };
 
 export const person = {
   name: "Vinayak Kumar",
-  roleShort: "Applied AI / Full-stack Engineer",
+  roleShort: "Software Engineer / Full-stack",
   roleLong:
-    "Applied AI and full-stack engineer working end-to-end on retrieval pipelines, workflow UX, analytics, auth, billing, deployment, and the web and mobile surfaces around them.",
+    "Software engineer working end-to-end across React, Next.js, TypeScript, product UX, APIs, analytics, auth, billing, deployment, and applied AI workflows.",
   location: "New Delhi, India",
   email: "vinayak111kumar@gmail.com",
   github: "Vinayak1337",
@@ -63,8 +63,8 @@ export const person = {
   linkedinUrl: "https://linkedin.com/in/Vinayak1337",
   website: "vinayak1337.me",
   resume: "/Vinayak_Kumar_Resume.pdf",
-  yearsShipping: 5,
-  shippingSince: 2021,
+  yearsShipping: 6,
+  shippingSince: 2020,
 };
 
 export const seoKeywords = [
@@ -72,8 +72,17 @@ export const seoKeywords = [
   "Vinayak Kumar portfolio",
   "Vinayak1337",
   "Vinayak Relics",
+  "Software Engineer India",
+  "Frontend Engineer India",
+  "Full-stack Engineer India",
+  "React Developer India",
+  "Next.js Developer India",
+  "TypeScript Developer India",
+  "Software Engineering Intern India",
+  "Full-stack Internship India",
+  "React Next.js portfolio",
   "Relics Discord engineer",
-  "Applied AI / Full-stack Engineer",
+  "Applied AI Full-stack Engineer",
   "Applied AI Engineer",
   "AI Engineer",
   "AI Fullstack Developer",
@@ -106,13 +115,13 @@ export const archiveNavigationLinks: NavLink[] = [
 ];
 
 export const marqueeTech = [
+  "React",
   "Next.js",
+  "TypeScript",
+  "Node.js",
   "React Native",
   "LangChain",
-  "RAG",
-  "Shopify",
   "MongoDB",
-  "TypeScript",
   "PostHog",
 ];
 
@@ -120,36 +129,40 @@ export const homeHero = {
   eyebrow: "NEW DELHI · IST",
   titleTokens: [
     { text: "Vinayak Kumar," },
-    { text: "applied AI / full-stack engineer", emphasis: true },
-    { text: "building since 2021." },
+    { text: "software engineer", emphasis: true },
+    { text: "building software since 2020." },
   ],
   summary:
-    "I build production AI products end-to-end: RAG pipelines, agent workflows, the web and mobile surfaces around them, and the analytics that prove they work.",
+    "I build frontend-heavy full-stack products with React, Next.js, and TypeScript: dashboards, CMS workflows, commerce and ed-tech surfaces, APIs, analytics, and applied AI features where they improve the workflow.",
+  signals: [
+    "React / Next.js / TypeScript",
+    "Full-time / internship roles",
+  ],
 };
 
 export const statement = {
   headline: "I ship product systems\nthat move from\nprototype to production.",
-  caption: "RAG · UX · AUTH · BILLING · ANALYTICS · DEPLOYMENT",
+  caption: "REACT · NEXT.JS · TYPESCRIPT · NODE · RAG · ANALYTICS",
 };
 
 export const chapters = [
   {
     number: "01",
     label: "The Premise",
-    headline: "Three-plus professional years across AI products, ed-tech, commerce, and internal tools.",
-    emphasis: "AI products",
+    headline: "Three-plus professional years across full-stack products, ed-tech, commerce, AI, and internal tools.",
+    emphasis: "full-stack products",
     copy: [
-      "The throughline is product engineering: RAG flows users can inspect, dashboards teams can act on, mobile surfaces children can navigate, and CMS workflows non-technical admins can operate.",
+      "The throughline is product engineering: dashboards teams can act on, mobile surfaces children can navigate, CMS workflows non-technical admins can operate, and RAG flows users can inspect.",
       "What I care about: retrieval with visible evidence, state that does not collapse under product complexity, analytics that explain friction, and code teammates can read months later.",
     ],
   },
   {
     number: "02",
     label: "The Method",
-    headline: "Full-stack because AI products need more than a model.",
-    emphasis: "more than a model",
+    headline: "Full-stack because useful products need more than screens.",
+    emphasis: "more than screens",
     copy: [
-      "I build the product layer around AI: retrieval, adaptive workflows, app state, permissions, payments, credits, analytics events, deployment paths, and the interfaces that make the system usable.",
+      "I build the product layer across interfaces, app state, permissions, payments, credits, analytics events, deployment paths, and AI workflows when the product needs retrieval or automation.",
       "Next.js App Router, React Native, Node, Prisma, MongoDB, Postgres, LangChain, and Flowise are tools. The discipline is shipping small, measuring friction, and making the next iteration obvious.",
     ],
   },
@@ -159,26 +172,27 @@ export const chapters = [
     headline: "Outcomes that hold up.",
     emphasis: "hold up.",
     copy: [
-      "Immibot replaced a static intake with an agentic RAG flow — country-specific adapters, eligibility scoring, guest sessions that cut onboarding friction by about 40%.",
+      "Immibot replaced a static intake with an agentic RAG flow: country-specific adapters, eligibility scoring, guest sessions, persisted history, and credit merge.",
       "BPIT moved from a separate admin panel to inline click-to-edit on rendered pages, persisted via MongoDB. wonderLearn rebuilt its commerce and learning surfaces on Next.js + Shopify GraphQL.",
     ],
   },
 ];
 
 export const about = {
-  headline: "AI full-stack engineer. Product systems, not demos.",
+  headline: "Software engineer. Full-stack product systems with applied AI depth.",
   paragraphs: [
-    "I'm an AI full-stack engineer in New Delhi with 3+ years of professional product engineering experience since 2021 across Next.js, React Native, Node, LangChain, and analytics-heavy systems.",
+    "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
     "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead the college-site rebuild on Next.js App Router with inline click-to-edit CMS workflows.",
-    "At RemoteHire, I re-architected Immibot: an AI immigration assistant with LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, and PostHog session analytics.",
+    "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
 };
 
 export const highlights = [
   { stat: "3+", label: "professional years" },
-  { stat: "2021", label: "shipping software since" },
-  { stat: "~40%", label: "Immibot onboarding cut" },
+  { stat: "2020", label: "programming since" },
+  { stat: "Relics", label: "leadership + bot builds" },
+  { stat: "Lead", label: "BPIT site rebuild" },
 ];
 
 export const experience: Experience[] = [
@@ -199,7 +213,7 @@ export const experience: Experience[] = [
     date: "Feb 2024 - Nov 2024",
     bullets: [
       "Re-architected Immibot, an AI immigration assistant, with modular country and domain adapters.",
-      "Launched one-click guest sessions with history and credit merge, cutting onboarding time by about 40 percent.",
+      "Launched one-click guest sessions with persisted history and credit merge so trial users could move into accounts without losing context.",
       "Built multi-mode chat and an agentic RAG pipeline with LangChain and Flowise for search, advice, document validation, and eligibility scoring.",
       "Unified app state through Context API and useReducer, then shipped PostHog plus session/video analytics for cohort analysis.",
       "Integrated Next.js, TypeScript, shadcn/ui, Tailwind, Clerk, Stripe, Prisma, Vercel, and PWA support.",
@@ -789,7 +803,7 @@ export const jsonLd = {
     {
       "@type": "ProfilePage",
       "@id": `${site.url}/#profile`,
-      name: "Vinayak Kumar Applied AI / Full-stack Engineer Portfolio",
+      name: "Vinayak Kumar Software Engineer / Full-stack Portfolio",
       url: site.url,
       description: site.description,
       mainEntity: {
