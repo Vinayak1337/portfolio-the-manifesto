@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Vinayak Kumar, software engineer turning prototypes into production full-stack product systems.";
+  "Vinayak Kumar, React and Next.js software engineer building frontend-heavy full-stack product systems.";
 export const size = {
   width: 1200,
   height: 630,
@@ -36,7 +36,7 @@ export default function Image() {
           }}
         >
           <span>VINAYAK KUMAR</span>
-          <span>Software Engineer / Full-stack</span>
+          <span>React / Next.js Software Engineer</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div

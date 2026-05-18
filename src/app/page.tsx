@@ -38,18 +38,18 @@ import {
 } from "@/constants/portfolio";
 
 export const metadata: Metadata = {
-  title: "Vinayak Kumar - Software Engineer / Full-stack",
+  title: site.name,
   description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Vinayak Kumar - Software Engineer / Full-stack",
+    title: site.name,
     description: site.description,
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vinayak Kumar - Software Engineer / Full-stack",
+    title: site.name,
     description: site.description,
   },
 };

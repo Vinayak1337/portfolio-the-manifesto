@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { person, seoKeywords, site } from "@/constants/portfolio";
 import "./globals.css";
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Vinayak Kumar - Software Engineer / Full-stack",
+    default: site.name,
     template: "%s | Vinayak Kumar",
   },
   description: site.description,
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Vinayak Kumar - Software Engineer / Full-stack",
+    title: site.name,
     description: site.description,
     url: "/",
     siteName: site.name,
@@ -48,13 +50,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Vinayak Kumar, software engineer building React, Next.js, full-stack, applied AI, analytics, and product systems.",
+        alt: "Vinayak Kumar, React and Next.js software engineer building frontend-heavy full-stack product systems.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vinayak Kumar - Software Engineer / Full-stack",
+    title: site.name,
     description: site.description,
     images: ["/opengraph-image"],
   },
@@ -86,7 +88,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
