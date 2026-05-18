@@ -63,8 +63,8 @@ export const person = {
   linkedinUrl: "https://linkedin.com/in/Vinayak1337",
   website: "vinayak1337.me",
   resume: "/Vinayak_Kumar_Resume.pdf",
-  yearsShipping: 5,
-  shippingSince: 2021,
+  yearsShipping: 6,
+  shippingSince: 2020,
 };
 
 export const seoKeywords = [
@@ -130,7 +130,7 @@ export const homeHero = {
   titleTokens: [
     { text: "Vinayak Kumar," },
     { text: "software engineer", emphasis: true },
-    { text: "shipping full-stack product systems since 2021." },
+    { text: "building software since 2020." },
   ],
   summary:
     "I build React, Next.js, and TypeScript products end-to-end: dashboards, CMS workflows, mobile apps, APIs, analytics, and the applied AI layers around them.",
@@ -183,7 +183,7 @@ export const chapters = [
 export const about = {
   headline: "Software engineer. Full-stack product systems with applied AI depth.",
   paragraphs: [
-    "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience since 2021 across web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
+    "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
     "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead the college-site rebuild on Next.js App Router with inline click-to-edit CMS workflows.",
     "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
@@ -192,9 +192,9 @@ export const about = {
 
 export const highlights = [
   { stat: "3+", label: "professional years" },
-  { stat: "2021", label: "shipping software since" },
+  { stat: "2020", label: "programming since" },
+  { stat: "Relics", label: "leadership + bot builds" },
   { stat: "Lead", label: "BPIT site rebuild" },
-  { stat: "4", label: "web / mobile / AI / data lanes" },
 ];
 
 export const experience: Experience[] = [

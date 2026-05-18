@@ -45,7 +45,7 @@ export function ArchiveHero({
             </div>
             <div>
               <div className="k">Est.</div>
-              <div className="v">2021</div>
+              <div className="v">{shippingSince}</div>
             </div>
           </div>
         </div>
