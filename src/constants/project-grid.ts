@@ -201,7 +201,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Freelance",
     category: "FREELANCE",
     tags: ["Node", "Express", "MongoDB", "Auth", "File uploads"],
-    image: PLACEHOLDER,
+    image: "/assets/chaintusker-github-repo.png",
     link: "https://github.com/Vinayak1337/chaintusker-nft-server",
     blurb:
       "Backend for NFT-oriented account, asset, upload, and authentication workflows.",
@@ -544,7 +544,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Developer Tool Prototype",
     category: "PERSONAL",
     tags: ["Next.js", "App Router", "Redux Toolkit", "Saga", "Tailwind"],
-    image: PLACEHOLDER,
+    image: "/assets/postman-clone-response-preview.png",
     link: "https://github.com/Vinayak1337/postman-clone",
     blurb:
       "API client prototype with request-building state, collection-style structure, and Redux/Saga workflow experiments.",
