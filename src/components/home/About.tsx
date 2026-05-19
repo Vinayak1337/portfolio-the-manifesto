@@ -30,7 +30,7 @@ export function About({
     >
       {art}
       <div className="about-grid">
-        <div>
+        <div className="about-lede">
           <span className="section-tag" data-reveal>
             About
           </span>
@@ -44,16 +44,32 @@ export function About({
               { text: "full-stack." },
             ]}
           />
+          <div className="about-meta" data-reveal>
+            <div className="about-meta-row">
+              <span className="about-meta-key">Based</span>
+              <span className="about-meta-val">New Delhi · IST</span>
+            </div>
+            <div className="about-meta-row">
+              <span className="about-meta-key">Stack</span>
+              <span className="about-meta-val">React · Next.js · TS · RN</span>
+            </div>
+            <div className="about-meta-row">
+              <span className="about-meta-key">Focus</span>
+              <span className="about-meta-val">Applied AI · Product</span>
+            </div>
+          </div>
         </div>
-        <div>
-          {paragraphs.map((paragraph) => (
-            <p data-reveal data-wedge={paragraph.wedge} key={paragraph.text}>
-              {paragraph.text}
-            </p>
-          ))}
+        <div className="about-body">
+          <div className="about-paragraphs">
+            {paragraphs.map((paragraph) => (
+              <p data-reveal data-wedge={paragraph.wedge} key={paragraph.text}>
+                {paragraph.text}
+              </p>
+            ))}
+          </div>
           <div className="stats" data-reveal>
             {highlights.map((highlight) => (
-              <div key={highlight.label}>
+              <div className="stat" key={highlight.label}>
                 <div className="stat-number">{highlight.stat}</div>
                 <div className="stat-label">{highlight.label}</div>
               </div>

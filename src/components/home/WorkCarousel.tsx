@@ -35,7 +35,10 @@ export function WorkCarousel({
             <span className="big" data-rail-number>
               01
             </span>
-            / {projects.length.toString().padStart(2, "0")} - SCROLL
+            <span className="rail-counter-total">
+              / {projects.length.toString().padStart(2, "0")}
+            </span>
+            <span className="rail-counter-scroll"> - SCROLL</span>
           </div>
         </div>
 

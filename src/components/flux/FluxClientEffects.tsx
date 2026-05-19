@@ -276,6 +276,11 @@ export function FluxClientEffects() {
         return 0;
       }
 
+      if (globalThis.innerWidth <= 980) {
+        railSection.style.removeProperty("--rail-section-height");
+        return 0;
+      }
+
       const railCards = Array.from(railTrack.querySelectorAll<HTMLElement>(".rail-card"));
       const lastCard = railCards.at(-1);
       const lastCardRight = lastCard
@@ -308,14 +313,25 @@ export function FluxClientEffects() {
       }
 
       const pinProgress = progressFor(pinSection);
+      const compactLayout = globalThis.innerWidth <= 980;
+      const mobileLayout = globalThis.innerWidth <= 640;
       root?.style.setProperty("--pin-progress", String(pinProgress));
-      giant?.style.setProperty("--pin-scale", String(0.6 + pinProgress * 1.1));
+      giant?.style.setProperty(
+        "--pin-scale",
+        String(
+          mobileLayout
+            ? 0.86 + pinProgress * 0.16
+            : compactLayout
+              ? 0.82 + pinProgress * 0.3
+              : 0.6 + pinProgress * 1.1,
+        ),
+      );
 
       const trackWidth = getRailTravel();
-      const railProgress = progressFor(railSection);
+      const railProgress = compactLayout ? 0 : progressFor(railSection);
 
       if (railTrack) {
-        railTrack.style.transform = reducedMotion
+        railTrack.style.transform = reducedMotion || compactLayout
           ? "translateX(0)"
           : `translateX(${-trackWidth * railProgress}px)`;
       }
