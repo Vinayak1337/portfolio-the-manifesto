@@ -206,7 +206,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Backend for NFT-oriented account, asset, upload, and authentication workflows.",
     outcome:
-      "GitHub-only backend proof: useful for API, auth, upload, and data-modeling credibility, but not a visual homepage lead.",
+      "A layered Express/MongoDB API handling accounts, asset uploads, ownership flows, and authentication for an NFT marketplace client.",
   },
   {
     id: "company-data-scraper",
@@ -238,7 +238,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Freelance backend API with admin/community routes, JWT auth, persisted content models, and Swagger documentation.",
     outcome:
-      "Archive-level API proof only: useful for backend credibility, but not strong enough to compete with product UI, dashboard, or AI workflow projects on the homepage.",
+      "A production-shaped client API with JWT auth, admin and community routes, persisted content models, and live Swagger documentation.",
   },
   {
     id: "autism-detector",
@@ -325,7 +325,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Triggrr producer dashboard for event rules, webhook/slack actions, operational health, retries, logs, and dead-letter queue visibility.",
     outcome:
-      "A dashboard-backed automation system that turns backend queue, rule, and retry work into a visible operations surface recruiters can understand quickly.",
+      "A multi-tenant event automation service: define rules that watch incoming events and fire webhooks, emails, or Slack actions, with queues, retries, and DLQ visibility.",
   },
   {
     id: "my-learning-react",
@@ -549,6 +549,6 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "API client prototype with request-building state, collection-style structure, and Redux/Saga workflow experiments.",
     outcome:
-      "A developer-tool concept that is worth showing as a secondary project, but should be framed as an improvement target until the demo has collection, environment, and history depth.",
+      "An IDE-style API client built on Next.js App Router with complex request-builder state managed through Redux Toolkit and Saga, plus Prisma-backed persistence.",
   },
 ];
