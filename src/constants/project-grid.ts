@@ -27,6 +27,13 @@ export const portfolioGridProjects: Project[] = [
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.svg",
     link: "https://github.com/Vinayak1337/NutriLife",
+    links: [
+      { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
+      {
+        label: "Download APK",
+        href: "https://github.com/Vinayak1337/NutriLife/releases/download/v1.0.0/NutriLife-v1.0.0.apk",
+      },
+    ],
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:

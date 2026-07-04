@@ -673,6 +673,13 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     verdict: "Portfolio candidate",
     tags: ["Next.js", "Prisma", "Auth", "Health domain"],
     link: "https://github.com/Vinayak1337/NutriLife",
+    links: [
+      { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
+      {
+        label: "Download APK",
+        href: "https://github.com/Vinayak1337/NutriLife/releases/download/v1.0.0/NutriLife-v1.0.0.apk",
+      },
+    ],
     repo: "https://github.com/Vinayak1337/NutriLife",
     image: PLACEHOLDER,
     rankScore: 7.68,
