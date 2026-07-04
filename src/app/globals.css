@@ -1172,7 +1172,8 @@ select {
 
 .about-sec [data-reveal],
 .contact-sec [data-reveal],
-.exp-sec [data-reveal] {
+.exp-sec [data-reveal],
+.oss-sec [data-reveal] {
   opacity: 0;
   transform: translateY(30px);
   transition:
@@ -1182,7 +1183,8 @@ select {
 
 .about-sec [data-reveal].is-in,
 .contact-sec [data-reveal].is-in,
-.exp-sec [data-reveal].is-in {
+.exp-sec [data-reveal].is-in,
+.oss-sec [data-reveal].is-in {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1259,15 +1261,42 @@ select {
   background: var(--cream);
 }
 
+.oss-sec {
+  padding: 120px 32px 140px;
+  background: var(--cream);
+}
+
 .experience-title {
   max-width: 1440px;
   margin: 0 auto 80px;
+}
+
+.oss-head {
+  display: grid;
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+  gap: 48px;
+  max-width: 1440px;
+  margin: 0 auto 72px;
+}
+
+.oss-title {
+  max-width: 11ch;
 }
 
 .exp-list {
   max-width: 1440px;
   margin: 0 auto;
   border-top: 1px solid var(--ink);
+}
+
+.oss-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--rule);
+  border: 1px solid var(--rule);
 }
 
 .exp-item {
@@ -1295,6 +1324,22 @@ select {
   transform: scaleX(1);
 }
 
+.oss-item {
+  min-height: 100%;
+  padding: 32px;
+  background: var(--cream);
+  transition:
+    background 0.45s var(--ease-out-expo),
+    color 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo);
+}
+
+.oss-item:hover {
+  color: var(--cream);
+  background: var(--ink);
+  transform: translateY(-6px);
+}
+
 .exp-item > * {
   position: relative;
   z-index: 1;
@@ -1313,12 +1358,30 @@ select {
   text-transform: uppercase;
 }
 
+.oss-meta {
+  margin-bottom: 72px;
+  color: var(--ink-soft);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .exp-body h3 {
   margin: 0 0 6px;
   font-family: var(--font-instrument-serif), "Times New Roman", serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   line-height: 1.1;
+}
+
+.oss-body h3 {
+  margin: 0;
+  font-family: var(--font-instrument-serif), "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 48px);
+  font-weight: 400;
+  line-height: 1;
+  overflow-wrap: anywhere;
 }
 
 .exp-company {
@@ -1330,9 +1393,25 @@ select {
   text-transform: uppercase;
 }
 
+.oss-org {
+  margin: 14px 0 24px;
+  color: var(--ink-soft);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
 .exp-item:hover .exp-date,
 .exp-item:hover .exp-company,
 .exp-item:hover li {
+  color: rgb(242 237 228 / 75%);
+}
+
+.oss-item:hover .oss-meta,
+.oss-item:hover .oss-org,
+.oss-item:hover p {
   color: rgb(242 237 228 / 75%);
 }
 
@@ -1340,6 +1419,14 @@ select {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.oss-body p {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .exp-body li {
@@ -1360,6 +1447,37 @@ select {
   height: 1px;
   content: "";
   background: var(--accent);
+}
+
+.oss-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.oss-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid currentColor;
+  color: var(--accent-readable);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+
+.oss-links a:hover,
+.oss-links a:focus-visible {
+  color: var(--ink);
+  background: var(--accent-readable);
+  outline: none;
 }
 
 .contact-sec {
@@ -1592,6 +1710,7 @@ select {
 
   .work-section,
   .about-sec,
+  .oss-sec,
   .exp-sec,
   .contact-sec {
     padding-right: 20px;
@@ -1634,6 +1753,15 @@ select {
   .exp-item {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .oss-head,
+  .oss-list {
+    grid-template-columns: 1fr;
+  }
+
+  .oss-meta {
+    margin-bottom: 44px;
   }
 
   .contact-links {
@@ -2111,6 +2239,7 @@ body.variant-flux {
 .variant-flux .rail-sec .pin,
 .variant-flux .work-section,
 .variant-flux .exp-sec,
+.variant-flux .oss-sec,
 .variant-flux .contact-sec {
   background:
     radial-gradient(circle at 76% 16%, rgb(124 77 255 / 10%), transparent 30%),
@@ -2140,6 +2269,9 @@ body.variant-flux {
 .variant-flux .exp-date,
 .variant-flux .exp-company,
 .variant-flux .exp-body li,
+.variant-flux .oss-meta,
+.variant-flux .oss-org,
+.variant-flux .oss-body p,
 .variant-flux .footer-meta {
   color: var(--flux-muted);
 }
@@ -2149,6 +2281,7 @@ body.variant-flux {
 .variant-flux .rail-title,
 .variant-flux .work-title,
 .variant-flux .experience-title,
+.variant-flux .oss-title,
 .variant-flux .contact-title {
   color: var(--flux-text);
   text-shadow: 0 0 42px rgb(124 77 255 / 12%);
@@ -2166,6 +2299,7 @@ body.variant-flux {
 .variant-flux .hero-signals li,
 .variant-flux .work-header,
 .variant-flux .exp-list,
+.variant-flux .oss-list,
 .variant-flux .contact-row {
   border-color: var(--rule-strong);
 }
@@ -2259,6 +2393,21 @@ body.variant-flux {
 
 .variant-flux .work-row::before,
 .variant-flux .exp-item::before {
+  background:
+    linear-gradient(90deg, rgb(124 77 255 / 18%), rgb(47 224 255 / 8%)),
+    var(--flux-panel-strong);
+}
+
+.variant-flux .oss-list {
+  background: var(--rule-strong);
+}
+
+.variant-flux .oss-item {
+  background: rgb(255 255 255 / 3%);
+}
+
+.variant-flux .oss-item:hover {
+  color: var(--flux-text);
   background:
     linear-gradient(90deg, rgb(124 77 255 / 18%), rgb(47 224 255 / 8%)),
     var(--flux-panel-strong);
