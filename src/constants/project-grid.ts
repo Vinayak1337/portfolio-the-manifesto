@@ -92,7 +92,7 @@ export const portfolioGridProjects: Project[] = [
     image: "/assets/bpit.png",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
-      "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
+      "New Next.js site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
       "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
   },

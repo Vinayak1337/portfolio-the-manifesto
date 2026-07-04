@@ -189,7 +189,7 @@ export const about = {
   headline: "Software engineer. Full-stack product systems with applied AI depth.",
   paragraphs: [
     "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
-    "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead the college-site rebuild on Next.js App Router with inline click-to-edit CMS workflows.",
+    "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead a new college-site build on Next.js App Router with inline click-to-edit CMS workflows.",
     "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
@@ -199,7 +199,7 @@ export const highlights = [
   { stat: "3+", label: "professional years" },
   { stat: "2020", label: "programming since" },
   { stat: "Relics", label: "leadership + bot builds" },
-  { stat: "Lead", label: "BPIT site rebuild" },
+  { stat: "Lead", label: "BPIT new site build" },
 ];
 
 export const experience: Experience[] = [
@@ -208,7 +208,7 @@ export const experience: Experience[] = [
     company: "BPIT Tech Team",
     date: "Jun 2025 - Present",
     bullets: [
-      "Leading a team of 3 on a legacy PHP to Next.js App Router, TypeScript, and Tailwind rebuild of the BPIT website.",
+      "Leading a team of 3 on a new BPIT website built from scratch with Next.js App Router, TypeScript, and Tailwind.",
       "Built an inline click-to-edit CMS so admins can update text, links, and images directly on rendered sections, persisted via MongoDB.",
       "Modeled department and page content into reusable schemas so new sections stay consistent without a separate admin product.",
       "Added PostHog analytics, dynamic metadata, structured data, optimized routing, and Vercel preview deployments so content and SEO changes are reviewable before release.",
@@ -318,7 +318,7 @@ export const projectCatalog: Project[] = [
     image: "/assets/bpit.png",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
-      "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
+      "New Next.js site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
       "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
   },

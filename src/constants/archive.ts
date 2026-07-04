@@ -96,7 +96,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     category: "WORK",
     tier: "STRONG",
     verdict: "Strong portfolio",
-    tags: ["PHP", "Bootstrap", "MySQL", "Legacy CMS"],
+    tags: ["Bootstrap", "MySQL", "Legacy Site"],
     link: "https://github.com/Site-Tech-Team-BPIT/main-site",
     repo: "https://github.com/Site-Tech-Team-BPIT/main-site",
     image: PLACEHOLDER,
