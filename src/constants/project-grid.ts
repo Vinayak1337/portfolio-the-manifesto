@@ -7,7 +7,6 @@ export const mainProjectIds = [
   "bpit-site-redesign",
   "immibot",
   "ai-chat-vsc-extension",
-  "training-and-placement-bpit",
   "wonderlearn-react-native",
   "wonderhood-nextjs",
   "nutrilife",

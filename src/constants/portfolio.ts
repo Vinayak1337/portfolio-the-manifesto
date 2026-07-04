@@ -198,7 +198,7 @@ export const about = {
   paragraphs: [
     "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
     "Open-source contributor: checkstyle, Express codemod, Jenkins plugins.",
-    "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead a new college-site build on Next.js App Router with inline click-to-edit CMS workflows.",
+    "Currently pursuing B.Tech in CSE at GGSIPU. In 2025 I led a 3-person team on the college's tech team (BPIT), building the new site with Next.js App Router and inline click-to-edit CMS workflows.",
     "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
@@ -208,21 +208,10 @@ export const highlights = [
   { stat: "3+", label: "professional years" },
   { stat: "2020", label: "programming since" },
   { stat: "Relics", label: "leadership + bot builds" },
-  { stat: "Lead", label: "BPIT new site build" },
+  { stat: "2025", label: "led BPIT site build (team of 3)" },
 ];
 
 export const experience: Experience[] = [
-  {
-    title: "Full-Stack Developer",
-    company: "BPIT Tech Team",
-    date: "Jun 2025 - Present",
-    bullets: [
-      "Leading a team of 3 on a new BPIT website built from scratch with Next.js App Router, TypeScript, and Tailwind.",
-      "Built an inline click-to-edit CMS so admins can update text, links, and images directly on rendered sections, persisted via MongoDB.",
-      "Modeled department and page content into reusable schemas so new sections stay consistent without a separate admin product.",
-      "Added PostHog analytics, dynamic metadata, structured data, optimized routing, and Vercel preview deployments so content and SEO changes are reviewable before release.",
-    ],
-  },
   {
     title: "Senior Full-Stack Engineer",
     company: "RemoteHire",
@@ -263,8 +252,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "checkstyle/checkstyle",
     org: "Java static-analysis tool · 8k+ stars",
     summary:
-      "Merged fixes into a mature Java quality tool used by teams to keep large codebases consistent and reviewable.",
-    proof: "2 merged PRs",
+      "Specified all default properties for SuppressionCommentFilter, and fixed LineLength violation-comment placement in Javadoc.",
+    proof: "Static-analysis defaults and Javadoc linting",
     links: [
       {
         label: "PR #20455",
@@ -280,8 +269,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "expressjs/codemod",
     org: "Official Express org · v5 migration tooling",
     summary:
-      "Contributed to migration tooling that helps Express applications move through framework upgrades with less manual rewrite work.",
-    proof: "Merged PR",
+      "Updated package.json handling in the Express v5 migration recipe so framework upgrades preserve package metadata correctly.",
+    proof: "Express v5 migration recipe",
     links: [
       {
         label: "PR #143",
@@ -293,8 +282,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "jenkinsci/azure-ad-plugin",
     org: "Jenkins plugin · authentication workflow",
     summary:
-      "Shipped an auth-flow fix for a Jenkins Azure AD plugin path where reliability matters to production access control.",
-    proof: "Merged PR",
+      "Fixed sign-in when the Referer header is missing in the Jenkins Azure AD authentication flow.",
+    proof: "Missing-Referer sign-in fix",
     links: [
       {
         label: "PR #803",
@@ -840,10 +829,6 @@ export const jsonLd = {
           name: "Guru Gobind Singh Indraprastha University",
           description:
             "Current B.Tech in Computer Science & Engineering program, 2024-2027",
-        },
-        {
-          "@type": "Organization",
-          name: "BPIT Tech Team",
         },
         {
           "@type": "Organization",
