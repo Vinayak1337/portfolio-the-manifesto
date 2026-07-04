@@ -37,6 +37,14 @@ export type Experience = Readonly<{
   bullets: readonly string[];
 }>;
 
+export type OpenSourceContribution = Readonly<{
+  project: string;
+  org: string;
+  summary: string;
+  proof: string;
+  links: readonly ProjectLink[];
+}>;
+
 export type NavLink = Readonly<{
   label: string;
   href: string;
@@ -189,7 +197,8 @@ export const about = {
   headline: "Software engineer. Full-stack product systems with applied AI depth.",
   paragraphs: [
     "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
-    "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead the college-site rebuild on Next.js App Router with inline click-to-edit CMS workflows.",
+    "Open-source contributor: checkstyle, Express codemod, Jenkins plugins.",
+    "Currently pursuing B.Tech in Computer Science & Engineering at GGSIPU while contributing to BPIT Tech Team, where I lead a new college-site build on Next.js App Router with inline click-to-edit CMS workflows.",
     "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
@@ -199,7 +208,7 @@ export const highlights = [
   { stat: "3+", label: "professional years" },
   { stat: "2020", label: "programming since" },
   { stat: "Relics", label: "leadership + bot builds" },
-  { stat: "Lead", label: "BPIT site rebuild" },
+  { stat: "Lead", label: "BPIT new site build" },
 ];
 
 export const experience: Experience[] = [
@@ -208,7 +217,7 @@ export const experience: Experience[] = [
     company: "BPIT Tech Team",
     date: "Jun 2025 - Present",
     bullets: [
-      "Leading a team of 3 on a legacy PHP to Next.js App Router, TypeScript, and Tailwind rebuild of the BPIT website.",
+      "Leading a team of 3 on a new BPIT website built from scratch with Next.js App Router, TypeScript, and Tailwind.",
       "Built an inline click-to-edit CMS so admins can update text, links, and images directly on rendered sections, persisted via MongoDB.",
       "Modeled department and page content into reusable schemas so new sections stay consistent without a separate admin product.",
       "Added PostHog analytics, dynamic metadata, structured data, optimized routing, and Vercel preview deployments so content and SEO changes are reviewable before release.",
@@ -245,6 +254,52 @@ export const experience: Experience[] = [
     bullets: [
       "Led 4 interns and shipped 3 MVPs in 3 months across tourism, social, and video slideshow products.",
       "Built landing pages, admin panels, and REST backends with React, Express, MongoDB, Socket.io, Swagger, S3, and FFmpeg.",
+    ],
+  },
+];
+
+export const openSourceContributions: OpenSourceContribution[] = [
+  {
+    project: "checkstyle/checkstyle",
+    org: "Java static-analysis tool · 8k+ stars",
+    summary:
+      "Merged fixes into a mature Java quality tool used by teams to keep large codebases consistent and reviewable.",
+    proof: "2 merged PRs",
+    links: [
+      {
+        label: "PR #20455",
+        href: "https://github.com/checkstyle/checkstyle/pull/20455",
+      },
+      {
+        label: "PR #19832",
+        href: "https://github.com/checkstyle/checkstyle/pull/19832",
+      },
+    ],
+  },
+  {
+    project: "expressjs/codemod",
+    org: "Official Express org · v5 migration tooling",
+    summary:
+      "Contributed to migration tooling that helps Express applications move through framework upgrades with less manual rewrite work.",
+    proof: "Merged PR",
+    links: [
+      {
+        label: "PR #143",
+        href: "https://github.com/expressjs/codemod/pull/143",
+      },
+    ],
+  },
+  {
+    project: "jenkinsci/azure-ad-plugin",
+    org: "Jenkins plugin · authentication workflow",
+    summary:
+      "Shipped an auth-flow fix for a Jenkins Azure AD plugin path where reliability matters to production access control.",
+    proof: "Merged PR",
+    links: [
+      {
+        label: "PR #803",
+        href: "https://github.com/jenkinsci/azure-ad-plugin/pull/803",
+      },
     ],
   },
 ];
@@ -318,7 +373,7 @@ export const projectCatalog: Project[] = [
     image: "/assets/bpit.png",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
-      "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
+      "New Next.js site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
       "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
   },

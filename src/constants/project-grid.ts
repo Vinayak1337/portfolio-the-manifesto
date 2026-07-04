@@ -27,6 +27,13 @@ export const portfolioGridProjects: Project[] = [
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.svg",
     link: "https://github.com/Vinayak1337/NutriLife",
+    links: [
+      { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
+      {
+        label: "Download APK",
+        href: "https://github.com/Vinayak1337/NutriLife/releases/download/v1.0.0/NutriLife-v1.0.0.apk",
+      },
+    ],
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:
@@ -92,7 +99,7 @@ export const portfolioGridProjects: Project[] = [
     image: "/assets/bpit.png",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
-      "Legacy PHP to Next.js rebuild with an inline click-to-edit CMS for live content updates.",
+      "New Next.js site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
       "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
   },
@@ -206,7 +213,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Backend for NFT-oriented account, asset, upload, and authentication workflows.",
     outcome:
-      "GitHub-only backend proof: useful for API, auth, upload, and data-modeling credibility, but not a visual homepage lead.",
+      "A layered Express/MongoDB API handling accounts, asset uploads, ownership flows, and authentication for an NFT marketplace client.",
   },
   {
     id: "company-data-scraper",
@@ -238,7 +245,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Freelance backend API with admin/community routes, JWT auth, persisted content models, and Swagger documentation.",
     outcome:
-      "Archive-level API proof only: useful for backend credibility, but not strong enough to compete with product UI, dashboard, or AI workflow projects on the homepage.",
+      "A production-shaped client API with JWT auth, admin and community routes, persisted content models, and live Swagger documentation.",
   },
   {
     id: "autism-detector",
@@ -325,7 +332,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Triggrr producer dashboard for event rules, webhook/slack actions, operational health, retries, logs, and dead-letter queue visibility.",
     outcome:
-      "A dashboard-backed automation system that turns backend queue, rule, and retry work into a visible operations surface recruiters can understand quickly.",
+      "A multi-tenant event automation service: define rules that watch incoming events and fire webhooks, emails, or Slack actions, with queues, retries, and DLQ visibility.",
   },
   {
     id: "my-learning-react",
@@ -549,6 +556,6 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "API client prototype with request-building state, collection-style structure, and Redux/Saga workflow experiments.",
     outcome:
-      "A developer-tool concept that is worth showing as a secondary project, but should be framed as an improvement target until the demo has collection, environment, and history depth.",
+      "An IDE-style API client built on Next.js App Router with complex request-builder state managed through Redux Toolkit and Saga, plus Prisma-backed persistence.",
   },
 ];
