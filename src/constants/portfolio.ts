@@ -252,8 +252,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "checkstyle/checkstyle",
     org: "Java static-analysis tool · 8k+ stars",
     summary:
-      "Merged fixes into a mature Java quality tool used by teams to keep large codebases consistent and reviewable.",
-    proof: "2 merged PRs",
+      "Specified all default properties for SuppressionCommentFilter, and fixed LineLength violation-comment placement in Javadoc.",
+    proof: "Static-analysis defaults and Javadoc linting",
     links: [
       {
         label: "PR #20455",
@@ -269,8 +269,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "expressjs/codemod",
     org: "Official Express org · v5 migration tooling",
     summary:
-      "Contributed to migration tooling that helps Express applications move through framework upgrades with less manual rewrite work.",
-    proof: "Merged PR",
+      "Updated package.json handling in the Express v5 migration recipe so framework upgrades preserve package metadata correctly.",
+    proof: "Express v5 migration recipe",
     links: [
       {
         label: "PR #143",
@@ -282,8 +282,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "jenkinsci/azure-ad-plugin",
     org: "Jenkins plugin · authentication workflow",
     summary:
-      "Shipped an auth-flow fix for a Jenkins Azure AD plugin path where reliability matters to production access control.",
-    proof: "Merged PR",
+      "Fixed sign-in when the Referer header is missing in the Jenkins Azure AD authentication flow.",
+    proof: "Missing-Referer sign-in fix",
     links: [
       {
         label: "PR #803",
