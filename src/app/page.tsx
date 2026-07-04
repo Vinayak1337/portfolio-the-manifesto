@@ -4,6 +4,7 @@ import { Chapters } from "@/components/home/Chapters";
 import { Contact } from "@/components/home/Contact";
 import { Experience } from "@/components/home/Experience";
 import { Hero } from "@/components/home/Hero";
+import { OpenSource } from "@/components/home/OpenSource";
 import { Statement } from "@/components/home/Statement";
 import { WorkCarousel } from "@/components/home/WorkCarousel";
 import { WorkIndex } from "@/components/home/WorkIndex";
@@ -31,6 +32,7 @@ import {
   ledgerProjects,
   marqueeTech,
   navigationLinks,
+  openSourceContributions,
   person,
   railProjects,
   site,
@@ -108,6 +110,7 @@ export default function Home() {
           experience={experience}
           illustration={<FluxExperienceIllustration />}
         />
+        <OpenSource contributions={openSourceContributions} />
         <Marquee items={["RAG", "Agents", "Evals", "Commerce", "Ed-tech"]} variant="reverse" />
         <Contact illustration={<FluxContactIllustration />} person={person} />
       </main>
