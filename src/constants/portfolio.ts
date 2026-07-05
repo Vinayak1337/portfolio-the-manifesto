@@ -188,7 +188,7 @@ export const chapters = [
     emphasis: "hold up.",
     copy: [
       "Immibot replaced a static intake with an agentic RAG flow: country-specific adapters, eligibility scoring, guest sessions, persisted history, and credit merge.",
-      "BPIT moved from a separate admin panel to inline click-to-edit on rendered pages, persisted via MongoDB. wonderLearn rebuilt its commerce and learning surfaces on Next.js + Shopify GraphQL.",
+      "The BPIT site was built from scratch with inline click-to-edit on rendered pages, persisted via MongoDB. wonderLearn rebuilt its commerce and learning surfaces on Next.js + Shopify GraphQL.",
     ],
   },
 ];
@@ -198,7 +198,7 @@ export const about = {
   paragraphs: [
     "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
     "Open-source contributor: checkstyle, Express codemod, Jenkins plugins.",
-    "Currently pursuing B.Tech in CSE at GGSIPU. In 2025 I led a 3-person team on the college's tech team (BPIT), building the new site with Next.js App Router and inline click-to-edit CMS workflows.",
+    "Currently pursuing B.Tech in CSE at GGSIPU. In 2025 I led a 3-person official college tech team project at BPIT, building the new site from scratch with Next.js App Router and inline click-to-edit CMS workflows.",
     "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
     "At wonderHood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
   ],
@@ -356,15 +356,15 @@ export const projectCatalog: Project[] = [
     name: "BPIT Website",
     company: "BPIT Tech Team",
     year: "2025",
-    role: "Tech Lead",
-    category: "WORK",
+    role: "Tech Lead / Institutional Project",
+    category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
     image: "/assets/bpit.png",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
-      "New Next.js site built from scratch with an inline click-to-edit CMS for live content updates.",
+      "Official college tech team site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
-      "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
+      "A 2025 institutional project where I led a 3-person build for department publishing, live-page content editing, analytics, and Vercel previews.",
   },
   {
     id: "training-placement",

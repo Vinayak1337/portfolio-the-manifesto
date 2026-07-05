@@ -8,9 +8,7 @@ export const mainProjectIds = [
   "immibot",
   "ai-chat-vsc-extension",
   "wonderlearn-react-native",
-  "wonderhood-nextjs",
   "nutrilife",
-  "autism-detector",
   "relics-audit",
 ] as const;
 
@@ -92,15 +90,15 @@ export const portfolioGridProjects: Project[] = [
     name: "BPIT Site Redesign",
     company: "BPIT Tech Team",
     year: "2025",
-    role: "Tech Lead",
-    category: "WORK",
+    role: "Tech Lead / Institutional Project",
+    category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
     image: "/assets/bpit.png",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
-      "New Next.js site built from scratch with an inline click-to-edit CMS for live content updates.",
+      "Official college tech team site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
-      "A college website platform that lets departments publish and maintain academic content directly on the live pages.",
+      "A 2025 institutional project where I led a 3-person build for department publishing, live-page content editing, analytics, and Vercel previews.",
   },
   {
     id: "storefront-nextjs",
