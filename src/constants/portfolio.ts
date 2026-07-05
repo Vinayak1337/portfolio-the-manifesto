@@ -237,7 +237,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    title: "MERN Intern (Acting Tech Lead)",
+    title: "MERN Intern",
     company: "Possibillion Technologies",
     date: "Sep 2021 - Nov 2021",
     bullets: [
