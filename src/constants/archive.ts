@@ -666,12 +666,12 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   {
     id: "nutrilife",
     name: "NutriLife",
-    company: "Freelance",
+    company: "Personal",
     year: "2026",
-    category: "FREELANCE",
+    category: "PERSONAL",
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
-    tags: ["Next.js", "Prisma", "Auth", "Health domain"],
+    tags: ["React Native", "Expo", "Clerk", "Health domain"],
     link: "https://github.com/Vinayak1337/NutriLife",
     links: [
       { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
