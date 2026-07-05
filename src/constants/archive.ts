@@ -676,8 +676,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     links: [
       { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
       {
-        label: "Download APK",
-        href: "https://github.com/Vinayak1337/NutriLife/releases/download/v1.0.0/NutriLife-v1.0.0.apk",
+        label: "Download APK (v1.0.0)",
+        href: "https://github.com/Vinayak1337/NutriLife/releases/tag/v1.0.0",
       },
     ],
     repo: "https://github.com/Vinayak1337/NutriLife",
