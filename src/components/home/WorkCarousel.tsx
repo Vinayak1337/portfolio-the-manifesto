@@ -56,7 +56,7 @@ export function WorkCarousel({
                     alt={`${project.name} project screenshot`}
                     fill
                     sizes="(max-width: 768px) 82vw, 540px"
-                    priority={index === 0}
+                    loading="eager"
                   />
                 </div>
                 <div className="rail-foot">
