@@ -421,7 +421,7 @@ select {
 
 .pin-type {
   position: relative;
-  height: 220vh;
+  height: 148vh;
 }
 
 .pin {
@@ -470,7 +470,7 @@ select {
 
 .chapter-stack {
   position: relative;
-  padding: 80px 0 40px;
+  padding: 48px 0 24px;
 }
 
 .chapter-track {
@@ -481,12 +481,12 @@ select {
 
 .chapter-card {
   position: sticky;
-  top: 120px;
+  top: 100px;
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 40px;
-  padding: 56px;
-  margin-bottom: 30px;
+  grid-template-columns: 120px minmax(0, 0.9fr) minmax(260px, 1fr);
+  gap: 32px;
+  padding: 40px;
+  margin-bottom: 20px;
   background: var(--paper);
   border: 1px solid var(--ink);
   opacity: 0;
@@ -524,10 +524,10 @@ select {
 }
 
 .chapter-card h2 {
-  max-width: 14ch;
-  margin: 0 0 28px;
+  max-width: 12ch;
+  margin: 0;
   font-family: var(--font-instrument-serif), "Times New Roman", serif;
-  font-size: clamp(32px, 4.5vw, 64px);
+  font-size: clamp(32px, 4vw, 56px);
   font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 1.02;
@@ -541,10 +541,10 @@ select {
 
 .chapter-card p {
   max-width: 58ch;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: var(--ink-soft);
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .rail-sec {

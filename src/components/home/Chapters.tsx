@@ -28,12 +28,12 @@ export function Chapters({
                 <div className="chapter-number">{chapter.number}</div>
                 <div className="chapter-label">{chapter.label}</div>
               </div>
-              <div>
-                <h2>
-                  {before}
-                  <em>{chapter.emphasis}</em>
-                  {after}
-                </h2>
+              <h2>
+                {before}
+                <em>{chapter.emphasis}</em>
+                {after}
+              </h2>
+              <div className="chapter-copy">
                 {chapter.copy.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
