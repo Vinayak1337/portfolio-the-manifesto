@@ -74,7 +74,7 @@ export const portfolioGridProjects: Project[] = [
     name: "Immibot",
     company: "RemoteHire",
     year: "2024",
-    role: "Senior Fullstack",
+    role: "Full-Stack Engineer",
     category: "WORK",
     tags: ["Next.js", "TypeScript", "LangChain", "Flowise", "Prisma", "Stripe", "Clerk"],
     image: "/assets/immibot.png",

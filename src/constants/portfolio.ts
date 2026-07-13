@@ -213,7 +213,7 @@ export const highlights = [
 
 export const experience: Experience[] = [
   {
-    title: "Senior Full-Stack Engineer",
+    title: "Full-Stack Engineer",
     company: "RemoteHire",
     date: "Feb 2024 - Nov 2024",
     bullets: [
@@ -300,7 +300,7 @@ export const projectCatalog: Project[] = [
     name: "Immibot",
     company: "RemoteHire",
     year: "2024",
-    role: "Senior Fullstack",
+    role: "Full-Stack Engineer",
     category: "WORK",
     tags: [
       "Next.js",
