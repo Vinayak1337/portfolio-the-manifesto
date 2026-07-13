@@ -117,6 +117,7 @@ export const seoKeywords = [
 
 export const navigationLinks: NavLink[] = [
   { label: "Work", href: "#work" },
+  { label: "Experience", href: "#experience" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
   { label: "Archive", href: "/archive" },

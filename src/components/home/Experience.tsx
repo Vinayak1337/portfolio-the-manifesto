@@ -11,7 +11,7 @@ export function Experience({
   illustration: ReactNode;
 }>) {
   return (
-    <section className="exp-sec" aria-labelledby="experience-title">
+    <section className="exp-sec" id="experience" aria-labelledby="experience-title">
       {illustration}
       <SplitText
         as="h2"
