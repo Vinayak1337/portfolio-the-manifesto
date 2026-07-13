@@ -19,7 +19,13 @@ export function Hero({
     <section className="hero" aria-labelledby="hero-title">
       {illustration}
       <div className="hero-meta">
-        <span>{eyebrow}</span>
+        <div className="hero-location">
+          <span className="hero-eyebrow">{eyebrow}</span>
+          <a className="availability-pill magnetic" href="#contact">
+            <span className="availability-dot" aria-hidden="true" />
+            <span>Open to full-time roles — Delhi NCR / Remote</span>
+          </a>
+        </div>
       </div>
       <SplitText
         as="h1"
