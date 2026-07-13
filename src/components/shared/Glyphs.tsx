@@ -23,7 +23,7 @@ export function CompanyGlyph({ company }: Readonly<{ company: string }>) {
       );
     }
 
-    if (company.includes("wonderHood")) {
+    if (company.includes("Wonderhood")) {
       return (
         <svg viewBox="0 0 40 40">
           <rect x="8" y="20" width="10" height="14" />

@@ -279,7 +279,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "wonderhood-next",
-    name: "wonderHood",
+    name: "Wonderhood",
     company: "Wonderhood",
     year: "2022",
     category: "WORK",
