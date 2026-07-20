@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ArchiveProject } from "@/constants/archive";
 import type { NavLink } from "@/constants/portfolio";
 import { FluxClientEffects } from "@/components/flux/FluxClientEffects";
@@ -53,7 +53,8 @@ export function ArchiveClientView({
   const [filter, setFilter] = useState<CatFilter>("ALL");
   const [longTailOpen, setLongTailOpen] = useState(variant === "flux");
   const [hoverProject, setHoverProject] = useState<ArchiveProject | null>(null);
-  const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
+  const hoverPosRef = useRef({ x: 0, y: 0 });
+  const previewRef = useRef<HTMLImageElement>(null);
 
   const strongRows = useMemo(
     () => (filter === "ALL" ? strong : strong.filter((project) => project.category === filter)),
@@ -91,11 +92,27 @@ export function ArchiveClientView({
 
     return { x: nextX, y: nextY };
   };
-  const onMove = (x: number, y: number) => setHoverPos(getPreviewPosition(x, y));
+  const positionPreview = (x: number, y: number) => {
+    const next = getPreviewPosition(x, y);
+    hoverPosRef.current = next;
+
+    if (previewRef.current) {
+      previewRef.current.style.left = `${next.x}px`;
+      previewRef.current.style.top = `${next.y}px`;
+    }
+  };
   const isFlux = variant === "flux";
 
+  useLayoutEffect(() => {
+    if (!hoverProject || !previewRef.current) return;
+
+    const { x, y } = hoverPosRef.current;
+    previewRef.current.style.left = `${x}px`;
+    previewRef.current.style.top = `${y}px`;
+  }, [hoverProject]);
+
   return (
-    <div
+    <main
       className={`archive-page ${isFlux ? "archive-projects-page has-custom-cursor variant-flux" : ""}`}
       data-about-active="web"
       data-flux-root={isFlux ? "" : undefined}
@@ -126,7 +143,7 @@ export function ArchiveClientView({
           emptyLabel="No selected projects in this category."
           onFilter={setFilter}
           onHover={setHoverProject}
-          onMove={onMove}
+          onMove={positionPreview}
           projects={strongRows}
           title="Strong work"
           totalProjects={projects}
@@ -153,7 +170,7 @@ export function ArchiveClientView({
             currentFilter={filter}
             emptyLabel="No additional projects in this category."
             onHover={setHoverProject}
-            onMove={onMove}
+            onMove={positionPreview}
             projects={longTailRows}
             title="Additional projects"
             totalProjects={projects}
@@ -164,6 +181,7 @@ export function ArchiveClientView({
       {hoverProject ? (
         <Image
           className="thumb-preview is-on"
+          ref={previewRef}
           src={hoverProject.image}
           alt=""
           width={300}
@@ -171,7 +189,6 @@ export function ArchiveClientView({
           sizes="(max-width: 980px) 45vw, 300px"
           placeholder={imageBlurDataURLs[hoverProject.image] ? "blur" : "empty"}
           blurDataURL={imageBlurDataURLs[hoverProject.image]}
-          style={{ left: `${hoverPos.x}px`, top: `${hoverPos.y}px` }}
         />
       ) : null}
 
@@ -185,6 +202,6 @@ export function ArchiveClientView({
         linkedinUrl={person.linkedinUrl}
         totalCount={totalCount}
       />
-    </div>
+    </main>
   );
 }

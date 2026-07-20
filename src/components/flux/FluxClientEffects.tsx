@@ -58,22 +58,12 @@ function FluxAtmosphere({ reducedMotion }: Readonly<{ reducedMotion: boolean }>)
     >
       <svg className="flux-atmosphere-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
         <defs>
-          <pattern id="flux-atmosphere-grid" width="88" height="88" patternUnits="userSpaceOnUse">
-            <path d="M88 0H0V88" />
-            <path d="M44 0V88M0 44H88" className="flux-atmosphere-grid-sub" />
-          </pattern>
           <radialGradient id="flux-node-fill">
             <stop offset="0" stopColor="currentColor" stopOpacity="0.86" />
             <stop offset="0.45" stopColor="currentColor" stopOpacity="0.18" />
             <stop offset="1" stopColor="currentColor" stopOpacity="0" />
           </radialGradient>
         </defs>
-        <rect
-          className="flux-atmosphere-grid-rect"
-          width="1440"
-          height="900"
-          fill="url(#flux-atmosphere-grid)"
-        />
         <g className="flux-atmosphere-orbits">
           <ellipse cx="742" cy="414" rx="430" ry="136" />
           <ellipse cx="742" cy="414" rx="430" ry="136" transform="rotate(34 742 414)" />
@@ -98,8 +88,6 @@ function FluxAtmosphere({ reducedMotion }: Readonly<{ reducedMotion: boolean }>)
           ))}
         </g>
       </svg>
-      <div className="flux-field flux-field-a" />
-      <div className="flux-field flux-field-b" />
     </div>
   );
 }
@@ -214,6 +202,7 @@ export function FluxClientEffects() {
     let pointerDirty = finePointer;
     let hoveredInteractive: Element | null = null;
     let activeMagnetic: HTMLElement | null = null;
+    let aboutActiveState = document.body.classList.contains("manifesto-dark");
 
     const clamp = (value: number) => Math.max(0, Math.min(1, value));
     const clampVelocity = (value: number) => Math.max(-1, Math.min(1, value));
@@ -347,7 +336,10 @@ export function FluxClientEffects() {
           aboutMetric.top - scrollY < viewportHeight * 0.42 &&
           aboutMetric.bottom - scrollY > viewportHeight * 0.58,
       );
-      document.body.classList.toggle("manifesto-dark", aboutActive);
+      if (aboutActive !== aboutActiveState) {
+        aboutActiveState = aboutActive;
+        document.body.classList.toggle("manifesto-dark", aboutActive);
+      }
 
       illustrationMetrics.forEach(({ target, metric }) => {
         const progress = clamp(

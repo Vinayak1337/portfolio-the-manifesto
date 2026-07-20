@@ -168,7 +168,7 @@ export function ArchiveTable({
   return (
     <>
       {categories && onFilter ? (
-        <div className="filter-bar" role="tablist" aria-label={`${title} filters`}>
+        <div className="filter-bar" role="group" aria-label={`${title} filters`}>
           {categories.map((category) => {
             const count =
               category.id === "ALL"

@@ -181,6 +181,12 @@
 .archive-page .marquee-track {
   display: inline-block;
   animation: arch-marquee 28s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+
+.archive-page .marquee-track.is-visible {
+  animation-play-state: running;
 }
 .archive-page .marquee-item {
   padding: 0 32px;
@@ -663,6 +669,30 @@
   }
 }
 
+@media (max-width: 340px) {
+  .archive-page .nav {
+    padding-inline: 20px;
+  }
+
+  .archive-page .nav .mark {
+    display: none;
+  }
+
+  .archive-page .nav ul {
+    width: 100%;
+    max-width: none;
+    justify-content: space-between;
+    gap: 6px;
+    overflow: visible;
+  }
+
+  .archive-page .contact-sec .cta {
+    min-width: 0;
+    gap: 12px;
+    overflow-wrap: anywhere;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .archive-page .marquee-track {
     animation: none;
@@ -817,6 +847,12 @@
   display: flex;
   width: max-content;
   animation: marquee-x 40s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+
+.archive-projects-page .marquee-track.is-visible {
+  animation-play-state: running;
 }
 
 .archive-projects-page .marquee-item {
@@ -931,7 +967,7 @@
   place-items: center;
   width: 32px;
   height: 32px;
-  color: var(--flux-faint);
+  color: var(--flux-muted);
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.12em;
@@ -1187,6 +1223,17 @@
 
   .archive-page .flux-archive-hero-illo.is-in {
     opacity: 0.24;
+  }
+}
+
+@media (max-width: 640px) {
+  .archive-projects-page .tbl-row {
+    grid-template-columns: 40px minmax(0, 1fr) 28px;
+    grid-template-areas:
+      "idx   nm ar"
+      "glyph co ar"
+      ".     tg tg"
+      ".     yr yr";
   }
 }
 

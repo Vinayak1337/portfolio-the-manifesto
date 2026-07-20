@@ -22,6 +22,8 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
+const enableVercelTelemetry = process.env.VERCEL === "1";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
@@ -90,8 +92,12 @@ export default function RootLayout({
     >
       <body>
         {children}
-        <Analytics />
-        <SpeedInsights />
+        {enableVercelTelemetry ? (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        ) : null}
       </body>
     </html>
   );

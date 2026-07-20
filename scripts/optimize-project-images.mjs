@@ -82,7 +82,8 @@ const generated = [
 await writeFile(blurMapPath, generated);
 
 let seed = 0x1337;
-const noise = Buffer.alloc(256 * 256 * 4);
+const noiseSize = 96;
+const noise = Buffer.alloc(noiseSize * noiseSize * 4);
 for (let index = 0; index < noise.length; index += 4) {
   seed ^= seed << 13;
   seed ^= seed >>> 17;
@@ -94,7 +95,7 @@ for (let index = 0; index < noise.length; index += 4) {
   noise[index + 3] = 48 + ((seed >>> 8) & 0x3f);
 }
 
-await sharp(noise, { raw: { width: 256, height: 256, channels: 4 } })
+await sharp(noise, { raw: { width: noiseSize, height: noiseSize, channels: 4 } })
   .webp({ effort: 6, quality: 58, alphaQuality: 65 })
   .toFile(path.join(assetsDir, "noise.webp"));
 

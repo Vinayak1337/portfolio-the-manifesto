@@ -14,7 +14,7 @@ export function Navbar({
 }>) {
   return (
     <nav className="nav" aria-label={ariaLabel}>
-      <Link className="mark magnetic" href="/" aria-label="Vinayak Kumar home">
+      <Link className="mark magnetic" href="/" aria-label={`${mark}, Vinayak Kumar home`}>
         {mark}
       </Link>
       <ul>

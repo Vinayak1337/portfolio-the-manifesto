@@ -1886,6 +1886,23 @@ select {
   }
 }
 
+@media (max-width: 340px) {
+  .nav {
+    padding-inline: 12px;
+  }
+
+  .nav ul {
+    gap: 2px;
+  }
+
+  .nav a {
+    min-width: 0;
+    padding-inline: 2px;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+}
+
 @media (pointer: coarse) {
   .cursor-dot,
   .cursor-ring,
@@ -2501,11 +2518,6 @@ body.variant-flux {
   }
 }
 
-/* Full-page grid backdrop removed (anti-slop): keep the pattern invisible. */
-.variant-flux .flux-atmosphere-grid-rect {
-  display: none;
-}
-
 /*
  * Perf note: infinite stroke-dashoffset / per-node pulse animations forced a
  * near-full-screen raster repaint every frame on this fixed layer. The field
@@ -2539,11 +2551,6 @@ body.variant-flux {
 .variant-flux .flux-atmosphere-nodes circle:last-child {
   fill: var(--accent-readable);
   opacity: 0.8;
-}
-
-/* Aurora gradient blobs removed (anti-slop). */
-.variant-flux .flux-field {
-  display: none;
 }
 
 .variant-flux .flux-line {
@@ -2975,8 +2982,7 @@ body.variant-flux {
   .variant-flux .flux-atmosphere::after,
   .variant-flux .flux-atmosphere-orbits,
   .variant-flux .flux-atmosphere-stream,
-  .variant-flux .flux-atmosphere-nodes g,
-  .variant-flux .flux-field {
+  .variant-flux .flux-atmosphere-nodes g {
     animation: none !important;
     transform: none !important;
     transition: none !important;
