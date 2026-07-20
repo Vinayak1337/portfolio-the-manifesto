@@ -121,6 +121,7 @@ export function FluxClientEffects() {
         "manifesto-mounted",
         "manifesto-illustrated",
         "manifesto-dark",
+        "reveal-ready",
         "variant-flux",
       );
       document.documentElement.classList.remove("is-scrolling");
@@ -133,6 +134,7 @@ export function FluxClientEffects() {
     );
 
     if (reducedMotion) {
+      document.body.classList.remove("reveal-ready");
       revealTargets.forEach((target) => target.classList.add("is-in"));
       return;
     }
@@ -146,7 +148,20 @@ export function FluxClientEffects() {
       { threshold: 0.18 },
     );
     revealTargets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
+    document.body.classList.add("reveal-ready");
+
+    const revealFallback = globalThis.setTimeout(() => {
+      const observerHasResponded = revealTargets.some((target) =>
+        target.classList.contains("is-in"),
+      );
+      if (!observerHasResponded) document.body.classList.remove("reveal-ready");
+    }, 1500);
+
+    return () => {
+      globalThis.clearTimeout(revealFallback);
+      document.body.classList.remove("reveal-ready");
+      observer.disconnect();
+    };
   }, [reducedMotion]);
 
   useEffect(() => {
@@ -160,6 +175,11 @@ export function FluxClientEffects() {
     const railBar = document.querySelector<HTMLElement>("[data-rail-bar]");
     const railNumber = document.querySelector<HTMLElement>("[data-rail-number]");
     const aboutSection = document.querySelector<HTMLElement>("[data-about-section]");
+    const atmosphere = document.querySelector<HTMLElement>(".flux-atmosphere");
+    const heroIllustration = document.querySelector<HTMLElement>(".flux-hero-scene");
+    const statementIllustration = document.querySelector<HTMLElement>(".flux-statement-system");
+    const railIllustration = document.querySelector<HTMLElement>(".flux-rail-flux");
+    const archiveIllustration = document.querySelector<HTMLElement>(".flux-archive-vault");
     const illustrationTargets = Array.from(
       document.querySelectorAll<HTMLElement>("[data-illo]"),
     ).filter((target) => !target.classList.contains("illo-contact"));
@@ -190,6 +210,7 @@ export function FluxClientEffects() {
     let ringY = pointerY;
     let lastPointerAt = -Infinity;
     let scrollDirty = true;
+    let wasScrolling = false;
     let pointerDirty = finePointer;
     let hoveredInteractive: Element | null = null;
     let activeMagnetic: HTMLElement | null = null;
@@ -271,8 +292,11 @@ export function FluxClientEffects() {
       scrollVelocity += (scrollDelta - scrollVelocity) * 0.28;
       if (now - lastScrollAt >= 200) scrollVelocity = 0;
 
-      writeNumber(root, "--page-progress", pageProgress);
-      writeNumber(root, "--scroll-velocity", clampVelocity(scrollVelocity / 120));
+      const normalizedVelocity = clampVelocity(scrollVelocity / 120);
+      writeNumber(atmosphere, "--page-progress", pageProgress);
+      writeNumber(atmosphere, "--scroll-velocity", normalizedVelocity);
+      writeNumber(statementIllustration, "--scroll-velocity", normalizedVelocity);
+      writeNumber(archiveIllustration, "--scroll-velocity", normalizedVelocity);
       if (scrollBarRef.current) {
         writeNumber(
           scrollBarRef.current,
@@ -285,7 +309,6 @@ export function FluxClientEffects() {
       const pinProgress = progressFor(pinMetric);
       const compact = viewportWidth <= 980;
       const mobile = viewportWidth <= 640;
-      writeNumber(root, "--pin-progress", pinProgress);
       writeNumber(
         giant,
         "--pin-scale",
@@ -307,7 +330,7 @@ export function FluxClientEffects() {
         );
       }
       writeNumber(railBar, "--rail-bar-scale", railProgress);
-      writeNumber(root, "--rail-progress", railProgress);
+      writeNumber(railIllustration, "--rail-progress", railProgress);
       if (railNumber) {
         const activeIndex = Math.min(
           railCount,
@@ -350,10 +373,12 @@ export function FluxClientEffects() {
       if (!finePointer) return;
       const normalizedX = pointerX / viewportWidth;
       const normalizedY = pointerY / viewportHeight;
-      writeNumber(root, "--pointer-x", (normalizedX - 0.5) * 34, (value) => `${value}px`, 0.1);
-      writeNumber(root, "--pointer-y", (normalizedY - 0.5) * 34, (value) => `${value}px`, 0.1);
-      writeNumber(root, "--pointer-nx", normalizedX);
-      writeNumber(root, "--pointer-ny", normalizedY);
+      const x = (normalizedX - 0.5) * 34;
+      const y = (normalizedY - 0.5) * 34;
+      [atmosphere, heroIllustration, archiveIllustration].forEach((target) => {
+        writeNumber(target, "--pointer-x", x, (value) => `${value}px`, 0.1);
+        writeNumber(target, "--pointer-y", y, (value) => `${value}px`, 0.1);
+      });
     };
 
     const schedule = () => {
@@ -363,11 +388,11 @@ export function FluxClientEffects() {
     const tick = (now: number) => {
       frame = 0;
       const scrolling = now - lastScrollAt < 200;
-      if (scrollDirty || scrolling || document.documentElement.classList.contains("is-scrolling")) {
+      if (scrollDirty || scrolling || wasScrolling) {
         updateScrollEffects(now);
         scrollDirty = false;
-        if (!scrolling) document.documentElement.classList.remove("is-scrolling");
       }
+      wasScrolling = scrolling;
       if (pointerDirty) {
         updatePointerEffects();
         pointerDirty = false;
@@ -391,7 +416,6 @@ export function FluxClientEffects() {
       scrollY = globalThis.scrollY;
       lastScrollAt = performance.now();
       scrollDirty = true;
-      document.documentElement.classList.add("is-scrolling");
       schedule();
     };
 
@@ -464,7 +488,6 @@ export function FluxClientEffects() {
       globalThis.removeEventListener("resize", onResize);
       globalThis.removeEventListener("pointermove", onPointerMove);
       document.documentElement.removeEventListener("pointerleave", onPointerLeave);
-      document.documentElement.classList.remove("is-scrolling");
       if (activeMagnetic) activeMagnetic.style.transform = "";
     };
   }, [finePointer, reducedMotion]);

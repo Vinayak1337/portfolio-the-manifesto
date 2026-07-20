@@ -22,7 +22,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Mobile / Full-stack Product Engineer",
     category: "PERSONAL",
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
-    image: "/assets/nutrilife-preview.svg",
+    image: "/assets/nutrilife-preview.webp",
     link: "https://github.com/Vinayak1337/NutriLife",
     links: [
       { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },

@@ -1002,6 +1002,9 @@
 }
 
 .archive-page .flux-archive-hero-illo {
+  --pointer-x: 0px;
+  --pointer-y: 0px;
+  --scroll-velocity: 0;
   position: absolute;
   right: max(-360px, -18vw);
   bottom: -52px;

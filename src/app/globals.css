@@ -226,7 +226,7 @@ select {
 
 .hero-eyebrow {
   display: block;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(10px);
   animation: fade-up 0.9s var(--ease-out-expo) forwards;
 }
@@ -248,7 +248,7 @@ select {
   font-size: 10px;
   letter-spacing: 0.08em;
   line-height: 1.35;
-  opacity: 0;
+  opacity: 1;
   text-decoration: none;
   transform: translateY(10px);
   animation: fade-up 0.9s 0.12s var(--ease-out-expo) forwards;
@@ -272,7 +272,7 @@ select {
 
 .split .word {
   display: inline-block;
-  clip-path: inset(-20% -20% 100% -20%);
+  clip-path: inset(-32% -32% 0 -32%);
   vertical-align: top;
   transition: clip-path 1s var(--ease-out-expo);
   transition-delay: calc(var(--i) * 50ms);
@@ -280,14 +280,22 @@ select {
 
 .split .word > span {
   display: inline-block;
-  transform: translateY(110%);
+  transform: translateY(0);
   transition: transform 1s var(--ease-out-expo);
   transition-delay: calc(var(--i) * 50ms);
 }
 
+.reveal-ready .split[data-reveal]:not(.is-in) .word {
+  clip-path: inset(-20% -20% 100% -20%);
+}
+
+.reveal-ready .split[data-reveal]:not(.is-in) .word > span {
+  transform: translateY(110%);
+}
+
 .split.is-in .word,
 .hero-title .word {
-  clip-path: inset(-32% -32% 0 -32%);
+  clip-path: none;
 }
 
 .split.is-in .word > span {
@@ -305,7 +313,7 @@ select {
 }
 
 .hero-title .word > span {
-  opacity: 0;
+  opacity: 1;
   filter: blur(14px);
   transform: translateY(110%) rotate(6deg);
   animation: word-in 1.25s var(--ease-out-expo) forwards;
@@ -333,11 +341,16 @@ select {
   align-items: end;
   padding-top: 24px;
   border-top: 1px solid var(--rule);
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.9s var(--ease-out-expo);
+}
+
+.reveal-ready .hero-sub[data-reveal]:not(.is-in) {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .hero-sub.is-in {
@@ -476,8 +489,10 @@ select {
   letter-spacing: -0.03em;
   line-height: 0.9;
   text-align: center;
-  transform: scale(var(--pin-scale));
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0) scale(var(--pin-scale));
   transform-origin: center;
+  will-change: transform;
 }
 
 .giant em {
@@ -519,12 +534,17 @@ select {
   margin-bottom: 20px;
   background: var(--paper);
   border: 1px solid var(--ink);
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transform-origin: center top;
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.9s var(--ease-out-expo);
+}
+
+.reveal-ready .chapter-card[data-reveal]:not(.is-in) {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .chapter-card.is-in {
@@ -640,7 +660,6 @@ select {
   width: max-content;
   padding: 0 32px;
   transform: translate3d(var(--rail-offset, 0px), 0, 0);
-  will-change: transform;
 }
 
 .rail-card {
@@ -1213,10 +1232,10 @@ select {
   opacity: 1;
 }
 
-.about-sec [data-reveal],
-.contact-sec [data-reveal],
-.exp-sec [data-reveal],
-.oss-sec [data-reveal] {
+.reveal-ready .about-sec [data-reveal]:not(.is-in),
+.reveal-ready .contact-sec [data-reveal]:not(.is-in),
+.reveal-ready .exp-sec [data-reveal]:not(.is-in),
+.reveal-ready .oss-sec [data-reveal]:not(.is-in) {
   opacity: 0;
   transform: translateY(30px);
   transition:
@@ -1946,14 +1965,6 @@ select {
   --illo-cream: rgb(242 237 228 / 34%);
   --illo-accent: oklch(0.62 0.18 45 / 55%);
   --illo-paper-fill: rgb(255 246 226 / 28%);
-  --pointer-x: 0px;
-  --pointer-y: 0px;
-  --pointer-nx: 0.5;
-  --pointer-ny: 0.5;
-  --page-progress: 0;
-  --pin-progress: 0;
-  --scroll-velocity: 0;
-  --rail-progress: 0;
   --a-ink: #0a0908;
   --a-ink-mute: rgb(10 9 8 / 38%);
   --a-cream: #f2ede4;
@@ -1975,7 +1986,6 @@ select {
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.12s linear;
-  will-change: transform;
 }
 
 .illo.is-in {
@@ -2065,6 +2075,8 @@ select {
 }
 
 .illo-hero {
+  --pointer-x: 0px;
+  --pointer-y: 0px;
   inset: 5svh 2vw auto auto;
   width: min(82vw, 1220px);
   height: min(78svh, 760px);
@@ -2081,6 +2093,7 @@ select {
 }
 
 .illo-statement {
+  --scroll-velocity: 0;
   inset: 6svh 6vw;
 }
 
@@ -2112,6 +2125,7 @@ select {
 }
 
 .illo-rail {
+  --rail-progress: 0;
   inset: 8svh -12vw 4svh -12vw;
   transform: translate3d(calc(var(--rail-progress) * -120px), var(--illo-drift, 0px), 0);
 }
@@ -2485,6 +2499,10 @@ body.variant-flux {
 }
 
 .variant-flux .flux-atmosphere {
+  --page-progress: 0;
+  --pointer-x: 0px;
+  --pointer-y: 0px;
+  --scroll-velocity: 0;
   position: fixed;
   inset: 0;
   z-index: 0;

@@ -35,4 +35,5 @@ export const imageBlurDataURLs: Readonly<Record<string, string>> = {
   "/assets/wonderhood.webp": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAgCdASoYAA0APxl2tFGspyUisAgBkCMJZwAAeerMAAD+7vLPnGesW0gtL3DL5KGPNwFvSoUu3dU4YiX603PxLuRMorHxCAA=",
   "/assets/wonderlearn-app.webp": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoYAAwAPxl2s1CspySisAgBkCMJQAALSYEhp737eYIPAAD+4vQJCb4xSsV+p2z2HsblK1gVLa7gvWjg6YyV/6smFLzJZAhjm/rNe2nzrxtYAA==",
   "/assets/wonderlearn.webp": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoYAA0APxl2s1EspySisAgBkCMJZgC7ACFrs2YJ+/7llsVKgAD+6o6gpsjAbZIi0YjZK7g2yltwGyn+m0w5tTHuCL1OF9GYEJhzYS48vQRXEqJIxxAAAA==",
+  "/assets/nutrilife-preview.webp": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBACdASoYABIAPxl+uVQsqCYjKAqpkCMJZwDH5BDcZ3um/i44X7W+BAAA/uvjWS/bdE387b0n6CUPV7WgdBfYx01iMP0dpAZ89iF0fdVZrJdQ8Kw+zNUhYL4YEfS/UThAjF9HDKc8WfGuPCtF065tER+qe+3Cp6ETbcUZBBHH/xo1moffYkloHVAAAA==",
 };
