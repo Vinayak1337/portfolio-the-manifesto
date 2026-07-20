@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import type { Project, ProjectLink } from "@/constants/portfolio";
 import { SplitText } from "@/components/shared/SplitText";
 import { externalLinkProps } from "@/components/shared/links";
+import { imageBlurDataURLs } from "@/constants/image-blurs";
 
 function BundleLinks({ links }: Readonly<{ links: readonly ProjectLink[] }>) {
   return (
@@ -82,6 +83,9 @@ export function WorkIndex({
                 alt=""
                 width={380}
                 height={270}
+                sizes="(max-width: 980px) 33vw, 380px"
+                placeholder={imageBlurDataURLs[project.image] ? "blur" : "empty"}
+                blurDataURL={imageBlurDataURLs[project.image]}
                 aria-hidden="true"
               />
             </>

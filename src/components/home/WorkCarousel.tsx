@@ -4,6 +4,7 @@ import type { Project } from "@/constants/portfolio";
 import { SplitText } from "@/components/shared/SplitText";
 import { externalLinkProps } from "@/components/shared/links";
 import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
+import { imageBlurDataURLs } from "@/constants/image-blurs";
 
 export function WorkCarousel({
   illustration,
@@ -55,8 +56,11 @@ export function WorkCarousel({
                     src={project.image}
                     alt={`${project.name} project screenshot`}
                     fill
-                    sizes="(max-width: 768px) 82vw, 540px"
-                    loading="eager"
+                    sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) 50vw, min(540px, 60vw)"
+                    preload={index < 2}
+                    loading={index < 2 ? undefined : "lazy"}
+                    placeholder={imageBlurDataURLs[project.image] ? "blur" : "empty"}
+                    blurDataURL={imageBlurDataURLs[project.image]}
                   />
                 </div>
                 <div className="rail-foot">

@@ -6,6 +6,7 @@ import type { ArchiveProject } from "@/constants/archive";
 import type { NavLink } from "@/constants/portfolio";
 import { FluxClientEffects } from "@/components/flux/FluxClientEffects";
 import { FluxArchiveHeroIllustration } from "@/components/flux/FluxIllustrations";
+import { imageBlurDataURLs } from "@/constants/image-blurs";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Marquee } from "@/components/shared/Marquee";
 import { ArchiveContact } from "./ArchiveContact";
@@ -167,7 +168,9 @@ export function ArchiveClientView({
           alt=""
           width={300}
           height={210}
-          unoptimized
+          sizes="(max-width: 980px) 45vw, 300px"
+          placeholder={imageBlurDataURLs[hoverProject.image] ? "blur" : "empty"}
+          blurDataURL={imageBlurDataURLs[hoverProject.image]}
           style={{ left: `${hoverPos.x}px`, top: `${hoverPos.y}px` }}
         />
       ) : null}

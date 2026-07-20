@@ -1,7 +1,9 @@
+import { ObservedMarqueeTrack } from "@/components/shared/ObservedMarqueeTrack";
+
 export function ArchiveMarquee({ items }: Readonly<{ items: readonly string[] }>) {
   return (
     <div className="marquee-band" aria-hidden>
-      <div className="marquee-track">
+      <ObservedMarqueeTrack className="marquee-track">
         {[0, 1].map((dup) => (
           <span className="marquee-item" key={dup}>
             {items.map((item, index) => (
@@ -13,7 +15,7 @@ export function ArchiveMarquee({ items }: Readonly<{ items: readonly string[] }>
             <span className="sep"> ◇ </span>
           </span>
         ))}
-      </div>
+      </ObservedMarqueeTrack>
     </div>
   );
 }

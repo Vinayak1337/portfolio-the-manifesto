@@ -71,7 +71,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js 15", "Prisma", "MongoDB", "Radix", "Framer Motion", "Three.js"],
     link: "https://bpit-site-redesign.vercel.app/",
     repo: "https://github.com/Vinayak1337/bpit-site-redesign",
-    image: "/assets/bpit.png",
+    image: "/assets/bpit.webp",
     rankScore: 9.15,
   },
   {
@@ -141,7 +141,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     verdict: "Strong portfolio",
     link: "https://crwn-clothing-pwa.netlify.app/",
     repo: "https://github.com/Vinayak1337/e-commerce-pwa",
-    image: "/assets/crwn.png",
+    image: "/assets/crwn.webp",
     rankScore: 8.75,
   },
   {
@@ -169,7 +169,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Node", "Express", "MongoDB", "Auth"],
     link: "https://github.com/Vinayak1337/picmash-server",
     repo: "https://github.com/Vinayak1337/picmash-server",
-    image: "/assets/picmash-backend.png",
+    image: "/assets/picmash-backend.webp",
     rankScore: 8.72,
   },
   {
@@ -200,7 +200,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Node", "Discord.js", "MongoDB", "PM2", "Brawl Stars API"],
     link: "https://github.com/Vinayak1337/RelicsAudit",
     repo: "https://github.com/Vinayak1337/RelicsAudit",
-    image: "/assets/relics-audit.png",
+    image: "/assets/relics-audit.webp",
     rankScore: 9.25,
   },
   {
@@ -214,7 +214,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Node", "Discord.js", "MongoDB", "Modmail", "Role mgmt"],
     link: "https://github.com/Vinayak1337/relics-general-bot",
     repo: "https://github.com/Vinayak1337/relics-general-bot",
-    image: "/assets/relics-general.png",
+    image: "/assets/relics-general.webp",
     rankScore: 9.05,
   },
   {
@@ -228,7 +228,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Discord.js", "Node", "Ticketing", "Payments"],
     link: "https://github.com/Vinayak1337/TourneyTicketeer",
     repo: "https://github.com/Vinayak1337/TourneyTicketeer",
-    image: "/assets/tourney.png",
+    image: "/assets/tourney.webp",
     rankScore: 8.95,
   },
   {
@@ -260,7 +260,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js", "TypeScript", "LangChain", "Flowise", "Prisma", "Stripe", "Clerk"],
     link: "https://nextjsapp-immibot.vercel.app",
     repo: null,
-    image: "/assets/immibot.png",
+    image: "/assets/immibot.webp",
     rankScore: 9.2,
   },
   {
@@ -274,7 +274,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React Native", "Expo", "TypeScript", "Mixpanel", "EAS"],
     link: "https://wonderlearn.app.link/app",
     repo: null,
-    image: "/assets/wonderlearn-app.png",
+    image: "/assets/wonderlearn-app.webp",
     rankScore: 8.8,
   },
   {
@@ -288,7 +288,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js", "TypeScript", "Tailwind", "SCSS", "Shopify"],
     link: "https://wonderhood.in/",
     repo: null,
-    image: "/assets/wonderhood.png",
+    image: "/assets/wonderhood.webp",
     rankScore: 8.5,
   },
   {
@@ -302,7 +302,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React Native", "Expo", "TypeScript", "Redux Toolkit", "Saga"],
     link: "https://github.com/Vinayak1337/wonderLean-ReactNative",
     repo: "https://github.com/Vinayak1337/wonderLean-ReactNative",
-    image: "/assets/wonderlearn-app.png",
+    image: "/assets/wonderlearn-app.webp",
     rankScore: 7.95,
   },
   {
@@ -316,7 +316,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
     link: "https://mylearning.thewonderlearn.com/",
     repo: null,
-    image: "/assets/mylearning.png",
+    image: "/assets/mylearning.webp",
     rankScore: 6.85,
   },
 
@@ -348,7 +348,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js App Router", "Prisma", "Postgres", "Web Bluetooth", "CSRF/rate-limit"],
     link: "https://github.com/Vinayak1337/StoreFrontNextjs",
     repo: "https://github.com/Vinayak1337/StoreFrontNextjs",
-    image: "/assets/storefront-dashboard.png",
+    image: "/assets/storefront-dashboard.webp",
     rankScore: 9.1,
   },
   {
@@ -380,7 +380,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Node", "Express", "MongoDB", "Swagger", "JWT"],
     link: "https://cadillacs-server.onrender.com/docs/",
     repo: "https://github.com/Vinayak1337/cadillacs-server",
-    image: "/assets/cadillacs.png",
+    image: "/assets/cadillacs.webp",
     rankScore: 8.57,
   },
   {
@@ -394,7 +394,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Express", "MongoDB", "GridFS", "Argon2", "Clarifai API"],
     link: "https://github.com/Vinayak1337/face-recognition-server",
     repo: "https://github.com/Vinayak1337/face-recognition-server",
-    image: "/assets/face-backend.png",
+    image: "/assets/face-backend.webp",
     rankScore: 8.55,
   },
   {
@@ -408,7 +408,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Express", "MongoDB", "Mongoose", "Socket.IO", "S3", "JWT", "Stripe", "Swagger"],
     link: "https://dating-app-server-gdjw.onrender.com/docs",
     repo: "https://github.com/Vinayak1337/dating-app.server",
-    image: "/assets/dating-backend.png",
+    image: "/assets/dating-backend.webp",
     rankScore: 8.45,
   },
   {
@@ -450,7 +450,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React Native", "Expo", "Supabase", "Redux Toolkit", "QR/Print/Haptics"],
     link: "https://github.com/Vinayak1337/StoreFront",
     repo: "https://github.com/Vinayak1337/StoreFront",
-    image: "/assets/storefront-dashboard.png",
+    image: "/assets/storefront-dashboard.webp",
     rankScore: 8.35,
   },
   {
@@ -464,7 +464,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "SASS", "Redux"],
     link: "https://firework-website.netlify.app/",
     repo: "https://github.com/Vinayak1337/firework.frontend",
-    image: "/assets/firework-frontend.png",
+    image: "/assets/firework-frontend.webp",
     rankScore: 8.3,
   },
   {
@@ -478,7 +478,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Node", "Express", "MongoDB", "FFmpeg", "S3"],
     link: "https://github.com/Vinayak1337/firework.backend",
     repo: "https://github.com/Vinayak1337/firework.backend",
-    image: "/assets/firework-backend.png",
+    image: "/assets/firework-backend.webp",
     rankScore: 8.25,
   },
   {
@@ -506,7 +506,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "CSS", "JavaScript"],
     link: "https://picmash-app.netlify.app/",
     repo: "https://github.com/Vinayak1337/picmash-app",
-    image: "/assets/picmash-frontend.png",
+    image: "/assets/picmash-frontend.webp",
     rankScore: 8.15,
   },
   {
@@ -520,7 +520,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js", "TypeScript", "Tailwind"],
     link: "https://thewonderlearn.com/",
     repo: "https://github.com/Vinayak1337/wonderLean-next",
-    image: "/assets/wonderlearn.png",
+    image: "/assets/wonderlearn.webp",
     rankScore: 8.15,
   },
   {
@@ -562,7 +562,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "TypeScript", "CSS"],
     link: "https://monsters-rolodex-webapp.netlify.app/",
     repo: "https://github.com/Vinayak1337/robo-app",
-    image: "/assets/robo.png",
+    image: "/assets/robo.webp",
     rankScore: 8.05,
   },
   {
@@ -576,7 +576,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "SASS", "TypeScript"],
     link: "https://dating-app-website.netlify.app/",
     repo: "https://github.com/Vinayak1337/dating-app.website",
-    image: "/assets/dating-landing.png",
+    image: "/assets/dating-landing.webp",
     rankScore: 7.97,
   },
   {
@@ -695,7 +695,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "Vite", "TypeScript"],
     link: "https://github.com/Wonderhood/my-learning-react",
     repo: "https://github.com/Wonderhood/my-learning-react",
-    image: "/assets/mylearning.png",
+    image: "/assets/mylearning.webp",
     rankScore: 7.65,
   },
   {
@@ -723,7 +723,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Node", "Express", "MongoDB", "Swagger"],
     link: "https://levtours-server.onrender.com/docs",
     repo: "https://github.com/Vinayak1337/levtours.server",
-    image: "/assets/levtours-backend.png",
+    image: "/assets/levtours-backend.webp",
     rankScore: 7.6,
   },
   {
@@ -793,7 +793,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "SASS", "Redux", "TypeScript"],
     link: "https://levtours.netlify.app/",
     repo: "https://github.com/Vinayak1337/levtours.website",
-    image: "/assets/levtours-landing.png",
+    image: "/assets/levtours-landing.webp",
     rankScore: 7.35,
   },
   {
@@ -835,7 +835,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "SASS", "Redux"],
     link: "https://dating-app-admin-site.netlify.app",
     repo: "https://github.com/Vinayak1337/dating-app.admin",
-    image: "/assets/dating-admin.png",
+    image: "/assets/dating-admin.webp",
     rankScore: 7.15,
   },
 
@@ -867,7 +867,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "SASS", "Redux"],
     link: "https://face-recognition-ht5h.netlify.app/",
     repo: "https://github.com/Vinayak1337/face-recognition-app",
-    image: "/assets/face-frontend.png",
+    image: "/assets/face-frontend.webp",
     rankScore: 6.82,
   },
   {
@@ -895,7 +895,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["React", "SASS", "Redux"],
     link: "https://levtours-admin-panel.netlify.app",
     repo: "https://github.com/Vinayak1337/levtours.admin",
-    image: "/assets/levtours-admin.png",
+    image: "/assets/levtours-admin.webp",
     rankScore: 6.6,
   },
   {
@@ -937,7 +937,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Discord.js", "Node", "Moderation"],
     link: "https://github.com/Vinayak1337/RelicsBanHammer",
     repo: "https://github.com/Vinayak1337/RelicsBanHammer",
-    image: "/assets/relics-banhammer.png",
+    image: "/assets/relics-banhammer.webp",
     rankScore: 6.2,
   },
   {
@@ -951,7 +951,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["Next.js", "TypeScript", "Tailwind", "PDF"],
     link: "https://pdfy.vercel.app/",
     repo: "https://github.com/Vinayak1337/pdfy",
-    image: "/assets/pdfsplitter.png",
+    image: "/assets/pdfsplitter.webp",
     rankScore: 5.65,
   },
   {
@@ -965,7 +965,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tags: ["HTML", "CSS", "JavaScript", "Tailwind"],
     link: "https://pdf-splitter.vercel.app/",
     repo: "https://github.com/Vinayak1337/pdf-splitter",
-    image: "/assets/pdfsplitter.png",
+    image: "/assets/pdfsplitter.webp",
     rankScore: 5.55,
   },
 ];

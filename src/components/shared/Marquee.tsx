@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ObservedMarqueeTrack } from "./ObservedMarqueeTrack";
 
 function MarqueeGlyph({ name }: Readonly<{ name: string }>) {
   const glyphs: Record<string, ReactNode> = {
@@ -77,7 +78,7 @@ export function Marquee({
 }>) {
   return (
     <div className="marquee-band" aria-hidden="true">
-      <div className={`marquee-track ${variant === "reverse" ? "reverse" : ""}`}>
+      <ObservedMarqueeTrack className={`marquee-track ${variant === "reverse" ? "reverse" : ""}`}>
         {[0, 1].map((set) => (
           <span className="marquee-item" key={set}>
             {items.map((item) => (
@@ -89,7 +90,7 @@ export function Marquee({
             ))}
           </span>
         ))}
-      </div>
+      </ObservedMarqueeTrack>
     </div>
   );
 }

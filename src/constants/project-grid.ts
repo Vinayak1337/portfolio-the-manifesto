@@ -45,7 +45,7 @@ export const portfolioGridProjects: Project[] = [
     role: "AI Tooling Engineer",
     category: "PERSONAL",
     tags: ["TypeScript", "VS Code API", "React webview", "OpenAI", "Gemini"],
-    image: "/assets/ai-chat-vscode-agent.png",
+    image: "/assets/ai-chat-vscode-agent.webp",
     link: "https://github.com/Vinayak1337/AI-chat-vsc-extension",
     blurb:
       "Local-first VS Code agent workspace with React webview UI, provider switching, project memory, file attachments, and code-write actions.",
@@ -61,7 +61,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Sole Developer / Org Lead",
     category: "WORK",
     tags: ["Discord.js", "Node", "MongoDB", "Brawl Stars API"],
-    image: "/assets/relics-audit.png",
+    image: "/assets/relics-audit.webp",
     link: "https://github.com/Vinayak1337/RelicsAudit",
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
@@ -77,7 +77,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Full-Stack Engineer",
     category: "WORK",
     tags: ["Next.js", "TypeScript", "LangChain", "Flowise", "Prisma", "Stripe", "Clerk"],
-    image: "/assets/immibot.png",
+    image: "/assets/immibot.webp",
     link: "https://nextjsapp-immibot.vercel.app",
     blurb:
       "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
@@ -93,7 +93,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Tech Lead / Institutional Project",
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
-    image: "/assets/bpit.png",
+    image: "/assets/bpit.webp",
     link: "https://bpit-site-redesign.vercel.app/",
     blurb:
       "Official college tech team site built from scratch with an inline click-to-edit CMS for live content updates.",
@@ -109,7 +109,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Product Engineer",
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Thermal Print"],
-    image: "/assets/storefront-dashboard.png",
+    image: "/assets/storefront-dashboard.webp",
     link: "https://github.com/Vinayak1337/StoreFrontNextjs",
     blurb:
       "Billing and inventory app with item organization, order creation, analytics, secure sessions, and Bluetooth thermal printing.",
@@ -125,7 +125,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node", "MongoDB", "Modmail", "Role mgmt"],
-    image: "/assets/relics-general.png",
+    image: "/assets/relics-general.webp",
     link: "https://github.com/Vinayak1337/relics-general-bot",
     blurb:
       "Modmail, role management, cross-server announcements, and utility commands for Discord communities.",
@@ -141,7 +141,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node", "Ticketing", "Payments"],
-    image: "/assets/tourney.png",
+    image: "/assets/tourney.webp",
     link: "https://github.com/Vinayak1337/TourneyTicketeer/",
     blurb:
       "Discord bot for tournament payment ticketing, payment methods, logs, and role assignment.",
@@ -157,7 +157,7 @@ export const portfolioGridProjects: Project[] = [
     role: "SD-1",
     category: "WORK",
     tags: ["React Native", "Expo", "TypeScript", "Redux Toolkit", "Redux Saga"],
-    image: "/assets/wonderlearn-app.png",
+    image: "/assets/wonderlearn-app.webp",
     link: "https://wonderlearn.app.link/app",
     blurb:
       "Mobile app for kids aged 2-6 with games, videos, custom players, and resume states after an Ionic to React Native rewrite.",
@@ -173,7 +173,7 @@ export const portfolioGridProjects: Project[] = [
     role: "SD-1",
     category: "WORK",
     tags: ["Next.js", "TypeScript", "Tailwind", "Shopify", "SCSS"],
-    image: "/assets/wonderlearn.png",
+    image: "/assets/wonderlearn.webp",
     link: "https://www.wonderhood.in/",
     blurb:
       "Parent-facing education surface for the wonderLearn ecosystem, rebuilt around a Next.js storefront and content flow.",
@@ -189,7 +189,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Full-stack Engineer",
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "Neon", "NextAuth"],
-    image: "/assets/training-placement-dashboard.png",
+    image: "/assets/training-placement-dashboard.webp",
     link: "https://github.com/Vinayak1337/training-and-placement-bpit",
     blurb:
       "Training and placement dashboard with coordinator and student flows, role-based access, placement drives, applications, and resume uploads.",
@@ -205,7 +205,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Freelance",
     category: "FREELANCE",
     tags: ["Node", "Express", "MongoDB", "Auth", "File uploads"],
-    image: "/assets/chaintusker-github-repo.png",
+    image: "/assets/chaintusker-github-repo.webp",
     link: "https://github.com/Vinayak1337/chaintusker-nft-server",
     blurb:
       "Backend for NFT-oriented account, asset, upload, and authentication workflows.",
@@ -221,7 +221,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Data Product Engineer",
     category: "PERSONAL",
     tags: ["Python", "Django", "HTMX", "Scraping", "Dashboard"],
-    image: "/assets/company-data-scraper-dashboard.png",
+    image: "/assets/company-data-scraper-dashboard.webp",
     link: "https://github.com/Vinayak1337/Company-Data-scraper",
     blurb:
       "Django + HTMX job intelligence dashboard that tracks company career pages, normalizes roles, and filters India-first opportunities.",
@@ -237,7 +237,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Freelance",
     category: "FREELANCE",
     tags: ["Node", "Express", "MongoDB", "Swagger", "JWT"],
-    image: "/assets/cadillacs.png",
+    image: "/assets/cadillacs.webp",
     link: "https://cadillacs-server.onrender.com/docs/",
     blurb:
       "Freelance backend API with admin/community routes, JWT auth, persisted content models, and Swagger documentation.",
@@ -269,7 +269,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Personal",
     category: "PERSONAL",
     tags: ["React", "Node", "MongoDB", "Clarifai", "Auth"],
-    image: "/assets/face-frontend.png",
+    image: "/assets/face-frontend.webp",
     link: "https://face-recognition-ht5h.netlify.app/",
     links: [
       { label: "Frontend", href: "https://face-recognition-ht5h.netlify.app/" },
@@ -287,7 +287,7 @@ export const portfolioGridProjects: Project[] = [
     role: "MERN Stack Intern",
     category: "INTERN",
     tags: ["React", "Node", "MongoDB", "Socket.io", "Swagger"],
-    image: "/assets/dating-landing.png",
+    image: "/assets/dating-landing.webp",
     link: "https://dating-app-website.netlify.app/",
     links: [
       { label: "Landing", href: "https://dating-app-website.netlify.app/" },
@@ -306,7 +306,7 @@ export const portfolioGridProjects: Project[] = [
     role: "MERN Stack Intern",
     category: "INTERN",
     tags: ["React", "Node", "MongoDB", "FFmpeg", "S3"],
-    image: "/assets/firework-frontend.png",
+    image: "/assets/firework-frontend.webp",
     link: "https://firework-website.netlify.app/",
     links: [
       { label: "Frontend", href: "https://firework-website.netlify.app/" },
@@ -324,7 +324,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Freelance",
     category: "FREELANCE",
     tags: ["Fastify", "BullMQ", "Redis", "Postgres", "Dashboard"],
-    image: "/assets/mteane-dashboard.png",
+    image: "/assets/mteane-dashboard.webp",
     link: "https://mteane.vercel.app",
     blurb:
       "Triggrr producer dashboard for event rules, webhook/slack actions, operational health, retries, logs, and dead-letter queue visibility.",
@@ -340,7 +340,7 @@ export const portfolioGridProjects: Project[] = [
     role: "SD-1",
     category: "WORK",
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
-    image: "/assets/mylearning.png",
+    image: "/assets/mylearning.webp",
     link: "https://mylearning.thewonderlearn.com/",
     blurb:
       "Teacher dashboard for classroom rosters, per-student video watch percentage, game scores, and module completion.",
@@ -370,7 +370,7 @@ export const portfolioGridProjects: Project[] = [
     role: "MERN Stack Intern",
     category: "INTERN",
     tags: ["React", "Node", "MongoDB", "Redux", "Swagger"],
-    image: "/assets/levtours-landing.png",
+    image: "/assets/levtours-landing.webp",
     link: "https://levtours.netlify.app/",
     links: [
       { label: "Landing", href: "https://levtours.netlify.app/" },
@@ -388,7 +388,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Personal",
     category: "PERSONAL",
     tags: ["React", "Redux", "Firebase", "Stripe", "GraphQL"],
-    image: "/assets/crwn.png",
+    image: "/assets/crwn.webp",
     link: "https://crwn-clothing-pwa.netlify.app/",
     blurb:
       "E-commerce PWA with Google auth, cart, checkout, and Stripe payment flow.",
@@ -448,7 +448,7 @@ export const portfolioGridProjects: Project[] = [
     role: "AI Dashboard Prototype",
     category: "AI",
     tags: ["Next.js", "App Router", "RAG", "Gemini", "MongoDB"],
-    image: "/assets/kmrl-frontend.png",
+    image: "/assets/kmrl-frontend.webp",
     link: "https://github.com/Vinayak1337/kmrl-frontend",
     blurb:
       "In-progress transit knowledge dashboard with document upload, ingestion status, search, and chat surfaces around KMRL information.",
@@ -464,7 +464,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Personal",
     category: "PERSONAL",
     tags: ["React", "Node", "Express", "MongoDB", "Auth"],
-    image: "/assets/picmash-frontend.png",
+    image: "/assets/picmash-frontend.webp",
     link: "https://picmash-app.netlify.app/",
     links: [
       { label: "Frontend", href: "https://picmash-app.netlify.app/" },
@@ -482,7 +482,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Maintainer",
     category: "OSS",
     tags: ["Discord.js", "Node", "Moderation"],
-    image: "/assets/relics-banhammer.png",
+    image: "/assets/relics-banhammer.webp",
     link: "https://github.com/Vinayak1337/RelicsBanHammer",
     blurb:
       "Moderation bot for chain bans and unbans across multiple Discord servers.",
@@ -520,7 +520,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Freelance",
     category: "FREELANCE",
     tags: ["Next.js", "TypeScript", "Tailwind", "PDF"],
-    image: "/assets/pdfsplitter.png",
+    image: "/assets/pdfsplitter.webp",
     link: "https://pdfy.vercel.app/",
     blurb:
       "Upload a PDF, view pages, edit metadata on a split-screen interface, and export CSV or modified PDFs.",
@@ -534,7 +534,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Freelance",
     category: "FREELANCE",
     tags: ["HTML", "CSS", "JavaScript", "Tailwind"],
-    image: "/assets/pdfsplitter.png",
+    image: "/assets/pdfsplitter.webp",
     link: "https://pdf-splitter.vercel.app/",
     blurb:
       "Tool for hand-picking pages or range-selecting pages and downloading split PDFs.",
@@ -548,7 +548,7 @@ export const portfolioGridProjects: Project[] = [
     role: "Developer Tool Prototype",
     category: "PERSONAL",
     tags: ["Next.js", "App Router", "Redux Toolkit", "Saga", "Tailwind"],
-    image: "/assets/postman-clone-response-preview.png",
+    image: "/assets/postman-clone-response-preview.webp",
     link: "https://github.com/Vinayak1337/postman-clone",
     blurb:
       "API client prototype with request-building state, collection-style structure, and Redux/Saga workflow experiments.",

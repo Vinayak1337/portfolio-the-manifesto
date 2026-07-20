@@ -16,6 +16,9 @@ const nodePoints = [
   [1328, 220],
 ];
 
+const interactiveSelector =
+  "a, button, [role='button'], .chapter-card, .work-row, .rail-card, .exp-item, .tbl-row";
+
 function useReducedMotion() {
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -25,11 +28,25 @@ function useReducedMotion() {
 
     update();
     media.addEventListener("change", update);
-
     return () => media.removeEventListener("change", update);
   }, []);
 
   return reducedMotion;
+}
+
+function useFinePointer(reducedMotion: boolean) {
+  const [finePointer, setFinePointer] = useState(false);
+
+  useEffect(() => {
+    const media = globalThis.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setFinePointer(!reducedMotion && media.matches);
+
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, [reducedMotion]);
+
+  return finePointer;
 }
 
 function FluxAtmosphere({ reducedMotion }: Readonly<{ reducedMotion: boolean }>) {
@@ -87,120 +104,14 @@ function FluxAtmosphere({ reducedMotion }: Readonly<{ reducedMotion: boolean }>)
   );
 }
 
-function ScrollCursor({ reducedMotion }: Readonly<{ reducedMotion: boolean }>) {
-  const [enabled, setEnabled] = useState(false);
-  const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const media = globalThis.matchMedia("(pointer: fine)");
-    const update = () => setEnabled(!reducedMotion && media.matches && globalThis.innerWidth > 980);
-
-    update();
-    media.addEventListener("change", update);
-    globalThis.addEventListener("resize", update);
-
-    return () => {
-      media.removeEventListener("change", update);
-      globalThis.removeEventListener("resize", update);
-    };
-  }, [reducedMotion]);
-
-  useEffect(() => {
-    if (!enabled) {
-      return;
-    }
-
-    let mouseX = globalThis.innerWidth / 2;
-    let mouseY = globalThis.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
-    let raf = 0;
-
-    const dot = dotRef.current;
-    const ring = ringRef.current;
-    const hoverTargets = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        "a, button, [role='button'], .chapter-card, .work-row, .rail-card, .exp-item, .tbl-row",
-      ),
-    );
-    const magneticTargets = Array.from(document.querySelectorAll<HTMLElement>(".magnetic"));
-
-    if (!dot || !ring) {
-      return;
-    }
-
-    const tick = () => {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-      raf = globalThis.requestAnimationFrame(tick);
-    };
-
-    const onPointerMove = (event: MouseEvent) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-    };
-    const enter = () => {
-      ring.classList.add("hover");
-      dot.classList.add("hover");
-    };
-    const leave = () => {
-      ring.classList.remove("hover");
-      dot.classList.remove("hover");
-    };
-    const onMagneticMove = (event: MouseEvent) => {
-      const target = event.currentTarget as HTMLElement;
-      const rect = target.getBoundingClientRect();
-      const x = (event.clientX - (rect.left + rect.width / 2)) * 0.18;
-      const y = (event.clientY - (rect.top + rect.height / 2)) * 0.18;
-      target.style.transform = `translate(${x}px, ${y}px)`;
-    };
-    const onMagneticLeave = (event: MouseEvent) => {
-      (event.currentTarget as HTMLElement).style.transform = "";
-    };
-
-    globalThis.addEventListener("mousemove", onPointerMove);
-    hoverTargets.forEach((target) => {
-      target.addEventListener("mouseenter", enter);
-      target.addEventListener("mouseleave", leave);
-    });
-    magneticTargets.forEach((target) => {
-      target.addEventListener("mousemove", onMagneticMove);
-      target.addEventListener("mouseleave", onMagneticLeave);
-    });
-    raf = globalThis.requestAnimationFrame(tick);
-
-    return () => {
-      globalThis.cancelAnimationFrame(raf);
-      globalThis.removeEventListener("mousemove", onPointerMove);
-      hoverTargets.forEach((target) => {
-        target.removeEventListener("mouseenter", enter);
-        target.removeEventListener("mouseleave", leave);
-      });
-      magneticTargets.forEach((target) => {
-        target.removeEventListener("mousemove", onMagneticMove);
-        target.removeEventListener("mouseleave", onMagneticLeave);
-      });
-    };
-  }, [enabled]);
-
-  if (!enabled) {
-    return null;
-  }
-
-  return (
-    <>
-      <div aria-hidden="true" className="cursor-ring" ref={ringRef} />
-      <div aria-hidden="true" className="cursor-dot" ref={dotRef} />
-    </>
-  );
-}
+type ElementMetric = Readonly<{ top: number; height: number; bottom: number }>;
 
 export function FluxClientEffects() {
   const reducedMotion = useReducedMotion();
+  const finePointer = useFinePointer(reducedMotion);
   const scrollBarRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.body.classList.add("manifesto-mounted", "manifesto-illustrated", "variant-flux");
@@ -212,6 +123,7 @@ export function FluxClientEffects() {
         "manifesto-dark",
         "variant-flux",
       );
+      document.documentElement.classList.remove("is-scrolling");
     };
   }, []);
 
@@ -228,21 +140,19 @@ export function FluxClientEffects() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("is-in");
         });
       },
       { threshold: 0.18 },
     );
-
     revealTargets.forEach((target) => observer.observe(target));
-
     return () => observer.disconnect();
   }, [reducedMotion]);
 
   useEffect(() => {
     const root = document.querySelector<HTMLElement>("[data-flux-root]");
+    if (!root) return;
+
     const pinSection = document.querySelector<HTMLElement>("[data-pin-section]");
     const giant = document.querySelector<HTMLElement>("[data-pin-giant]");
     const railSection = document.querySelector<HTMLElement>("[data-rail-section]");
@@ -253,267 +163,321 @@ export function FluxClientEffects() {
     const illustrationTargets = Array.from(
       document.querySelectorAll<HTMLElement>("[data-illo]"),
     ).filter((target) => !target.classList.contains("illo-contact"));
+    const wedgeTargets = Array.from(document.querySelectorAll<HTMLElement>("[data-wedge]"));
+    const magneticTargets = Array.from(document.querySelectorAll<HTMLElement>(".magnetic"));
     const railCount = Number(railSection?.dataset.railCount ?? 1);
+    const lastNumericValues = new WeakMap<HTMLElement, Map<string, number>>();
+    const magneticRects = new Map<HTMLElement, DOMRect>();
+
+    let viewportWidth = globalThis.innerWidth;
+    let viewportHeight = globalThis.innerHeight;
+    let documentMax = 1;
+    let pinMetric: ElementMetric | null = null;
+    let railMetric: ElementMetric | null = null;
+    let aboutMetric: ElementMetric | null = null;
+    let illustrationMetrics: Array<Readonly<{ target: HTMLElement; metric: ElementMetric }>> = [];
+    let wedgeMetrics: Array<Readonly<{ target: HTMLElement; metric: ElementMetric }>> = [];
+    let railTravel = 0;
+    let frame = 0;
+    let resizeTimer: ReturnType<typeof globalThis.setTimeout> | undefined;
+    let scrollY = globalThis.scrollY;
+    let previousScrollY = scrollY;
+    let scrollVelocity = 0;
+    let lastScrollAt = -Infinity;
+    let pointerX = viewportWidth / 2;
+    let pointerY = viewportHeight / 2;
+    let ringX = pointerX;
+    let ringY = pointerY;
+    let lastPointerAt = -Infinity;
+    let scrollDirty = true;
+    let pointerDirty = finePointer;
+    let hoveredInteractive: Element | null = null;
+    let activeMagnetic: HTMLElement | null = null;
+
     const clamp = (value: number) => Math.max(0, Math.min(1, value));
     const clampVelocity = (value: number) => Math.max(-1, Math.min(1, value));
-    let frame = 0;
-    let lastScrollY = globalThis.scrollY;
-    let scrollVelocity = 0;
-
-    const progressFor = (section: HTMLElement | null) => {
-      if (!section) {
-        return 0;
+    const metricFor = (element: HTMLElement | null): ElementMetric | null => {
+      if (!element) return null;
+      const rect = element.getBoundingClientRect();
+      const top = rect.top + globalThis.scrollY;
+      return { top, height: rect.height, bottom: top + rect.height };
+    };
+    const progressFor = (metric: ElementMetric | null) =>
+      metric ? clamp((scrollY - metric.top) / Math.max(1, metric.height - viewportHeight)) : 0;
+    const writeNumber = (
+      target: HTMLElement | null,
+      property: string,
+      value: number,
+      format: (next: number) => string = String,
+      epsilon = 0.001,
+    ) => {
+      if (!target) return;
+      let values = lastNumericValues.get(target);
+      if (!values) {
+        values = new Map();
+        lastNumericValues.set(target, values);
       }
-
-      const rect = section.getBoundingClientRect();
-      const total = Math.max(1, section.offsetHeight - globalThis.innerHeight);
-
-      return clamp(-rect.top / total);
+      const previous = values.get(property);
+      if (previous !== undefined && Math.abs(previous - value) <= epsilon) return;
+      values.set(property, value);
+      target.style.setProperty(property, format(value));
     };
 
-    const getRailTravel = () => {
-      if (!railSection || !railTrack) {
-        return 0;
+    const measureLayout = () => {
+      viewportWidth = globalThis.innerWidth;
+      viewportHeight = globalThis.innerHeight;
+      const compact = viewportWidth <= 980;
+
+      if (railSection && railTrack) {
+        if (compact) {
+          railSection.style.removeProperty("--rail-section-height");
+          railTravel = 0;
+        } else {
+          const lastCard = railTrack.querySelector<HTMLElement>(".rail-card:last-of-type");
+          const lastCardRight = lastCard
+            ? lastCard.offsetLeft + lastCard.offsetWidth
+            : railTrack.scrollWidth;
+          railTravel = Math.max(0, lastCardRight - viewportWidth + 32);
+          const scrollDistance = Math.max(viewportHeight, railTravel * 0.55);
+          railSection.style.setProperty(
+            "--rail-section-height",
+            `${Math.ceil(viewportHeight + scrollDistance)}px`,
+          );
+        }
       }
 
-      if (globalThis.innerWidth <= 980) {
-        railSection.style.removeProperty("--rail-section-height");
-        return 0;
-      }
-
-      const railCards = Array.from(railTrack.querySelectorAll<HTMLElement>(".rail-card"));
-      const lastCard = railCards.at(-1);
-      const lastCardRight = lastCard
-        ? lastCard.offsetLeft + lastCard.offsetWidth
-        : railTrack.scrollWidth;
-      const endGutter = 32;
-      const trackWidth = Math.max(0, lastCardRight - globalThis.innerWidth + endGutter);
-      const scrollDistance = Math.max(globalThis.innerHeight, trackWidth * 0.55);
-      railSection.style.setProperty(
-        "--rail-section-height",
-        `${Math.ceil(globalThis.innerHeight + scrollDistance)}px`,
-      );
-
-      return trackWidth;
+      pinMetric = metricFor(pinSection);
+      railMetric = metricFor(railSection);
+      aboutMetric = metricFor(aboutSection);
+      illustrationMetrics = illustrationTargets.flatMap((target) => {
+        const metric = metricFor(target);
+        return metric ? [{ target, metric }] : [];
+      });
+      wedgeMetrics = wedgeTargets.flatMap((target) => {
+        const metric = metricFor(target);
+        return metric ? [{ target, metric }] : [];
+      });
+      magneticRects.clear();
+      magneticTargets.forEach((target) => magneticRects.set(target, target.getBoundingClientRect()));
+      documentMax = Math.max(1, document.documentElement.scrollHeight - viewportHeight);
+      scrollDirty = true;
+      pointerDirty = finePointer;
     };
 
-    const update = () => {
-      frame = 0;
-      const docMax = Math.max(1, document.documentElement.scrollHeight - globalThis.innerHeight);
-      const pageProgress = globalThis.scrollY / docMax;
-      const scrollDelta = globalThis.scrollY - lastScrollY;
-      lastScrollY = globalThis.scrollY;
+    const updateScrollEffects = (now: number) => {
+      const pageProgress = scrollY / documentMax;
+      const scrollDelta = scrollY - previousScrollY;
+      previousScrollY = scrollY;
       scrollVelocity += (scrollDelta - scrollVelocity) * 0.28;
+      if (now - lastScrollAt >= 200) scrollVelocity = 0;
 
-      root?.style.setProperty("--page-progress", String(pageProgress));
-      root?.style.setProperty("--scroll-velocity", String(clampVelocity(scrollVelocity / 120)));
-
+      writeNumber(root, "--page-progress", pageProgress);
+      writeNumber(root, "--scroll-velocity", clampVelocity(scrollVelocity / 120));
       if (scrollBarRef.current) {
-        scrollBarRef.current.style.transform = `scaleX(${pageProgress})`;
+        writeNumber(
+          scrollBarRef.current,
+          "--progress-scale",
+          pageProgress,
+          (value) => String(value),
+        );
       }
 
-      const pinProgress = progressFor(pinSection);
-      const compactLayout = globalThis.innerWidth <= 980;
-      const mobileLayout = globalThis.innerWidth <= 640;
-      root?.style.setProperty("--pin-progress", String(pinProgress));
-      giant?.style.setProperty(
+      const pinProgress = progressFor(pinMetric);
+      const compact = viewportWidth <= 980;
+      const mobile = viewportWidth <= 640;
+      writeNumber(root, "--pin-progress", pinProgress);
+      writeNumber(
+        giant,
         "--pin-scale",
-        String(
-          mobileLayout
-            ? 0.86 + pinProgress * 0.16
-            : compactLayout
-              ? 0.82 + pinProgress * 0.3
-              : 0.6 + pinProgress * 1.1,
-        ),
+        mobile
+          ? 0.86 + pinProgress * 0.16
+          : compact
+            ? 0.82 + pinProgress * 0.3
+            : 0.6 + pinProgress * 1.1,
       );
 
-      const trackWidth = getRailTravel();
-      const railProgress = compactLayout ? 0 : progressFor(railSection);
-
+      const railProgress = compact ? 0 : progressFor(railMetric);
       if (railTrack) {
-        railTrack.style.transform = reducedMotion || compactLayout
-          ? "translateX(0)"
-          : `translateX(${-trackWidth * railProgress}px)`;
+        writeNumber(
+          railTrack,
+          "--rail-offset",
+          reducedMotion || compact ? 0 : -railTravel * railProgress,
+          (value) => `${value}px`,
+          0.25,
+        );
       }
-      if (railBar) {
-        railBar.style.width = `${railProgress * 100}%`;
-      }
+      writeNumber(railBar, "--rail-bar-scale", railProgress);
+      writeNumber(root, "--rail-progress", railProgress);
       if (railNumber) {
         const activeIndex = Math.min(
           railCount,
           Math.max(1, Math.floor(railProgress * railCount) + 1),
         );
-        railNumber.textContent = activeIndex.toString().padStart(2, "0");
+        const label = activeIndex.toString().padStart(2, "0");
+        if (railNumber.textContent !== label) railNumber.textContent = label;
       }
 
-      root?.style.setProperty("--rail-progress", String(railProgress));
-
-      const aboutRect = aboutSection?.getBoundingClientRect();
-      const inAbout = Boolean(
-        aboutRect &&
-          aboutRect.top < globalThis.innerHeight * 0.42 &&
-          aboutRect.bottom > globalThis.innerHeight * 0.58,
+      const aboutActive = Boolean(
+        aboutMetric &&
+          aboutMetric.top - scrollY < viewportHeight * 0.42 &&
+          aboutMetric.bottom - scrollY > viewportHeight * 0.58,
       );
-      document.body.classList.toggle("manifesto-dark", inAbout);
+      document.body.classList.toggle("manifesto-dark", aboutActive);
 
-      illustrationTargets.forEach((target) => {
-        const rect = target.getBoundingClientRect();
+      illustrationMetrics.forEach(({ target, metric }) => {
         const progress = clamp(
-          (globalThis.innerHeight - rect.top) / (globalThis.innerHeight + rect.height),
+          (viewportHeight - (metric.top - scrollY)) / (viewportHeight + metric.height),
         );
-        target.style.setProperty("--illo-progress", String(progress));
-        target.style.setProperty("--illo-drift", `${(progress - 0.5) * 56}px`);
-        target.style.setProperty("--illo-rotate", `${(progress - 0.5) * 9}deg`);
+        writeNumber(target, "--illo-progress", progress);
+        writeNumber(target, "--illo-drift", (progress - 0.5) * 56, (value) => `${value}px`, 0.1);
+        writeNumber(target, "--illo-rotate", (progress - 0.5) * 9, (value) => `${value}deg`, 0.05);
       });
-    };
 
-    const triggerUpdate = () => {
-      if (!frame) {
-        frame = globalThis.requestAnimationFrame(update);
+      const focusY = scrollY + viewportHeight * 0.48;
+      const activeWedge = wedgeMetrics
+        .filter(({ metric }) => metric.bottom > scrollY && metric.top < scrollY + viewportHeight)
+        .sort(
+          (a, b) =>
+            Math.abs(a.metric.top + a.metric.height / 2 - focusY) -
+            Math.abs(b.metric.top + b.metric.height / 2 - focusY),
+        )[0]?.target.dataset.wedge;
+      if (activeWedge && root.dataset.aboutActive !== activeWedge) {
+        root.dataset.aboutActive = activeWedge;
       }
     };
 
-    triggerUpdate();
-    globalThis.addEventListener("scroll", triggerUpdate, { passive: true });
-    globalThis.addEventListener("resize", triggerUpdate);
-
-    return () => {
-      if (frame) {
-        globalThis.cancelAnimationFrame(frame);
-      }
-      globalThis.removeEventListener("scroll", triggerUpdate);
-      globalThis.removeEventListener("resize", triggerUpdate);
+    const updatePointerEffects = () => {
+      if (!finePointer) return;
+      const normalizedX = pointerX / viewportWidth;
+      const normalizedY = pointerY / viewportHeight;
+      writeNumber(root, "--pointer-x", (normalizedX - 0.5) * 34, (value) => `${value}px`, 0.1);
+      writeNumber(root, "--pointer-y", (normalizedY - 0.5) * 34, (value) => `${value}px`, 0.1);
+      writeNumber(root, "--pointer-nx", normalizedX);
+      writeNumber(root, "--pointer-ny", normalizedY);
     };
-  }, [reducedMotion]);
 
-  useEffect(() => {
-    const root = document.querySelector<HTMLElement>("[data-flux-root]");
+    const schedule = () => {
+      if (!frame) frame = globalThis.requestAnimationFrame(tick);
+    };
 
-    if (reducedMotion || !root || !globalThis.matchMedia("(pointer: fine)").matches) {
-      return;
-    }
-
-    let frame = 0;
-    let pointerX = 0.5;
-    let pointerY = 0.5;
-
-    const update = () => {
+    const tick = (now: number) => {
       frame = 0;
-      root.style.setProperty("--pointer-x", `${(pointerX - 0.5) * 34}px`);
-      root.style.setProperty("--pointer-y", `${(pointerY - 0.5) * 34}px`);
-      root.style.setProperty("--pointer-nx", String(pointerX));
-      root.style.setProperty("--pointer-ny", String(pointerY));
+      const scrolling = now - lastScrollAt < 200;
+      if (scrollDirty || scrolling || document.documentElement.classList.contains("is-scrolling")) {
+        updateScrollEffects(now);
+        scrollDirty = false;
+        if (!scrolling) document.documentElement.classList.remove("is-scrolling");
+      }
+      if (pointerDirty) {
+        updatePointerEffects();
+        pointerDirty = false;
+      }
+
+      let cursorMoving = false;
+      if (finePointer && ringRef.current && dotRef.current) {
+        ringX += (pointerX - ringX) * 0.18;
+        ringY += (pointerY - ringY) * 0.18;
+        cursorMoving = Math.abs(pointerX - ringX) > 0.1 || Math.abs(pointerY - ringY) > 0.1;
+        ringRef.current.style.transform =
+          `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        dotRef.current.style.transform =
+          `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
+      }
+
+      if (cursorMoving || scrolling || now - lastPointerAt < 200) schedule();
+    };
+
+    const onScroll = () => {
+      scrollY = globalThis.scrollY;
+      lastScrollAt = performance.now();
+      scrollDirty = true;
+      document.documentElement.classList.add("is-scrolling");
+      schedule();
     };
 
     const onPointerMove = (event: PointerEvent) => {
-      pointerX = event.clientX / globalThis.innerWidth;
-      pointerY = event.clientY / globalThis.innerHeight;
+      if (!finePointer) return;
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      lastPointerAt = performance.now();
+      pointerDirty = true;
 
-      if (!frame) {
-        frame = globalThis.requestAnimationFrame(update);
+      const eventTarget = event.target instanceof Element ? event.target : null;
+      const interactive = eventTarget?.closest(interactiveSelector) ?? null;
+      if (interactive !== hoveredInteractive) {
+        hoveredInteractive = interactive;
+        ringRef.current?.classList.toggle("hover", Boolean(interactive));
+        dotRef.current?.classList.toggle("hover", Boolean(interactive));
       }
-    };
 
-    globalThis.addEventListener("pointermove", onPointerMove, { passive: true });
-
-    return () => {
-      if (frame) {
-        globalThis.cancelAnimationFrame(frame);
+      const magnetic = eventTarget?.closest<HTMLElement>(".magnetic") ?? null;
+      if (activeMagnetic && activeMagnetic !== magnetic) activeMagnetic.style.transform = "";
+      activeMagnetic = magnetic;
+      const rect = magnetic ? magneticRects.get(magnetic) : null;
+      if (magnetic && rect) {
+        const x = (event.clientX - (rect.left + rect.width / 2)) * 0.18;
+        const y = (event.clientY - (rect.top + rect.height / 2)) * 0.18;
+        magnetic.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       }
-      globalThis.removeEventListener("pointermove", onPointerMove);
-    };
-  }, [reducedMotion]);
 
-  useEffect(() => {
-    const root = document.querySelector<HTMLElement>("[data-flux-root]");
-    const wedgeTargets = Array.from(document.querySelectorAll<HTMLElement>("[data-wedge]"));
-
-    if (!root || wedgeTargets.length === 0) {
-      return;
-    }
-
-    let frame = 0;
-
-    const update = () => {
-      frame = 0;
-      const focusY = globalThis.innerHeight * 0.48;
-      const active = wedgeTargets
-        .map((target) => {
-          const rect = target.getBoundingClientRect();
-          const center = rect.top + rect.height / 2;
-
-          return {
-            distance: Math.abs(center - focusY),
-            isVisible: rect.bottom > 0 && rect.top < globalThis.innerHeight,
-            wedge: target.dataset.wedge,
-          };
-        })
-        .filter((target) => target.isVisible && target.wedge)
-        .sort((a, b) => a.distance - b.distance)[0]?.wedge;
-
-      if (active) {
-        root.dataset.aboutActive = active;
-      }
-    };
-
-    const triggerUpdate = () => {
-      if (!frame) {
-        frame = globalThis.requestAnimationFrame(update);
-      }
-    };
-
-    triggerUpdate();
-    globalThis.addEventListener("scroll", triggerUpdate, { passive: true });
-    globalThis.addEventListener("resize", triggerUpdate);
-
-    return () => {
-      if (frame) {
-        globalThis.cancelAnimationFrame(frame);
-      }
-      globalThis.removeEventListener("scroll", triggerUpdate);
-      globalThis.removeEventListener("resize", triggerUpdate);
-    };
-  }, []);
-
-  useEffect(() => {
-    const rows = Array.from(document.querySelectorAll<HTMLElement>("[data-work-row]"));
-
-    const movePreview = (event: MouseEvent) => {
-      const row = event.currentTarget as HTMLElement;
-      const previewId = row.dataset.projectId;
+      const row = eventTarget?.closest<HTMLElement>("[data-work-row]");
+      const previewId = row?.dataset.projectId;
       const preview = previewId
         ? document.querySelector<HTMLElement>(`[data-work-preview="${previewId}"]`)
         : null;
-
-      if (!preview) {
-        return;
+      if (preview) {
+        writeNumber(preview, "--preview-x", event.clientX + 200, (value) => `${value}px`, 0.5);
+        writeNumber(preview, "--preview-y", event.clientY, (value) => `${value}px`, 0.5);
       }
-
-      preview.style.left = `${event.clientX + 200}px`;
-      preview.style.top = `${event.clientY}px`;
+      schedule();
     };
 
-    rows.forEach((row) => row.addEventListener("mousemove", movePreview));
+    const onPointerLeave = () => {
+      hoveredInteractive = null;
+      ringRef.current?.classList.remove("hover");
+      dotRef.current?.classList.remove("hover");
+      if (activeMagnetic) activeMagnetic.style.transform = "";
+      activeMagnetic = null;
+    };
 
-    return () => rows.forEach((row) => row.removeEventListener("mousemove", movePreview));
-  }, []);
+    const onResize = () => {
+      globalThis.clearTimeout(resizeTimer);
+      resizeTimer = globalThis.setTimeout(() => {
+        measureLayout();
+        schedule();
+      }, 100);
+    };
+
+    measureLayout();
+    schedule();
+    globalThis.addEventListener("scroll", onScroll, { passive: true });
+    globalThis.addEventListener("resize", onResize);
+    if (finePointer) {
+      globalThis.addEventListener("pointermove", onPointerMove, { passive: true });
+      document.documentElement.addEventListener("pointerleave", onPointerLeave);
+    }
+
+    return () => {
+      if (frame) globalThis.cancelAnimationFrame(frame);
+      globalThis.clearTimeout(resizeTimer);
+      globalThis.removeEventListener("scroll", onScroll);
+      globalThis.removeEventListener("resize", onResize);
+      globalThis.removeEventListener("pointermove", onPointerMove);
+      document.documentElement.removeEventListener("pointerleave", onPointerLeave);
+      document.documentElement.classList.remove("is-scrolling");
+      if (activeMagnetic) activeMagnetic.style.transform = "";
+    };
+  }, [finePointer, reducedMotion]);
 
   useEffect(() => {
     const scrollToHash = (hash: string, behavior: ScrollBehavior) => {
       const id = decodeURIComponent(hash.replace(/^#/, ""));
       const target = id ? document.getElementById(id) : null;
-
-      if (!target) {
-        return;
-      }
+      if (!target) return;
 
       const navOffset = globalThis.innerWidth <= 640 ? 104 : 92;
       const top = target.getBoundingClientRect().top + globalThis.scrollY - navOffset;
-
-      globalThis.scrollTo({
-        behavior,
-        top: Math.max(0, top),
-      });
+      globalThis.scrollTo({ behavior, top: Math.max(0, top) });
     };
 
     const settleHashScroll = (hash: string, firstBehavior: ScrollBehavior = "smooth") => {
@@ -523,31 +487,21 @@ export function FluxClientEffects() {
           delay,
         ),
       );
-
       return () => timers.forEach((timer) => globalThis.clearTimeout(timer));
     };
 
     const onClick = (event: MouseEvent) => {
-      if (!(event.target instanceof Element)) {
-        return;
-      }
-
+      if (!(event.target instanceof Element)) return;
       const anchor = event.target.closest<HTMLAnchorElement>("a[href]");
       const href = anchor?.getAttribute("href");
-
-      if (!href) {
-        return;
-      }
+      if (!href) return;
 
       const url = new URL(href, globalThis.location.href);
       const isSamePage =
         url.origin === globalThis.location.origin &&
         url.pathname === globalThis.location.pathname &&
         Boolean(url.hash);
-
-      if (!isSamePage) {
-        return;
-      }
+      if (!isSamePage) return;
 
       event.preventDefault();
       globalThis.history.pushState(null, "", url.hash);
@@ -562,7 +516,6 @@ export function FluxClientEffects() {
 
     document.addEventListener("click", onClick);
     globalThis.addEventListener("hashchange", onHashChange);
-
     const clearInitial = globalThis.location.hash
       ? settleHashScroll(globalThis.location.hash, "auto")
       : undefined;
@@ -578,7 +531,12 @@ export function FluxClientEffects() {
     <>
       <div className="scroll-progress" ref={scrollBarRef} />
       <FluxAtmosphere reducedMotion={reducedMotion} />
-      <ScrollCursor reducedMotion={reducedMotion} />
+      {finePointer ? (
+        <>
+          <div aria-hidden="true" className="cursor-ring" ref={ringRef} />
+          <div aria-hidden="true" className="cursor-dot" ref={dotRef} />
+        </>
+      ) : null}
     </>
   );
 }
