@@ -309,14 +309,16 @@ export function FluxClientEffects() {
       const pinProgress = progressFor(pinMetric);
       const compact = viewportWidth <= 980;
       const mobile = viewportWidth <= 640;
+      // Scale is capped so the pinned statement can never overrun the fixed nav
+      // or its own caption (previously grew to ~1.7x and collided with both).
       writeNumber(
         giant,
         "--pin-scale",
         mobile
-          ? 0.86 + pinProgress * 0.16
+          ? 0.9 + pinProgress * 0.1
           : compact
-            ? 0.82 + pinProgress * 0.3
-            : 0.6 + pinProgress * 1.1,
+            ? 0.88 + pinProgress * 0.14
+            : 0.84 + pinProgress * 0.22,
       );
 
       const railProgress = compact ? 0 : progressFor(railMetric);

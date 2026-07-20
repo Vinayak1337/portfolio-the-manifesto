@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&family=Geist:wght@300;400;500;700&display=swap");
-
 .archive-page {
   --cream: #f2ede4;
   --cream-deep: #e8e0d0;
@@ -10,9 +8,9 @@
   --accent-deep: oklch(0.52 0.18 40);
   --rule: rgba(10, 9, 8, 0.14);
   --rule-strong: rgba(10, 9, 8, 0.4);
-  --serif: "Instrument Serif", "Times New Roman", serif;
-  --mono: "JetBrains Mono", ui-monospace, monospace;
-  --sans: "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --serif: var(--font-instrument-serif), "Instrument Serif", "Times New Roman", serif;
+  --mono: var(--font-geist-mono), ui-monospace, monospace;
+  --sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
   background: var(--paper);
@@ -87,12 +85,6 @@
   height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  animation: arch-blink 1.6s infinite;
-}
-@keyframes arch-blink {
-  50% {
-    opacity: 0.3;
-  }
 }
 
 /* HERO */
@@ -471,7 +463,6 @@
   color: var(--cream);
   background: var(--ink);
   border-color: var(--ink);
-  transform: translateY(-2px);
 }
 .archive-page .archive-link-menu {
   justify-self: end;
@@ -676,9 +667,6 @@
   .archive-page .marquee-track {
     animation: none;
   }
-  .archive-page .nav .live::before {
-    animation: none;
-  }
 }
 
 .archive-page.archive-projects-page {
@@ -688,18 +676,15 @@
   --ink-soft: var(--flux-muted);
   --paper: var(--flux-panel);
   --accent: var(--accent-readable);
-  --accent-deep: oklch(0.74 0.18 280);
-  --rule: rgb(247 242 255 / 12%);
-  --rule-strong: rgb(191 160 255 / 34%);
+  --accent-deep: oklch(0.68 0.14 50);
+  --rule: rgb(242 237 228 / 12%);
+  --rule-strong: rgb(242 237 228 / 30%);
   --mono: var(--font-geist-mono), ui-monospace, monospace;
   --sans: var(--font-geist-sans), system-ui, sans-serif;
   --serif: var(--font-instrument-serif), "Times New Roman", serif;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 78% 22%, rgb(124 77 255 / 18%), transparent 30%),
-    radial-gradient(circle at 16% 64%, rgb(47 224 255 / 11%), transparent 34%),
-    var(--flux-bg);
+  background: var(--flux-bg);
   color: var(--flux-text);
 }
 
@@ -710,9 +695,8 @@
 }
 
 .archive-projects-page .nav {
-  background: rgb(5 5 7 / 72%);
-  border-bottom-color: var(--rule-strong);
-  box-shadow: 0 20px 70px rgb(0 0 0 / 28%);
+  background: rgb(10 9 8 / 78%);
+  border-bottom-color: var(--rule);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -723,9 +707,8 @@
   overflow: hidden;
   border-bottom-color: var(--rule-strong);
   background:
-    linear-gradient(90deg, rgb(5 5 7 / 0%) 46%, rgb(5 5 7 / 62%) 100%),
-    linear-gradient(180deg, rgb(5 5 7 / 64%), rgb(5 5 7 / 88%)),
-    radial-gradient(circle at 78% 30%, rgb(124 77 255 / 10%), transparent 36%);
+    linear-gradient(90deg, rgb(10 9 8 / 0%) 46%, rgb(10 9 8 / 62%) 100%),
+    linear-gradient(180deg, rgb(10 9 8 / 64%), rgb(10 9 8 / 88%));
 }
 
 .archive-projects-page .hero-grid,
@@ -746,7 +729,6 @@
   position: relative;
   z-index: 2;
   color: var(--flux-text);
-  text-shadow: 0 0 46px rgb(124 77 255 / 14%);
 }
 
 .archive-projects-page .hero .side {
@@ -763,9 +745,7 @@
   inset: -24px -28px -28px;
   z-index: -1;
   content: "";
-  background:
-    radial-gradient(circle at 18% 18%, rgb(124 77 255 / 10%), transparent 46%),
-    linear-gradient(90deg, rgb(5 5 7 / 76%), rgb(5 5 7 / 30%));
+  background: linear-gradient(90deg, rgb(10 9 8 / 76%), rgb(10 9 8 / 30%));
   filter: blur(10px);
 }
 
@@ -820,9 +800,7 @@
 .archive-projects-page .marquee-band {
   overflow: hidden;
   padding: 22px 0;
-  background:
-    linear-gradient(90deg, rgb(124 77 255 / 14%), transparent 34%, rgb(47 224 255 / 10%)),
-    var(--flux-bg-soft);
+  background: var(--flux-bg-soft);
   border-color: var(--rule-strong);
   color: var(--flux-text);
   font-family: var(--serif);
@@ -886,22 +864,19 @@
 
 .archive-projects-page .filter-pill {
   border-color: var(--rule-strong);
-  background: rgb(17 16 26 / 58%);
+  background: rgb(23 19 16 / 58%);
   color: var(--flux-muted);
 }
 
 .archive-projects-page .filter-pill:hover,
 .archive-projects-page .filter-pill.active {
-  background:
-    linear-gradient(90deg, rgb(124 77 255 / 22%), rgb(47 224 255 / 10%)),
-    var(--flux-panel-strong);
+  background: var(--flux-panel-strong);
   border-color: var(--accent-readable);
   color: var(--flux-text);
 }
 
 .archive-projects-page .tbl-row {
   grid-template-columns: 56px 46px 1.35fr 0.9fr 1.55fr 80px 36px;
-  background: linear-gradient(90deg, transparent, rgb(124 77 255 / 4%), transparent);
 }
 
 .archive-projects-page .tbl-head {
@@ -913,9 +888,7 @@
 }
 
 .archive-projects-page .tbl-row:hover {
-  background:
-    linear-gradient(90deg, rgb(124 77 255 / 18%), rgb(47 224 255 / 8%)),
-    var(--flux-panel-strong);
+  background: var(--flux-panel-strong);
 }
 
 .archive-projects-page .archive-bundle-row {
@@ -923,9 +896,7 @@
 }
 
 .archive-projects-page .archive-bundle-row[open] > .tbl-row {
-  background:
-    linear-gradient(90deg, rgb(124 77 255 / 18%), rgb(47 224 255 / 8%)),
-    var(--flux-panel-strong);
+  background: var(--flux-panel-strong);
 }
 
 .archive-projects-page .archive-bundle-panel {
@@ -944,60 +915,50 @@
 .archive-projects-page .archive-bundle-links a {
   color: var(--flux-text);
   border-color: var(--rule-strong);
-  background: rgb(17 16 26 / 42%);
+  background: rgb(23 19 16 / 42%);
 }
 
 .archive-projects-page .archive-bundle-links a:hover,
 .archive-projects-page .archive-bundle-links a:focus-visible {
-  background:
-    linear-gradient(90deg, rgb(124 77 255 / 22%), rgb(47 224 255 / 10%)),
-    var(--flux-panel-strong);
+  background: var(--flux-panel-strong);
   border-color: var(--accent-readable);
   color: var(--flux-text);
 }
 
+/* Category marker: bare mono text, no tinted chip, no inner glow (anti-slop). */
 .archive-projects-page .archive-project-glyph {
   display: inline-grid;
   place-items: center;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--rule-strong);
-  color: var(--accent-readable);
+  color: var(--flux-faint);
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  box-shadow: inset 0 0 18px rgb(124 77 255 / 12%);
 }
 
 .archive-projects-page .tbl-row[data-tier="strong"] .archive-project-glyph {
-  border-color: var(--accent-readable);
-  background: rgb(124 77 255 / 16%);
+  color: var(--accent-readable);
 }
 
 .archive-projects-page .thumb-preview {
   border-color: var(--rule-strong);
   background: var(--flux-panel);
-  box-shadow:
-    0 30px 70px rgb(0 0 0 / 44%),
-    0 0 34px rgb(124 77 255 / 18%);
+  box-shadow: 0 12px 26px rgb(0 0 0 / 40%);
 }
 
 .archive-projects-page .contact-sec {
-  background:
-    radial-gradient(circle at 76% 26%, rgb(47 224 255 / 10%), transparent 32%),
-    linear-gradient(180deg, rgb(5 5 7 / 80%), var(--flux-bg));
+  background: linear-gradient(180deg, rgb(10 9 8 / 80%), var(--flux-bg));
 }
 
 .archive-projects-page .contact-sec .cta {
   border-color: var(--rule-strong);
-  background: rgb(17 16 26 / 42%);
+  background: rgb(23 19 16 / 42%);
 }
 
 .archive-projects-page .contact-sec .cta:hover {
-  background:
-    linear-gradient(90deg, rgb(124 77 255 / 22%), rgb(47 224 255 / 10%)),
-    var(--flux-panel-strong);
+  background: var(--flux-panel-strong);
   color: var(--flux-text);
 }
 
@@ -1011,7 +972,7 @@
   z-index: 0;
   width: min(52vw, 820px);
   height: min(44vw, 620px);
-  color: rgb(191 160 255 / 24%);
+  color: rgb(242 237 228 / 22%);
   opacity: 0;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgb(0 0 0) 28%, rgb(0 0 0) 100%);
   mask-image: linear-gradient(90deg, transparent 0%, rgb(0 0 0) 28%, rgb(0 0 0) 100%);
@@ -1047,12 +1008,12 @@
 }
 
 .archive-page .archive-vault-backplane path {
-  stroke: rgb(247 242 255 / 14%);
+  stroke: rgb(242 237 228 / 14%);
   stroke-width: 1;
 }
 
 .archive-page .archive-vault-spine {
-  color: rgb(47 224 255 / 42%);
+  color: oklch(0.62 0.18 45 / 45%);
   opacity: 0.38;
 }
 
@@ -1062,10 +1023,8 @@
 }
 
 .archive-page .archive-vault-stack {
-  color: rgb(191 160 255 / 48%);
-  filter:
-    drop-shadow(0 26px 38px rgb(0 0 0 / 22%))
-    drop-shadow(0 0 22px rgb(124 77 255 / 10%));
+  color: rgb(242 237 228 / 42%);
+  filter: drop-shadow(0 14px 22px rgb(0 0 0 / 25%));
 }
 
 .archive-page .archive-vault-stack-back {
@@ -1086,7 +1045,7 @@
 .archive-page .archive-vault-stack path:first-child,
 .archive-page .archive-vault-manifest path:first-child {
   fill: url("#archive-vault-pane");
-  stroke: rgb(247 242 255 / 36%);
+  stroke: rgb(242 237 228 / 36%);
   stroke-width: 1.2;
 }
 
@@ -1098,12 +1057,12 @@
 }
 
 .archive-page .archive-vault-stack path:not(:first-child) {
-  stroke: rgb(247 242 255 / 22%);
+  stroke: rgb(242 237 228 / 22%);
   stroke-width: 1;
 }
 
 .archive-page .archive-vault-scan {
-  color: rgb(47 224 255 / 62%);
+  color: oklch(0.7 0.15 55 / 60%);
   animation: archive-vault-scan 5.8s var(--ease-in-out) infinite alternate;
 }
 
@@ -1114,13 +1073,13 @@
 }
 
 .archive-page .archive-vault-manifest {
-  color: rgb(247 242 255 / 48%);
+  color: rgb(242 237 228 / 48%);
   opacity: 0.42;
   transform: translate3d(calc(var(--pointer-x, 0px) * -0.28), calc(var(--pointer-y, 0px) * -0.28), 0);
 }
 
 .archive-page .archive-vault-manifest path:not(:first-child) {
-  stroke: rgb(247 242 255 / 28%);
+  stroke: rgb(242 237 228 / 28%);
   stroke-width: 1.2;
 }
 
@@ -1131,7 +1090,7 @@
 }
 
 .archive-page .archive-vault-nodes {
-  color: rgb(191 160 255 / 64%);
+  color: rgb(242 237 228 / 55%);
   opacity: 0.52;
 }
 
@@ -1149,7 +1108,7 @@
 .archive-page .archive-vault-spine text,
 .archive-page .archive-vault-stack text,
 .archive-page .archive-vault-manifest text {
-  fill: rgb(247 242 255 / 36%);
+  fill: rgb(242 237 228 / 36%);
   stroke: none;
   font-family: var(--mono);
   font-size: 14px;

@@ -18,10 +18,10 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#050507",
-          color: "#F7F2FF",
+          background: "#0A0908",
+          color: "#F2EDE4",
           padding: "58px 64px",
-          border: "18px solid #7C4DFF",
+          border: "18px solid #C75B28",
           fontFamily: "serif",
         }}
       >
@@ -50,7 +50,7 @@ export default function Image() {
           </div>
           <div
             style={{
-              color: "#C7B4FF",
+              color: "#E3A277",
               fontSize: 94,
               fontStyle: "italic",
               letterSpacing: -2,

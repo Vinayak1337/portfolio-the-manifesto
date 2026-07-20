@@ -23,7 +23,7 @@ export function Hero({
           <span className="hero-eyebrow">{eyebrow}</span>
           <a className="availability-pill magnetic" href="#contact">
             <span className="availability-dot" aria-hidden="true" />
-            <span>Open to full-time roles — Delhi NCR / Remote</span>
+            <span>Open to full-time roles · Delhi NCR / Remote</span>
           </a>
         </div>
       </div>
