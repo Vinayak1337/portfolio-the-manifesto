@@ -1061,15 +1061,12 @@
   stroke-width: 1;
 }
 
+/*
+ * Scan-line removed: its infinite transform animation kept the hero
+ * illustration repainting every frame (and read as a sci-fi glow bar).
+ */
 .archive-page .archive-vault-scan {
-  color: oklch(0.7 0.15 55 / 60%);
-  animation: archive-vault-scan 5.8s var(--ease-in-out) infinite alternate;
-}
-
-.archive-page .archive-vault-scan path {
-  stroke: url("#archive-vault-scan");
-  stroke-width: 7;
-  opacity: 0.38;
+  display: none;
 }
 
 .archive-page .archive-vault-manifest {
