@@ -73,7 +73,6 @@ export default function Home() {
           Skip to work
         </a>
         <FluxClientEffects />
-        <div aria-hidden="true" className="grain" />
         <Navbar links={navigationLinks} />
         <Hero
           eyebrow={homeHero.eyebrow}

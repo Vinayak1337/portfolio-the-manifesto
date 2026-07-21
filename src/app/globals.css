@@ -124,21 +124,6 @@ select {
   transform: translateY(0);
 }
 
-/*
- * Grain lives on the substrate, under the content (anti-slop: noise over text
- * muddies legibility) — and dropping the topmost full-screen fixed layer means
- * scrolling content no longer re-composites against it every frame.
- */
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  background-image: url("/assets/noise.webp");
-  background-repeat: repeat;
-}
-
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -224,8 +209,8 @@ select {
 .hero-eyebrow {
   display: block;
   opacity: 1;
-  transform: translateY(10px);
-  animation: fade-up 0.9s var(--ease-out-expo) forwards;
+  transform: translateY(0);
+  animation: fade-up 0.9s var(--ease-out-expo) backwards;
 }
 
 .hero-location {
@@ -248,8 +233,8 @@ select {
   line-height: 1.35;
   opacity: 1;
   text-decoration: none;
-  transform: translateY(10px);
-  animation: fade-up 0.9s 0.12s var(--ease-out-expo) forwards;
+  transform: translateY(0);
+  animation: fade-up 0.9s 0.12s var(--ease-out-expo) backwards;
 }
 
 .availability-dot {
@@ -261,9 +246,9 @@ select {
 }
 
 @keyframes fade-up {
-  to {
+  from {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(10px);
   }
 }
 
@@ -312,17 +297,17 @@ select {
 
 .hero-title .word > span {
   opacity: 1;
-  filter: blur(14px);
-  transform: translateY(110%) rotate(6deg);
-  animation: word-in 1.25s var(--ease-out-expo) forwards;
+  filter: blur(0);
+  transform: translateY(0) rotate(0);
+  animation: word-in 1.25s var(--ease-out-expo) backwards;
   animation-delay: calc(var(--i) * 90ms);
 }
 
 @keyframes word-in {
-  to {
+  from {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) rotate(0);
+    filter: blur(14px);
+    transform: translateY(110%) rotate(6deg);
   }
 }
 
@@ -489,7 +474,6 @@ select {
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0) scale(var(--pin-scale));
   transform-origin: center;
-  will-change: transform;
 }
 
 .giant em {
@@ -2289,10 +2273,6 @@ body.variant-flux {
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
 }
 
-.variant-flux .grain {
-  opacity: 0.04;
-}
-
 .variant-flux .hero,
 .variant-flux .rail-sec .pin,
 .variant-flux .work-section,
@@ -2479,10 +2459,6 @@ body.variant-flux {
 }
 
 .variant-flux .flux-atmosphere {
-  --page-progress: 0;
-  --pointer-x: 0px;
-  --pointer-y: 0px;
-  --scroll-velocity: 0;
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -2493,6 +2469,20 @@ body.variant-flux {
   isolation: isolate;
 }
 
+/* Grain belongs to the fixed substrate, so it shares one composited surface
+ * with the atmosphere instead of forcing every scrolling section above a
+ * second full-viewport layer. */
+.variant-flux .flux-atmosphere::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.04;
+  background-image: url("/assets/noise.webp");
+  background-repeat: repeat;
+}
+
 .variant-flux .flux-atmosphere-svg {
   position: absolute;
   inset: -4%;
@@ -2500,12 +2490,31 @@ body.variant-flux {
   height: 108%;
   color: var(--accent);
   opacity: 0.5;
-  transform:
-    translate3d(calc(var(--pointer-x, 0px) * -0.32), calc(var(--pointer-y, 0px) * -0.32), 0)
-    rotate(calc(var(--scroll-velocity, 0) * 1.5deg));
+  transform: translate3d(0, 0, 0) rotate(0deg);
   transform-origin: center;
   animation: flux-atmosphere-drift 26s var(--ease-in-out) infinite alternate;
   will-change: transform;
+}
+
+/* During active input, scroll-linked transforms already provide the motion.
+ * Pausing independent timelines prevents the compositor from competing with
+ * wheel/touch delivery; every animation resumes from the same visual state as
+ * soon as input settles. */
+html.is-scrolling .variant-flux .flux-atmosphere-svg,
+html.is-scrolling .marquee-track {
+  animation-play-state: paused;
+}
+
+html.is-scrolling .illo {
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0s linear;
+}
+
+html.is-scrolling .flux-archive-hero-illo {
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0s linear;
 }
 
 @keyframes flux-atmosphere-drift {

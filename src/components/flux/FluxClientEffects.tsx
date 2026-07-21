@@ -163,18 +163,42 @@ export function FluxClientEffects() {
     const railBar = document.querySelector<HTMLElement>("[data-rail-bar]");
     const railNumber = document.querySelector<HTMLElement>("[data-rail-number]");
     const aboutSection = document.querySelector<HTMLElement>("[data-about-section]");
-    const atmosphere = document.querySelector<HTMLElement>(".flux-atmosphere");
+    const atmosphereSvg = document.querySelector<SVGElement>(".flux-atmosphere-svg");
     const heroIllustration = document.querySelector<HTMLElement>(".flux-hero-scene");
     const statementIllustration = document.querySelector<HTMLElement>(".flux-statement-system");
     const railIllustration = document.querySelector<HTMLElement>(".flux-rail-flux");
     const archiveIllustration = document.querySelector<HTMLElement>(".flux-archive-vault");
+    const heroSvg = heroIllustration?.querySelector<SVGElement>(":scope > svg") ?? null;
+    const heroOrbits = heroIllustration?.querySelector<SVGGElement>(".flux-hero-orbits") ?? null;
+    const heroNodes = heroIllustration?.querySelector<SVGGElement>(".flux-nodes") ?? null;
+    const statementPlane = statementIllustration?.querySelector<SVGGElement>(
+      ".flux-statement-plane",
+    ) ?? null;
+    const railDrift = railIllustration?.querySelector<SVGGElement>(".flux-rail-drift") ?? null;
+    const archiveStackBack = archiveIllustration?.querySelector<SVGGElement>(
+      ".archive-vault-stack-back",
+    ) ?? null;
+    const archiveStackMid = archiveIllustration?.querySelector<SVGGElement>(
+      ".archive-vault-stack-mid",
+    ) ?? null;
+    const archiveStackFront = archiveIllustration?.querySelector<SVGGElement>(
+      ".archive-vault-stack-front",
+    ) ?? null;
+    const archiveManifest = archiveIllustration?.querySelector<SVGGElement>(
+      ".archive-vault-manifest",
+    ) ?? null;
     const illustrationTargets = Array.from(
       document.querySelectorAll<HTMLElement>("[data-illo]"),
-    ).filter((target) => !target.classList.contains("illo-contact"));
+    ).filter(
+      (target) =>
+        !target.classList.contains("illo-contact") &&
+        !target.classList.contains("flux-archive-vault"),
+    );
     const wedgeTargets = Array.from(document.querySelectorAll<HTMLElement>("[data-wedge]"));
     const magneticTargets = Array.from(document.querySelectorAll<HTMLElement>(".magnetic"));
     const railCount = Number(railSection?.dataset.railCount ?? 1);
     const lastNumericValues = new WeakMap<HTMLElement, Map<string, number>>();
+    const lastStyleValues = new WeakMap<Element, Map<string, string>>();
     const magneticRects = new Map<HTMLElement, DOMRect>();
 
     let viewportWidth = globalThis.innerWidth;
@@ -200,9 +224,16 @@ export function FluxClientEffects() {
     let scrollDirty = true;
     let wasScrolling = false;
     let pointerDirty = finePointer;
+    let scrollingClassActive = false;
     let hoveredInteractive: Element | null = null;
     let activeMagnetic: HTMLElement | null = null;
     let aboutActiveState = document.body.classList.contains("manifesto-dark");
+    let atmospherePointerX = 0;
+    let atmospherePointerY = 0;
+    let atmosphereVelocity = 0;
+    let archivePointerX = 0;
+    let archivePointerY = 0;
+    let archiveVelocity = 0;
 
     const clamp = (value: number) => Math.max(0, Math.min(1, value));
     const clampVelocity = (value: number) => Math.max(-1, Math.min(1, value));
@@ -214,6 +245,21 @@ export function FluxClientEffects() {
     };
     const progressFor = (metric: ElementMetric | null) =>
       metric ? clamp((scrollY - metric.top) / Math.max(1, metric.height - viewportHeight)) : 0;
+    const isNearViewport = (metric: ElementMetric | null, margin = viewportHeight * 0.18) =>
+      Boolean(
+        metric && metric.bottom >= scrollY - margin && metric.top <= scrollY + viewportHeight + margin,
+      );
+    const writeStyle = (target: HTMLElement | SVGElement | null, property: string, value: string) => {
+      if (!target) return;
+      let values = lastStyleValues.get(target);
+      if (!values) {
+        values = new Map();
+        lastStyleValues.set(target, values);
+      }
+      if (values.get(property) === value) return;
+      values.set(property, value);
+      target.style.setProperty(property, value);
+    };
     const writeNumber = (
       target: HTMLElement | null,
       property: string,
@@ -231,6 +277,22 @@ export function FluxClientEffects() {
       if (previous !== undefined && Math.abs(previous - value) <= epsilon) return;
       values.set(property, value);
       target.style.setProperty(property, format(value));
+    };
+
+    const updateAtmosphereTransform = () => {
+      writeStyle(
+        atmosphereSvg,
+        "transform",
+        `translate3d(${atmospherePointerX * -0.32}px, ${atmospherePointerY * -0.32}px, 0) rotate(${atmosphereVelocity * 1.5}deg)`,
+      );
+    };
+
+    const updateArchiveTransform = () => {
+      writeStyle(
+        archiveIllustration,
+        "transform",
+        `translate3d(${archivePointerX * 0.28}px, ${archivePointerY * 0.28}px, 0) skewY(${archiveVelocity * 1.2}deg)`,
+      );
     };
 
     const measureLayout = () => {
@@ -282,17 +344,19 @@ export function FluxClientEffects() {
       if (now - lastScrollAt >= 200) scrollVelocity = 0;
 
       const normalizedVelocity = clampVelocity(scrollVelocity / 120);
-      writeNumber(atmosphere, "--page-progress", pageProgress);
-      writeNumber(atmosphere, "--scroll-velocity", normalizedVelocity);
-      writeNumber(statementIllustration, "--scroll-velocity", normalizedVelocity);
-      writeNumber(archiveIllustration, "--scroll-velocity", normalizedVelocity);
-      if (scrollBarRef.current) {
-        writeNumber(
-          scrollBarRef.current,
-          "--progress-scale",
-          pageProgress,
-          (value) => String(value),
+      atmosphereVelocity = normalizedVelocity;
+      archiveVelocity = normalizedVelocity;
+      updateAtmosphereTransform();
+      updateArchiveTransform();
+      if (isNearViewport(pinMetric)) {
+        writeStyle(
+          statementPlane,
+          "transform",
+          `rotateX(60deg) rotateZ(${normalizedVelocity * 45}deg) scale(0.8)`,
         );
+      }
+      if (scrollBarRef.current) {
+        writeStyle(scrollBarRef.current, "transform", `scaleX(${pageProgress})`);
       }
 
       const pinProgress = progressFor(pinMetric);
@@ -300,28 +364,26 @@ export function FluxClientEffects() {
       const mobile = viewportWidth <= 640;
       // Scale is capped so the pinned statement can never overrun the fixed nav
       // or its own caption (previously grew to ~1.7x and collided with both).
-      writeNumber(
+      const pinScale = mobile
+        ? 0.9 + pinProgress * 0.1
+        : compact
+          ? 0.88 + pinProgress * 0.14
+          : 0.84 + pinProgress * 0.22;
+      writeStyle(
         giant,
-        "--pin-scale",
-        mobile
-          ? 0.9 + pinProgress * 0.1
-          : compact
-            ? 0.88 + pinProgress * 0.14
-            : 0.84 + pinProgress * 0.22,
+        "transform",
+        `translate3d(0, 0, 0) scale(${pinScale})`,
       );
 
       const railProgress = compact ? 0 : progressFor(railMetric);
       if (railTrack) {
-        writeNumber(
+        writeStyle(
           railTrack,
-          "--rail-offset",
-          reducedMotion || compact ? 0 : -railTravel * railProgress,
-          (value) => `${value}px`,
-          0.25,
+          "transform",
+          `translate3d(${reducedMotion || compact ? 0 : -railTravel * railProgress}px, 0, 0)`,
         );
       }
-      writeNumber(railBar, "--rail-bar-scale", railProgress);
-      writeNumber(railIllustration, "--rail-progress", railProgress);
+      writeStyle(railBar, "transform", `scaleX(${railProgress})`);
       if (railNumber) {
         const activeIndex = Math.min(
           railCount,
@@ -342,22 +404,58 @@ export function FluxClientEffects() {
       }
 
       illustrationMetrics.forEach(({ target, metric }) => {
+        if (!isNearViewport(metric)) return;
         const progress = clamp(
           (viewportHeight - (metric.top - scrollY)) / (viewportHeight + metric.height),
         );
-        writeNumber(target, "--illo-progress", progress);
-        writeNumber(target, "--illo-drift", (progress - 0.5) * 56, (value) => `${value}px`, 0.1);
-        writeNumber(target, "--illo-rotate", (progress - 0.5) * 9, (value) => `${value}deg`, 0.05);
+        const drift = (progress - 0.5) * 56;
+        const rotate = (progress - 0.5) * 9;
+        const scale = 0.985 + progress * 0.045;
+
+        if (target === railIllustration) {
+          writeStyle(
+            target,
+            "transform",
+            `translate3d(${railProgress * -120}px, ${drift}px, 0)`,
+          );
+          writeStyle(railDrift, "transform", `translateX(${railProgress * -200}px)`);
+          return;
+        }
+
+        writeStyle(
+          target,
+          "transform",
+          `translate3d(0, ${drift}px, 0) rotate(${rotate}deg) scale(${scale})`,
+        );
+        if (target.classList.contains("flux-chapter-illo")) {
+          writeStyle(
+            target.querySelector<SVGGElement>(".flux-chapter-spin"),
+            "transform",
+            `rotate(${progress * 360}deg)`,
+          );
+          writeStyle(
+            target.querySelector<SVGGElement>(".flux-chapter-drift"),
+            "transform",
+            `translateY(${-drift}px)`,
+          );
+          writeStyle(
+            target.querySelector<SVGGElement>(".flux-chapter-scale"),
+            "transform",
+            `scale(${1 + progress * 0.5})`,
+          );
+        }
       });
 
       const focusY = scrollY + viewportHeight * 0.48;
-      const activeWedge = wedgeMetrics
-        .filter(({ metric }) => metric.bottom > scrollY && metric.top < scrollY + viewportHeight)
-        .sort(
-          (a, b) =>
-            Math.abs(a.metric.top + a.metric.height / 2 - focusY) -
-            Math.abs(b.metric.top + b.metric.height / 2 - focusY),
-        )[0]?.target.dataset.wedge;
+      let activeWedge: string | undefined;
+      let activeWedgeDistance = Infinity;
+      wedgeMetrics.forEach(({ target, metric }) => {
+        if (metric.bottom <= scrollY || metric.top >= scrollY + viewportHeight) return;
+        const distance = Math.abs(metric.top + metric.height / 2 - focusY);
+        if (distance >= activeWedgeDistance) return;
+        activeWedgeDistance = distance;
+        activeWedge = target.dataset.wedge;
+      });
       if (activeWedge && root.dataset.aboutActive !== activeWedge) {
         root.dataset.aboutActive = activeWedge;
       }
@@ -369,10 +467,35 @@ export function FluxClientEffects() {
       const normalizedY = pointerY / viewportHeight;
       const x = (normalizedX - 0.5) * 34;
       const y = (normalizedY - 0.5) * 34;
-      [atmosphere, heroIllustration, archiveIllustration].forEach((target) => {
-        writeNumber(target, "--pointer-x", x, (value) => `${value}px`, 0.1);
-        writeNumber(target, "--pointer-y", y, (value) => `${value}px`, 0.1);
-      });
+      atmospherePointerX = x;
+      atmospherePointerY = y;
+      archivePointerX = x;
+      archivePointerY = y;
+      updateAtmosphereTransform();
+      updateArchiveTransform();
+      writeStyle(heroSvg, "transform", `translate3d(${x}px, ${y}px, 0)`);
+      writeStyle(heroOrbits, "transform", `translate(${x * 1.5}px, ${y * 1.5}px)`);
+      writeStyle(heroNodes, "transform", `translate(${x * -2}px, ${y * -2}px)`);
+      writeStyle(
+        archiveStackBack,
+        "transform",
+        `translate3d(${x * -0.18}px, ${y * -0.18}px, 0)`,
+      );
+      writeStyle(
+        archiveStackMid,
+        "transform",
+        `translate3d(${x * 0.18}px, ${y * 0.18}px, 0)`,
+      );
+      writeStyle(
+        archiveStackFront,
+        "transform",
+        `translate3d(${x * 0.34}px, ${y * 0.34}px, 0)`,
+      );
+      writeStyle(
+        archiveManifest,
+        "transform",
+        `translate3d(${x * -0.28}px, ${y * -0.28}px, 0)`,
+      );
     };
 
     const schedule = () => {
@@ -382,6 +505,10 @@ export function FluxClientEffects() {
     const tick = (now: number) => {
       frame = 0;
       const scrolling = now - lastScrollAt < 200;
+      if (scrolling !== scrollingClassActive) {
+        scrollingClassActive = scrolling;
+        document.documentElement.classList.toggle("is-scrolling", scrolling);
+      }
       if (scrollDirty || scrolling || wasScrolling) {
         updateScrollEffects(now);
         scrollDirty = false;
@@ -482,6 +609,7 @@ export function FluxClientEffects() {
       globalThis.removeEventListener("resize", onResize);
       globalThis.removeEventListener("pointermove", onPointerMove);
       document.documentElement.removeEventListener("pointerleave", onPointerLeave);
+      document.documentElement.classList.remove("is-scrolling");
       if (activeMagnetic) activeMagnetic.style.transform = "";
     };
   }, [finePointer, reducedMotion]);
