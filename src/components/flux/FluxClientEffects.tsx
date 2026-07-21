@@ -109,7 +109,6 @@ export function FluxClientEffects() {
         "manifesto-mounted",
         "manifesto-illustrated",
         "manifesto-dark",
-        "reveal-ready",
         "variant-flux",
       );
       document.documentElement.classList.remove("is-scrolling");
@@ -122,7 +121,6 @@ export function FluxClientEffects() {
     );
 
     if (reducedMotion) {
-      document.body.classList.remove("reveal-ready");
       revealTargets.forEach((target) => target.classList.add("is-in"));
       return;
     }
@@ -136,18 +134,8 @@ export function FluxClientEffects() {
       { threshold: 0.18 },
     );
     revealTargets.forEach((target) => observer.observe(target));
-    document.body.classList.add("reveal-ready");
-
-    const revealFallback = globalThis.setTimeout(() => {
-      const observerHasResponded = revealTargets.some((target) =>
-        target.classList.contains("is-in"),
-      );
-      if (!observerHasResponded) document.body.classList.remove("reveal-ready");
-    }, 1500);
 
     return () => {
-      globalThis.clearTimeout(revealFallback);
-      document.body.classList.remove("reveal-ready");
       observer.disconnect();
     };
   }, [reducedMotion]);

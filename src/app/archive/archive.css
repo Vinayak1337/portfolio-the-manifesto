@@ -725,10 +725,10 @@
 }
 
 .archive-projects-page .nav {
-  background: rgb(10 9 8 / 78%);
+  background: rgb(10 9 8 / 98%);
   border-bottom-color: var(--rule);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .archive-projects-page .hero {
@@ -1234,6 +1234,22 @@
       "glyph co ar"
       ".     tg tg"
       ".     yr yr";
+  }
+
+  .archive-page .filter-bar,
+  .archive-page .contact-sec .cta-row {
+    justify-content: center;
+  }
+
+  .archive-page .contact-sec .big,
+  .archive-page .footer-meta {
+    text-align: center;
+  }
+
+  .archive-page .footer-meta {
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
   }
 }
 

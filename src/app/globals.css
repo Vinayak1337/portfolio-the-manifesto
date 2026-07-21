@@ -267,14 +267,6 @@ select {
   transition-delay: calc(var(--i) * 50ms);
 }
 
-.reveal-ready .split[data-reveal]:not(.is-in) .word {
-  clip-path: inset(-20% -20% 100% -20%);
-}
-
-.reveal-ready .split[data-reveal]:not(.is-in) .word > span {
-  transform: translateY(110%);
-}
-
 .split.is-in .word,
 .hero-title .word {
   clip-path: none;
@@ -306,8 +298,8 @@ select {
 @keyframes word-in {
   from {
     opacity: 1;
-    filter: blur(14px);
-    transform: translateY(110%) rotate(6deg);
+    filter: blur(0);
+    transform: translateY(10px) rotate(0.4deg);
   }
 }
 
@@ -329,11 +321,6 @@ select {
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.9s var(--ease-out-expo);
-}
-
-.reveal-ready .hero-sub[data-reveal]:not(.is-in) {
-  opacity: 0;
-  transform: translateY(30px);
 }
 
 .hero-sub.is-in {
@@ -521,15 +508,6 @@ select {
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.9s var(--ease-out-expo);
-}
-
-/*
- * Chapter cards stack stickily, so they must stay fully opaque at all times:
- * an opacity reveal lets the previous card's text bleed through mid-transition.
- * Reveal with transform only.
- */
-.reveal-ready .chapter-card[data-reveal]:not(.is-in) {
-  transform: translateY(30px);
 }
 
 .chapter-card.is-in {
@@ -1207,17 +1185,6 @@ select {
 .variant-flux[data-about-active="ai"] .about-sec p[data-wedge="ai"],
 .variant-flux[data-about-active="data"] .about-sec p[data-wedge="data"] {
   opacity: 1;
-}
-
-.reveal-ready .about-sec [data-reveal]:not(.is-in),
-.reveal-ready .contact-sec [data-reveal]:not(.is-in),
-.reveal-ready .exp-sec [data-reveal]:not(.is-in),
-.reveal-ready .oss-sec [data-reveal]:not(.is-in) {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.9s var(--ease-out-expo),
-    transform 0.9s var(--ease-out-expo);
 }
 
 .about-sec [data-reveal].is-in,
@@ -2266,11 +2233,11 @@ body.variant-flux {
 }
 
 .variant-flux .nav {
-  background: linear-gradient(180deg, rgb(10 9 8 / 96%), rgb(10 9 8 / 82%));
+  background: rgb(10 9 8 / 98%);
   border-bottom: 1px solid var(--rule);
   color: var(--ink);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .variant-flux .hero,
@@ -2398,6 +2365,7 @@ body.variant-flux {
 .variant-flux .work-bundle[open] .work-tags,
 .variant-flux .work-bundle[open] .work-year,
 .variant-flux .work-bundle[open] .work-name,
+.variant-flux .work-bundle[open] .work-desc,
 .variant-flux .work-bundle[open] .work-arrow {
   color: var(--flux-text);
 }
@@ -2437,14 +2405,28 @@ body.variant-flux {
 .variant-flux .work-row:hover .work-tags,
 .variant-flux .work-row:hover .work-year,
 .variant-flux .work-row:hover .work-name,
+.variant-flux .work-row:hover .work-desc,
 .variant-flux .work-row:hover .work-arrow,
 .variant-flux .work-row:focus-visible .work-num,
 .variant-flux .work-row:focus-visible .work-tags,
 .variant-flux .work-row:focus-visible .work-year,
 .variant-flux .work-row:focus-visible .work-name,
+.variant-flux .work-row:focus-visible .work-desc,
 .variant-flux .work-row:focus-visible .work-arrow,
+.variant-flux .work-row:focus-within .work-num,
+.variant-flux .work-row:focus-within .work-tags,
+.variant-flux .work-row:focus-within .work-year,
+.variant-flux .work-row:focus-within .work-name,
+.variant-flux .work-row:focus-within .work-desc,
+.variant-flux .work-row:focus-within .work-arrow,
 .variant-flux .exp-item:hover > * {
   color: var(--flux-text);
+}
+
+.variant-flux .work-row:hover .work-link-menu summary,
+.variant-flux .work-row:focus-within .work-link-menu summary {
+  color: var(--flux-text);
+  border-color: var(--flux-text);
 }
 
 .variant-flux .exp-item:hover .exp-date,
@@ -3049,7 +3031,8 @@ html.is-scrolling .flux-archive-hero-illo {
   }
 
   .chapter-card {
-    top: 92px;
+    position: relative;
+    top: auto;
     min-height: auto;
     padding: 34px 24px;
   }
@@ -3080,10 +3063,13 @@ html.is-scrolling .flux-archive-hero-illo {
     right: auto;
     left: auto;
     display: grid;
+    justify-items: center;
     margin-bottom: 34px;
+    text-align: center;
   }
 
   .rail-counter {
+    justify-self: center;
     white-space: normal;
   }
 
@@ -3137,6 +3123,15 @@ html.is-scrolling .flux-archive-hero-illo {
     line-height: 1.08;
   }
 
+  .work-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .work-header-copy {
+    justify-items: center;
+  }
+
   .contact-sec {
     padding-top: 126px;
   }
@@ -3151,6 +3146,17 @@ html.is-scrolling .flux-archive-hero-illo {
 
   .contact-row {
     gap: 34px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .contact-links {
+    justify-content: center;
+  }
+
+  .footer-meta {
+    align-items: center;
+    text-align: center;
   }
 
   .email {
@@ -3315,6 +3321,16 @@ html.is-scrolling .flux-archive-hero-illo {
 
   .stats {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .stat {
+    width: min(100%, 280px);
+    text-align: center;
+  }
+
+  .stat-label {
+    margin-inline: auto;
   }
 
   .stat::before {
@@ -3362,7 +3378,8 @@ html.is-scrolling .flux-archive-hero-illo {
   }
 
   .email {
-    font-size: 30px;
+    font-size: clamp(22px, 7vw, 30px);
+    white-space: nowrap;
   }
 
   .contact-links {
