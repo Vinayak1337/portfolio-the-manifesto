@@ -93,6 +93,13 @@ function FluxAtmosphere({ reducedMotion }: Readonly<{ reducedMotion: boolean }>)
 }
 
 type ElementMetric = Readonly<{ top: number; height: number; bottom: number }>;
+type MagneticMetric = Readonly<{
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  fixed: boolean;
+}>;
 
 export function FluxClientEffects() {
   const reducedMotion = useReducedMotion();
@@ -187,7 +194,7 @@ export function FluxClientEffects() {
     const railCount = Number(railSection?.dataset.railCount ?? 1);
     const lastNumericValues = new WeakMap<HTMLElement, Map<string, number>>();
     const lastStyleValues = new WeakMap<Element, Map<string, string>>();
-    const magneticRects = new Map<HTMLElement, DOMRect>();
+    const magneticRects = new Map<HTMLElement, MagneticMetric>();
 
     let viewportWidth = globalThis.innerWidth;
     let viewportHeight = globalThis.innerHeight;
@@ -318,7 +325,25 @@ export function FluxClientEffects() {
         return metric ? [{ target, metric }] : [];
       });
       magneticRects.clear();
-      magneticTargets.forEach((target) => magneticRects.set(target, target.getBoundingClientRect()));
+      magneticTargets.forEach((target) => {
+        const rect = target.getBoundingClientRect();
+        let ancestor: HTMLElement | null = target;
+        let fixed = false;
+        while (ancestor) {
+          if (getComputedStyle(ancestor).position === "fixed") {
+            fixed = true;
+            break;
+          }
+          ancestor = ancestor.parentElement;
+        }
+        magneticRects.set(target, {
+          left: rect.left + (fixed ? 0 : globalThis.scrollX),
+          top: rect.top + (fixed ? 0 : globalThis.scrollY),
+          width: rect.width,
+          height: rect.height,
+          fixed,
+        });
+      });
       documentMax = Math.max(1, document.documentElement.scrollHeight - viewportHeight);
       scrollDirty = true;
       pointerDirty = finePointer;
@@ -548,8 +573,10 @@ export function FluxClientEffects() {
       activeMagnetic = magnetic;
       const rect = magnetic ? magneticRects.get(magnetic) : null;
       if (magnetic && rect) {
-        const x = (event.clientX - (rect.left + rect.width / 2)) * 0.18;
-        const y = (event.clientY - (rect.top + rect.height / 2)) * 0.18;
+        const centerX = rect.left - (rect.fixed ? 0 : globalThis.scrollX) + rect.width / 2;
+        const centerY = rect.top - (rect.fixed ? 0 : globalThis.scrollY) + rect.height / 2;
+        const x = (event.clientX - centerX) * 0.18;
+        const y = (event.clientY - centerY) * 0.18;
         magnetic.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       }
 
