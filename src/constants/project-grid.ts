@@ -39,7 +39,7 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "ai-chat-vsc-extension",
     index: "02",
-    name: "AI Chat — VS Code Extension",
+    name: "AI Chat / VS Code Extension",
     company: "Personal",
     year: "2024",
     role: "AI Tooling Engineer",
@@ -183,7 +183,7 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "training-and-placement-bpit",
     index: "11",
-    name: "Training & Placement — BPIT",
+    name: "Training & Placement / BPIT",
     company: "BPIT Demo",
     year: "2025",
     role: "Full-stack Engineer",

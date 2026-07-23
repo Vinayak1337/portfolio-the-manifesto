@@ -119,7 +119,7 @@ export function ArchiveClientView({
     >
       {isFlux ? <FluxClientEffects /> : null}
       <Navbar
-        mark={isFlux ? "VK — PROJECTS / IDX.2026" : "VK — THE ARCHIVE / IDX.2026"}
+        mark={isFlux ? "VK / PROJECTS / IDX.2026" : "VK / THE ARCHIVE / IDX.2026"}
         links={navLinks}
         status="available Jun 16, 2026"
       />

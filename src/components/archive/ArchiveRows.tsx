@@ -10,16 +10,16 @@ export type ArchiveCategoryOption = Readonly<{
 }>;
 
 function renderName(name: string) {
-  const dashIdx = name.indexOf(" — ");
+  const delimiterIdx = name.indexOf(" / ");
 
-  if (dashIdx === -1) {
+  if (delimiterIdx === -1) {
     return name;
   }
 
   return (
     <>
-      {name.slice(0, dashIdx)}
-      <em>{name.slice(dashIdx)}</em>
+      {name.slice(0, delimiterIdx)}
+      <em>{name.slice(delimiterIdx)}</em>
     </>
   );
 }

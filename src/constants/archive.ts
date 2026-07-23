@@ -76,7 +76,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "kmrl-ai-backend",
-    name: "KMRL — AI Backend",
+    name: "KMRL / AI Backend",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -104,7 +104,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "training-and-placement-bpit",
-    name: "Training & Placement — BPIT",
+    name: "Training & Placement / BPIT",
     company: "BPIT Tech Team",
     year: "2025",
     category: "WORK",
@@ -118,7 +118,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "chaintusker-nft-server",
-    name: "Chaintusker NFT — Server",
+    name: "Chaintusker NFT / Server",
     company: "Freelance",
     year: "2022",
     category: "FREELANCE",
@@ -160,7 +160,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "picmash-server",
-    name: "Picmash — Backend",
+    name: "Picmash / Backend",
     company: "Personal",
     year: "2020",
     category: "PERSONAL",
@@ -174,7 +174,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "kmrl-frontend",
-    name: "KMRL — Frontend",
+    name: "KMRL / Frontend",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -325,7 +325,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   // ────────────────────────────────────────────────────────────────────────
   {
     id: "ai-chat-vsc-extension",
-    name: "AI Chat — VS Code Extension",
+    name: "AI Chat / VS Code Extension",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -339,7 +339,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "storefront-nextjs",
-    name: "StoreFront — Next.js",
+    name: "StoreFront / Next.js",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -371,7 +371,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   // ────────────────────────────────────────────────────────────────────────
   {
     id: "cadillacs-server",
-    name: "Cadillacs — Backend",
+    name: "Cadillacs / Backend",
     company: "Freelance",
     year: "2022",
     category: "FREELANCE",
@@ -385,7 +385,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "face-recognition-server",
-    name: "Face Recognition — Backend",
+    name: "Face Recognition / Backend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -399,7 +399,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "dating-server",
-    name: "Dating App — Backend",
+    name: "Dating App / Backend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -413,7 +413,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "books-mgmt-frontend",
-    name: "Books Management — Frontend",
+    name: "Books Management / Frontend",
     company: "Personal",
     year: "2022",
     category: "PERSONAL",
@@ -427,7 +427,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "bettrhq-flask-react",
-    name: "Bettrhq — Flask/React Assessment",
+    name: "Bettrhq / Flask/React Assessment",
     company: "Bettrhq",
     year: "2023",
     category: "FREELANCE",
@@ -455,7 +455,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "firework-frontend",
-    name: "Firework — Frontend",
+    name: "Firework / Frontend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -469,7 +469,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "firework-backend",
-    name: "Firework — Backend",
+    name: "Firework / Backend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -497,7 +497,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "picmash-app",
-    name: "Picmash — Frontend",
+    name: "Picmash / Frontend",
     company: "Personal",
     year: "2020",
     category: "PERSONAL",
@@ -567,7 +567,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "dating-website",
-    name: "Dating App — Landing",
+    name: "Dating App / Landing",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -581,7 +581,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "kmrl-backend",
-    name: "KMRL — Backend",
+    name: "KMRL / Backend",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -595,7 +595,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "books-mgmt-server",
-    name: "Books Management — Backend",
+    name: "Books Management / Backend",
     company: "Personal",
     year: "2022",
     category: "PERSONAL",
@@ -637,7 +637,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "cup-n-connect-app",
-    name: "Cup-n-Connect — App",
+    name: "Cup-n-Connect / App",
     company: "Personal",
     year: "2022",
     category: "PERSONAL",
@@ -714,7 +714,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "levtours-server",
-    name: "LevTours — Backend",
+    name: "LevTours / Backend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -770,7 +770,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "autism-detector-test",
-    name: "Autism Detector — Test Harness",
+    name: "Autism Detector / Test Harness",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -784,7 +784,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "levtours-website",
-    name: "LevTours — Landing",
+    name: "LevTours / Landing",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -798,7 +798,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "movie-upload-server",
-    name: "Movie Upload — Backend",
+    name: "Movie Upload / Backend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -826,7 +826,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "dating-admin",
-    name: "Dating App — Admin",
+    name: "Dating App / Admin",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -858,7 +858,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "face-recognition-app",
-    name: "Face Recognition — Frontend",
+    name: "Face Recognition / Frontend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -886,7 +886,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "levtours-admin",
-    name: "LevTours — Admin",
+    name: "LevTours / Admin",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -914,7 +914,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "movie-upload-frontend",
-    name: "Movie Upload — Frontend",
+    name: "Movie Upload / Frontend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",

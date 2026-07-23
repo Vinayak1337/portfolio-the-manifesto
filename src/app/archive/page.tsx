@@ -10,12 +10,12 @@ import { archiveNavigationLinks, marqueeTech, person, site } from "@/constants/p
 import "./archive.css";
 
 export const metadata: Metadata = {
-  title: "Projects — Vinayak Kumar",
+  title: "Projects / Vinayak Kumar",
   description:
     "Project index for Vinayak Kumar: React, Next.js, TypeScript, full-stack dashboards, CMS workflows, ed-tech, commerce, and applied AI builds.",
   alternates: { canonical: "/archive" },
   openGraph: {
-    title: "Projects — Vinayak Kumar",
+    title: "Projects / Vinayak Kumar",
     description:
       "Project index for Vinayak1337 work across React, Next.js, TypeScript, product dashboards, CMS workflows, and applied AI systems.",
     url: "/archive",
