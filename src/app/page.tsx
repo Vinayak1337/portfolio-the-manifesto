@@ -64,7 +64,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main
-        className="manifesto-root illustrated-root has-custom-cursor variant-flux"
+        className="manifesto-root illustrated-root has-custom-cursor variant-flux variant-atlas"
         data-about-active="web"
         data-flux-root
         id="main"

@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { person, seoKeywords, site } from "@/constants/portfolio";
 import "./globals.css";
+import "./restyle-v2.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,11 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
+const atlasDisplay = localFont({
+  src: "./fonts/gambarino-regular.woff2",
   variable: "--font-instrument-serif",
-  subsets: ["latin"],
   weight: "400",
-  style: ["normal", "italic"],
+  style: "normal",
+  display: "swap",
 });
 
 const enableVercelTelemetry = process.env.VERCEL === "1";
@@ -76,8 +79,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0908",
-  colorScheme: "dark",
+  themeColor: "#dfe5d8",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -88,7 +91,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${atlasDisplay.variable} h-full antialiased`}
     >
       <body>
         {children}
