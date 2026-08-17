@@ -22,7 +22,12 @@ export function Chapters({
           const [before, after = ""] = chapter.headline.split(chapter.emphasis);
 
           return (
-            <article className="chapter-card" data-reveal key={chapter.number}>
+            <article
+              className="chapter-card"
+              data-chapter-index={chapter.number}
+              data-reveal
+              key={chapter.number}
+            >
               {renderIllustration(index)}
               <div>
                 <div className="chapter-number">{chapter.number}</div>
@@ -38,6 +43,7 @@ export function Chapters({
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              <span className="chapter-corner-rule" aria-hidden="true" />
             </article>
           );
         })}

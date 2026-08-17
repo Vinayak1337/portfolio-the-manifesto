@@ -15,6 +15,9 @@ export function Statement({
     <section className="pin-type" data-pin-section aria-label="Manifesto statement">
       <div className="pin">
         {illustration}
+        <div className="statement-marker" aria-hidden="true">
+          01 / OPERATING PRINCIPLE
+        </div>
         <div className="giant" data-pin-giant>
           {lines.slice(0, -1).map((line) => (
             <span key={line}>
@@ -22,7 +25,9 @@ export function Statement({
               <br />
             </span>
           ))}
-          prototype to <em>production.</em>
+          <span>
+            prototype <em>→ production.</em>
+          </span>
         </div>
         <div className="sub-caption" aria-hidden="true">
           {caption}

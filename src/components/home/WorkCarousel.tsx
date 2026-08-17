@@ -6,6 +6,18 @@ import { externalLinkProps } from "@/components/shared/links";
 import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
 import { imageBlurDataURLs } from "@/constants/image-blurs";
 
+function RailSeam({ index }: Readonly<{ index: number }>) {
+  return (
+    <span className="rail-seam" data-rail-index={index + 1} aria-hidden="true">
+      <span className="rail-seam-line" />
+      <span className="rail-seam-tick rail-seam-tick-top" />
+      <span className="rail-seam-mid" />
+      <span className="rail-seam-tick rail-seam-tick-bottom" />
+      <span className="rail-seam-index">{String(index + 1).padStart(2, "0")}</span>
+    </span>
+  );
+}
+
 export function WorkCarousel({
   illustration,
   projects,
@@ -45,8 +57,9 @@ export function WorkCarousel({
 
         <div className="rail-track" data-rail-track>
           {projects.map((project, index) => {
-            const hasDirectLink = Boolean(project.link);
-            const link = externalLinkProps(project.link);
+            const primaryLink = project.link ?? project.links?.[0]?.href ?? null;
+            const hasPrimaryLink = Boolean(primaryLink);
+            const link = externalLinkProps(primaryLink);
             const content = (
               <>
                 <div className="rail-cover">
@@ -68,34 +81,62 @@ export function WorkCarousel({
                   <span>{project.year}</span>
                 </div>
                 <h3>{project.name}</h3>
+                <span className="rail-role">{project.role}</span>
                 <span className="rail-tech-tags" aria-label={`${project.name} technologies`}>
                   {project.tags.slice(0, 4).join(" / ")}
                 </span>
                 <p>{project.outcome ?? project.tags.slice(0, 4).join(" / ")}</p>
+                <span className="rail-action">
+                  <span>{hasPrimaryLink ? "View project" : "No public surface"}</span>
+                  <span aria-hidden="true">{hasPrimaryLink ? "↗" : "—"}</span>
+                </span>
               </>
             );
 
             if (project.links?.length) {
               return (
-                <article className="rail-card" key={project.id}>
-                  {content}
-                  <ProjectLinkMenu className="rail-link-menu" links={project.links} />
-                </article>
+                <div className="rail-item" key={project.id}>
+                  <article className="rail-card">
+                    <a
+                      className="rail-card-main"
+                      aria-label={`Open ${project.name} project`}
+                      {...link}
+                    >
+                      {content}
+                    </a>
+                    <ProjectLinkMenu
+                      className="rail-link-menu"
+                      label="Open surfaces"
+                      links={project.links}
+                    />
+                  </article>
+                  {index < projects.length - 1 ? <RailSeam index={index} /> : null}
+                </div>
               );
             }
 
-            if (!hasDirectLink) {
+            if (!hasPrimaryLink) {
               return (
-                <article className="rail-card rail-card-static" key={project.id}>
-                  {content}
-                </article>
+                <div className="rail-item" key={project.id}>
+                  <article className="rail-card rail-card-direct rail-card-static">
+                    {content}
+                  </article>
+                  {index < projects.length - 1 ? <RailSeam index={index} /> : null}
+                </div>
               );
             }
 
             return (
-              <a className="rail-card" key={project.id} {...link}>
-                {content}
-              </a>
+              <div className="rail-item" key={project.id}>
+                <a
+                  className="rail-card rail-card-direct"
+                  aria-label={`Open ${project.name} project`}
+                  {...link}
+                >
+                  {content}
+                </a>
+                {index < projects.length - 1 ? <RailSeam index={index} /> : null}
+              </div>
             );
           })}
         </div>

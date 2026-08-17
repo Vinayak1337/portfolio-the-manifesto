@@ -23,12 +23,12 @@ export const portfolioGridProjects: Project[] = [
     category: "PERSONAL",
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.webp",
-    link: "https://github.com/Vinayak1337/NutriLife",
+    link: "https://github.com/Vinayak1337/Mealwise",
     links: [
-      { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
+      { label: "GitHub", href: "https://github.com/Vinayak1337/Mealwise" },
       {
         label: "Download APK (v1.0.0)",
-        href: "https://github.com/Vinayak1337/NutriLife/releases/tag/v1.0.0",
+        href: "https://github.com/Vinayak1337/Mealwise/releases/tag/v1.0.0",
       },
     ],
     blurb:

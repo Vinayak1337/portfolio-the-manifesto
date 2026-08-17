@@ -30,6 +30,7 @@ import {
   homeHero,
   jsonLd,
   ledgerProjects,
+  marqueeDomains,
   marqueeTech,
   navigationLinks,
   openSourceContributions,
@@ -110,7 +111,7 @@ export default function Home() {
           illustration={<FluxExperienceIllustration />}
         />
         <OpenSource contributions={openSourceContributions} />
-        <Marquee items={["RAG", "Agents", "Evals", "Commerce", "Ed-tech"]} variant="reverse" />
+        <Marquee items={marqueeDomains} variant="reverse" />
         <Contact illustration={<FluxContactIllustration />} person={person} />
       </main>
     </>

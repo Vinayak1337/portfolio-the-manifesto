@@ -1,6 +1,7 @@
 import type { ArchiveCategory, ArchiveProject } from "@/constants/archive";
 import type { ProjectLink } from "@/constants/portfolio";
 import { externalLinkProps } from "@/components/shared/links";
+import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
 
 export type CatFilter = ArchiveCategory | "ALL";
 
@@ -51,8 +52,14 @@ export function ArchiveRow({
   onMove: (x: number, y: number) => void;
   project: ArchiveProject;
 }>) {
-  const href = project.link ?? project.repo ?? undefined;
+  const href = project.link ?? project.repo ?? null;
   const hasDirectLink = Boolean(href);
+  const actionLabel = project.links?.length && !hasDirectLink
+    ? "Open surfaces"
+    : hasDirectLink
+      ? "Open project"
+      : "No public link";
+  const actionArrow = project.links?.length && !hasDirectLink ? "↘" : hasDirectLink ? "↗" : "—";
   const content = (
     <>
       <span className="idx">{displayIndex}</span>
@@ -72,21 +79,50 @@ export function ArchiveRow({
         ))}
       </span>
       <span className="yr">{project.year}</span>
-      {project.links?.length ? (
-        <span className="ar archive-expand-indicator" aria-hidden>
-          +
-        </span>
-      ) : hasDirectLink ? (
-        <span className="ar" aria-hidden>
-          ↗
+      {hasDirectLink || project.links?.length ? (
+        <span className="ar archive-action">
+          <span className="archive-action-label">{actionLabel}</span>
+          <span className="archive-expand-indicator" aria-hidden>
+            {actionArrow}
+          </span>
         </span>
       ) : (
-        <span className="ar ar-muted" aria-hidden>
-          -
+        <span className="ar ar-muted archive-action">
+          <span className="archive-action-label">No public link</span>
+          <span aria-hidden>—</span>
         </span>
       )}
     </>
   );
+
+  if (project.links?.length && hasDirectLink) {
+    return (
+      <div
+        className="archive-bundle-row archive-bundle-linked"
+        data-tier={project.tier.toLowerCase()}
+        onMouseEnter={(event) => {
+          onMove(event.clientX, event.clientY);
+          onHover(project);
+        }}
+        onMouseLeave={() => onHover(null)}
+        onMouseMove={(event) => onMove(event.clientX, event.clientY)}
+      >
+        <a
+          className="tbl-row"
+          data-tier={project.tier.toLowerCase()}
+          aria-label={`Open ${project.name} project`}
+          {...externalLinkProps(href)}
+        >
+          {content}
+        </a>
+        <ProjectLinkMenu
+          className="archive-link-menu"
+          label="Open surfaces"
+          links={project.links}
+        />
+      </div>
+    );
+  }
 
   if (project.links?.length) {
     return (
@@ -100,7 +136,11 @@ export function ArchiveRow({
         onMouseLeave={() => onHover(null)}
         onMouseMove={(event) => onMove(event.clientX, event.clientY)}
       >
-        <summary className="tbl-row tbl-row-bundle" data-tier={project.tier.toLowerCase()}>
+        <summary
+          className="tbl-row tbl-row-bundle"
+          data-tier={project.tier.toLowerCase()}
+          aria-label={`Open ${project.name} project surfaces`}
+        >
           {content}
         </summary>
         <BundleLinks links={project.links} />
@@ -129,9 +169,8 @@ export function ArchiveRow({
     <a
       className="tbl-row"
       data-tier={project.tier.toLowerCase()}
-      href={href}
-      target="_blank"
-      rel="noreferrer"
+      aria-label={`Open ${project.name} project`}
+      {...externalLinkProps(href)}
       onMouseEnter={(event) => {
         onMove(event.clientX, event.clientY);
         onHover(project);

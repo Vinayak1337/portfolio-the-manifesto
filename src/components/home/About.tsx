@@ -3,6 +3,8 @@ import type { AboutWedge } from "@/constants/portfolio";
 import { SplitText } from "@/components/shared/SplitText";
 
 type AboutParagraph = Readonly<{
+  number: string;
+  label: string;
   text: string;
   wedge: AboutWedge;
 }>;
@@ -60,12 +62,27 @@ export function About({
           </div>
         </div>
         <div className="about-body">
-          <div className="about-paragraphs">
-            {paragraphs.map((paragraph) => (
-              <p data-reveal data-wedge={paragraph.wedge} key={paragraph.text}>
-                {paragraph.text}
-              </p>
-            ))}
+          <div className="about-reading">
+            <div className="about-reading-lead" data-reveal>
+              <span className="about-reading-kicker">01 / PRODUCT LAYER</span>
+              <h3>I build the product layer around real workflows.</h3>
+            </div>
+            <div className="about-paragraphs">
+              {paragraphs.map((paragraph) => (
+                <article
+                  className="about-entry"
+                  data-reveal
+                  data-wedge={paragraph.wedge}
+                  key={paragraph.text}
+                >
+                  <div className="about-entry-index">{paragraph.number}</div>
+                  <div className="about-entry-body">
+                    <div className="about-entry-label">{paragraph.label}</div>
+                    <p>{paragraph.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
           <div className="stats" data-reveal>
             {highlights.map((highlight) => (

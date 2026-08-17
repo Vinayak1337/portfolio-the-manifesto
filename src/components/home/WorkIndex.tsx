@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import type { Project, ProjectLink } from "@/constants/portfolio";
 import { SplitText } from "@/components/shared/SplitText";
 import { externalLinkProps } from "@/components/shared/links";
+import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
 import { imageBlurDataURLs } from "@/constants/image-blurs";
 
 function BundleLinks({ links }: Readonly<{ links: readonly ProjectLink[] }>) {
@@ -50,32 +51,32 @@ export function WorkIndex({
       </div>
       <div className="work-list">
         {projects.map((project, index) => {
-          const hasDirectLink = Boolean(project.link);
-          const link = externalLinkProps(project.link);
+          const primaryLink = project.link ?? project.links?.[0]?.href ?? null;
+          const hasPrimaryLink = Boolean(primaryLink);
+          const link = externalLinkProps(primaryLink);
           const displayIndex = (index + startIndex).toString().padStart(2, "0");
           const description = project.outcome ?? project.blurb;
+          const actionLabel = project.links?.length && !hasPrimaryLink
+            ? "Open surfaces"
+            : hasPrimaryLink
+              ? "View project"
+              : "No public link";
           const content = (
             <>
               <span className="work-num">{displayIndex}</span>
               <span className="work-title-block">
                 <span className="work-name">{project.name}</span>
+                <span className="work-role">{project.role}</span>
                 <span className="work-desc">{description}</span>
               </span>
               <span className="work-tags">{project.tags.slice(0, 4).join(" / ")}</span>
               <span className="work-year">{`'${project.year.slice(2)}`}</span>
-              {project.links?.length ? (
-                <span className="work-arrow work-expand-indicator" aria-hidden="true">
-                  +
-                </span>
-              ) : hasDirectLink ? (
+              <span className={`work-action ${!hasPrimaryLink && !project.links?.length ? "work-action-muted" : ""}`}>
+                <span>{actionLabel}</span>
                 <span className="work-arrow" aria-hidden="true">
-                  →
+                  {project.links?.length && !hasPrimaryLink ? "↘" : hasPrimaryLink ? "↗" : "—"}
                 </span>
-              ) : (
-                <span className="work-arrow work-arrow-muted" aria-hidden="true">
-                  -
-                </span>
-              )}
+              </span>
               <Image
                 className="work-preview"
                 data-work-preview={project.id}
@@ -91,6 +92,27 @@ export function WorkIndex({
             </>
           );
 
+          if (project.links?.length && hasPrimaryLink) {
+            return (
+              <div className="work-bundle work-bundle-linked" key={project.id}>
+                <a
+                  className="work-row"
+                  data-work-row
+                  data-project-id={project.id}
+                  aria-label={`Open ${project.name} project`}
+                  {...link}
+                >
+                  {content}
+                </a>
+                <ProjectLinkMenu
+                  className="work-link-menu"
+                  label="Open surfaces"
+                  links={project.links}
+                />
+              </div>
+            );
+          }
+
           if (project.links?.length) {
             return (
               <details className="work-bundle" key={project.id}>
@@ -98,6 +120,7 @@ export function WorkIndex({
                   className="work-row work-row-bundle"
                   data-work-row
                   data-project-id={project.id}
+                  aria-label={`Open ${project.name} project surfaces`}
                 >
                   {content}
                 </summary>
@@ -106,7 +129,7 @@ export function WorkIndex({
             );
           }
 
-          if (!hasDirectLink) {
+          if (!hasPrimaryLink) {
             return (
               <div
                 className="work-row work-row-static"
@@ -125,6 +148,7 @@ export function WorkIndex({
               data-work-row
               data-project-id={project.id}
               key={project.id}
+              aria-label={`Open ${project.name} project`}
               {...link}
             >
               {content}

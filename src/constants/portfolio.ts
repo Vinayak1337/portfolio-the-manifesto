@@ -131,6 +131,26 @@ export const archiveNavigationLinks: NavLink[] = [
 ];
 
 export const marqueeTech = [
+  "React Native",
+  "Node.js",
+  "Prisma",
+  "MongoDB",
+  "LangChain",
+  "Flowise",
+  "Shopify GraphQL",
+  "PostHog",
+];
+
+export const marqueeDomains = [
+  "RAG workflows",
+  "CMS editing",
+  "Commerce",
+  "Mobile learning",
+  "Analytics",
+  "Open source",
+];
+
+export const marqueeArchiveTech = [
   "React",
   "Next.js",
   "TypeScript",
@@ -152,7 +172,7 @@ export const homeHero = {
     "I build frontend-heavy full-stack products with React, Next.js, and TypeScript: dashboards, CMS workflows, commerce and ed-tech surfaces, APIs, analytics, and applied AI features where they improve the workflow.",
   signals: [
     "React / Next.js / TypeScript",
-    "Full-time / internship roles",
+    "Product systems / applied AI",
   ],
 };
 
@@ -164,32 +184,32 @@ export const statement = {
 export const chapters = [
   {
     number: "01",
-    label: "The Premise",
-    headline: "Three-plus professional years across full-stack products, ed-tech, commerce, AI, and internal tools.",
-    emphasis: "full-stack products",
+    label: "THE PREMISE",
+    headline: "Make complex work feel obvious.",
+    emphasis: "complex work feel obvious.",
     copy: [
-      "The throughline is product engineering: dashboards teams can act on, mobile surfaces children can navigate, CMS workflows non-technical admins can operate, and RAG flows users can inspect.",
-      "What I care about: retrieval with visible evidence, state that does not collapse under product complexity, analytics that explain friction, and code teammates can read months later.",
+      "Dashboards, CMS workflows, commerce, mobile learning, and AI-assisted tools are the visible layer.",
+      "Behind them: state, APIs, auth, persistence, analytics, and deployment that keep the next action clear.",
     ],
   },
   {
     number: "02",
-    label: "The Method",
-    headline: "Full-stack because useful products need more than screens.",
-    emphasis: "more than screens",
+    label: "THE METHOD",
+    headline: "Own the whole loop.",
+    emphasis: "whole loop.",
     copy: [
-      "I build the product layer across interfaces, app state, permissions, payments, credits, analytics events, deployment paths, and AI workflows when the product needs retrieval or automation.",
-      "Next.js App Router, React Native, Node, Prisma, MongoDB, Postgres, LangChain, and Flowise are tools. The discipline is shipping small, measuring friction, and making the next iteration obvious.",
+      "Work across interface, app state, permissions, payments, retrieval, and the edge cases between them.",
+      "Guest history merges into an account. Admins edit pages in place. Teachers see progress by student or cohort.",
     ],
   },
   {
     number: "03",
-    label: "The Outcome",
-    headline: "Outcomes that hold up.",
-    emphasis: "hold up.",
+    label: "THE PROOF",
+    headline: "Ship proof, not promises.",
+    emphasis: "proof, not promises.",
     copy: [
-      "Immibot replaced a static intake with an agentic RAG flow: country-specific adapters, eligibility scoring, guest sessions, persisted history, and credit merge.",
-      "The BPIT site was built from scratch with inline click-to-edit on rendered pages, persisted via MongoDB. wonderLearn rebuilt its commerce and learning surfaces on Next.js + Shopify GraphQL.",
+      "Immibot moved from static intake to an adaptive retrieval workflow with eligibility scoring, guest sessions, and persisted history.",
+      "Wonderhood Lighthouse performance moved 35→90+ and Ionic→React Native. BPIT gained inline CMS workflows.",
     ],
   },
 ];
@@ -197,11 +217,11 @@ export const chapters = [
 export const about = {
   headline: "Software engineer. Full-stack product systems with applied AI depth.",
   paragraphs: [
-    "I'm a React and Next.js software engineer in New Delhi with 3+ years of professional product engineering experience. I started programming in 2020 through Relics leadership and Discord bot systems, then moved into web apps, mobile apps, dashboards, CMS workflows, APIs, and applied AI systems.",
-    "Open-source contributor: checkstyle, Express codemod, Jenkins plugins.",
-    "Currently pursuing B.Tech in CSE at GGSIPU. In 2025 I led a 3-person official college tech team project at BPIT, building the new site from scratch with Next.js App Router and inline click-to-edit CMS workflows.",
-    "At RemoteHire, I re-architected Immibot around LangChain, Flowise, agentic RAG, weighted eligibility scoring, Clerk, Stripe, PostHog, guest sessions, persisted chat history, and credit merge.",
-    "At Wonderhood, I spent 2.5 years across React, Next.js, and React Native: Shopify GraphQL commerce, a kids' learning app migrated from Ionic to React Native, and a teacher dashboard with cohort reporting.",
+    "React-first product engineer in New Delhi, pursuing B.Tech CSE at GGSIPU.",
+    "In 2025 I led a three-person BPIT Tech Team build from scratch with inline content editing, analytics, and Vercel previews.",
+    "RemoteHire / Immibot: retrieval, adaptive questions, eligibility scoring, guest sessions, persisted history, and credit merge.",
+    "Wonderhood: Shopify GraphQL commerce, an Ionic→React Native migration, and teacher reporting by cohort and student.",
+    "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
   ],
 };
 
@@ -764,6 +784,8 @@ export const aboutWedges = ["web", "mobile", "ai", "data"] as const;
 export type AboutWedge = (typeof aboutWedges)[number];
 
 export const aboutParagraphs = about.paragraphs.map((paragraph, index) => ({
+  number: String(index + 1).padStart(2, "0"),
+  label: ["ORIGIN / NOW", "LEAD / PROOF", "RECENT", "BEFORE", "OPEN SOURCE"][index],
   text: paragraph,
   wedge: aboutWedges[index % aboutWedges.length],
 }));
