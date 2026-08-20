@@ -10,14 +10,14 @@ import { archiveNavigationLinks, marqueeTech, person, site } from "@/constants/p
 import "./archive.css";
 
 export const metadata: Metadata = {
-  title: "Project archive",
+  title: "Full-Stack Engineering Project Archive",
   description:
-    "A scan-friendly project archive from Vinayak Kumar: React, Next.js, TypeScript, full-stack dashboards, CMS workflows, ed-tech, commerce, and applied AI builds.",
+    "Full-stack engineering project archive by Vinayak Kumar: frontend web and React Native mobile apps built with React, Next.js, TypeScript, and applied AI.",
   alternates: { canonical: "/archive" },
   openGraph: {
-    title: "Vinayak Kumar project archive",
+    title: "Full-Stack Engineering Project Archive | Vinayak Kumar",
     description:
-      "A scan-friendly archive of Vinayak Kumar's work across React, Next.js, TypeScript, product dashboards, CMS workflows, and applied AI systems.",
+      "Full-stack and frontend engineering work across React, Next.js, TypeScript, React Native mobile apps, product dashboards, and applied AI systems.",
     url: "/archive",
     type: "website",
     siteName: site.name,
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Vinayak Kumar, React and Next.js software engineer building frontend-heavy full-stack product systems.",
+        alt: "Portfolio cover for Vinayak Kumar, a Full-Stack Engineer building React, React Native, and applied AI products.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vinayak Kumar project archive",
+    title: "Full-Stack Engineering Project Archive | Vinayak Kumar",
     description:
-      "A scan-friendly archive of Vinayak Kumar's work across React, Next.js, TypeScript, product dashboards, CMS workflows, and applied AI systems.",
+      "Full-stack and frontend engineering work across React, Next.js, TypeScript, React Native mobile apps, product dashboards, and applied AI systems.",
     images: ["/twitter-image"],
   },
 };

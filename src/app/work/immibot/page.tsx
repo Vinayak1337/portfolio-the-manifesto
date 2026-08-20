@@ -6,10 +6,32 @@ import { ImmibotArchitecture } from "@/components/work/ImmibotArchitecture";
 import "./immibot.css";
 
 export const metadata: Metadata = {
-  title: "Immibot / Workflow case study",
+  title: "Immibot | Full-Stack Applied AI Case Study",
   description:
-    "A public-safe case study of Immibot, an AI immigration workflow with adaptive intake, source-linked retrieval, document validation, eligibility scoring, and guest-to-account continuity.",
+    "Immibot case study: a full-stack generative AI and RAG immigration workflow with adaptive intake, cited retrieval, document validation, eligibility scoring, and account continuity.",
   alternates: { canonical: "/work/immibot" },
+  openGraph: {
+    title: "Immibot | Full-Stack Applied AI Case Study",
+    description:
+      "Immibot case study: a full-stack generative AI and RAG immigration workflow with adaptive intake, cited retrieval, document validation, eligibility scoring, and account continuity.",
+    url: "/work/immibot",
+    type: "article",
+    images: [
+      {
+        url: "/assets/immibot.webp",
+        width: 1600,
+        height: 1041,
+        alt: "Immibot applied AI workflow case study by Vinayak Kumar, Full-Stack Engineer.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Immibot | Full-Stack Applied AI Case Study",
+    description:
+      "Immibot: a full-stack generative AI and RAG immigration workflow built with Next.js and TypeScript.",
+    images: ["/assets/immibot.webp"],
+  },
 };
 
 const workflow = [

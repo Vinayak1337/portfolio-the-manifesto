@@ -41,9 +41,8 @@ export function About({
             id="about-title"
             className="about-title"
             tokens={[
-              { text: "Product systems." },
-              { text: "React-first", emphasis: true },
-              { text: "full-stack." },
+              { text: "Full-Stack Engineer.", emphasis: true },
+              { text: "React-first product systems." },
             ]}
           />
           <div className="about-meta" data-reveal>
