@@ -1534,3 +1534,13 @@ body:has(.archive-projects-page) {
     gap: 10px;
   }
 }
+
+/* Keep archive previews aligned with the straight Atlas project surfaces. */
+.archive-projects-page .thumb-preview {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.archive-projects-page .thumb-preview.is-on,
+.archive-projects-page .tbl-row.hovering ~ .thumb-preview {
+  transform: translateY(-50%) scale(1);
+}

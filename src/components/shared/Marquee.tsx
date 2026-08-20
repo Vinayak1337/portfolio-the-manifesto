@@ -70,19 +70,21 @@ export function Marquee({
 }>) {
   return (
     <div className="marquee-band" aria-hidden="true">
-      <ObservedMarqueeTrack className={`marquee-track ${variant === "reverse" ? "reverse" : ""}`}>
-        {[0, 1].map((set) => (
-          <span className="marquee-item" key={set}>
-            {items.map((item) => (
-              <span className="marquee-chip" key={`${set}-${item}`}>
-                <MarqueeGlyph name={item} />
-                <em>{item}</em>
-                <span className="dot" />
-              </span>
-            ))}
-          </span>
-        ))}
-      </ObservedMarqueeTrack>
+      <div className="marquee-window">
+        <ObservedMarqueeTrack className={`marquee-track ${variant === "reverse" ? "reverse" : ""}`}>
+          {[0, 1].map((set) => (
+            <span className="marquee-item" key={set}>
+              {items.map((item) => (
+                <span className="marquee-chip" key={`${set}-${item}`}>
+                  <MarqueeGlyph name={item} />
+                  <em>{item}</em>
+                  <span className="dot" />
+                </span>
+              ))}
+            </span>
+          ))}
+        </ObservedMarqueeTrack>
+      </div>
     </div>
   );
 }
