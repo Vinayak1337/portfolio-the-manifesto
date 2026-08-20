@@ -10,17 +10,33 @@ import { archiveNavigationLinks, marqueeTech, person, site } from "@/constants/p
 import "./archive.css";
 
 export const metadata: Metadata = {
-  title: "Projects / Vinayak Kumar",
+  title: "Project archive",
   description:
-    "Project index for Vinayak Kumar: React, Next.js, TypeScript, full-stack dashboards, CMS workflows, ed-tech, commerce, and applied AI builds.",
+    "A scan-friendly project archive from Vinayak Kumar: React, Next.js, TypeScript, full-stack dashboards, CMS workflows, ed-tech, commerce, and applied AI builds.",
   alternates: { canonical: "/archive" },
   openGraph: {
-    title: "Projects / Vinayak Kumar",
+    title: "Vinayak Kumar project archive",
     description:
-      "Project index for Vinayak1337 work across React, Next.js, TypeScript, product dashboards, CMS workflows, and applied AI systems.",
+      "A scan-friendly archive of Vinayak Kumar's work across React, Next.js, TypeScript, product dashboards, CMS workflows, and applied AI systems.",
     url: "/archive",
     type: "website",
     siteName: site.name,
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Vinayak Kumar, React and Next.js software engineer building frontend-heavy full-stack product systems.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vinayak Kumar project archive",
+    description:
+      "A scan-friendly archive of Vinayak Kumar's work across React, Next.js, TypeScript, product dashboards, CMS workflows, and applied AI systems.",
+    images: ["/twitter-image"],
   },
 };
 

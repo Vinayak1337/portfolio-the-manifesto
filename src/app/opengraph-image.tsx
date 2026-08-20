@@ -18,10 +18,10 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0A0908",
-          color: "#F2EDE4",
-          padding: "58px 64px",
-          border: "18px solid #C75B28",
+          background: "#dfe5d8",
+          color: "#13251e",
+          padding: "50px 58px",
+          border: "16px solid #13251e",
           fontFamily: "serif",
         }}
       >
@@ -30,51 +30,62 @@ export default function Image() {
             display: "flex",
             justifyContent: "space-between",
             fontFamily: "monospace",
-            fontSize: 24,
-            letterSpacing: 3,
+            fontSize: 21,
+            letterSpacing: 2,
             textTransform: "uppercase",
           }}
         >
           <span>VINAYAK KUMAR</span>
-          <span>React / Next.js Software Engineer</span>
+          <span>NEW DELHI · IST</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              fontSize: 132,
-              letterSpacing: -5,
-              lineHeight: 0.9,
+              fontSize: 112,
+              letterSpacing: -4,
+              lineHeight: 0.88,
             }}
           >
-            Vinayak Kumar
+            Vinayak Kumar,
           </div>
           <div
             style={{
-              color: "#E3A277",
-              fontSize: 94,
-              fontStyle: "italic",
+              color: "#9f4f38",
+              fontSize: 82,
               letterSpacing: -2,
-              lineHeight: 0.95,
+              lineHeight: 0.98,
             }}
           >
-            prototype to production.
+            software engineer
+          </div>
+          <div
+            style={{
+              fontSize: 82,
+              letterSpacing: -2,
+              lineHeight: 0.98,
+            }}
+          >
+            building product systems.
           </div>
         </div>
         <div
           style={{
             display: "flex",
-            gap: 24,
+            justifyContent: "space-between",
+            alignItems: "flex-end",
             fontFamily: "monospace",
-            fontSize: 24,
-            letterSpacing: 2,
+            fontSize: 20,
+            letterSpacing: 1.5,
             textTransform: "uppercase",
           }}
         >
-          <span>Next.js</span>
-          <span>React</span>
-          <span>TypeScript</span>
-          <span>Node</span>
-          <span>Vinayak1337</span>
+          <div style={{ display: "flex", gap: 20 }}>
+            <span>React</span>
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Applied AI</span>
+          </div>
+          <span style={{ color: "#9f4f38" }}>VINAYAK1337.ME</span>
         </div>
       </div>
     ),

@@ -37,19 +37,30 @@ import {
 } from "@/constants/portfolio";
 
 export const metadata: Metadata = {
-  title: site.name,
+  title: { absolute: site.name },
   description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
     title: site.name,
     description: site.description,
     url: "/",
+    siteName: site.name,
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Vinayak Kumar, React and Next.js software engineer building frontend-heavy full-stack product systems.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
     description: site.description,
+    images: ["/twitter-image"],
   },
 };
 
