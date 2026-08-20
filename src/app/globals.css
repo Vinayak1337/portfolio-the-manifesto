@@ -361,15 +361,6 @@ select {
   padding-top: 8px;
 }
 
-.hero-signals li::before {
-  width: 6px;
-  height: 6px;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  background: var(--accent);
-  content: "";
-}
-
 .marquee-band {
   overflow: hidden;
   padding: 22px 0;
@@ -411,14 +402,6 @@ select {
 
 .marquee-chip {
   gap: 40px;
-}
-
-.marquee-band .dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: var(--accent);
-  border-radius: 999px;
 }
 
 @keyframes marquee-x {

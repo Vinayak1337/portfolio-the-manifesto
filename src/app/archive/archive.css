@@ -79,13 +79,6 @@
   gap: 8px;
   color: var(--accent);
 }
-.archive-page .nav .live::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
 
 /* HERO */
 .archive-page .hero {
@@ -886,14 +879,6 @@
   transform: rotate(-6deg) scale(1.06);
 }
 
-.archive-projects-page .marquee-band .dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: var(--accent-readable);
-  border-radius: 999px;
-}
-
 .archive-projects-page .archive-sec {
   position: relative;
 }
@@ -1349,10 +1334,6 @@ body:has(.archive-projects-page) {
 
 .archive-projects-page .marquee-track:hover .a-marquee-glyph {
   color: var(--accent);
-}
-
-.archive-projects-page .marquee-band .dot {
-  background: var(--accent);
 }
 
 .archive-projects-page .filter-pill {
