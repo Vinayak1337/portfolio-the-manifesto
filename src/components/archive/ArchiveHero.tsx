@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 
 export function ArchiveHero({
   illustration,
@@ -51,7 +52,7 @@ export function ArchiveHero({
         </div>
       </div>
       <div className="index-line">
-        <span>↓ projects</span>
+        <span><ArrowIcon direction="down" /> projects</span>
         <span className="right">{totalCount} indexed</span>
       </div>
     </section>

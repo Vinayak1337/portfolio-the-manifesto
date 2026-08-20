@@ -386,6 +386,10 @@
   text-align: right;
   transition: transform 0.4s var(--ease-out-expo);
 }
+.archive-page .ui-arrow-icon {
+  width: 1em;
+  height: 1em;
+}
 .archive-page .tbl-row .ar-muted {
   opacity: 0.35;
 }

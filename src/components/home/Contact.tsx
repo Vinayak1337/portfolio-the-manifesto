@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 import { SplitText } from "@/components/shared/SplitText";
 
 type Person = Readonly<{
@@ -42,7 +43,7 @@ export function Contact({
           <a href={person.resume} target="_blank" rel="noopener noreferrer">
             Resume
           </a>
-          <a href="/archive">Archive ↗</a>
+          <a href="/archive">Archive <ArrowIcon /></a>
         </div>
       </div>
       <div className="footer-meta">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 import { ImmibotArchitecture } from "@/components/work/ImmibotArchitecture";
 import "./immibot.css";
 
@@ -82,7 +83,7 @@ export default function ImmibotCaseStudy() {
               and keep the user&apos;s context intact.
             </p>
             <div className="immibot-hero-actions">
-              <Link href="/archive">Archive / all work <span aria-hidden="true">↗</span></Link>
+              <Link href="/archive">Archive / all work <ArrowIcon /></Link>
             </div>
             <div className="immibot-hero-meta" aria-label="Immibot project details">
               <div><span>Role</span><strong>Full-Stack Engineer</strong></div>
@@ -212,9 +213,9 @@ export default function ImmibotCaseStudy() {
       </div>
 
       <footer className="immibot-footer">
-        <Link href="/#work">← Back to selected systems</Link>
+        <Link href="/#work"><ArrowIcon direction="left" /> Back to selected systems</Link>
         <span>Immibot / RemoteHire · 2024</span>
-        <Link href="/archive">Browse the archive ↗</Link>
+        <Link href="/archive">Browse the archive <ArrowIcon /></Link>
       </footer>
     </main>
   );

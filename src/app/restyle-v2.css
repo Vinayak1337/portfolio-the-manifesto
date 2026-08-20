@@ -1734,7 +1734,7 @@ body:has(.variant-atlas) {
   text-align: left;
 }
 
-.variant-atlas .rail-link-menu summary::after {
+.variant-atlas .rail-link-menu .project-link-menu-summary-icon {
   color: var(--atlas-signal);
 }
 
@@ -2390,7 +2390,7 @@ body:has(.variant-atlas) {
   color: var(--atlas-ink);
 }
 
-.variant-atlas .work-bundle-linked > .work-link-menu summary::after {
+.variant-atlas .work-bundle-linked > .work-link-menu .project-link-menu-summary-icon {
   color: var(--atlas-signal);
 }
 
