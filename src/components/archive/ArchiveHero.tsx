@@ -52,7 +52,7 @@ export function ArchiveHero({
       </div>
       <div className="index-line">
         <span>↓ projects</span>
-        <span className="right">{totalCount} live</span>
+        <span className="right">{totalCount} indexed</span>
       </div>
     </section>
   );

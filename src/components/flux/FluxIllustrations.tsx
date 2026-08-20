@@ -212,7 +212,20 @@ export function FluxContactIllustration() {
   );
 }
 
-export function FluxArchiveHeroIllustration() {
+export function FluxArchiveHeroIllustration({
+  selectedCount,
+  additionalCount,
+  totalCount,
+}: Readonly<{
+  selectedCount: number;
+  additionalCount: number;
+  totalCount: number;
+}>) {
+  const formatCount = (count: number) => count.toString().padStart(2, "0");
+  const selected = formatCount(selectedCount);
+  const additional = formatCount(additionalCount);
+  const total = formatCount(totalCount);
+
   return (
     <div
       className="flux-archive-hero-illo flux-archive-vault"
@@ -253,8 +266,8 @@ export function FluxArchiveHeroIllustration() {
           <path d="M164 110V646" />
           <path d="M132 144H196M132 236H196M132 328H196M132 420H196M132 512H196M132 604H196" />
           <text x="88" y="152">01</text>
-          <text x="88" y="336">25</text>
-          <text x="88" y="612">68</text>
+          <text x="88" y="336">{selected}</text>
+          <text x="88" y="612">{total}</text>
         </g>
 
         <g className="archive-vault-stack archive-vault-stack-back">
@@ -267,14 +280,14 @@ export function FluxArchiveHeroIllustration() {
           <path d="M242 260L720 184L932 310L420 404Z" />
           <path d="M298 284L690 224M354 326L790 252M416 368L862 290" />
           <path className="illo-accent" d="M726 184L932 310M420 404L932 310" />
-          <text x="286" y="246">STRONG INDEX / 25</text>
+          <text x="286" y="246">STRONG INDEX / {selected}</text>
         </g>
 
         <g className="archive-vault-stack archive-vault-stack-front">
           <path d="M202 414L678 322L930 496L388 620Z" />
           <path d="M250 440L642 364M306 484L738 392M366 526L830 432M426 568L874 474" />
           <path className="illo-accent" d="M202 414L388 620M678 322L930 496M388 620L930 496" />
-          <text x="248" y="674">LONG TAIL / 43</text>
+          <text x="248" y="674">LONG TAIL / {additional}</text>
         </g>
 
         <g className="archive-vault-scan">
@@ -286,7 +299,7 @@ export function FluxArchiveHeroIllustration() {
           <path d="M704 94H960V612H704z" />
           <path d="M734 150H910M734 196H884M734 242H934M734 288H868M734 380H920M734 426H892M734 472H944M734 518H864" />
           <path className="illo-accent" d="M704 334H960" />
-          <text x="734" y="118">IDX.068</text>
+          <text x="734" y="118">IDX.{total}</text>
           <text x="734" y="360">FILTERED</text>
         </g>
 

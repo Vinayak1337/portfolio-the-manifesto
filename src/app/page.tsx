@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { About } from "@/components/home/About";
-import { Chapters } from "@/components/home/Chapters";
 import { Contact } from "@/components/home/Contact";
 import { Experience } from "@/components/home/Experience";
 import { Hero } from "@/components/home/Hero";
@@ -13,7 +12,6 @@ import { Marquee } from "@/components/shared/Marquee";
 import { FluxClientEffects } from "@/components/flux/FluxClientEffects";
 import {
   FluxAboutMap,
-  FluxChapterIllustration,
   FluxContactIllustration,
   FluxExperienceIllustration,
   FluxHeroIllustration,
@@ -24,13 +22,11 @@ import {
 } from "@/components/flux/FluxIllustrations";
 import {
   aboutParagraphs,
-  chapters,
   experience,
   highlights,
   homeHero,
   jsonLd,
   ledgerProjects,
-  marqueeDomains,
   marqueeTech,
   navigationLinks,
   openSourceContributions,
@@ -88,7 +84,6 @@ export default function Home() {
           headline={statement.headline}
           illustration={<FluxStatementIllustration />}
         />
-        <Chapters chapters={chapters} renderIllustration={FluxChapterIllustration} />
         <WorkCarousel
           illustration={<FluxRailIllustration />}
           projects={railProjects}
@@ -111,7 +106,6 @@ export default function Home() {
           illustration={<FluxExperienceIllustration />}
         />
         <OpenSource contributions={openSourceContributions} />
-        <Marquee items={marqueeDomains} variant="reverse" />
         <Contact illustration={<FluxContactIllustration />} person={person} />
       </main>
     </>

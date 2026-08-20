@@ -21,10 +21,6 @@ export function Hero({
       <div className="hero-meta">
         <div className="hero-location">
           <span className="hero-eyebrow">{eyebrow}</span>
-          <a className="availability-pill magnetic" href="#contact">
-            <span className="availability-dot" aria-hidden="true" />
-            <span>Open to full-time roles · Delhi NCR / Remote</span>
-          </a>
         </div>
       </div>
       <SplitText
@@ -37,7 +33,7 @@ export function Hero({
       <div className="hero-sub" data-reveal>
         <p>{summary}</p>
         {signals?.length ? (
-          <ul className="hero-signals" aria-label="Current hiring signals">
+          <ul className="hero-signals" aria-label="Core focus areas">
             {signals.map((signal) => (
               <li key={signal}>{signal}</li>
             ))}

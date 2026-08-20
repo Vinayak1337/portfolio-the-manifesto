@@ -4,6 +4,8 @@ import { mainProjectIds, portfolioGridProjects } from "./project-grid";
 export type ProjectCategory =
   | "AI"
   | "WORK"
+  | "INSTITUTIONAL"
+  | "COMMUNITY"
   | "INTERN"
   | "OSS"
   | "FREELANCE"
@@ -219,7 +221,7 @@ export const about = {
   paragraphs: [
     "React-first product engineer in New Delhi, pursuing B.Tech CSE at GGSIPU.",
     "In 2025 I led a three-person BPIT Tech Team build from scratch with inline content editing, analytics, and Vercel previews.",
-    "RemoteHire / Immibot: retrieval, adaptive questions, eligibility scoring, guest sessions, persisted history, and credit merge.",
+    "RemoteHire / Immibot: retrieval, adaptive questions, eligibility scoring, guest sessions, persisted history, and account continuity.",
     "Wonderhood: Shopify GraphQL commerce, an Ionic→React Native migration, and teacher reporting by cohort and student.",
     "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
   ],
@@ -239,7 +241,7 @@ export const experience: Experience[] = [
     date: "Feb 2024 - Nov 2024",
     bullets: [
       "Re-architected Immibot, an AI immigration assistant, with modular country and domain adapters.",
-      "Launched one-click guest sessions with persisted history and credit merge so trial users could move into accounts without losing context.",
+      "Launched one-click guest sessions with persisted history and account continuity so trial users could move into accounts without losing context.",
       "Built multi-mode chat and an agentic RAG pipeline with LangChain and Flowise for search, advice, document validation, and eligibility scoring.",
       "Unified app state through Context API and useReducer, then shipped PostHog plus session/video analytics for cohort analysis.",
       "Integrated Next.js, TypeScript, shadcn/ui, Tailwind, Clerk, Stripe, Prisma, Vercel, and PWA support.",
@@ -323,21 +325,13 @@ export const projectCatalog: Project[] = [
     year: "2024",
     role: "Full-Stack Engineer",
     category: "WORK",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "LangChain",
-      "Flowise",
-      "Prisma",
-      "Stripe",
-      "Clerk",
-    ],
+    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Clerk", "LangChain", "Flowise"],
     image: "/assets/immibot.webp",
-    link: "https://nextjsapp-immibot.vercel.app",
+    link: "/work/immibot",
     blurb:
       "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
     outcome:
-      "An AI immigration advisor that helps applicants understand eligibility, compare pathways, and turn vague questions into structured next steps.",
+      "A production immigration workflow spanning guest entry, adaptive intake, official-source retrieval, document and eligibility analysis, recommendations, and guest-to-account history continuity.",
   },
   {
     id: "autism-detection",
@@ -365,7 +359,8 @@ export const projectCatalog: Project[] = [
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Thermal Print"],
     image: "/assets/storefront-dashboard.webp",
-    link: "https://github.com/Vinayak1337/StoreFrontNextjs",
+    link: "https://store-front-nextjs-rho.vercel.app",
+    links: [{ label: "GitHub", href: "https://github.com/Vinayak1337/StoreFrontNextjs" }],
     blurb:
       "Billing and inventory app with item organization, order creation, analytics, secure sessions, and Bluetooth thermal printing.",
     outcome:
@@ -378,7 +373,7 @@ export const projectCatalog: Project[] = [
     company: "BPIT Tech Team",
     year: "2025",
     role: "Tech Lead / Institutional Project",
-    category: "PERSONAL",
+    category: "INSTITUTIONAL",
     tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
     image: "/assets/bpit.webp",
     link: "https://bpit-site-redesign.vercel.app/",
@@ -445,7 +440,7 @@ export const projectCatalog: Project[] = [
     category: "WORK",
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
     image: "/assets/mylearning.webp",
-    link: "https://mylearning.thewonderlearn.com/",
+    link: null,
     blurb:
       "Teacher dashboard for classroom rosters, per-student video watch percentage, game scores, and module completion.",
     outcome:
@@ -585,14 +580,14 @@ export const projectCatalog: Project[] = [
     company: "Open Source",
     year: "2020",
     role: "Maintainer",
-    category: "OSS",
+    category: "COMMUNITY",
     tags: ["Discord.js", "Node", "MongoDB"],
     image: "/assets/relics-audit.webp",
     link: "https://github.com/Vinayak1337/RelicsAudit",
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
     outcome:
-      "A Discord operations system that helps gaming communities monitor clubs, rankings, rewards, and player activity at scale.",
+      "One of four bots I built for a 50k+ member community across 50+ servers; the stack automated more than 90% of manual admin work.",
   },
   {
     id: "relics-general",
@@ -765,6 +760,8 @@ export const projects: Project[] = portfolioGridProjects;
 export const featuredProjectCategories: ProjectCategory[] = [
   "AI",
   "WORK",
+  "INSTITUTIONAL",
+  "COMMUNITY",
   "PERSONAL",
   "FREELANCE",
   "OSS",

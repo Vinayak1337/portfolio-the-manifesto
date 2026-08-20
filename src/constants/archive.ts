@@ -3,6 +3,8 @@ import type { ProjectLink } from "./portfolio";
 
 export type ArchiveCategory =
   | "WORK"
+  | "INSTITUTIONAL"
+  | "COMMUNITY"
   | "INTERN"
   | "OSS"
   | "FREELANCE"
@@ -65,7 +67,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     name: "BPIT Site Redesign",
     company: "BPIT Tech Team",
     year: "2025",
-    category: "WORK",
+    category: "INSTITUTIONAL",
     tier: "STRONG",
     verdict: "Strong portfolio",
     tags: ["Next.js 15", "Prisma", "MongoDB", "Radix", "Framer Motion", "Three.js"],
@@ -194,7 +196,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     name: "RelicsAudit",
     company: "Relics Esports",
     year: "2020",
-    category: "OSS",
+    category: "COMMUNITY",
     tier: "STRONG",
     verdict: "Use in Leadership / portfolio",
     tags: ["Node", "Discord.js", "MongoDB", "PM2", "Brawl Stars API"],
@@ -257,8 +259,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     category: "WORK",
     tier: "STRONG",
     verdict: "Use in Experience",
-    tags: ["Next.js", "TypeScript", "LangChain", "Flowise", "Prisma", "Stripe", "Clerk"],
-    link: "https://nextjsapp-immibot.vercel.app",
+    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Clerk", "LangChain", "Flowise"],
+    link: "/work/immibot",
     repo: null,
     image: "/assets/immibot.webp",
     rankScore: 9.2,
@@ -314,7 +316,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "STRONG",
     verdict: "Use in Experience",
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
-    link: "https://mylearning.thewonderlearn.com/",
+    link: null,
     repo: null,
     image: "/assets/mylearning.webp",
     rankScore: 6.85,
@@ -346,7 +348,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "STRONG",
     verdict: "Resume candidate",
     tags: ["Next.js App Router", "Prisma", "Postgres", "Web Bluetooth", "CSRF/rate-limit"],
-    link: "https://github.com/Vinayak1337/StoreFrontNextjs",
+    link: "https://store-front-nextjs-rho.vercel.app",
+    links: [{ label: "GitHub", href: "https://github.com/Vinayak1337/StoreFrontNextjs" }],
     repo: "https://github.com/Vinayak1337/StoreFrontNextjs",
     image: "/assets/storefront-dashboard.webp",
     rankScore: 9.1,
@@ -672,15 +675,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
     tags: ["React Native", "Expo", "Clerk", "Health domain"],
-    link: "https://github.com/Vinayak1337/Mealwise",
-    links: [
-      { label: "GitHub", href: "https://github.com/Vinayak1337/Mealwise" },
-      {
-        label: "Download APK (v1.0.0)",
-        href: "https://github.com/Vinayak1337/Mealwise/releases/tag/v1.0.0",
-      },
-    ],
-    repo: "https://github.com/Vinayak1337/Mealwise",
+    link: null,
+    repo: null,
     image: PLACEHOLDER,
     rankScore: 7.68,
   },
@@ -693,8 +689,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
     tags: ["React", "Vite", "TypeScript"],
-    link: "https://github.com/Wonderhood/my-learning-react",
-    repo: "https://github.com/Wonderhood/my-learning-react",
+    link: null,
+    repo: null,
     image: "/assets/mylearning.webp",
     rankScore: 7.65,
   },
@@ -983,6 +979,8 @@ export const archiveLongTail = archiveProjects.filter((p) => p.tier === "ARCHIVE
 export const archiveCategories: { id: ArchiveCategory | "ALL"; label: string }[] = [
   { id: "ALL", label: "All" },
   { id: "WORK", label: "Work" },
+  { id: "INSTITUTIONAL", label: "Institutional" },
+  { id: "COMMUNITY", label: "Community" },
   { id: "INTERN", label: "Intern" },
   { id: "OSS", label: "OSS" },
   { id: "FREELANCE", label: "Freelance" },
