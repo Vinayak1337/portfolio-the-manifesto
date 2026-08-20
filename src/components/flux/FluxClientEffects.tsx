@@ -300,12 +300,21 @@ export function FluxClientEffects() {
           railSection.style.removeProperty("--rail-section-height");
           railTravel = 0;
         } else {
-          const lastCard = railTrack.querySelector<HTMLElement>(".rail-card:last-of-type");
-          const lastCardRight = lastCard
-            ? lastCard.offsetLeft + lastCard.offsetWidth
-            : railTrack.scrollWidth;
-          railTravel = Math.max(0, lastCardRight - viewportWidth + 32);
-          const scrollDistance = Math.max(viewportHeight, railTravel * 0.55);
+          const cards = Array.from(railTrack.querySelectorAll<HTMLElement>(".rail-card"));
+          const firstCard = cards[0];
+          const lastCard = cards.at(-1);
+          // Keep the first and last cards on the same editorial axis. `:last-of-type`
+          // is unsafe here because the rail mixes article wrappers and direct anchors;
+          // it used to stop the travel calculation before the final card.
+          railTravel = firstCard && lastCard
+            ? Math.max(
+                0,
+                lastCard.getBoundingClientRect().left - firstCard.getBoundingClientRect().left,
+              )
+            : 0;
+          // Give each card a readable scroll beat. The old 0.55 factor made the
+          // sticky viewport release while the card copy was still below its edge.
+          const scrollDistance = Math.max(viewportHeight * 1.25, railTravel * 0.62);
           railSection.style.setProperty(
             "--rail-section-height",
             `${Math.ceil(viewportHeight + scrollDistance)}px`,
@@ -398,10 +407,27 @@ export function FluxClientEffects() {
       }
       writeStyle(railBar, "transform", `scaleX(${railProgress})`);
       if (railNumber) {
-        const activeIndex = Math.min(
-          railCount,
-          Math.max(1, Math.floor(railProgress * railCount) + 1),
-        );
+        const cards = railTrack
+          ? Array.from(railTrack.querySelectorAll<HTMLElement>(".rail-card"))
+          : [];
+        const viewportCenter = viewportWidth / 2;
+        const activeIndex = cards.length
+          ? cards.reduce(
+              (closestIndex, card, index) => {
+                const center = card.getBoundingClientRect().left + card.offsetWidth / 2;
+                const closestCenter =
+                  cards[closestIndex].getBoundingClientRect().left +
+                  cards[closestIndex].offsetWidth / 2;
+                return Math.abs(center - viewportCenter) < Math.abs(closestCenter - viewportCenter)
+                  ? index
+                  : closestIndex;
+              },
+              0,
+            ) + 1
+          : Math.min(
+              railCount,
+              Math.max(1, Math.floor(railProgress * railCount) + 1),
+            );
         const label = activeIndex.toString().padStart(2, "0");
         if (railNumber.textContent !== label) railNumber.textContent = label;
       }

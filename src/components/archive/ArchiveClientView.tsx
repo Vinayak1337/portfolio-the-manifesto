@@ -51,7 +51,7 @@ export function ArchiveClientView({
   variant?: "classic" | "flux";
 }>) {
   const [filter, setFilter] = useState<CatFilter>("ALL");
-  const [longTailOpen, setLongTailOpen] = useState(variant === "flux");
+  const [longTailOpen, setLongTailOpen] = useState(false);
   const [hoverProject, setHoverProject] = useState<ArchiveProject | null>(null);
   const hoverPosRef = useRef({ x: 0, y: 0 });
   const previewRef = useRef<HTMLImageElement>(null);
@@ -70,6 +70,12 @@ export function ArchiveClientView({
 
   const filteredCount = strongRows.length + longTailRows.length;
   const totalCount = projects.length;
+  const handleFilter = (nextFilter: CatFilter) => {
+    setFilter(nextFilter);
+    setLongTailOpen(
+      nextFilter !== "ALL" && longTail.some((project) => project.category === nextFilter),
+    );
+  };
   const getPreviewPosition = (x: number, y: number) => {
     if (typeof globalThis === "undefined") {
       return { x: x + previewOffset, y };
@@ -119,12 +125,19 @@ export function ArchiveClientView({
     >
       {isFlux ? <FluxClientEffects /> : null}
       <Navbar
-        mark={isFlux ? "VK — PROJECTS / IDX.2026" : "VK — THE ARCHIVE / IDX.2026"}
+        mark={isFlux ? "VK / PROJECTS / IDX.2026" : "VK / THE ARCHIVE / IDX.2026"}
         links={navLinks}
-        status="available Jun 16, 2026"
       />
       <ArchiveHero
-        illustration={isFlux ? <FluxArchiveHeroIllustration /> : undefined}
+        illustration={
+          isFlux ? (
+            <FluxArchiveHeroIllustration
+              selectedCount={strong.length}
+              additionalCount={longTail.length}
+              totalCount={totalCount}
+            />
+          ) : undefined
+        }
         location={person.location}
         role={person.roleShort}
         shippingSince={person.shippingSince}
@@ -141,7 +154,7 @@ export function ArchiveClientView({
           categories={categories}
           currentFilter={filter}
           emptyLabel="No selected projects in this category."
-          onFilter={setFilter}
+          onFilter={handleFilter}
           onHover={setHoverProject}
           onMove={positionPreview}
           projects={strongRows}

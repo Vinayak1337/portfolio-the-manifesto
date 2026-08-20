@@ -47,14 +47,6 @@ function MarqueeGlyph({ name }: Readonly<{ name: string }>) {
         <path d="M24 26 q 4 4 8 0" />
       </svg>
     ),
-    Agents: (
-      <svg viewBox="0 0 40 40">
-        <circle cx="14" cy="14" r="4" />
-        <circle cx="26" cy="14" r="4" />
-        <circle cx="20" cy="28" r="4" />
-        <path d="M14 18 L20 24 M26 18 L20 24" />
-      </svg>
-    )
   };
 
   return (

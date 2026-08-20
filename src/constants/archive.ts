@@ -3,6 +3,8 @@ import type { ProjectLink } from "./portfolio";
 
 export type ArchiveCategory =
   | "WORK"
+  | "INSTITUTIONAL"
+  | "COMMUNITY"
   | "INTERN"
   | "OSS"
   | "FREELANCE"
@@ -65,7 +67,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     name: "BPIT Site Redesign",
     company: "BPIT Tech Team",
     year: "2025",
-    category: "WORK",
+    category: "INSTITUTIONAL",
     tier: "STRONG",
     verdict: "Strong portfolio",
     tags: ["Next.js 15", "Prisma", "MongoDB", "Radix", "Framer Motion", "Three.js"],
@@ -76,7 +78,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "kmrl-ai-backend",
-    name: "KMRL — AI Backend",
+    name: "KMRL / AI Backend",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -104,7 +106,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "training-and-placement-bpit",
-    name: "Training & Placement — BPIT",
+    name: "Training & Placement / BPIT",
     company: "BPIT Tech Team",
     year: "2025",
     category: "WORK",
@@ -118,7 +120,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "chaintusker-nft-server",
-    name: "Chaintusker NFT — Server",
+    name: "Chaintusker NFT / Server",
     company: "Freelance",
     year: "2022",
     category: "FREELANCE",
@@ -160,7 +162,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "picmash-server",
-    name: "Picmash — Backend",
+    name: "Picmash / Backend",
     company: "Personal",
     year: "2020",
     category: "PERSONAL",
@@ -174,7 +176,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "kmrl-frontend",
-    name: "KMRL — Frontend",
+    name: "KMRL / Frontend",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -194,7 +196,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     name: "RelicsAudit",
     company: "Relics Esports",
     year: "2020",
-    category: "OSS",
+    category: "COMMUNITY",
     tier: "STRONG",
     verdict: "Use in Leadership / portfolio",
     tags: ["Node", "Discord.js", "MongoDB", "PM2", "Brawl Stars API"],
@@ -257,8 +259,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     category: "WORK",
     tier: "STRONG",
     verdict: "Use in Experience",
-    tags: ["Next.js", "TypeScript", "LangChain", "Flowise", "Prisma", "Stripe", "Clerk"],
-    link: "https://nextjsapp-immibot.vercel.app",
+    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Clerk", "LangChain", "Flowise"],
+    link: "/work/immibot",
     repo: null,
     image: "/assets/immibot.webp",
     rankScore: 9.2,
@@ -314,7 +316,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "STRONG",
     verdict: "Use in Experience",
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
-    link: "https://mylearning.thewonderlearn.com/",
+    link: null,
     repo: null,
     image: "/assets/mylearning.webp",
     rankScore: 6.85,
@@ -325,7 +327,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   // ────────────────────────────────────────────────────────────────────────
   {
     id: "ai-chat-vsc-extension",
-    name: "AI Chat — VS Code Extension",
+    name: "AI Chat / VS Code Extension",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -339,14 +341,15 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "storefront-nextjs",
-    name: "StoreFront — Next.js",
+    name: "StoreFront / Next.js",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
     tier: "STRONG",
     verdict: "Resume candidate",
     tags: ["Next.js App Router", "Prisma", "Postgres", "Web Bluetooth", "CSRF/rate-limit"],
-    link: "https://github.com/Vinayak1337/StoreFrontNextjs",
+    link: "https://store-front-nextjs-rho.vercel.app",
+    links: [{ label: "GitHub", href: "https://github.com/Vinayak1337/StoreFrontNextjs" }],
     repo: "https://github.com/Vinayak1337/StoreFrontNextjs",
     image: "/assets/storefront-dashboard.webp",
     rankScore: 9.1,
@@ -371,7 +374,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   // ────────────────────────────────────────────────────────────────────────
   {
     id: "cadillacs-server",
-    name: "Cadillacs — Backend",
+    name: "Cadillacs / Backend",
     company: "Freelance",
     year: "2022",
     category: "FREELANCE",
@@ -385,7 +388,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "face-recognition-server",
-    name: "Face Recognition — Backend",
+    name: "Face Recognition / Backend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -399,7 +402,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "dating-server",
-    name: "Dating App — Backend",
+    name: "Dating App / Backend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -413,7 +416,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "books-mgmt-frontend",
-    name: "Books Management — Frontend",
+    name: "Books Management / Frontend",
     company: "Personal",
     year: "2022",
     category: "PERSONAL",
@@ -427,7 +430,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "bettrhq-flask-react",
-    name: "Bettrhq — Flask/React Assessment",
+    name: "Bettrhq / Flask/React Assessment",
     company: "Bettrhq",
     year: "2023",
     category: "FREELANCE",
@@ -455,7 +458,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "firework-frontend",
-    name: "Firework — Frontend",
+    name: "Firework / Frontend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -469,7 +472,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "firework-backend",
-    name: "Firework — Backend",
+    name: "Firework / Backend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -497,7 +500,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "picmash-app",
-    name: "Picmash — Frontend",
+    name: "Picmash / Frontend",
     company: "Personal",
     year: "2020",
     category: "PERSONAL",
@@ -567,7 +570,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "dating-website",
-    name: "Dating App — Landing",
+    name: "Dating App / Landing",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -581,7 +584,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "kmrl-backend",
-    name: "KMRL — Backend",
+    name: "KMRL / Backend",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -595,7 +598,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "books-mgmt-server",
-    name: "Books Management — Backend",
+    name: "Books Management / Backend",
     company: "Personal",
     year: "2022",
     category: "PERSONAL",
@@ -637,7 +640,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "cup-n-connect-app",
-    name: "Cup-n-Connect — App",
+    name: "Cup-n-Connect / App",
     company: "Personal",
     year: "2022",
     category: "PERSONAL",
@@ -672,15 +675,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
     tags: ["React Native", "Expo", "Clerk", "Health domain"],
-    link: "https://github.com/Vinayak1337/NutriLife",
-    links: [
-      { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
-      {
-        label: "Download APK (v1.0.0)",
-        href: "https://github.com/Vinayak1337/NutriLife/releases/tag/v1.0.0",
-      },
-    ],
-    repo: "https://github.com/Vinayak1337/NutriLife",
+    link: null,
+    repo: null,
     image: PLACEHOLDER,
     rankScore: 7.68,
   },
@@ -693,8 +689,8 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
     tier: "ARCHIVE",
     verdict: "Portfolio candidate",
     tags: ["React", "Vite", "TypeScript"],
-    link: "https://github.com/Wonderhood/my-learning-react",
-    repo: "https://github.com/Wonderhood/my-learning-react",
+    link: null,
+    repo: null,
     image: "/assets/mylearning.webp",
     rankScore: 7.65,
   },
@@ -714,7 +710,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "levtours-server",
-    name: "LevTours — Backend",
+    name: "LevTours / Backend",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -770,7 +766,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "autism-detector-test",
-    name: "Autism Detector — Test Harness",
+    name: "Autism Detector / Test Harness",
     company: "Personal",
     year: "2024",
     category: "PERSONAL",
@@ -784,7 +780,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "levtours-website",
-    name: "LevTours — Landing",
+    name: "LevTours / Landing",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -798,7 +794,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "movie-upload-server",
-    name: "Movie Upload — Backend",
+    name: "Movie Upload / Backend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -826,7 +822,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "dating-admin",
-    name: "Dating App — Admin",
+    name: "Dating App / Admin",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -858,7 +854,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "face-recognition-app",
-    name: "Face Recognition — Frontend",
+    name: "Face Recognition / Frontend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -886,7 +882,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "levtours-admin",
-    name: "LevTours — Admin",
+    name: "LevTours / Admin",
     company: "Possibillion",
     year: "2021",
     category: "INTERN",
@@ -914,7 +910,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "movie-upload-frontend",
-    name: "Movie Upload — Frontend",
+    name: "Movie Upload / Frontend",
     company: "Personal",
     year: "2021",
     category: "PERSONAL",
@@ -983,6 +979,8 @@ export const archiveLongTail = archiveProjects.filter((p) => p.tier === "ARCHIVE
 export const archiveCategories: { id: ArchiveCategory | "ALL"; label: string }[] = [
   { id: "ALL", label: "All" },
   { id: "WORK", label: "Work" },
+  { id: "INSTITUTIONAL", label: "Institutional" },
+  { id: "COMMUNITY", label: "Community" },
   { id: "INTERN", label: "Intern" },
   { id: "OSS", label: "OSS" },
   { id: "FREELANCE", label: "Freelance" },

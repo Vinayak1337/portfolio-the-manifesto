@@ -3,9 +3,9 @@ import type { Project } from "./portfolio";
 const PLACEHOLDER = "/assets/archive/_placeholder.svg";
 
 export const mainProjectIds = [
+  "immibot",
   "storefront-nextjs",
   "bpit-site-redesign",
-  "immibot",
   "ai-chat-vsc-extension",
   "wonderlearn-react-native",
   "nutrilife",
@@ -23,14 +23,7 @@ export const portfolioGridProjects: Project[] = [
     category: "PERSONAL",
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.webp",
-    link: "https://github.com/Vinayak1337/NutriLife",
-    links: [
-      { label: "GitHub", href: "https://github.com/Vinayak1337/NutriLife" },
-      {
-        label: "Download APK (v1.0.0)",
-        href: "https://github.com/Vinayak1337/NutriLife/releases/tag/v1.0.0",
-      },
-    ],
+    link: null,
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:
@@ -39,7 +32,7 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "ai-chat-vsc-extension",
     index: "02",
-    name: "AI Chat — VS Code Extension",
+    name: "AI Chat / VS Code Extension",
     company: "Personal",
     year: "2024",
     role: "AI Tooling Engineer",
@@ -59,14 +52,14 @@ export const portfolioGridProjects: Project[] = [
     company: "Relics Esports",
     year: "2020",
     role: "Sole Developer / Org Lead",
-    category: "WORK",
+    category: "COMMUNITY",
     tags: ["Discord.js", "Node", "MongoDB", "Brawl Stars API"],
     image: "/assets/relics-audit.webp",
     link: "https://github.com/Vinayak1337/RelicsAudit",
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
     outcome:
-      "A Discord operations system that helps gaming communities monitor clubs, rankings, rewards, and player activity at scale.",
+      "One of four bots I built for a 50k+ member community across 50+ servers; the stack automated more than 90% of manual admin work.",
   },
   {
     id: "immibot",
@@ -76,13 +69,13 @@ export const portfolioGridProjects: Project[] = [
     year: "2024",
     role: "Full-Stack Engineer",
     category: "WORK",
-    tags: ["Next.js", "TypeScript", "LangChain", "Flowise", "Prisma", "Stripe", "Clerk"],
+    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Clerk", "LangChain", "Flowise"],
     image: "/assets/immibot.webp",
-    link: "https://nextjsapp-immibot.vercel.app",
+    link: "/work/immibot",
     blurb:
       "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
     outcome:
-      "An AI immigration advisor that helps applicants understand eligibility, compare pathways, and turn vague questions into structured next steps.",
+      "A production immigration workflow spanning guest entry, adaptive intake, official-source retrieval, document and eligibility analysis, recommendations, and guest-to-account history continuity.",
   },
   {
     id: "bpit-site-redesign",
@@ -91,7 +84,7 @@ export const portfolioGridProjects: Project[] = [
     company: "BPIT Tech Team",
     year: "2025",
     role: "Tech Lead / Institutional Project",
-    category: "PERSONAL",
+    category: "INSTITUTIONAL",
     tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
     image: "/assets/bpit.webp",
     link: "https://bpit-site-redesign.vercel.app/",
@@ -110,7 +103,8 @@ export const portfolioGridProjects: Project[] = [
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Thermal Print"],
     image: "/assets/storefront-dashboard.webp",
-    link: "https://github.com/Vinayak1337/StoreFrontNextjs",
+    link: "https://store-front-nextjs-rho.vercel.app",
+    links: [{ label: "GitHub", href: "https://github.com/Vinayak1337/StoreFrontNextjs" }],
     blurb:
       "Billing and inventory app with item organization, order creation, analytics, secure sessions, and Bluetooth thermal printing.",
     outcome:
@@ -183,7 +177,7 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "training-and-placement-bpit",
     index: "11",
-    name: "Training & Placement — BPIT",
+    name: "Training & Placement / BPIT",
     company: "BPIT Demo",
     year: "2025",
     role: "Full-stack Engineer",
@@ -341,7 +335,7 @@ export const portfolioGridProjects: Project[] = [
     category: "WORK",
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
     image: "/assets/mylearning.webp",
-    link: "https://mylearning.thewonderlearn.com/",
+    link: null,
     blurb:
       "Teacher dashboard for classroom rosters, per-student video watch percentage, game scores, and module completion.",
     outcome:

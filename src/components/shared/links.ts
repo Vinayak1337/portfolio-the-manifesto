@@ -7,10 +7,11 @@ export function externalLinkProps(href: string | null) {
     };
   }
 
+  const isInternal = href.startsWith("/");
+
   return {
     href,
-    target: "_blank",
-    rel: "noopener noreferrer",
+    target: isInternal ? undefined : "_blank",
+    rel: isInternal ? undefined : "noopener noreferrer",
   };
 }
-

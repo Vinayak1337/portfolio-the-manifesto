@@ -24,7 +24,12 @@ export function Experience({
       />
       <div className="exp-list">
         {experience.map((item) => (
-          <article className="exp-item" key={`${item.company}-${item.date}`}>
+          <article
+            className="exp-item"
+            key={`${item.company}-${item.date}`}
+            tabIndex={0}
+            aria-label={`${item.title} at ${item.company}, ${item.date}`}
+          >
             <div className="exp-date">{item.date}</div>
             <div className="exp-body">
               <h3>
