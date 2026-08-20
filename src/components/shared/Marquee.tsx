@@ -78,7 +78,6 @@ export function Marquee({
                 <span className="marquee-chip" key={`${set}-${item}`}>
                   <MarqueeGlyph name={item} />
                   <em>{item}</em>
-                  <span className="dot" />
                 </span>
               ))}
             </span>
