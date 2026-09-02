@@ -1030,7 +1030,8 @@ body:has(.variant-atlas) {
   color: var(--atlas-ink);
 }
 
-.variant-atlas .oss-item:hover {
+.variant-atlas .oss-item:hover,
+.variant-atlas .oss-item:focus-within {
   background: var(--atlas-paper);
   color: var(--atlas-ink);
 }
@@ -1046,9 +1047,22 @@ body:has(.variant-atlas) {
 .variant-atlas .oss-body h3 {
   color: var(--atlas-ink);
   font-family: var(--font-atlas-display);
-  font-size: clamp(42px, 5vw, 74px);
+  max-width: 100%;
+  font-size: clamp(36px, 4vw, 62px);
   letter-spacing: -0.035em;
-  line-height: 0.9;
+  line-height: 0.94;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+/* The Atlas OSS cards stay light on hover, so keep their supporting copy dark. */
+.variant-atlas .oss-item:hover .oss-meta,
+.variant-atlas .oss-item:hover .oss-org,
+.variant-atlas .oss-item:hover .oss-body p,
+.variant-atlas .oss-item:focus-within .oss-meta,
+.variant-atlas .oss-item:focus-within .oss-org,
+.variant-atlas .oss-item:focus-within .oss-body p {
+  color: var(--atlas-ink-soft);
 }
 
 .variant-atlas .oss-body p {
@@ -1068,6 +1082,13 @@ body:has(.variant-atlas) {
   font-family: inherit;
   letter-spacing: 0;
   text-transform: none;
+}
+
+.variant-atlas .oss-links a:hover,
+.variant-atlas .oss-links a:focus-visible {
+  background: var(--atlas-field);
+  color: var(--atlas-light);
+  outline: none;
 }
 
 .variant-atlas .contact-sec {
@@ -1734,7 +1755,7 @@ body:has(.variant-atlas) {
   text-align: left;
 }
 
-.variant-atlas .rail-link-menu summary::after {
+.variant-atlas .rail-link-menu .project-link-menu-summary-icon {
   color: var(--atlas-signal);
 }
 
@@ -2390,7 +2411,7 @@ body:has(.variant-atlas) {
   color: var(--atlas-ink);
 }
 
-.variant-atlas .work-bundle-linked > .work-link-menu summary::after {
+.variant-atlas .work-bundle-linked > .work-link-menu .project-link-menu-summary-icon {
   color: var(--atlas-signal);
 }
 

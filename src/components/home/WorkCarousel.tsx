@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import type { Project } from "@/constants/portfolio";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 import { SplitText } from "@/components/shared/SplitText";
 import { externalLinkProps } from "@/components/shared/links";
 import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
@@ -88,7 +89,7 @@ export function WorkCarousel({
                 <p>{project.outcome ?? project.tags.slice(0, 4).join(" / ")}</p>
                 <span className="rail-action">
                   <span>{hasPrimaryLink ? "View project" : "No public surface"}</span>
-                  <span aria-hidden="true">{hasPrimaryLink ? "↗" : "—"}</span>
+                  <span aria-hidden="true">{hasPrimaryLink ? <ArrowIcon /> : "—"}</span>
                 </span>
               </>
             );

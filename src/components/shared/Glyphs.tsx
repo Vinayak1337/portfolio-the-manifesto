@@ -56,3 +56,38 @@ export function CompanyGlyph({ company }: Readonly<{ company: string }>) {
     </span>
   );
 }
+
+export type ArrowDirection = "down" | "down-right" | "left" | "up-right";
+
+export function ArrowIcon({
+  direction = "up-right",
+}: Readonly<{ direction?: ArrowDirection }>) {
+  const path = (() => {
+    switch (direction) {
+      case "down":
+        return "M8 3v10M4 9l4 4 4-4";
+      case "down-right":
+        return "M4 4l8 8M5 12h7V5";
+      case "left":
+        return "M12 8H4M8 4 4 8l4 4";
+      default:
+        return "M4 12l8-8M5 4h7v7";
+    }
+  })();
+
+  return (
+    <svg
+      className="ui-arrow-icon"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d={path} />
+    </svg>
+  );
+}

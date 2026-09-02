@@ -54,17 +54,17 @@ export type NavLink = Readonly<{
 }>;
 
 export const site = {
-  name: "Vinayak Kumar - React / Next.js Software Engineer",
+  name: "Vinayak Kumar | Full-Stack Engineer",
   url: "https://vinayak1337.me",
   description:
-    "Product-minded React, Next.js, and TypeScript software engineer in New Delhi building frontend-heavy full-stack products, dashboards, CMS workflows, and AI features.",
+    "Full-stack software engineer building frontend web and mobile apps with React, Next.js, TypeScript, and React Native, plus applied AI and generative AI workflows.",
 };
 
 export const person = {
   name: "Vinayak Kumar",
-  roleShort: "Software Engineer / Full-stack",
+  roleShort: "Full-Stack Engineer",
   roleLong:
-    "Software engineer working end-to-end across React, Next.js, TypeScript, product UX, APIs, analytics, auth, billing, deployment, and applied AI workflows.",
+    "Full-Stack Engineer building frontend-focused web and mobile products with React, Next.js, TypeScript, React Native, and applied AI workflows.",
   location: "New Delhi, India",
   email: "vinayak111kumar@gmail.com",
   github: "Vinayak1337",
@@ -80,20 +80,19 @@ export const person = {
 export const seoKeywords = [
   "Vinayak Kumar",
   "Vinayak1337",
-  "React Software Engineer",
-  "Next.js Software Engineer",
-  "TypeScript Product Engineer",
-  "Frontend-focused Full-stack Engineer",
-  "Full-stack Software Engineer India",
-  "Product Engineer",
-  "Applied AI Engineer",
+  "Full-Stack Engineer",
+  "Software Engineer",
+  "Software Engineering",
+  "Frontend Engineer",
+  "React",
+  "Next.js",
+  "TypeScript",
   "React Native Engineer",
-  "Node.js Engineer",
+  "Mobile App Engineer",
+  "Applied AI Engineer",
+  "Generative AI Engineer",
+  "GenAI Engineer",
   "RAG Product Engineer",
-  "LangChain Engineer",
-  "PostHog Analytics Engineer",
-  "Shopify GraphQL Developer",
-  "CMS Workflow Engineer",
 ];
 
 export const navigationLinks: NavLink[] = [
@@ -116,14 +115,14 @@ export const marqueeTech = [
   "Node.js",
   "Prisma",
   "MongoDB",
-  "LangChain",
+  "Perplexity",
   "Flowise",
   "Shopify GraphQL",
   "PostHog",
 ];
 
 export const marqueeDomains = [
-  "RAG workflows",
+  "LLM retrieval workflows",
   "CMS editing",
   "Commerce",
   "Mobile learning",
@@ -137,7 +136,7 @@ export const marqueeArchiveTech = [
   "TypeScript",
   "Node.js",
   "React Native",
-  "LangChain",
+  "Perplexity",
   "MongoDB",
   "PostHog",
 ];
@@ -146,14 +145,14 @@ export const homeHero = {
   eyebrow: "NEW DELHI · IST",
   titleTokens: [
     { text: "Vinayak Kumar," },
-    { text: "software engineer", emphasis: true },
+    { text: "Full-Stack Engineer", emphasis: true },
     { text: "building software since 2020." },
   ],
   summary:
-    "I build frontend-heavy full-stack products with React, Next.js, and TypeScript: dashboards, CMS workflows, commerce and ed-tech surfaces, APIs, analytics, and applied AI features where they improve the workflow.",
+    "I build frontend-heavy full-stack web and mobile products with React, Next.js, TypeScript, and React Native: dashboards, CMS workflows, commerce, ed-tech, APIs, analytics, and applied AI features.",
   signals: [
-    "React / Next.js / TypeScript",
-    "Product systems / applied AI",
+    "React / Next.js / TypeScript / React Native",
+    "Frontend / product systems / applied AI",
   ],
 };
 
@@ -189,18 +188,18 @@ export const chapters = [
     headline: "Ship proof, not promises.",
     emphasis: "proof, not promises.",
     copy: [
-      "Immibot moved from static intake to an adaptive retrieval workflow with eligibility scoring, guest sessions, and persisted history.",
+      "Immibot evolved from Flowise-based Advisor, tracking, and FSW workflows into streamed official-source search with persisted citations and guest-to-account continuity.",
       "Wonderhood Lighthouse performance moved 35→90+ and Ionic→React Native. BPIT gained inline CMS workflows.",
     ],
   },
 ];
 
 export const about = {
-  headline: "Software engineer. Full-stack product systems with applied AI depth.",
+  headline: "Full-Stack Engineer. Product systems with applied AI depth.",
   paragraphs: [
     "React-first product engineer in New Delhi, pursuing B.Tech CSE at GGSIPU.",
     "In 2025 I led a three-person BPIT Tech Team build from scratch with inline content editing, analytics, and Vercel previews.",
-    "RemoteHire / Immibot: retrieval, adaptive questions, eligibility scoring, guest sessions, persisted history, and account continuity.",
+    "RemoteHire / Immibot: official-source AI search, streamed citations, guest-to-account continuity, and historically shipped Flowise Advisor, tracking, and FSW workflows.",
     "Wonderhood: Shopify GraphQL commerce, an Ionic→React Native migration, and teacher reporting by cohort and student.",
     "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
   ],
@@ -219,11 +218,11 @@ export const experience: Experience[] = [
     company: "RemoteHire",
     date: "Feb 2024 - Nov 2024",
     bullets: [
-      "Re-architected Immibot, an AI immigration assistant, with modular country and domain adapters.",
-      "Launched one-click guest sessions with persisted history and account continuity so trial users could move into accounts without losing context.",
-      "Built multi-mode chat and an agentic RAG pipeline with LangChain and Flowise for search, advice, document validation, and eligibility scoring.",
-      "Unified app state through Context API and useReducer, then shipped PostHog plus session/video analytics for cohort analysis.",
-      "Integrated Next.js, TypeScript, shadcn/ui, Tailwind, Clerk, Stripe, Prisma, Vercel, and PWA support.",
+      "Owned the majority of Immibot's full-stack implementation across chat, authentication, persistence, administration, analytics, and deployment.",
+      "Built guest identity, usage quotas, persisted conversations, and automatic guest-to-Clerk account transfer.",
+      "Shipped separate Flowise Advisor/Search workflows, generated follow-ups, progress tracking, orientation rules, and FSW scoring before the Perplexity migration.",
+      "Implemented PostHog instrumentation across chat, feedback, consultation CTAs, document uploads, and product events.",
+      "Built role-protected program, orientation, province, user, and professional administration alongside Azure-backed document workflows and shared Stripe credit infrastructure.",
     ],
   },
   {
@@ -304,13 +303,13 @@ export const projectCatalog: Project[] = [
     year: "2024",
     role: "Full-Stack Engineer",
     category: "WORK",
-    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Clerk", "LangChain", "Flowise"],
+    tags: ["Next.js", "TypeScript", "Perplexity", "Prisma", "Clerk", "Flowise", "PostgreSQL"],
     image: "/assets/immibot.webp",
-    link: "/work/immibot",
+    link: "https://immibot.vercel.app/",
     blurb:
-      "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
+      "Production immigration research assistant with streamed official-source answers, persisted citations, guest-to-account continuity, and historically shipped Flowise eligibility workflows.",
     outcome:
-      "A production immigration workflow spanning guest entry, adaptive intake, official-source retrieval, document and eligibility analysis, recommendations, and guest-to-account history continuity.",
+      "Owned the majority of full-stack implementation and evolved the product from separate Flowise Advisor/Search and FSW workflows to a Perplexity-powered official-source search architecture.",
   },
   {
     id: "autism-detection",
@@ -367,7 +366,7 @@ export const projectCatalog: Project[] = [
     name: "T&P Dashboard",
     company: "BPIT Demo",
     year: "2025",
-    role: "Full-stack Engineer",
+    role: "Full-Stack Engineer",
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "Neon", "NextAuth"],
     image: "/assets/training-placement-dashboard.webp",
@@ -781,8 +780,6 @@ export const skills = {
   Backend: [
     "Node.js",
     "Express",
-    "LangChain",
-    "Flowise",
     "Prisma",
     "MongoDB",
     "Socket.io",
@@ -790,6 +787,7 @@ export const skills = {
     "REST",
     "GraphQL",
   ],
+  AI: ["Perplexity Sonar", "Flowise", "RAG / retrieval workflows"],
   Cloud: [
     "Vercel",
     "AWS S3",
@@ -849,7 +847,7 @@ export const jsonLd = {
     {
       "@type": "ProfilePage",
       "@id": `${site.url}/#profile`,
-      name: "Vinayak Kumar Software Engineer / Full-stack Portfolio",
+      name: "Vinayak Kumar Full-Stack Engineer Portfolio",
       url: site.url,
       description: site.description,
       mainEntity: {

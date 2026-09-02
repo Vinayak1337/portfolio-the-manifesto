@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Vinayak Kumar, React and Next.js software engineer building frontend-heavy full-stack product systems.";
+  "Portfolio cover for Vinayak Kumar, a Full-Stack Engineer building React, React Native, and applied AI products.";
 export const size = {
   width: 1200,
   height: 630,
@@ -56,7 +56,7 @@ export default function Image() {
               lineHeight: 0.98,
             }}
           >
-            software engineer
+            Full-Stack Engineer
           </div>
           <div
             style={{
@@ -83,7 +83,8 @@ export default function Image() {
             <span>React</span>
             <span>Next.js</span>
             <span>TypeScript</span>
-            <span>Applied AI</span>
+            <span>React Native</span>
+            <span>Applied AI / RAG</span>
           </div>
           <span style={{ color: "#9f4f38" }}>VINAYAK1337.ME</span>
         </div>

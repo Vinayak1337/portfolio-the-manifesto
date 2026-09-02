@@ -1,3 +1,5 @@
+import { ArrowIcon } from "@/components/shared/Glyphs";
+
 export function ArchiveContact({
   email,
   filteredCount,
@@ -24,13 +26,13 @@ export function ArchiveContact({
       </div>
       <div className="cta-row">
         <a className="cta" href={`mailto:${email}`}>
-          {email} <span className="ar">↗</span>
+          {email} <span className="ar"><ArrowIcon /></span>
         </a>
         <a className="cta" href={githubUrl} target="_blank" rel="noreferrer">
-          github.com/{github} <span className="ar">↗</span>
+          github.com/{github} <span className="ar"><ArrowIcon /></span>
         </a>
         <a className="cta" href={linkedinUrl} target="_blank" rel="noreferrer">
-          linkedin.com/in/{linkedin} <span className="ar">↗</span>
+          linkedin.com/in/{linkedin} <span className="ar"><ArrowIcon /></span>
         </a>
       </div>
       <div className="footer-meta">

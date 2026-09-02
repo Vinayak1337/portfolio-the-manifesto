@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import type { Project, ProjectLink } from "@/constants/portfolio";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 import { SplitText } from "@/components/shared/SplitText";
 import { externalLinkProps } from "@/components/shared/links";
 import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
@@ -14,7 +15,7 @@ function BundleLinks({ links }: Readonly<{ links: readonly ProjectLink[] }>) {
         {links.map((link) => (
           <a key={link.href} {...externalLinkProps(link.href)}>
             {link.label}
-            <span aria-hidden="true">↗</span>
+            <ArrowIcon />
           </a>
         ))}
       </div>
@@ -46,7 +47,7 @@ export function WorkIndex({
             additional shipped systems {startIndex.toString().padStart(2, "0")}-
             {(startIndex + projects.length - 1).toString().padStart(2, "0")}
           </p>
-          <a href="/archive">All work ↗</a>
+          <a href="/archive">All work <ArrowIcon /></a>
         </div>
       </div>
       <div className="work-list">
@@ -74,7 +75,11 @@ export function WorkIndex({
               <span className={`work-action ${!hasPrimaryLink && !project.links?.length ? "work-action-muted" : ""}`}>
                 <span>{actionLabel}</span>
                 <span className="work-arrow" aria-hidden="true">
-                  {project.links?.length && !hasPrimaryLink ? "↘" : hasPrimaryLink ? "↗" : "—"}
+                  {project.links?.length && !hasPrimaryLink
+                    ? <ArrowIcon direction="down-right" />
+                    : hasPrimaryLink
+                      ? <ArrowIcon />
+                      : "—"}
                 </span>
               </span>
               <Image

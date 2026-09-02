@@ -1,5 +1,6 @@
 import type { ArchiveCategory, ArchiveProject } from "@/constants/archive";
 import type { ProjectLink } from "@/constants/portfolio";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 import { externalLinkProps } from "@/components/shared/links";
 import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
 
@@ -33,7 +34,7 @@ function BundleLinks({ links }: Readonly<{ links: readonly ProjectLink[] }>) {
         {links.map((link) => (
           <a key={link.href} {...externalLinkProps(link.href)}>
             {link.label}
-            <span aria-hidden="true">↗</span>
+            <ArrowIcon />
           </a>
         ))}
       </div>
@@ -59,7 +60,11 @@ export function ArchiveRow({
     : hasDirectLink
       ? "Open project"
       : "No public link";
-  const actionArrow = project.links?.length && !hasDirectLink ? "↘" : hasDirectLink ? "↗" : "—";
+  const actionIcon = project.links?.length && !hasDirectLink
+    ? <ArrowIcon direction="down-right" />
+    : hasDirectLink
+      ? <ArrowIcon />
+      : "—";
   const content = (
     <>
       <span className="idx">{displayIndex}</span>
@@ -83,7 +88,7 @@ export function ArchiveRow({
         <span className="ar archive-action">
           <span className="archive-action-label">{actionLabel}</span>
           <span className="archive-expand-indicator" aria-hidden>
-            {actionArrow}
+            {actionIcon}
           </span>
         </span>
       ) : (
