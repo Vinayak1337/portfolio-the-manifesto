@@ -69,13 +69,13 @@ export const portfolioGridProjects: Project[] = [
     year: "2024",
     role: "Full-Stack Engineer",
     category: "WORK",
-    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Clerk", "LangChain", "Flowise"],
+    tags: ["Next.js", "TypeScript", "Perplexity", "Prisma", "Clerk", "Flowise", "PostgreSQL"],
     image: "/assets/immibot.webp",
-    link: "/work/immibot",
+    link: "https://immibot.vercel.app/",
     blurb:
-      "AI immigration assistant with modular country adapters, agentic RAG, adaptive questioning, and weighted eligibility scoring.",
+      "Production immigration research assistant with streamed official-source answers, persisted citations, guest-to-account continuity, and historically shipped Flowise eligibility workflows.",
     outcome:
-      "A production immigration workflow spanning guest entry, adaptive intake, official-source retrieval, document and eligibility analysis, recommendations, and guest-to-account history continuity.",
+      "Owned the majority of full-stack implementation and evolved the product from separate Flowise Advisor/Search and FSW workflows to a Perplexity-powered official-source search architecture.",
   },
   {
     id: "bpit-site-redesign",

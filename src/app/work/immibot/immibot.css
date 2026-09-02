@@ -138,6 +138,10 @@
 .immibot-workflow-item h3 { margin: 0 0 18px; font-size: 22px; font-weight: 500; letter-spacing: -.03em; }
 .immibot-workflow-item p { margin: 0; color: var(--immibot-paper-deep); font-size: 14px; line-height: 1.55; }
 .immibot-step-signal { color: var(--immibot-signal-light); font: 10px/1.35 var(--immibot-mono); letter-spacing: .09em; text-transform: uppercase; }
+.immibot-history-note { display: grid; grid-template-columns: minmax(180px, .35fr) minmax(0, 1fr); gap: 14px 50px; margin-top: 48px; padding: 26px 0 0; border-top: 1px solid var(--immibot-rule-dark); }
+.immibot-history-note span { color: var(--immibot-signal-light); font: 10px/1.4 var(--immibot-mono); letter-spacing: .12em; }
+.immibot-history-note h3 { max-width: 62ch; margin: 0; font-size: 17px; font-weight: 500; line-height: 1.5; }
+.immibot-history-note p { grid-column: 2; max-width: 67ch; margin: 0; color: var(--immibot-paper-deep); font-size: 13px; line-height: 1.6; }
 
 .immibot-architecture-section { background: var(--immibot-paper-deep); }
 .immibot-architecture-card { margin-top: 8px; overflow-x: auto; border: 1px solid var(--immibot-ink); background: var(--immibot-light); color: var(--immibot-ink); }
@@ -150,6 +154,11 @@
 .immibot-architecture-svg text { fill: currentColor; font: 12px var(--immibot-mono); letter-spacing: .05em; }
 .immibot-architecture-labels text, .immibot-architecture-footnote text { fill: var(--immibot-ink-soft); font-size: 10px; letter-spacing: .12em; }
 .immibot-architecture-svg .node-title { font-family: var(--immibot-sans); font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
+.immibot-era-history rect { stroke-dasharray: 5 4; }
+.immibot-era-history text { opacity: .82; }
+.immibot-era-current rect { fill: rgb(159 79 56 / 8%); stroke: var(--immibot-signal); }
+.immibot-migration path { fill: none; stroke: var(--immibot-signal); stroke-width: 2; stroke-dasharray: 4 4; }
+.immibot-migration text { fill: var(--immibot-signal); font-size: 9px; letter-spacing: .12em; }
 .immibot-architecture-caption { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 50px; align-items: start; margin-top: 24px; }
 .immibot-architecture-caption p { max-width: 60ch; margin: 0; font-size: 14px; line-height: 1.6; }
 .immibot-mode-list { display: flex; flex-wrap: wrap; justify-content: end; gap: 7px; max-width: 300px; }
@@ -167,6 +176,7 @@
 .immibot-stream-row { display: grid; grid-template-columns: 35px 1fr minmax(0, .4fr); gap: 10px; align-items: center; padding: 19px 0; border-bottom: 1px solid var(--immibot-rule); }
 .immibot-stream-row span { color: var(--immibot-signal); font: 11px var(--immibot-mono); }
 .immibot-stream-row strong { font-size: 14px; font-weight: 500; }
+.immibot-stream-row small { color: var(--immibot-ink-soft); font-size: 11px; line-height: 1.4; }
 .immibot-stream-row i { display: block; height: 5px; background: linear-gradient(90deg, var(--immibot-signal), var(--immibot-signal-light)); }
 .immibot-stream-result { margin-top: 20px; padding: 14px; background: var(--immibot-field); color: var(--immibot-light); font: 11px var(--immibot-mono); letter-spacing: .07em; text-transform: uppercase; }
 
@@ -211,6 +221,8 @@
   .immibot-workflow-item:last-child { border-bottom: 0; }
   .immibot-workflow-item { display: grid; grid-template-columns: 50px 1fr; gap: 0 10px; }
   .immibot-workflow-item .immibot-step-signal { grid-column: 2; }
+  .immibot-history-note { grid-template-columns: 1fr; gap: 16px; }
+  .immibot-history-note p { grid-column: auto; }
   .immibot-stream-grid, .immibot-outcome-grid, .immibot-ownership-grid, .immibot-stack-grid, .immibot-engineering-note { grid-template-columns: 1fr; gap: 32px; }
   .immibot-tech-line { grid-column: auto; }
 }
