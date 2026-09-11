@@ -23,7 +23,7 @@ export const portfolioGridProjects: Project[] = [
     category: "PERSONAL",
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.webp",
-    link: null,
+    link: "https://github.com/Vinayak1337/Nurtrilife",
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:

@@ -973,7 +973,7 @@ body:has(.variant-atlas) {
   max-width: 62ch;
   padding-left: 0;
   color: var(--atlas-ink-soft);
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -1605,12 +1605,12 @@ body:has(.variant-atlas) {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 34px 0;
-    text-align: center;
+    text-align: left;
   }
 
   .variant-atlas .exp-body h3 {
     display: grid;
-    justify-items: center;
+    justify-items: start;
     font-size: 42px;
   }
 

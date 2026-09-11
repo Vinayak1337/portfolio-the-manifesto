@@ -197,10 +197,10 @@ export const chapters = [
 export const about = {
   headline: "Full-Stack Engineer. Product systems with applied AI depth.",
   paragraphs: [
-    "React-first product engineer in New Delhi, pursuing B.Tech CSE at GGSIPU.",
+    "I build web and mobile products with React, with 3+ years of professional experience across ed-tech and applied AI.",
     "In 2025 I led a three-person BPIT Tech Team build from scratch with inline content editing, analytics, and Vercel previews.",
-    "RemoteHire / Immibot: official-source AI search, streamed citations, guest-to-account continuity, and historically shipped Flowise Advisor, tracking, and FSW workflows.",
-    "Wonderhood: Shopify GraphQL commerce, an Ionic→React Native migration, and teacher reporting by cohort and student.",
+    "At RemoteHire, I built Immibot’s AI search, streamed citations, and the account flows that carry guest conversations into a signed-in session.",
+    "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
     "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
   ],
 };
@@ -208,8 +208,8 @@ export const about = {
 export const highlights = [
   { stat: "3+", label: "professional years" },
   { stat: "2020", label: "programming since" },
-  { stat: "Relics", label: "leadership + bot builds" },
-  { stat: "2025", label: "led BPIT site build (team of 3)" },
+  { stat: "3", label: "BPIT team size" },
+  { stat: "2027", label: "expected B.Tech graduation" },
 ];
 
 export const experience: Experience[] = [
@@ -760,7 +760,7 @@ export type AboutWedge = (typeof aboutWedges)[number];
 
 export const aboutParagraphs = about.paragraphs.map((paragraph, index) => ({
   number: String(index + 1).padStart(2, "0"),
-  label: ["ORIGIN / NOW", "LEAD / PROOF", "RECENT", "BEFORE", "OPEN SOURCE"][index],
+  label: ["PRODUCT ENGINEERING", "TEAM LEADERSHIP / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
   text: paragraph,
   wedge: aboutWedges[index % aboutWedges.length],
 }));
