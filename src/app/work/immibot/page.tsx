@@ -8,12 +8,12 @@ import "./immibot.css";
 export const metadata: Metadata = {
   title: "Immibot | Full-Stack Applied AI Case Study",
   description:
-    "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and historically shipped Flowise Advisor and FSW workflows.",
+    "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and FSW workflows.",
   alternates: { canonical: "/work/immibot" },
   openGraph: {
     title: "Immibot | Full-Stack Applied AI Case Study",
     description:
-      "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and historically shipped Flowise Advisor and FSW workflows.",
+      "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and FSW workflows.",
     url: "/work/immibot",
     type: "article",
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Immibot | Full-Stack Applied AI Case Study",
     description:
-      "Immibot: a full-stack immigration research product spanning Perplexity search and historically shipped Flowise workflows.",
+      "Immibot: a full-stack immigration research product spanning Perplexity search and earlier Flowise workflows.",
     images: ["/assets/immibot.webp"],
   },
 };
@@ -96,7 +96,7 @@ export default function ImmibotCaseStudy() {
           VK / 2026
         </Link>
         <nav aria-label="Case study navigation">
-          <Link href="/#work">Selected systems</Link>
+          <Link href="/#work">Selected projects</Link>
           <Link href="/archive">Archive</Link>
         </nav>
       </header>
@@ -104,7 +104,7 @@ export default function ImmibotCaseStudy() {
       <div id="immibot-content">
         <section className="immibot-hero" aria-labelledby="immibot-title">
           <div className="immibot-hero-copy">
-            <p className="immibot-kicker"><span>01</span> SYSTEMS DOSSIER · REMOTEHIRE · 2024</p>
+            <p className="immibot-kicker"><span>01</span> CASE STUDY · REMOTEHIRE · 2024</p>
             <h1 id="immibot-title">Immibot<span className="immibot-title-mark">.</span></h1>
             <p className="immibot-deck">
               An immigration research product that evolved across two shipped architectures:
@@ -136,8 +136,7 @@ export default function ImmibotCaseStudy() {
               />
             </div>
             <figcaption>
-              The public-safe visual proof shows the entry point: a country-aware prompt
-              before the workflow branches into questions and evidence.
+              Users choose a country and enter an immigration question to begin their research.
             </figcaption>
           </figure>
         </section>
@@ -145,7 +144,7 @@ export default function ImmibotCaseStudy() {
         <section className="immibot-intro immibot-section" aria-labelledby="problem-title">
           <div className="immibot-section-label"><span>02</span><span>THE PROBLEM</span></div>
           <div className="immibot-intro-grid">
-            <h2 id="problem-title">The hard part was keeping a complicated path legible.</h2>
+            <h2 id="problem-title">Keeping answers and context together.</h2>
             <div className="immibot-copy-stack">
               <p>
                 Immigration questions are high-context. A useful answer depends on country,
@@ -182,17 +181,17 @@ export default function ImmibotCaseStudy() {
             ))}
           </ol>
           <div className="immibot-history-note">
-            <span>HISTORICALLY SHIPPED · 2024</span>
+            <span>EARLIER VERSION · 2024</span>
             <h3>Advisor/Search selection → Flowise chatflow → follow-ups and progress tracking → orientation/FSW tools → persisted recommendation</h3>
-            <p>These workflows were production-integrated before the provider migration. They are presented as shipped history, not as the current Perplexity runtime.</p>
+            <p>The earlier version used Flowise for follow-up questions, progress tracking, and eligibility tools. Search later moved to Perplexity.</p>
           </div>
         </section>
 
         <section className="immibot-architecture-section immibot-section" aria-labelledby="architecture-title">
           <div className="immibot-section-label"><span>04</span><span>THE ENGINEERING</span></div>
           <div className="immibot-heading-row">
-            <h2 id="architecture-title">Two architectures. One product history.</h2>
-            <p>The migration changed the intelligence layer without erasing the systems shipped before it.</p>
+            <h2 id="architecture-title">Migrating from Flowise to Perplexity.</h2>
+            <p>Search moved to Perplexity while sessions, accounts, and conversation storage remained part of the app.</p>
           </div>
           <div className="immibot-architecture-card">
             <ImmibotArchitecture />
@@ -209,13 +208,11 @@ export default function ImmibotCaseStudy() {
             </div>
           </div>
           <div className="immibot-engineering-note">
-            <h3>My ownership</h3>
+            <h3>What I built</h3>
             <p>
-              I owned the majority of implementation across chat APIs, streaming UI, guest and
+              I built chat APIs, streaming UI, guest and
               authenticated sessions, Prisma persistence, administration, Clerk auth, document
-              uploads, product analytics, payment credits, and deployment. A repository audit
-              attributes about 88.5% of tracked source lines and 415 of 638 master-branch commits
-              to my identities.
+              uploads, product analytics, payment credits, and deployment.
             </p>
             <p className="immibot-tech-line">Stack: {stack.join(" · ")}</p>
           </div>
@@ -227,7 +224,7 @@ export default function ImmibotCaseStudy() {
             <div>
               <h2 id="systems-title">The product around the model.</h2>
               <p>
-                Immibot was not only a chat endpoint. The surrounding product covered identity,
+                Alongside search, I worked on identity,
                 administration, documents, consultation hand-offs, credits, and instrumentation.
               </p>
             </div>
@@ -239,7 +236,7 @@ export default function ImmibotCaseStudy() {
                   <small>{detail}</small>
                 </div>
               ))}
-              <div className="immibot-stream-result">Full-stack product ownership · not a wrapper</div>
+              <div className="immibot-stream-result">Sessions · administration · documents · credits</div>
             </div>
           </div>
         </section>
@@ -253,22 +250,15 @@ export default function ImmibotCaseStudy() {
               <small>Product outcome · context carried forward</small>
             </div>
             <div className="immibot-copy-stack">
-              <h2 id="outcome-title">The product became a continuity system.</h2>
+              <h2 id="outcome-title">Keep the conversation after signup.</h2>
               <p>
-                The recommendation was only one moment. The stronger product behavior was what
-                happened around it: a guest could explore, return to persisted history, create
-                an account, and carry forward context instead of restarting the workflow.
+                A guest could ask questions, return to saved history, and create an account
+                without losing earlier conversations or citations.
               </p>
               <p>
                 I instrumented chat, response, feedback, consultation CTA, document, and
                 application events through PostHog while preserving conversation continuity
                 across guest and authenticated sessions.
-              </p>
-              <p className="immibot-boundary-note">
-                <strong>Public-safe boundary.</strong> This page names shipped responsibilities,
-                user-facing behavior, and listed technologies only; it does not publish applicant
-                data, private prompts, proprietary rules, provider secrets, or customer information.
-                Immibot is guidance/workflow software, not legal advice.
               </p>
             </div>
           </div>
@@ -276,7 +266,7 @@ export default function ImmibotCaseStudy() {
       </div>
 
       <footer className="immibot-footer">
-        <Link href="/#work"><ArrowIcon direction="left" /> Back to selected systems</Link>
+        <Link href="/#work"><ArrowIcon direction="left" /> Back to selected projects</Link>
         <span>Immibot / RemoteHire · 2024</span>
         <Link href="/archive">Browse the archive <ArrowIcon /></Link>
       </footer>

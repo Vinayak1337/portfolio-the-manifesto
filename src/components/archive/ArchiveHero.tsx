@@ -27,7 +27,7 @@ export function ArchiveHero({
         </h1>
         <div className="side">
           <p className="hero-blurb">
-            A project index of software shipped since {shippingSince}.{" "}
+            Work, prototypes, and experiments since {shippingSince}.{" "}
             <em>{totalCount} entries</em>. AI tooling, ed-tech, commerce, dating apps,
             tourism platforms, Discord automation, and one ambitious institutional CMS.
           </p>
@@ -45,7 +45,7 @@ export function ArchiveHero({
               <div className="v">React · Next.js · TS · Node</div>
             </div>
             <div>
-              <div className="k">Est.</div>
+              <div className="k">Started</div>
               <div className="v">{shippingSince}</div>
             </div>
           </div>

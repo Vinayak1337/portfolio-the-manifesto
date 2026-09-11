@@ -43,7 +43,7 @@ export function WorkCarousel({
             as="h2"
             id="work-rail-title"
             className="rail-title"
-            tokens={[{ text: "Selected" }, { text: "systems.", emphasis: true }]}
+            tokens={[{ text: "Selected" }, { text: "projects.", emphasis: true }]}
           />
           <div className="rail-counter" aria-live="polite">
             <span className="big" data-rail-number>

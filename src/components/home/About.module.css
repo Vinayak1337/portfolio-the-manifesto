@@ -11,7 +11,7 @@
   padding-bottom: 20px;
   border-bottom: 2px solid var(--atlas-ink);
 }
-.eyebrow, .entry h3, .meta dt, .highlights dt {
+.eyebrow, .entry h3, .meta dt {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 11px;
   font-weight: 500;
@@ -62,12 +62,6 @@
 .index { color: var(--atlas-signal); font-family: var(--font-atlas-display); font-size: 25px; line-height: 1; }
 .entry h3 { margin: 0 0 10px; color: var(--atlas-signal); }
 .entry p { margin: 0; max-width: 52ch; color: var(--atlas-ink-soft); font-size: 16px; line-height: 1.65; }
-.highlights { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; border-top: 2px solid var(--atlas-ink); }
-.highlights > div { display: flex; flex-direction: column-reverse; gap: 12px; padding: 28px 24px; border-right: 1px solid var(--atlas-rule); }
-.highlights > div:first-child { padding-left: 0; }
-.highlights > div:last-child { border-right: 0; }
-.highlights dt { color: var(--atlas-ink-soft); }
-.highlights dd { margin: 0; font-family: var(--font-atlas-display); font-size: clamp(38px, 4vw, 60px); letter-spacing: -.04em; line-height: 1; }
 @media (max-width: 760px) {
   .section { padding: 56px 24px; }
   .heading { gap: 12px; }
@@ -76,9 +70,4 @@
   .intro h2 { font-size: clamp(48px, 9vw, 68px); }
   .intro > p { max-width: 42ch; }
   .entry:first-child { border-top: 1px solid var(--atlas-rule); padding-top: 22px; }
-  .highlights { grid-template-columns: 1fr 1fr; }
-  .highlights > div { padding: 24px 16px; }
-  .highlights > div:nth-child(odd) { padding-left: 0; }
-  .highlights > div:nth-child(even) { border-right: 0; }
-  .highlights > div:nth-child(n + 3) { border-top: 1px solid var(--atlas-rule); }
 }

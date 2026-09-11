@@ -115,9 +115,7 @@ export const marqueeTech = [
   "Node.js",
   "Prisma",
   "MongoDB",
-  "Perplexity",
   "Flowise",
-  "Shopify GraphQL",
   "PostHog",
 ];
 
@@ -136,7 +134,6 @@ export const marqueeArchiveTech = [
   "TypeScript",
   "Node.js",
   "React Native",
-  "Perplexity",
   "MongoDB",
   "PostHog",
 ];
@@ -146,10 +143,10 @@ export const homeHero = {
   titleTokens: [
     { text: "Vinayak Kumar," },
     { text: "Full-Stack Engineer", emphasis: true },
-    { text: "building software since 2020." },
+    { text: "working across web and mobile." },
   ],
   summary:
-    "I build frontend-heavy full-stack web and mobile products with React, Next.js, TypeScript, and React Native: dashboards, CMS workflows, commerce, ed-tech, APIs, analytics, and applied AI features.",
+    "I build web and mobile apps with React, Next.js, and React Native. My work includes learning apps, college publishing tools, and AI-assisted search.",
   signals: [
     "React / Next.js / TypeScript / React Native",
     "Frontend / product systems / applied AI",
@@ -157,7 +154,7 @@ export const homeHero = {
 };
 
 export const statement = {
-  headline: "I ship product systems\nthat move from\nprototype to production.",
+  headline: "Interfaces, APIs,\nand the work\nbetween them.",
   caption: "REACT · NEXT.JS · TYPESCRIPT · NODE · RAG · ANALYTICS",
 };
 
@@ -175,8 +172,8 @@ export const chapters = [
   {
     number: "02",
     label: "THE METHOD",
-    headline: "Own the whole loop.",
-    emphasis: "whole loop.",
+    headline: "Connect the interface and backend.",
+    emphasis: "interface and backend.",
     copy: [
       "Work across interface, app state, permissions, payments, retrieval, and the edge cases between them.",
       "Guest history merges into an account. Admins edit pages in place. Teachers see progress by student or cohort.",
@@ -185,8 +182,8 @@ export const chapters = [
   {
     number: "03",
     label: "THE PROOF",
-    headline: "Ship proof, not promises.",
-    emphasis: "proof, not promises.",
+    headline: "Examples from my work.",
+    emphasis: "my work.",
     copy: [
       "Immibot evolved from Flowise-based Advisor, tracking, and FSW workflows into streamed official-source search with persisted citations and guest-to-account continuity.",
       "Wonderhood Lighthouse performance moved 35→90+ and Ionic→React Native. BPIT gained inline CMS workflows.",
@@ -195,22 +192,15 @@ export const chapters = [
 ];
 
 export const about = {
-  headline: "Full-Stack Engineer. Product systems with applied AI depth.",
+  headline: "Web and mobile development.",
   paragraphs: [
     "I build web and mobile products with React, with 3+ years of professional experience across ed-tech and applied AI.",
-    "In 2025 I led a three-person BPIT Tech Team build from scratch with inline content editing, analytics, and Vercel previews.",
+    "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
     "At RemoteHire, I built Immibot’s AI search, streamed citations, and the account flows that carry guest conversations into a signed-in session.",
     "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
     "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
   ],
 };
-
-export const highlights = [
-  { stat: "3+", label: "professional years" },
-  { stat: "2020", label: "programming since" },
-  { stat: "3", label: "BPIT team size" },
-  { stat: "2027", label: "expected B.Tech graduation" },
-];
 
 export const experience: Experience[] = [
   {
@@ -218,7 +208,7 @@ export const experience: Experience[] = [
     company: "RemoteHire",
     date: "Feb 2024 - Nov 2024",
     bullets: [
-      "Owned the majority of Immibot's full-stack implementation across chat, authentication, persistence, administration, analytics, and deployment.",
+      "Built Immibot’s chat interface, APIs, authentication, conversation storage, and administration tools.",
       "Built guest identity, usage quotas, persisted conversations, and automatic guest-to-Clerk account transfer.",
       "Shipped separate Flowise Advisor/Search workflows, generated follow-ups, progress tracking, orientation rules, and FSW scoring before the Perplexity migration.",
       "Implemented PostHog instrumentation across chat, feedback, consultation CTAs, document uploads, and product events.",
@@ -230,7 +220,7 @@ export const experience: Experience[] = [
     company: "Wonderhood",
     date: "Nov 2021 - Feb 2024",
     bullets: [
-      "Owned web and mobile initiatives across React, Next.js, React Native, Ionic, and Expo, growing scope from individual contributor to SD-1.",
+      "Developed Wonderhood’s web and mobile apps using React, Next.js, React Native, Ionic, and Expo.",
       "Rebuilt the e-commerce and content site with Shopify GraphQL, SDK flows, blogs, articles, courses, toys, and cart functionality.",
       "Migrated the platform to Next.js using ISR, SSG, SSR, and CSR, improving Lighthouse performance from 35 to 90+.",
       "Led the Ionic to React Native migration with child-centric UI, custom video players, game players, progress capture, and resume states.",
@@ -242,7 +232,7 @@ export const experience: Experience[] = [
     company: "Possibillion Technologies",
     date: "Sep 2021 - Nov 2021",
     bullets: [
-      "Led 4 interns and shipped 3 MVPs in 3 months across tourism, social, and video slideshow products.",
+      "Worked on tourism, social, and video slideshow MVPs with the internship team.",
       "Built landing pages, admin panels, and REST backends with React, Express, MongoDB, Socket.io, Swagger, S3, and FFmpeg.",
     ],
   },
@@ -251,7 +241,7 @@ export const experience: Experience[] = [
 export const openSourceContributions: OpenSourceContribution[] = [
   {
     project: "checkstyle/checkstyle",
-    org: "Java static-analysis tool · 8k+ stars",
+    org: "Java static-analysis tool",
     summary:
       "Specified all default properties for SuppressionCommentFilter, and fixed LineLength violation-comment placement in Javadoc.",
     proof: "Static-analysis defaults and Javadoc linting",
@@ -303,13 +293,13 @@ export const projectCatalog: Project[] = [
     year: "2024",
     role: "Full-Stack Engineer",
     category: "WORK",
-    tags: ["Next.js", "TypeScript", "Perplexity", "Prisma", "Clerk", "Flowise", "PostgreSQL"],
+    tags: ["Next.js", "TypeScript", "Prisma", "Clerk", "Flowise", "PostgreSQL"],
     image: "/assets/immibot.webp",
     link: "https://immibot.vercel.app/",
     blurb:
-      "Production immigration research assistant with streamed official-source answers, persisted citations, guest-to-account continuity, and historically shipped Flowise eligibility workflows.",
+      "Immigration research assistant with streamed answers from government sources, saved citations, and conversation history across signup.",
     outcome:
-      "Owned the majority of full-stack implementation and evolved the product from separate Flowise Advisor/Search and FSW workflows to a Perplexity-powered official-source search architecture.",
+      "Built streaming search, saved citations, and conversation history that transfers from a guest session to an account. Migrated search from Flowise to Perplexity.",
   },
   {
     id: "autism-detection",
@@ -358,7 +348,7 @@ export const projectCatalog: Project[] = [
     blurb:
       "Official college tech team site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
-      "A 2025 institutional project where I led a 3-person build for department publishing, live-page content editing, analytics, and Vercel previews.",
+      "Built inline content editing for department pages, with analytics and Vercel previews for reviewing changes.",
   },
   {
     id: "training-placement",
@@ -384,7 +374,7 @@ export const projectCatalog: Project[] = [
     year: "2023",
     role: "SD-1",
     category: "WORK",
-    tags: ["Next.js", "Tailwind", "Shopify", "GraphQL", "TypeScript"],
+    tags: ["Next.js", "Tailwind", "GraphQL", "TypeScript"],
     image: "/assets/wonderlearn.webp",
     link: "https://thewonderlearn.com/",
     blurb:
@@ -432,13 +422,13 @@ export const projectCatalog: Project[] = [
     year: "2022",
     role: "SD-1",
     category: "WORK",
-    tags: ["React", "SASS", "Shopify", "Redux Toolkit", "Redux Saga"],
+    tags: ["React", "SASS", "Redux Toolkit", "Redux Saga"],
     image: "/assets/wonderhood.webp",
     link: "https://wonderhood.in/",
     blurb:
       "Parent-facing landing page and education journey surface for the wonderLearn ecosystem.",
     outcome:
-      "A parent-facing education platform that explains the learning journey and converts interest into app downloads, plans, and purchases.",
+      "A website where parents can browse learning programs, read articles, and access the app and store.",
   },
   {
     id: "dating-landing",
@@ -565,7 +555,7 @@ export const projectCatalog: Project[] = [
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
     outcome:
-      "One of four bots I built for a 50k+ member community across 50+ servers; the stack automated more than 90% of manual admin work.",
+      "Automated club monitoring, member verification, and ladder tracking using Discord commands and the Brawl Stars API.",
   },
   {
     id: "relics-general",
@@ -760,7 +750,7 @@ export type AboutWedge = (typeof aboutWedges)[number];
 
 export const aboutParagraphs = about.paragraphs.map((paragraph, index) => ({
   number: String(index + 1).padStart(2, "0"),
-  label: ["PRODUCT ENGINEERING", "TEAM LEADERSHIP / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
+  label: ["PRODUCT ENGINEERING", "BPIT / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
   text: paragraph,
   wedge: aboutWedges[index % aboutWedges.length],
 }));
@@ -787,7 +777,7 @@ export const skills = {
     "REST",
     "GraphQL",
   ],
-  AI: ["Perplexity Sonar", "Flowise", "RAG / retrieval workflows"],
+  AI: ["Flowise", "RAG / retrieval workflows"],
   Cloud: [
     "Vercel",
     "AWS S3",

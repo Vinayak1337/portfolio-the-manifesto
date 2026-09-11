@@ -22,7 +22,7 @@ export function ArchiveContact({
   return (
     <section className="contact-sec" id="contact">
       <div className="big">
-        Open the <em>ticket.</em>
+        Get in <em>touch.</em>
       </div>
       <div className="cta-row">
         <a className="cta" href={`mailto:${email}`}>

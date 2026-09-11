@@ -158,7 +158,7 @@ export function ArchiveClientView({
           onHover={setHoverProject}
           onMove={positionPreview}
           projects={strongRows}
-          title="Strong work"
+          title="Selected projects"
           totalProjects={projects}
         />
       </section>
