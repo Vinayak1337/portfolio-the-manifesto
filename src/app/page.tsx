@@ -22,7 +22,6 @@ import {
 import {
   aboutParagraphs,
   experience,
-  highlights,
   homeHero,
   jsonLd,
   ledgerProjects,
@@ -107,7 +106,6 @@ export default function Home() {
           startIndex={railProjects.length + 1}
         />
         <About
-          highlights={highlights}
           paragraphs={aboutParagraphs}
         />
         <Experience

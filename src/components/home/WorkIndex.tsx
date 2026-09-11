@@ -10,7 +10,7 @@ import { imageBlurDataURLs } from "@/constants/image-blurs";
 function BundleLinks({ links }: Readonly<{ links: readonly ProjectLink[] }>) {
   return (
     <div className="work-bundle-panel">
-      <span className="work-bundle-kicker">bundle surfaces</span>
+      <span className="work-bundle-kicker">Project links</span>
       <div className="work-bundle-links">
         {links.map((link) => (
           <a key={link.href} {...externalLinkProps(link.href)}>
@@ -44,7 +44,7 @@ export function WorkIndex({
         />
         <div className="work-header-copy">
           <p>
-            additional shipped systems {startIndex.toString().padStart(2, "0")}-
+            additional projects {startIndex.toString().padStart(2, "0")}-
             {(startIndex + projects.length - 1).toString().padStart(2, "0")}
           </p>
           <a href="/archive">All work <ArrowIcon /></a>
@@ -58,7 +58,7 @@ export function WorkIndex({
           const displayIndex = (index + startIndex).toString().padStart(2, "0");
           const description = project.outcome ?? project.blurb;
           const actionLabel = project.links?.length && !hasPrimaryLink
-            ? "Open surfaces"
+            ? "View links"
             : hasPrimaryLink
               ? "View project"
               : "No public link";
@@ -111,7 +111,7 @@ export function WorkIndex({
                 </a>
                 <ProjectLinkMenu
                   className="work-link-menu"
-                  label="Open surfaces"
+                  label="View links"
                   links={project.links}
                 />
               </div>

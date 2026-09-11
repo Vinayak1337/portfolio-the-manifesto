@@ -27,7 +27,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:
-      "A health-domain product prototype that shows React Native architecture across authenticated onboarding, AI-assisted food capture, persisted meal state, nutrition recommendations, and analytics.",
+      "A nutrition app prototype for logging meals from photos, tracking daily nutrients and water, and reviewing meal history.",
   },
   {
     id: "ai-chat-vsc-extension",
@@ -41,7 +41,7 @@ export const portfolioGridProjects: Project[] = [
     image: "/assets/ai-chat-vscode-agent.webp",
     link: "https://github.com/Vinayak1337/AI-chat-vsc-extension",
     blurb:
-      "Local-first VS Code agent workspace with React webview UI, provider switching, project memory, file attachments, and code-write actions.",
+      "VS Code AI assistant with React webview UI, provider switching, project memory, file attachments, and code-write actions.",
     outcome:
       "An editor-native AI workflow that keeps planning, review, debugging, context files, and write-back actions inside the developer workspace.",
   },
@@ -51,7 +51,7 @@ export const portfolioGridProjects: Project[] = [
     name: "RelicsAudit",
     company: "Relics Esports",
     year: "2020",
-    role: "Sole Developer / Org Lead",
+    role: "Developer",
     category: "COMMUNITY",
     tags: ["Discord.js", "Node", "MongoDB", "Brawl Stars API"],
     image: "/assets/relics-audit.webp",
@@ -59,7 +59,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
     outcome:
-      "One of four bots I built for a 50k+ member community across 50+ servers; the stack automated more than 90% of manual admin work.",
+      "Automated club monitoring, member verification, and ladder tracking using Discord commands and the Brawl Stars API.",
   },
   {
     id: "immibot",
@@ -69,13 +69,13 @@ export const portfolioGridProjects: Project[] = [
     year: "2024",
     role: "Full-Stack Engineer",
     category: "WORK",
-    tags: ["Next.js", "TypeScript", "Perplexity", "Prisma", "Clerk", "Flowise", "PostgreSQL"],
+    tags: ["Next.js", "TypeScript", "Prisma", "Clerk", "Flowise", "PostgreSQL"],
     image: "/assets/immibot.webp",
     link: "https://immibot.vercel.app/",
     blurb:
-      "Production immigration research assistant with streamed official-source answers, persisted citations, guest-to-account continuity, and historically shipped Flowise eligibility workflows.",
+      "Immigration research assistant with streamed answers from government sources, saved citations, and conversation history across signup.",
     outcome:
-      "Owned the majority of full-stack implementation and evolved the product from separate Flowise Advisor/Search and FSW workflows to a Perplexity-powered official-source search architecture.",
+      "Built streaming search, saved citations, and conversation history that transfers from a guest session to an account. Migrated search from Flowise to Perplexity.",
   },
   {
     id: "bpit-site-redesign",
@@ -91,7 +91,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Official college tech team site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
-      "A 2025 institutional project where I led a 3-person build for department publishing, live-page content editing, analytics, and Vercel previews.",
+      "Built inline content editing for department pages, with analytics and Vercel previews for reviewing changes.",
   },
   {
     id: "storefront-nextjs",
@@ -166,13 +166,13 @@ export const portfolioGridProjects: Project[] = [
     year: "2022",
     role: "SD-1",
     category: "WORK",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Shopify", "SCSS"],
+    tags: ["Next.js", "TypeScript", "Tailwind", "SCSS"],
     image: "/assets/wonderlearn.webp",
     link: "https://www.wonderhood.in/",
     blurb:
       "Parent-facing education surface for the wonderLearn ecosystem, rebuilt around a Next.js storefront and content flow.",
     outcome:
-      "A parent-facing education platform that explains the learning journey and converts interest into app downloads, plans, and purchases.",
+      "A website where parents can browse learning programs, read articles, and access the app and store.",
   },
   {
     id: "training-and-placement-bpit",
@@ -188,7 +188,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Training and placement dashboard with coordinator and student flows, role-based access, placement drives, applications, and resume uploads.",
     outcome:
-      "A placement operations system that shows student records, drive management, application status, and placement analytics in one dashboard.",
+      "A placement dashboard demo for managing student records, recruitment drives, applications, and placement reports.",
   },
   {
     id: "chaintusker-nft-server",
@@ -236,7 +236,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Freelance backend API with admin/community routes, JWT auth, persisted content models, and Swagger documentation.",
     outcome:
-      "A production-shaped client API with JWT auth, admin and community routes, persisted content models, and live Swagger documentation.",
+      "An Express API with JWT authentication, admin and community routes, stored content, and Swagger documentation.",
   },
   {
     id: "autism-detector",
@@ -447,7 +447,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "In-progress transit knowledge dashboard with document upload, ingestion status, search, and chat surfaces around KMRL information.",
     outcome:
-      "Best kept as WIP proof: dashboard UI, ingestion pipeline thinking, and RAG/chat integration without presenting it as a finished deployment.",
+      "An in-progress prototype for uploading transit documents, tracking ingestion, and searching them through a chat interface.",
   },
   {
     id: "picmash",
@@ -547,6 +547,6 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "API client prototype with request-building state, collection-style structure, and Redux/Saga workflow experiments.",
     outcome:
-      "An IDE-style API client built on Next.js App Router with complex request-builder state managed through Redux Toolkit and Saga, plus Prisma-backed persistence.",
+      "An API client prototype for composing requests and organizing collections, using Redux Toolkit and Saga for request state and Prisma for storage.",
   },
 ];

@@ -9,10 +9,7 @@ type AboutParagraph = Readonly<{
   wedge: AboutWedge;
 }>;
 
-type Highlight = Readonly<{ stat: string; label: string }>;
-
-export function About({ highlights, paragraphs }: Readonly<{
-  highlights: readonly Highlight[];
+export function About({ paragraphs }: Readonly<{
   paragraphs: readonly AboutParagraph[];
 }>) {
   return (
@@ -23,8 +20,8 @@ export function About({ highlights, paragraphs }: Readonly<{
       </div>
       <div className={styles.layout}>
         <div className={styles.intro}>
-          <h2 id="about-title">An engineer.<br /><em>A product mindset.</em></h2>
-          <p>I work across the interface and the systems behind it — from the first interaction to the production details.</p>
+          <h2 id="about-title">Web, mobile,<br /><em>and the backend.</em></h2>
+          <p>My work spans React interfaces, mobile apps, and the APIs that connect them.</p>
           <div className={styles.links}>
             <a href={person.resume} target="_blank" rel="noopener noreferrer">Read my resume <span aria-hidden="true">↗</span></a>
             <a href={person.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
@@ -43,11 +40,6 @@ export function About({ highlights, paragraphs }: Readonly<{
           ))}
         </div>
       </div>
-      <dl className={styles.highlights}>
-        {highlights.map((highlight) => (
-          <div key={highlight.label}><dt>{highlight.label}</dt><dd>{highlight.stat}</dd></div>
-        ))}
-      </dl>
     </section>
   );
 }

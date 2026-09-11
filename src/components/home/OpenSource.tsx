@@ -17,8 +17,8 @@ export function OpenSource({
           id="open-source-title"
           className="oss-title"
           tokens={[
-            { text: "Merged work in" },
-            { text: "tools teams ship with.", emphasis: true },
+            { text: "Contributions to" },
+            { text: "open source.", emphasis: true },
           ]}
         />
       </div>
