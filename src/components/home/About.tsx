@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
 import type { AboutWedge } from "@/constants/portfolio";
-import { SplitText } from "@/components/shared/SplitText";
+import { person } from "@/constants/portfolio";
+import styles from "./About.module.css";
 
 type AboutParagraph = Readonly<{
   number: string;
@@ -9,90 +9,45 @@ type AboutParagraph = Readonly<{
   wedge: AboutWedge;
 }>;
 
-type Highlight = Readonly<{
-  stat: string;
-  label: string;
-}>;
+type Highlight = Readonly<{ stat: string; label: string }>;
 
-export function About({
-  art,
-  highlights,
-  paragraphs,
-}: Readonly<{
-  art: ReactNode;
+export function About({ highlights, paragraphs }: Readonly<{
   highlights: readonly Highlight[];
   paragraphs: readonly AboutParagraph[];
 }>) {
   return (
-    <section
-      className="about-sec"
-      id="about"
-      data-about-section
-      aria-labelledby="about-title"
-    >
-      {art}
-      <div className="about-grid">
-        <div className="about-lede">
-          <span className="section-tag" data-reveal>
-            About
-          </span>
-          <SplitText
-            as="h2"
-            id="about-title"
-            className="about-title"
-            tokens={[
-              { text: "Full-Stack Engineer.", emphasis: true },
-              { text: "React-first product systems." },
-            ]}
-          />
-          <div className="about-meta" data-reveal>
-            <div className="about-meta-row">
-              <span className="about-meta-key">Based</span>
-              <span className="about-meta-val">New Delhi · IST</span>
-            </div>
-            <div className="about-meta-row">
-              <span className="about-meta-key">Stack</span>
-              <span className="about-meta-val">React · Next.js · TS · RN</span>
-            </div>
-            <div className="about-meta-row">
-              <span className="about-meta-key">Focus</span>
-              <span className="about-meta-val">Applied AI · Product</span>
-            </div>
+    <section className={styles.section} id="about" aria-labelledby="about-title">
+      <div className={styles.heading}>
+        <span className={styles.eyebrow}>03 / About</span>
+        <span className={styles.eyebrow}>New Delhi, India · IST</span>
+      </div>
+      <div className={styles.layout}>
+        <div className={styles.intro}>
+          <h2 id="about-title">An engineer.<br /><em>A product mindset.</em></h2>
+          <p>I work across the interface and the systems behind it — from the first interaction to the production details.</p>
+          <div className={styles.links}>
+            <a href={person.resume} target="_blank" rel="noopener noreferrer">Read my resume <span aria-hidden="true">↗</span></a>
+            <a href={person.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           </div>
+          <dl className={styles.meta}>
+            <div><dt>Core stack</dt><dd>React · Next.js · TypeScript · React Native</dd></div>
+            <div><dt>Education</dt><dd>B.Tech CSE · GGSIPU · Expected 2027</dd></div>
+          </dl>
         </div>
-        <div className="about-body">
-          <div className="about-reading">
-            <div className="about-reading-lead" data-reveal>
-              <span className="about-reading-kicker">01 / PRODUCT LAYER</span>
-              <h3>I build the product layer around real workflows.</h3>
-            </div>
-            <div className="about-paragraphs">
-              {paragraphs.map((paragraph) => (
-                <article
-                  className="about-entry"
-                  data-reveal
-                  data-wedge={paragraph.wedge}
-                  key={paragraph.text}
-                >
-                  <div className="about-entry-index">{paragraph.number}</div>
-                  <div className="about-entry-body">
-                    <div className="about-entry-label">{paragraph.label}</div>
-                    <p>{paragraph.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-          <div className="stats" data-reveal>
-            {highlights.map((highlight) => (
-              <div className="stat" key={highlight.label}>
-                <div className="stat-number">{highlight.stat}</div>
-                <div className="stat-label">{highlight.label}</div>
-              </div>
-            ))}
-          </div>
+        <div className={styles.entries}>
+          {paragraphs.map((paragraph) => (
+            <article className={styles.entry} key={paragraph.number}>
+              <span className={styles.index} aria-hidden="true">{paragraph.number}</span>
+              <div><h3>{paragraph.label}</h3><p>{paragraph.text}</p></div>
+            </article>
+          ))}
         </div>
       </div>
+      <dl className={styles.highlights}>
+        {highlights.map((highlight) => (
+          <div key={highlight.label}><dt>{highlight.label}</dt><dd>{highlight.stat}</dd></div>
+        ))}
+      </dl>
     </section>
   );
 }

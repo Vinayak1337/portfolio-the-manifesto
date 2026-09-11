@@ -11,7 +11,6 @@ import { Navbar } from "@/components/navigation/Navbar";
 import { Marquee } from "@/components/shared/Marquee";
 import { FluxClientEffects } from "@/components/flux/FluxClientEffects";
 import {
-  FluxAboutMap,
   FluxContactIllustration,
   FluxExperienceIllustration,
   FluxHeroIllustration,
@@ -108,7 +107,6 @@ export default function Home() {
           startIndex={railProjects.length + 1}
         />
         <About
-          art={<FluxAboutMap />}
           highlights={highlights}
           paragraphs={aboutParagraphs}
         />
