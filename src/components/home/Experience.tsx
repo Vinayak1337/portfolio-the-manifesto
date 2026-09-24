@@ -36,7 +36,14 @@ export function Experience({
                 <CompanyGlyph company={item.company} />
                 {item.title}
               </h3>
-              <div className="exp-company">@ {item.company}</div>
+              <div className="exp-company">
+                @ {item.company}
+                {item.project ? (
+                  <a href={item.project.href} target="_blank" rel="noopener noreferrer">
+                    {item.project.label} ↗
+                  </a>
+                ) : null}
+              </div>
               <ul>
                 {item.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>

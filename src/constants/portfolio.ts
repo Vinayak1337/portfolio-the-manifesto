@@ -36,6 +36,7 @@ export type Experience = Readonly<{
   title: string;
   company: string;
   date: string;
+  project?: ProjectLink;
   bullets: readonly string[];
 }>;
 
@@ -192,7 +193,7 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. I also work on AI agents and workflows that bring useful actions into those products.",
+    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. Most recently, I worked on Ideapost's authentication, billing, analytics, and AI content workflow at Philblocks.",
     "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
     "At RemoteHire, I built Immibot's Flowise Advisor and eligibility workflows, then its streamed, cited search and guest-to-account conversation flow.",
     "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
@@ -201,6 +202,17 @@ export const about = {
 };
 
 export const experience: Experience[] = [
+  {
+    title: "Product Engineer Intern",
+    company: "Philblocks Private Limited",
+    date: "Jun 2026 - Jul 2026",
+    project: { label: "Ideapost", href: "https://ideapost.top" },
+    bullets: [
+      "Migrated Ideapost's authentication to Clerk, synced user data through webhooks, and protected dashboard and admin routes by role.",
+      "Built stackable credits and Razorpay billing with a transaction ledger, payment webhooks, refunds, and admin controls; added Mixpanel product events.",
+      "Developed the initial multi-step AI post-generation workflow with profile context, memory recall, content drafting, moderation, and run tracking.",
+    ],
+  },
   {
     title: "Full-Stack Engineer",
     company: "RemoteHire",
@@ -748,7 +760,7 @@ export type AboutWedge = (typeof aboutWedges)[number];
 
 export const aboutParagraphs = about.paragraphs.map((paragraph, index) => ({
   number: String(index + 1).padStart(2, "0"),
-  label: ["PRODUCT ENGINEERING", "BPIT / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
+  label: ["PRODUCT ENGINEERING / 2026", "BPIT / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
   text: paragraph,
   wedge: aboutWedges[index % aboutWedges.length],
 }));
