@@ -668,7 +668,7 @@ export const archiveCatalog: Omit<ArchiveProject, "idx">[] = [
   },
   {
     id: "nutrilife",
-    name: "NutriLife",
+    name: "Nutrlife",
     company: "Personal",
     year: "2026",
     category: "PERSONAL",

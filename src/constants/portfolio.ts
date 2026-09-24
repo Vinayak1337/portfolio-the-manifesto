@@ -775,7 +775,7 @@ export const skills = {
     "REST",
     "GraphQL",
   ],
-  AI: ["Flowise", "AI agent workflows", "Perplexity Sonar"],
+  AI: ["Flowise", "AI agent workflows", "LLM integrations"],
   Cloud: [
     "Vercel",
     "AWS S3",

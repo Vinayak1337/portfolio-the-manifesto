@@ -16,14 +16,14 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "nutrilife",
     index: "01",
-    name: "NutriLife",
+    name: "Nutrlife",
     company: "Personal",
     year: "2026",
     role: "Mobile / Full-Stack Product Engineer",
     category: "PERSONAL",
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.webp",
-    link: "https://github.com/Vinayak1337/Nurtrilife",
+    link: "https://github.com/Vinayak1337/Nutrlife",
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:

@@ -70,7 +70,7 @@ const currentWorkflow = [
 const modes = ["Current · Perplexity", "Historical · Flowise", "FSW", "Guest → account"];
 const stack = [
   "Next.js / TypeScript",
-  "Perplexity Sonar / Flowise",
+  "AI search / Flowise workflows",
   "Prisma / PostgreSQL",
   "Clerk / Stripe credits",
   "PostHog",
