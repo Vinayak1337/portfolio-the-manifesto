@@ -36,7 +36,7 @@ export type Experience = Readonly<{
   title: string;
   company: string;
   date: string;
-  project?: ProjectLink;
+  companyUrl?: string;
   bullets: readonly string[];
 }>;
 
@@ -193,7 +193,7 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. At Philblocks, I built Ideapost's AI content engine and author-voice matching alongside its authentication and billing systems.",
+    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. At Philblocks, I built Ideapost's AI content workflow, helped generated posts follow each user's writing tone, and developed its authentication and billing systems.",
     "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
     "At RemoteHire, I built Immibot's Flowise Advisor and eligibility workflows, then its streamed, cited search and guest-to-account conversation flow.",
     "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
@@ -206,12 +206,12 @@ export const experience: Experience[] = [
     title: "Product Engineer Intern",
     company: "Philblocks Private Limited",
     date: "Jun 2026 - Sep 2026",
-    project: { label: "Ideapost", href: "https://ideapost.top" },
+    companyUrl: "https://ideapost.top",
     bullets: [
-      "Built a Next.js/TypeScript LangGraph engine for LinkedIn, X, and Facebook posts with profile and memory recall, parallel writer agents, critique, revision, moderation, and asynchronous run tracking.",
-      "Matched each author's voice using style signatures and MongoDB Atlas Vector Search over authored posts; added confidence scores, draft-distance checks, and drift-triggered revisions while keeping generated and third-party text out of persona memory.",
-      "Hardened generation with pluggable AI providers, Vercel AI Gateway, MongoDB concurrency leases, distributed rate limits, provider preflight, retries, tracing, and safe credit refunds.",
-      "Migrated authentication to Clerk with webhook sync and role-based routes; built stackable Razorpay credits with a ledger, payment webhooks, refunds, and admin controls, and added Mixpanel analytics.",
+      "Built Ideapost's AI post-generation workflow with **Next.js**, **TypeScript**, and **LangGraph**. Coordinated agents to plan posts, write drafts for LinkedIn, X, and Facebook, then review and revise them, with progress tracking in the editor.",
+      "Built tone matching from users' own posts: analyzed writing patterns, retrieved relevant examples with **MongoDB Atlas Vector Search**, and used them to guide drafts and flag changes in tone. Kept generated posts out of the user's writing samples so they would not skew future results.",
+      "Added **MongoDB** run locks, distributed rate limits, provider checks, and retries so users could not start overlapping AI runs and failed requests could recover safely. Integrated model providers through **Vercel AI Gateway** and added logs, diagnostics, and credit refunds for unsuccessful runs.",
+      "Moved authentication from **Firebase** to **Clerk**, synced users through webhooks, and protected routes by role. Built **Razorpay** credit-based billing with payment webhooks, a transaction ledger, refunds, and admin controls; added **Mixpanel** events to track product use.",
     ],
   },
   {

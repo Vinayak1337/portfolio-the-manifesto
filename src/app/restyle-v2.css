@@ -959,10 +959,13 @@ body:has(.variant-atlas) {
 
 .variant-atlas .exp-company a {
   display: inline-block;
-  margin-left: 1.5em;
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 0.25em;
+}
+
+.variant-atlas .exp-body strong {
+  font-weight: 700;
 }
 
 .variant-atlas .exp-body h3 {

@@ -37,16 +37,21 @@ export function Experience({
                 {item.title}
               </h3>
               <div className="exp-company">
-                @ {item.company}
-                {item.project ? (
-                  <a href={item.project.href} target="_blank" rel="noopener noreferrer">
-                    {item.project.label} ↗
+                @ {item.companyUrl ? (
+                  <a href={item.companyUrl} target="_blank" rel="noopener noreferrer">
+                    {item.company}
                   </a>
-                ) : null}
+                ) : item.company}
               </div>
               <ul>
                 {item.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
+                  <li key={bullet}>
+                    {bullet.split(/(\*\*.*?\*\*)/g).map((part, index) =>
+                      part.startsWith("**") && part.endsWith("**") ? (
+                        <strong key={index}>{part.slice(2, -2)}</strong>
+                      ) : part,
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
