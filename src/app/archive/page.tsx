@@ -12,12 +12,12 @@ import "./archive.css";
 export const metadata: Metadata = {
   title: "Full-Stack Engineering Project Archive",
   description:
-    "Full-stack engineering project archive by Vinayak Kumar: frontend web and React Native mobile apps built with React, Next.js, TypeScript, and applied AI.",
+    "Full-stack engineering project archive by Vinayak Kumar: web and React Native apps, AI agents, and workflows built with React, Next.js, and TypeScript.",
   alternates: { canonical: "/archive" },
   openGraph: {
     title: "Full-Stack Engineering Project Archive | Vinayak Kumar",
     description:
-      "Full-stack and frontend engineering work across React, Next.js, TypeScript, React Native mobile apps, product dashboards, and applied AI systems.",
+      "Full-stack work across React, Next.js, TypeScript, React Native apps, product dashboards, AI agents, and workflows.",
     url: "/archive",
     type: "website",
     siteName: site.name,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Portfolio cover for Vinayak Kumar, a Full-Stack Engineer building React, React Native, and applied AI products.",
+        alt: "Portfolio cover for Vinayak Kumar, a Full-Stack Engineer building web and mobile products, AI agents, and workflows.",
       },
     ],
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Full-Stack Engineering Project Archive | Vinayak Kumar",
     description:
-      "Full-stack and frontend engineering work across React, Next.js, TypeScript, React Native mobile apps, product dashboards, and applied AI systems.",
+      "Full-stack work across React, Next.js, TypeScript, React Native apps, product dashboards, AI agents, and workflows.",
     images: ["/twitter-image"],
   },
 };

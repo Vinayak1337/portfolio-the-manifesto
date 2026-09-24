@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Portfolio cover for Vinayak Kumar, a Full-Stack Engineer building React, React Native, and applied AI products.",
+        alt: "Portfolio cover for Vinayak Kumar, a Full-Stack Engineer building web and mobile products, AI agents, and workflows.",
       },
     ],
   },

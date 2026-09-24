@@ -6,12 +6,12 @@ import { ImmibotArchitecture } from "@/components/work/ImmibotArchitecture";
 import "./immibot.css";
 
 export const metadata: Metadata = {
-  title: "Immibot | Full-Stack Applied AI Case Study",
+  title: "Immibot | Full-Stack AI Workflow Case Study",
   description:
     "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and FSW workflows.",
   alternates: { canonical: "/work/immibot" },
   openGraph: {
-    title: "Immibot | Full-Stack Applied AI Case Study",
+    title: "Immibot | Full-Stack AI Workflow Case Study",
     description:
       "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and FSW workflows.",
     url: "/work/immibot",
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: "/assets/immibot.webp",
         width: 1600,
         height: 1041,
-        alt: "Immibot applied AI workflow case study by Vinayak Kumar, Full-Stack Engineer.",
+        alt: "Immibot AI workflow case study by Vinayak Kumar, Full-Stack Engineer.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Immibot | Full-Stack Applied AI Case Study",
+    title: "Immibot | Full-Stack AI Workflow Case Study",
     description:
       "Immibot: a full-stack immigration research product spanning Perplexity search and earlier Flowise workflows.",
     images: ["/assets/immibot.webp"],
@@ -120,7 +120,7 @@ export default function ImmibotCaseStudy() {
             <div className="immibot-hero-meta" aria-label="Immibot project details">
               <div><span>Role</span><strong>Full-Stack Engineer</strong></div>
               <div><span>Company</span><strong>RemoteHire</strong></div>
-              <div><span>Surface</span><strong>Applied AI · Full Stack · SaaS</strong></div>
+              <div><span>Surface</span><strong>AI Workflows · Full Stack · SaaS</strong></div>
             </div>
           </div>
           <figure className="immibot-hero-visual">

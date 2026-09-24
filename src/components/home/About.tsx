@@ -21,7 +21,7 @@ export function About({ paragraphs }: Readonly<{
       <div className={styles.layout}>
         <div className={styles.intro}>
           <h2 id="about-title">Web, mobile,<br /><em>and the backend.</em></h2>
-          <p>My work spans React interfaces, mobile apps, and the APIs that connect them.</p>
+          <p>I build React interfaces, mobile apps, and AI workflows backed by the APIs that connect them.</p>
           <div className={styles.links}>
             <a href={person.resume} target="_blank" rel="noopener noreferrer">Read my resume <span aria-hidden="true">↗</span></a>
             <a href={person.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>

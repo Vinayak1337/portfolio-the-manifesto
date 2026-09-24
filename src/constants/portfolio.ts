@@ -57,14 +57,14 @@ export const site = {
   name: "Vinayak Kumar | Full-Stack Engineer",
   url: "https://vinayak1337.me",
   description:
-    "Full-stack software engineer building frontend web and mobile apps with React, Next.js, TypeScript, and React Native, plus applied AI and generative AI workflows.",
+    "Full-stack engineer building web and mobile products with React, Next.js, TypeScript, and React Native, plus AI agents and workflows.",
 };
 
 export const person = {
   name: "Vinayak Kumar",
   roleShort: "Full-Stack Engineer",
   roleLong:
-    "Full-Stack Engineer building frontend-focused web and mobile products with React, Next.js, TypeScript, React Native, and applied AI workflows.",
+    "Full-Stack Engineer building web and mobile products with React, Next.js, TypeScript, and React Native, plus AI agents and workflows.",
   location: "New Delhi, India",
   email: "vinayak111kumar@gmail.com",
   github: "Vinayak1337",
@@ -73,8 +73,7 @@ export const person = {
   linkedinUrl: "https://linkedin.com/in/Vinayak1337",
   website: "vinayak1337.me",
   resume: "/Vinayak_Kumar_Resume.pdf",
-  yearsShipping: 6,
-  shippingSince: 2020,
+  shippingSince: 2019,
 };
 
 export const seoKeywords = [
@@ -89,10 +88,9 @@ export const seoKeywords = [
   "TypeScript",
   "React Native Engineer",
   "Mobile App Engineer",
-  "Applied AI Engineer",
-  "Generative AI Engineer",
-  "GenAI Engineer",
-  "RAG Product Engineer",
+  "AI agents",
+  "AI workflows",
+  "LLM integrations",
 ];
 
 export const navigationLinks: NavLink[] = [
@@ -120,7 +118,7 @@ export const marqueeTech = [
 ];
 
 export const marqueeDomains = [
-  "LLM retrieval workflows",
+  "AI agents & workflows",
   "CMS editing",
   "Commerce",
   "Mobile learning",
@@ -146,16 +144,16 @@ export const homeHero = {
     { text: "working across web and mobile." },
   ],
   summary:
-    "I build web and mobile apps with React, Next.js, and React Native. My work includes learning apps, college publishing tools, and AI-assisted search.",
+    "I build web and mobile products with React, Next.js, and React Native, alongside AI agents and workflows. My work spans learning apps, commerce, developer tools, and college publishing systems.",
   signals: [
     "React / Next.js / TypeScript / React Native",
-    "Frontend / product systems / applied AI",
+    "Frontend / product systems / AI workflows",
   ],
 };
 
 export const statement = {
   headline: "Interfaces, APIs,\nand the work\nbetween them.",
-  caption: "REACT · NEXT.JS · TYPESCRIPT · NODE · RAG · ANALYTICS",
+  caption: "REACT · NEXT.JS · TYPESCRIPT · NODE · AI WORKFLOWS · ANALYTICS",
 };
 
 export const chapters = [
@@ -165,7 +163,7 @@ export const chapters = [
     headline: "Make complex work feel obvious.",
     emphasis: "complex work feel obvious.",
     copy: [
-      "Dashboards, CMS workflows, commerce, mobile learning, and AI-assisted tools are the visible layer.",
+      "Dashboards, CMS tools, commerce, mobile learning, and AI workflows are the visible layer.",
       "Behind them: state, APIs, auth, persistence, analytics, and deployment that keep the next action clear.",
     ],
   },
@@ -194,9 +192,9 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I build web and mobile products with React, with 3+ years of professional experience across ed-tech and applied AI.",
+    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. I also work on AI agents and workflows that bring useful actions into those products.",
     "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
-    "At RemoteHire, I built Immibot’s AI search, streamed citations, and the account flows that carry guest conversations into a signed-in session.",
+    "At RemoteHire, I built Immibot's Flowise Advisor and eligibility workflows, then its streamed, cited search and guest-to-account conversation flow.",
     "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
     "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
   ],
@@ -777,7 +775,7 @@ export const skills = {
     "REST",
     "GraphQL",
   ],
-  AI: ["Flowise", "RAG / retrieval workflows"],
+  AI: ["Flowise", "AI agent workflows", "Perplexity Sonar"],
   Cloud: [
     "Vercel",
     "AWS S3",
