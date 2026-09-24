@@ -193,7 +193,7 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. Most recently, I worked on Ideapost's authentication, billing, analytics, and AI content workflow at Philblocks.",
+    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. At Philblocks, I built Ideapost's AI content engine and author-voice matching alongside its authentication and billing systems.",
     "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
     "At RemoteHire, I built Immibot's Flowise Advisor and eligibility workflows, then its streamed, cited search and guest-to-account conversation flow.",
     "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
@@ -205,12 +205,13 @@ export const experience: Experience[] = [
   {
     title: "Product Engineer Intern",
     company: "Philblocks Private Limited",
-    date: "Jun 2026 - Jul 2026",
+    date: "Jun 2026 - Sep 2026",
     project: { label: "Ideapost", href: "https://ideapost.top" },
     bullets: [
-      "Migrated Ideapost's authentication to Clerk, synced user data through webhooks, and protected dashboard and admin routes by role.",
-      "Built stackable credits and Razorpay billing with a transaction ledger, payment webhooks, refunds, and admin controls; added Mixpanel product events.",
-      "Developed the initial multi-step AI post-generation workflow with profile context, memory recall, content drafting, moderation, and run tracking.",
+      "Built a Next.js/TypeScript LangGraph engine for LinkedIn, X, and Facebook posts with profile and memory recall, parallel writer agents, critique, revision, moderation, and asynchronous run tracking.",
+      "Matched each author's voice using style signatures and MongoDB Atlas Vector Search over authored posts; added confidence scores, draft-distance checks, and drift-triggered revisions while keeping generated and third-party text out of persona memory.",
+      "Hardened generation with pluggable AI providers, Vercel AI Gateway, MongoDB concurrency leases, distributed rate limits, provider preflight, retries, tracing, and safe credit refunds.",
+      "Migrated authentication to Clerk with webhook sync and role-based routes; built stackable Razorpay credits with a ledger, payment webhooks, refunds, and admin controls, and added Mixpanel analytics.",
     ],
   },
   {
