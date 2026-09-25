@@ -36,6 +36,7 @@ export type Experience = Readonly<{
   title: string;
   company: string;
   date: string;
+  location?: string;
   companyUrl?: string;
   bullets: readonly string[];
 }>;
@@ -206,45 +207,48 @@ export const experience: Experience[] = [
     title: "Product Engineer Intern",
     company: "Philblocks Private Limited",
     date: "Jun 2026 - Jul 2026",
+    location: "Remote",
     companyUrl: "https://ideapost.top",
     bullets: [
-      "Built the AI engine behind Ideapost with **Next.js**, **TypeScript**, and **LangGraph**. A set of agents plans each post, drafts it for LinkedIn, X, and Facebook, then reviews and revises it, while the editor shows their progress.",
-      "Made drafts sound like the person posting them. The system studies a user's past posts, pulls the most relevant examples with **MongoDB Atlas Vector Search**, and uses them to guide new drafts and flag when the tone drifts. Generated posts stay out of those samples so they don't skew later results.",
-      "Made AI runs dependable: **MongoDB** locks stop anyone from starting two runs at once, and rate limits and retries absorb provider failures. Models are routed through **Vercel AI Gateway**, and a failed run refunds its credits.",
-      "Moved sign-in from **Firebase** to **Clerk** with role-based access, and built credit-based billing on **Razorpay** with webhooks, a transaction ledger, refunds, and admin controls. Added **Mixpanel** to see how people actually use the product.",
+      "Built Ideapost's AI post-generation workflow with **Next.js**, **TypeScript**, and **LangGraph**: agents plan each post, write drafts for LinkedIn, X, and Facebook, then review and revise them.",
+      "Built tone matching from users' own posts: analyzed their writing patterns, retrieved relevant examples with **MongoDB Atlas Vector Search**, and used them to guide drafts and flag changes in tone.",
+      "Implemented **Clerk** authentication and **Razorpay** credit-based billing with payment webhooks, a transaction ledger, and refunds, and added **Mixpanel** to track product use.",
+      "Added **MongoDB** run locks, rate limits, and retries to prevent overlapping runs and recover from AI provider failures, with models routed through **Vercel AI Gateway**.",
     ],
   },
   {
     title: "Full-Stack Engineer",
     company: "RemoteHire",
     date: "Feb 2024 - Nov 2024",
+    location: "Remote · New Delhi, India · Full-time, then part-time",
     bullets: [
-      "Owned most of Immibot's full-stack work, first full-time and later part-time: the chat, sign-in, data, admin tools, analytics, and deployment.",
-      "Let visitors try Immibot without an account, within usage limits, and carried their conversations over automatically when they signed up with Clerk.",
-      "Built the first version on Flowise: Advisor and Search modes, suggested follow-up questions, progress tracking, orientation, and Federal Skilled Worker (FSW) eligibility scoring.",
-      "Rebuilt search on Perplexity Sonar, streaming answers from official Canadian, US, and Australian sources, with each citation saved alongside its message.",
-      "Built the admin side for programs, provinces, users, and professionals, plus document handling on Azure, shared Stripe credits, and PostHog tracking across the product.",
+      "**Owned most of Immibot's full-stack delivery**: AI chat, auth, persistence, admin, analytics, and deployment.",
+      "Built **guest sessions, quotas, and guest-to-Clerk conversion**, carrying each conversation over to the new account and cleaning up after.",
+      "Shipped **Flowise-based Advisor/Search** workflows with follow-ups, progress tracking, orientation, and Federal Skilled Worker (FSW) eligibility.",
+      "Built **streamed Perplexity Sonar search** over **official Canadian, US, and Australian sources**, with saved citations and retries.",
+      "Added role-protected admin for programs, provinces, users, and professionals, plus Azure document handling, shared **Stripe** credits, and **PostHog** analytics.",
     ],
   },
   {
     title: "Software Developer I",
     company: "Wonderhood",
     date: "Nov 2021 - Feb 2024",
+    location: "Remote · New Delhi, India · Joined as an intern",
     bullets: [
-      "Joined as an intern and stayed on as Software Developer I, working across Wonderhood's website and mobile app.",
-      "Moved the website to Next.js with ISR, SSG, and CSR, taking Lighthouse performance from 35 to 90+.",
-      "Rebuilt the store and content site on Shopify GraphQL: toys, courses, blogs, articles, and the cart.",
-      "Led the move from Ionic to React Native and redesigned the app for young children, including video and game players that remember where a child left off.",
-      "Turned MyLearning into a dashboard for teachers, with course progress, assessments, per-student reports, and Mixpanel tracking.",
+      "Migrated the platform to **Next.js with ISR/SSG/CSR** and raised **Lighthouse performance from 35 to 90+**.",
+      "Built e-commerce and content flows with **Shopify GraphQL and SDK** for toys, blogs, articles, courses, and the cart.",
+      "Led an **Ionic-to-React Native migration** and redesigned the mobile UI for young children, with video and game players that remember their progress.",
+      "Turned MyLearning into a teacher dashboard for courses, assessments, and reporting, with **Mixpanel event instrumentation**.",
     ],
   },
   {
     title: "MERN Stack Intern",
     company: "Possibillion Technologies",
     date: "Sep 2021 - Nov 2021",
+    location: "Remote · New Delhi, India",
     bullets: [
-      "Led a group of four interns and shipped three MVPs: a tourism booking site, a video slideshow generator, and a social app.",
-      "Built their landing pages, admin panels, and APIs with React, Express, MongoDB, Socket.io, FFmpeg, and AWS S3.",
+      "**Led 4 interns and shipped 3 MVPs** across tourism, slideshow generation, and social apps.",
+      "Built their landing pages, admin panels, and APIs with React, Express, MongoDB, **Socket.io, FFmpeg, and AWS S3**.",
     ],
   },
 ];

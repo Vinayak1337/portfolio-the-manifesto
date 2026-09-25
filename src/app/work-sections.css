@@ -1,5 +1,5 @@
 /*
- * Selected projects rail + More work list: readability pass.
+ * Selected projects rail, More work list and experience: readability pass.
  *
  * Labels were 8-9px monospace and descriptions 11px (monospace on the rail,
  * 70% opacity in the list). This raises the floor to 11px for labels and
@@ -212,5 +212,63 @@
     overflow: visible;
     font-size: 14px;
     -webkit-line-clamp: unset;
+  }
+}
+
+/* ---------- Where I've worked ---------- */
+
+.variant-atlas .exp-sec .exp-date,
+.variant-atlas .exp-sec .exp-company,
+.variant-atlas .exp-sec .exp-location {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.variant-atlas .exp-sec .exp-location {
+  margin-top: 6px;
+  color: var(--atlas-ink-soft);
+}
+
+/* Match the resume: en-dash bullets, key phrases in full-strength ink. */
+.variant-atlas .exp-sec .exp-body li {
+  position: relative;
+  padding-left: 1.2em;
+}
+
+.variant-atlas .exp-sec .exp-body li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--atlas-signal);
+  content: "–";
+  transform: none;
+}
+
+.variant-atlas .exp-sec .exp-body ul {
+  margin-top: 16px;
+}
+
+.variant-atlas .exp-sec .exp-body strong {
+  color: var(--atlas-ink);
+  font-weight: 650;
+}
+
+.variant-atlas .exp-item:is(:hover, :focus-within) .exp-location,
+.variant-atlas .exp-item:is(:hover, :focus-within) .exp-body strong {
+  color: var(--atlas-light);
+}
+
+@media (hover: none) {
+  .variant-atlas .exp-item:is(:hover, :focus-within) .exp-location {
+    color: var(--atlas-ink-soft);
+  }
+
+  .variant-atlas .exp-item:is(:hover, :focus-within) .exp-body strong {
+    color: var(--atlas-ink);
   }
 }

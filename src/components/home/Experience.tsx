@@ -47,6 +47,7 @@ export function Experience({
                   </a>
                 ) : item.company}
               </div>
+              {item.location ? <div className="exp-location">{item.location}</div> : null}
               <ul>
                 {item.bullets.map((bullet) => (
                   <li key={bullet}>
