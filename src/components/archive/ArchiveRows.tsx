@@ -56,7 +56,7 @@ export function ArchiveRow({
   const href = project.link ?? project.repo ?? null;
   const hasDirectLink = Boolean(href);
   const actionLabel = project.links?.length && !hasDirectLink
-    ? "Open surfaces"
+    ? "View links"
     : hasDirectLink
       ? "Open project"
       : "No public link";
@@ -122,7 +122,7 @@ export function ArchiveRow({
         </a>
         <ProjectLinkMenu
           className="archive-link-menu"
-          label="Open surfaces"
+          label="View links"
           links={project.links}
         />
       </div>

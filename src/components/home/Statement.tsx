@@ -10,7 +10,7 @@ export function Statement({
   headline: string;
   illustration: ReactNode;
 }>) {
-  const lines = headline.split("\n").slice(0, -1);
+  const lines = headline.split("\n");
   const words = lines.flatMap((line) => line.split(" "));
   const finalWords = ["prototype", "production."];
   const total = words.length + finalWords.length;

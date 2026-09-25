@@ -46,6 +46,7 @@ export function WorkCarousel({
             tokens={[{ text: "Selected" }, { text: "projects.", emphasis: true }]}
           />
           <div className="rail-counter" aria-live="polite">
+            <span className="rail-section-tag">02 / Selected work</span>
             <span className="rail-number-mask">
               <span className="big" data-rail-number>
                 01
@@ -90,7 +91,7 @@ export function WorkCarousel({
                 </span>
                 <p>{project.outcome ?? project.tags.slice(0, 4).join(" / ")}</p>
                 <span className="rail-action">
-                  <span>{hasPrimaryLink ? "View project" : "No public surface"}</span>
+                  <span>{hasPrimaryLink ? "View project" : "Private project"}</span>
                   <span aria-hidden="true">{hasPrimaryLink ? <ArrowIcon /> : "—"}</span>
                 </span>
               </>
@@ -109,7 +110,7 @@ export function WorkCarousel({
                     </a>
                     <ProjectLinkMenu
                       className="rail-link-menu"
-                      label="Open surfaces"
+                      label="View links"
                       links={project.links}
                     />
                   </article>

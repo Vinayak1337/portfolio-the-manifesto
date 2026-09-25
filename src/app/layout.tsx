@@ -96,7 +96,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${atlasDisplay.variable} h-full antialiased`}
     >
       <body>
-        <ViewTransition default="page-turn">{children}</ViewTransition>
+        <ViewTransition default={{ page: "page-turn", default: "none" }}>{children}</ViewTransition>
         {enableVercelTelemetry ? (
           <>
             <Analytics />

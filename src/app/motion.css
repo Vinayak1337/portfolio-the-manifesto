@@ -91,8 +91,13 @@
 }
 
 .variant-atlas .roll-letters {
+  user-select: none;
+}
+
+.variant-atlas .roll-word {
   display: inline-block;
   clip-path: inset(-0.08em -0.1em -0.24em -0.1em);
+  white-space: nowrap;
 }
 
 .variant-atlas .roll-char {
@@ -111,11 +116,107 @@
   margin-bottom: 14px;
 }
 
+/* Fills the last cell of the two-up grid, which otherwise showed as an empty
+ * ink block. */
+.variant-atlas .oss-more {
+  align-content: space-between;
+  background: var(--atlas-field);
+  color: var(--atlas-light);
+  text-decoration: none;
+}
+
+.variant-atlas .oss-more:hover,
+.variant-atlas .oss-more:focus-visible {
+  background: var(--atlas-field-deep);
+  color: var(--atlas-light);
+}
+
+.variant-atlas .oss-more .oss-meta,
+.variant-atlas .oss-more:hover .oss-meta {
+  color: var(--atlas-paper-deep);
+}
+
+.variant-atlas .oss-more-title {
+  font-family: var(--font-atlas-display);
+  font-size: clamp(36px, 4vw, 62px);
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+}
+
+.variant-atlas .oss-more-title em {
+  color: var(--atlas-signal);
+  font-style: normal;
+}
+
+.variant-atlas .oss-more-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.variant-atlas .oss-more:focus-visible {
+  outline: 3px solid var(--atlas-signal);
+  outline-offset: -3px;
+}
+
+/* Section numbering: 02 and 04 were missing between 01, 03, 05 and 06. */
+.variant-atlas .rail-section-tag {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--atlas-paper-deep);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.variant-atlas .exp-sec {
+  position: relative;
+}
+
+.variant-atlas .exp-section-tag {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--atlas-ink);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.variant-atlas .exp-section-tag::before {
+  content: "04 / ";
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+@media (min-width: 981px) {
+  /* The rail title sat 2px under the fixed nav. */
+  .variant-atlas .rail-sec .pin {
+    padding-top: calc(72px + clamp(18px, 3.5vh, 36px));
+  }
+}
+
 .variant-atlas .email-group {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 14px 22px;
+}
+
+@media (max-width: 640px) {
+  .variant-atlas .email-group {
+    justify-content: center;
+  }
 }
 
 .variant-atlas .copy-email {
@@ -179,6 +280,22 @@
   display: inline-block;
 }
 
+/* Touch screens: a tap left the experience inversion stuck on. */
+@media (hover: none) {
+  .variant-atlas .exp-item:is(:hover, :focus-within) {
+    background: none;
+  }
+
+  .variant-atlas .exp-item:is(:hover, :focus-within) > *,
+  .variant-atlas .exp-item:is(:hover, :focus-within) .exp-body h3 {
+    color: var(--atlas-ink);
+  }
+
+  .variant-atlas .exp-item:is(:hover, :focus-within) :is(.exp-date, .exp-company, .exp-body li) {
+    color: var(--atlas-ink-soft);
+  }
+}
+
 @media (min-width: 761px) {
   /* About: the intro holds while the entries scroll past it. */
   .variant-atlas #about div:has(> #about-title) {
@@ -193,17 +310,20 @@
 /* ------------------------------------------------------------------ */
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Page transitions between routes */
+  /* Page transitions between routes. Only route changes tagged "page" animate
+   * (next/link transitionTypes, or a full navigation between documents); in-page
+   * anchor jumps never do. */
   @view-transition {
     navigation: auto;
+    types: page;
   }
 
-  ::view-transition-old(root),
+  html:active-view-transition-type(page)::view-transition-old(root),
   ::view-transition-old(.page-turn) {
     animation: page-out 380ms var(--motion-quart) both;
   }
 
-  ::view-transition-new(root),
+  html:active-view-transition-type(page)::view-transition-new(root),
   ::view-transition-new(.page-turn) {
     animation: page-in 900ms var(--motion-expo) 120ms both;
   }
@@ -563,6 +683,11 @@
     color: var(--atlas-signal);
   }
 
+  /* Rust on the dark hover field is too low-contrast to read. */
+  .variant-atlas .exp-item[data-passed]:is(:hover, :focus-within) .exp-date {
+    color: var(--atlas-paper-deep);
+  }
+
   body.manifesto-mounted .variant-atlas .exp-item[data-reveal] {
     position: relative;
     border-top-color: transparent;
@@ -590,7 +715,8 @@
     transform: translate3d(0, 30px, 0);
     transition:
       opacity 0.8s ease 0.15s,
-      transform 1.1s var(--motion-expo) 0.15s;
+      transform 1.1s var(--motion-expo) 0.15s,
+      color 0.35s ease 0.1s;
   }
 
   body.manifesto-mounted .variant-atlas .exp-item[data-reveal] > .exp-body {
@@ -600,6 +726,33 @@
   body.manifesto-mounted .variant-atlas .exp-item[data-reveal].is-in > * {
     opacity: 1;
     transform: none;
+  }
+
+  /* Hover: the dark field slides in from the left and the copy eases across. */
+  @media (hover: hover) {
+    .variant-atlas .exp-item {
+      background-image: linear-gradient(var(--atlas-field), var(--atlas-field));
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 0% 100%;
+      transition: background-size 0.8s var(--motion-expo);
+    }
+
+    .variant-atlas .exp-item:hover,
+    .variant-atlas .exp-item:focus-within {
+      background-color: transparent;
+      background-image: linear-gradient(var(--atlas-field), var(--atlas-field));
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    body.manifesto-mounted .variant-atlas .exp-item[data-reveal].is-in:is(:hover, :focus-within) > * {
+      transform: translate3d(clamp(12px, 1.4vw, 22px), 0, 0);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s var(--motion-expo),
+        color 0.35s ease 0.1s;
+    }
   }
 
   /* ---------- Contact ---------- */

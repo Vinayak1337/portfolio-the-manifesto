@@ -1,10 +1,13 @@
 import type { OpenSourceContribution } from "@/constants/portfolio";
+import { ArrowIcon } from "@/components/shared/Glyphs";
 import { SplitText } from "@/components/shared/SplitText";
 
 export function OpenSource({
   contributions,
+  githubUrl,
 }: Readonly<{
   contributions: readonly OpenSourceContribution[];
+  githubUrl: string;
 }>) {
   return (
     <section className="oss-sec" aria-labelledby="open-source-title">
@@ -47,6 +50,25 @@ export function OpenSource({
             </div>
           </article>
         ))}
+        {contributions.length % 2 === 1 ? (
+          <a
+            className="oss-item oss-more"
+            data-reveal
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="oss-meta">Profile and repositories</span>
+            <span className="oss-more-title">
+              See the rest
+              <br />
+              <em>on GitHub.</em>
+            </span>
+            <span className="oss-more-action">
+              github.com/{githubUrl.split("/").pop()} <ArrowIcon />
+            </span>
+          </a>
+        ) : null}
       </div>
     </section>
   );

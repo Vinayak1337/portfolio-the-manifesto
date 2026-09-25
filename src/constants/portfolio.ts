@@ -153,7 +153,7 @@ export const homeHero = {
 };
 
 export const statement = {
-  headline: "Interfaces, APIs,\nand the work\nbetween them.",
+  headline: "Interfaces, APIs,\ntaken from",
   caption: "REACT · NEXT.JS · TYPESCRIPT · NODE · AI WORKFLOWS · ANALYTICS",
 };
 
@@ -193,11 +193,11 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. At Philblocks, I built Ideapost's AI content workflow, helped generated posts follow each user's writing tone, and developed its authentication and billing systems.",
+    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. At Philblocks, I built Ideapost's AI content workflow, matched generated posts to each user's writing tone, and developed its authentication and billing systems.",
     "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
     "At RemoteHire, I built Immibot's Flowise Advisor and eligibility workflows, then its streamed, cited search and guest-to-account conversation flow.",
     "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
-    "Open source: Checkstyle, Express codemod, and Jenkins plugins.",
+    "I contribute fixes upstream: Checkstyle, the official Express v5 codemod, and the Jenkins Azure AD plugin.",
   ],
 };
 
@@ -383,7 +383,7 @@ export const projectCatalog: Project[] = [
     name: "wonderLearn",
     company: "Wonderhood",
     year: "2023",
-    role: "SD-1",
+    role: "Software Developer I",
     category: "WORK",
     tags: ["Next.js", "Tailwind", "GraphQL", "TypeScript"],
     image: "/assets/wonderlearn.webp",
@@ -399,7 +399,7 @@ export const projectCatalog: Project[] = [
     name: "wonderLearn App",
     company: "Wonderhood",
     year: "2023",
-    role: "SD-1",
+    role: "Software Developer I",
     category: "WORK",
     tags: ["React Native", "Expo", "TypeScript", "Redux Toolkit", "Redux Saga"],
     image: "/assets/wonderlearn-app.webp",
@@ -415,7 +415,7 @@ export const projectCatalog: Project[] = [
     name: "MyLearning",
     company: "Wonderhood",
     year: "2023",
-    role: "SD-1",
+    role: "Software Developer I",
     category: "WORK",
     tags: ["React", "Vite", "TypeScript", "Redux Toolkit", "Tailwind"],
     image: "/assets/mylearning.webp",
@@ -431,7 +431,7 @@ export const projectCatalog: Project[] = [
     name: "Wonderhood",
     company: "Wonderhood",
     year: "2022",
-    role: "SD-1",
+    role: "Software Developer I",
     category: "WORK",
     tags: ["React", "SASS", "Redux Toolkit", "Redux Saga"],
     image: "/assets/wonderhood.webp",

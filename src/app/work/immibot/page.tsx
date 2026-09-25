@@ -92,12 +92,12 @@ export default function ImmibotCaseStudy() {
       </a>
 
       <header className="immibot-nav">
-        <Link className="immibot-mark" href="/" aria-label="Vinayak Kumar home">
+        <Link className="immibot-mark" transitionTypes={["page"]} href="/" aria-label="Vinayak Kumar home">
           VK / 2026
         </Link>
         <nav aria-label="Case study navigation">
-          <Link href="/#work">Selected projects</Link>
-          <Link href="/archive">Archive</Link>
+          <Link transitionTypes={["page"]} href="/#work">Selected projects</Link>
+          <Link transitionTypes={["page"]} href="/archive">Archive</Link>
         </nav>
       </header>
 
@@ -115,7 +115,7 @@ export default function ImmibotCaseStudy() {
               <a href="https://immibot.vercel.app/" target="_blank" rel="noreferrer">
                 Open live product <ArrowIcon />
               </a>
-              <Link href="/archive">Archive / all work <ArrowIcon /></Link>
+              <Link transitionTypes={["page"]} href="/archive">Archive / all work <ArrowIcon /></Link>
             </div>
             <div className="immibot-hero-meta" aria-label="Immibot project details">
               <div><span>Role</span><strong>Full-Stack Engineer</strong></div>
@@ -266,9 +266,9 @@ export default function ImmibotCaseStudy() {
       </div>
 
       <footer className="immibot-footer">
-        <Link href="/#work"><ArrowIcon direction="left" /> Back to selected projects</Link>
+        <Link transitionTypes={["page"]} href="/#work"><ArrowIcon direction="left" /> Back to selected projects</Link>
         <span>Immibot / RemoteHire · 2024</span>
-        <Link href="/archive">Browse the archive <ArrowIcon /></Link>
+        <Link transitionTypes={["page"]} href="/archive">Browse the archive <ArrowIcon /></Link>
       </footer>
     </main>
   );

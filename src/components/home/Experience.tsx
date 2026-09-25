@@ -13,6 +13,7 @@ export function Experience({
   return (
     <section className="exp-sec" id="experience" aria-labelledby="experience-title">
       {illustration}
+      <span className="section-tag exp-section-tag">Experience</span>
       <SplitText
         as="h2"
         id="experience-title"

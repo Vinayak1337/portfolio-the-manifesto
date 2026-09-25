@@ -800,60 +800,109 @@ export function FluxClientEffects() {
   }, [finePointer, reducedMotion]);
 
   useEffect(() => {
-    const scrollToHash = (hash: string, behavior: ScrollBehavior) => {
+    let cancelPending: (() => void) | undefined;
+
+    const targetTop = (hash: string) => {
       const id = decodeURIComponent(hash.replace(/^#/, ""));
-      const target = id ? document.getElementById(id) : null;
-      if (!target) return;
-
-      const navOffset = globalThis.innerWidth <= 640 ? 104 : 92;
-      const top = target.getBoundingClientRect().top + globalThis.scrollY - navOffset;
-      globalThis.scrollTo({ behavior, top: Math.max(0, top) });
+      if (!id) return 0;
+      const target = document.getElementById(id);
+      if (!target) return null;
+      // Land flush under the fixed nav, whatever height it wraps to.
+      const navOffset =
+        document.querySelector(".nav")?.getBoundingClientRect().bottom ??
+        (globalThis.innerWidth <= 640 ? 104 : 92);
+      return Math.max(0, target.getBoundingClientRect().top + globalThis.scrollY - navOffset);
     };
 
-    const settleHashScroll = (hash: string, firstBehavior: ScrollBehavior = "smooth") => {
-      const timers = [0, 160, 420].map((delay, index) =>
-        globalThis.setTimeout(
-          () => scrollToHash(hash, index === 0 ? firstBehavior : "auto"),
-          delay,
-        ),
-      );
-      return () => timers.forEach((timer) => globalThis.clearTimeout(timer));
+    // One smooth glide per click. Long jumps skip most of the distance first so
+    // the page does not race through every pinned section on the way, and a
+    // single instant correction runs after the scroll settles if late layout
+    // (images, fonts) moved the target.
+    const glideTo = (hash: string, smooth: boolean) => {
+      cancelPending?.();
+      const top = targetTop(hash);
+      if (top === null) return;
+
+      if (!smooth) {
+        globalThis.scrollTo({ behavior: "instant", top });
+        const timer = globalThis.setTimeout(() => {
+          const settled = targetTop(hash);
+          if (settled !== null && Math.abs(settled - globalThis.scrollY) > 2) {
+            globalThis.scrollTo({ behavior: "instant", top: settled });
+          }
+        }, 400);
+        cancelPending = () => globalThis.clearTimeout(timer);
+        return;
+      }
+
+      const distance = top - globalThis.scrollY;
+      const runway = globalThis.innerHeight * 1.2;
+      if (Math.abs(distance) > runway * 2) {
+        globalThis.scrollTo({
+          behavior: "instant",
+          top: top - Math.sign(distance) * runway,
+        });
+      }
+      globalThis.scrollTo({ behavior: "smooth", top });
+
+      const startedAt = performance.now();
+      const onEnd = () => {
+        // The instant pre-jump also emits scrollend; wait for the glide's own.
+        if (performance.now() - startedAt < 250 && Math.abs(globalThis.scrollY - top) > 2) {
+          globalThis.addEventListener("scrollend", onEnd, { once: true });
+          return;
+        }
+        cancelPending?.();
+        const settled = targetTop(hash);
+        if (settled !== null && Math.abs(settled - globalThis.scrollY) > 2) {
+          globalThis.scrollTo({ behavior: "instant", top: settled });
+        }
+      };
+      const fallback = globalThis.setTimeout(onEnd, 1600);
+      globalThis.addEventListener("scrollend", onEnd, { once: true });
+      cancelPending = () => {
+        globalThis.clearTimeout(fallback);
+        globalThis.removeEventListener("scrollend", onEnd);
+        cancelPending = undefined;
+      };
     };
 
+    // Capture phase so this runs before next/link's handler; preventing the
+    // default stops the router from turning an in-page jump into a navigation
+    // (which also fired a full-page view transition mid-scroll).
     const onClick = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (!(event.target instanceof Element)) return;
       const anchor = event.target.closest<HTMLAnchorElement>("a[href]");
       const href = anchor?.getAttribute("href");
-      if (!href) return;
+      if (!anchor || !href || anchor.target === "_blank") return;
 
       const url = new URL(href, globalThis.location.href);
       const isSamePage =
         url.origin === globalThis.location.origin &&
         url.pathname === globalThis.location.pathname &&
-        Boolean(url.hash);
+        url.search === globalThis.location.search;
       if (!isSamePage) return;
 
       event.preventDefault();
-      globalThis.history.pushState(null, "", url.hash);
-      settleHashScroll(url.hash, reducedMotion ? "auto" : "smooth");
-    };
-
-    const onHashChange = () => {
-      if (globalThis.location.hash) {
-        settleHashScroll(globalThis.location.hash, reducedMotion ? "auto" : "smooth");
+      if (url.hash !== globalThis.location.hash) {
+        globalThis.history.pushState(null, "", url.hash || url.pathname);
       }
+      glideTo(url.hash, !reducedMotion);
     };
 
-    document.addEventListener("click", onClick);
-    globalThis.addEventListener("hashchange", onHashChange);
-    const clearInitial = globalThis.location.hash
-      ? settleHashScroll(globalThis.location.hash, "auto")
-      : undefined;
+    const onPopState = () => glideTo(globalThis.location.hash, !reducedMotion);
+
+    document.addEventListener("click", onClick, true);
+    globalThis.addEventListener("popstate", onPopState);
+    if (globalThis.location.hash) glideTo(globalThis.location.hash, false);
+    const clearInitial = () => cancelPending?.();
 
     return () => {
       clearInitial?.();
-      document.removeEventListener("click", onClick);
-      globalThis.removeEventListener("hashchange", onHashChange);
+      document.removeEventListener("click", onClick, true);
+      globalThis.removeEventListener("popstate", onPopState);
     };
   }, [reducedMotion]);
 

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { NavLink } from "@/constants/portfolio";
 
+const pageTransition = ["page"];
+
 export function Navbar({
   ariaLabel = "Primary navigation",
   links,
@@ -14,7 +16,7 @@ export function Navbar({
 }>) {
   return (
     <nav className="nav" aria-label={ariaLabel}>
-      <Link className="mark magnetic" href="/" aria-label={`${mark}, Vinayak Kumar home`}>
+      <Link className="mark magnetic" href="/" transitionTypes={pageTransition} aria-label={`${mark}, Vinayak Kumar home`}>
         {mark}
       </Link>
       <ul>
@@ -30,7 +32,7 @@ export function Navbar({
                 {link.label}
               </a>
             ) : (
-              <Link className="magnetic" href={link.href}>
+              <Link className="magnetic" href={link.href} transitionTypes={pageTransition}>
                 {link.label}
               </Link>
             )}

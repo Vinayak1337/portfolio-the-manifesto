@@ -112,7 +112,7 @@ export default function Home() {
           experience={experience}
           illustration={<FluxExperienceIllustration />}
         />
-        <OpenSource contributions={openSourceContributions} />
+        <OpenSource contributions={openSourceContributions} githubUrl={person.githubUrl} />
         <Contact illustration={<FluxContactIllustration />} person={person} />
       </main>
     </>
