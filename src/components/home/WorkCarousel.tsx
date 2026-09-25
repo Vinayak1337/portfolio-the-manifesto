@@ -46,8 +46,10 @@ export function WorkCarousel({
             tokens={[{ text: "Selected" }, { text: "projects.", emphasis: true }]}
           />
           <div className="rail-counter" aria-live="polite">
-            <span className="big" data-rail-number>
-              01
+            <span className="rail-number-mask">
+              <span className="big" data-rail-number>
+                01
+              </span>
             </span>
             <span className="rail-counter-total">
               / {projects.length.toString().padStart(2, "0")}
@@ -96,7 +98,7 @@ export function WorkCarousel({
 
             if (project.links?.length) {
               return (
-                <div className="rail-item" key={project.id}>
+                <div className="rail-item" data-reveal key={project.id}>
                   <article className="rail-card">
                     <a
                       className="rail-card-main"
@@ -118,7 +120,7 @@ export function WorkCarousel({
 
             if (!hasPrimaryLink) {
               return (
-                <div className="rail-item" key={project.id}>
+                <div className="rail-item" data-reveal key={project.id}>
                   <article className="rail-card rail-card-direct rail-card-static">
                     {content}
                   </article>
@@ -128,7 +130,7 @@ export function WorkCarousel({
             }
 
             return (
-              <div className="rail-item" key={project.id}>
+              <div className="rail-item" data-reveal key={project.id}>
                 <a
                   className="rail-card rail-card-direct"
                   aria-label={`Open ${project.name} project`}

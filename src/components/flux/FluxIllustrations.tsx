@@ -44,18 +44,18 @@ export function FluxHeroIllustration() {
           </filter>
         </defs>
         <g className="flux-hero-orbits">
-          <ellipse cx="720" cy="450" rx="400" ry="200" />
-          <ellipse cx="720" cy="450" rx="350" ry="175" />
-          <ellipse cx="720" cy="450" rx="300" ry="150" />
-          <ellipse cx="720" cy="450" rx="150" ry="400" transform="rotate(45 720 450)" />
-          <ellipse cx="720" cy="450" rx="150" ry="400" transform="rotate(-45 720 450)" />
-          <circle cx="720" cy="450" r="120" />
+          <ellipse pathLength="1" cx="720" cy="450" rx="400" ry="200" />
+          <ellipse pathLength="1" cx="720" cy="450" rx="350" ry="175" />
+          <ellipse pathLength="1" cx="720" cy="450" rx="300" ry="150" />
+          <ellipse pathLength="1" cx="720" cy="450" rx="150" ry="400" transform="rotate(45 720 450)" />
+          <ellipse pathLength="1" cx="720" cy="450" rx="150" ry="400" transform="rotate(-45 720 450)" />
+          <circle pathLength="1" cx="720" cy="450" r="120" />
         </g>
         <g className="flux-nodes">
-          <path d="M320 250L720 450L1120 250M720 450V800" />
-          <circle cx="320" cy="250" r="10" />
-          <circle cx="1120" cy="250" r="10" />
-          <circle cx="720" cy="800" r="10" />
+          <path pathLength="1" d="M320 250L720 450L1120 250M720 450V800" />
+          <circle pathLength="1" cx="320" cy="250" r="10" />
+          <circle pathLength="1" cx="1120" cy="250" r="10" />
+          <circle pathLength="1" cx="720" cy="800" r="10" />
         </g>
       </svg>
     </div>

@@ -3,9 +3,11 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { ViewTransition } from "react";
 import { person, seoKeywords, site } from "@/constants/portfolio";
 import "./globals.css";
 import "./restyle-v2.css";
+import "./motion.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -94,7 +96,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${atlasDisplay.variable} h-full antialiased`}
     >
       <body>
-        {children}
+        <ViewTransition default="page-turn">{children}</ViewTransition>
         {enableVercelTelemetry ? (
           <>
             <Analytics />

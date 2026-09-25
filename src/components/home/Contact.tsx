@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ArrowIcon } from "@/components/shared/Glyphs";
+import { CopyEmail } from "@/components/shared/CopyEmail";
 import { SplitText } from "@/components/shared/SplitText";
 
 type Person = Readonly<{
@@ -17,22 +18,26 @@ export function Contact({
   person: Person;
 }>) {
   return (
-    <section className="contact-sec" id="contact" aria-labelledby="contact-title">
+    <section className="contact-sec" data-contact-section id="contact" aria-labelledby="contact-title">
       {illustration}
       <span className="section-tag">Contact</span>
       <SplitText
         as="h2"
         id="contact-title"
         className="contact-title"
+        letters
         tokens={[
           { text: "Have something" },
           { text: "worth building?", emphasis: true },
         ]}
       />
       <div className="contact-row">
-        <a className="email magnetic" href={`mailto:${person.email}`}>
-          {person.email}
-        </a>
+        <div className="email-group">
+          <a className="email magnetic" href={`mailto:${person.email}`}>
+            {person.email}
+          </a>
+          <CopyEmail email={person.email} />
+        </div>
         <div className="contact-links">
           <a href={person.githubUrl} target="_blank" rel="noopener noreferrer">
             GitHub

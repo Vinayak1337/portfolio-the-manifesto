@@ -22,10 +22,13 @@ export function Experience({
           { text: "worked.", emphasis: true },
         ]}
       />
-      <div className="exp-list">
+      <div className="exp-list" data-exp-list>
+        <span className="exp-spine" aria-hidden="true" />
         {experience.map((item) => (
           <article
             className="exp-item"
+            data-exp-item
+            data-reveal
             key={`${item.company}-${item.date}`}
             tabIndex={0}
             aria-label={`${item.title} at ${item.company}, ${item.date}`}

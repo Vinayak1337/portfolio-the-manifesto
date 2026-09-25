@@ -4,6 +4,7 @@ import type { Project, ProjectLink } from "@/constants/portfolio";
 import { ArrowIcon } from "@/components/shared/Glyphs";
 import { SplitText } from "@/components/shared/SplitText";
 import { externalLinkProps } from "@/components/shared/links";
+import { RollText } from "@/components/shared/RollText";
 import { ProjectLinkMenu } from "@/components/shared/ProjectLinkMenu";
 import { imageBlurDataURLs } from "@/constants/image-blurs";
 
@@ -50,7 +51,7 @@ export function WorkIndex({
           <a href="/archive">All work <ArrowIcon /></a>
         </div>
       </div>
-      <div className="work-list">
+      <div className="work-list" data-reveal>
         {projects.map((project, index) => {
           const primaryLink = project.link ?? project.links?.[0]?.href ?? null;
           const hasPrimaryLink = Boolean(primaryLink);
@@ -66,7 +67,7 @@ export function WorkIndex({
             <>
               <span className="work-num">{displayIndex}</span>
               <span className="work-title-block">
-                <span className="work-name">{project.name}</span>
+                <RollText className="work-name" text={project.name} />
                 <span className="work-role">{project.role}</span>
                 <span className="work-desc">{description}</span>
               </span>

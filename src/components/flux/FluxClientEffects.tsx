@@ -191,6 +191,20 @@ export function FluxClientEffects() {
     );
     const wedgeTargets = Array.from(document.querySelectorAll<HTMLElement>("[data-wedge]"));
     const magneticTargets = Array.from(document.querySelectorAll<HTMLElement>(".magnetic"));
+    const railCards = railTrack
+      ? Array.from(railTrack.querySelectorAll<HTMLElement>(".rail-card"))
+      : [];
+    const railImages = railCards.map((card) => card.querySelector<HTMLElement>(".rail-cover img"));
+    const spotlightSection = document.querySelector<HTMLElement>("[data-about-spotlight]");
+    const spotlightEntries = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-about-entry]"),
+    );
+    const expList = document.querySelector<HTMLElement>("[data-exp-list]");
+    const expItems = Array.from(document.querySelectorAll<HTMLElement>("[data-exp-item]"));
+    const contactSection = document.querySelector<HTMLElement>("[data-contact-section]");
+    const contactChars = Array.from(
+      contactSection?.querySelectorAll<HTMLElement>("[data-char]") ?? [],
+    );
     const railCount = Number(railSection?.dataset.railCount ?? 1);
     const lastNumericValues = new WeakMap<HTMLElement, Map<string, number>>();
     const lastStyleValues = new WeakMap<Element, Map<string, string>>();
@@ -205,6 +219,17 @@ export function FluxClientEffects() {
     let illustrationMetrics: Array<Readonly<{ target: HTMLElement; metric: ElementMetric }>> = [];
     let wedgeMetrics: Array<Readonly<{ target: HTMLElement; metric: ElementMetric }>> = [];
     let railTravel = 0;
+    let railTrackX = 0;
+    let railCardCenters: number[] = [];
+    let railActiveIndex = 1;
+    let spotlightMetric: ElementMetric | null = null;
+    let spotlightMetrics: ElementMetric[] = [];
+    let activeSpotlight: HTMLElement | null = null;
+    let expMetric: ElementMetric | null = null;
+    let expItemTops: number[] = [];
+    let contactMetric: ElementMetric | null = null;
+    let contactCharCenters: Array<Readonly<{ x: number; y: number }>> = [];
+    let contactPointerActive = false;
     let frame = 0;
     let resizeTimer: ReturnType<typeof globalThis.setTimeout> | undefined;
     let scrollY = globalThis.scrollY;
@@ -322,6 +347,34 @@ export function FluxClientEffects() {
         }
       }
 
+      // Card centres with the track at rest, so each frame can derive positions
+      // from the track offset instead of reading layout per card.
+      railCardCenters = railCards.map((card) => {
+        const rect = card.getBoundingClientRect();
+        return rect.left + rect.width / 2 - railTrackX;
+      });
+      spotlightMetric = metricFor(spotlightSection);
+      spotlightMetrics = spotlightEntries.flatMap((entry) => {
+        const metric = metricFor(entry);
+        return metric ? [metric] : [];
+      });
+      expMetric = metricFor(expList);
+      expItemTops = expItems.map((item) => metricFor(item)?.top ?? 0);
+      contactMetric = metricFor(contactSection);
+      contactCharCenters = contactChars.map((char) => {
+        const rect = char.getBoundingClientRect();
+        const style = char.style.transform;
+        // Letters may be mid-displacement; the offset is small enough to ignore
+        // unless a transform is present, in which case measure without it.
+        if (style) char.style.transform = "";
+        const clean = style ? char.getBoundingClientRect() : rect;
+        if (style) char.style.transform = style;
+        return {
+          x: clean.left + clean.width / 2 + globalThis.scrollX,
+          y: clean.top + clean.height / 2 + globalThis.scrollY,
+        };
+      });
+
       pinMetric = metricFor(pinSection);
       railMetric = metricFor(railSection);
       aboutMetric = metricFor(aboutSection);
@@ -396,40 +449,59 @@ export function FluxClientEffects() {
         "transform",
         `translate3d(0, 0, 0) scale(${pinScale})`,
       );
+      writeNumber(giant, "--statement-p", pinProgress, (value) => value.toFixed(4));
 
       const railProgress = compact ? 0 : progressFor(railMetric);
+      const railMoving = !reducedMotion && !compact;
+      railTrackX = railMoving ? -railTravel * railProgress : 0;
       if (railTrack) {
+        const skew = railMoving && isNearViewport(railMetric) ? normalizedVelocity * -2.4 : 0;
         writeStyle(
           railTrack,
           "transform",
-          `translate3d(${reducedMotion || compact ? 0 : -railTravel * railProgress}px, 0, 0)`,
+          `translate3d(${railTrackX}px, 0, 0) skewX(${skew.toFixed(3)}deg)`,
         );
       }
       writeStyle(railBar, "transform", `scaleX(${railProgress})`);
-      if (railNumber) {
-        const cards = railTrack
-          ? Array.from(railTrack.querySelectorAll<HTMLElement>(".rail-card"))
-          : [];
-        const viewportCenter = viewportWidth / 2;
-        const activeIndex = cards.length
-          ? cards.reduce(
-              (closestIndex, card, index) => {
-                const center = card.getBoundingClientRect().left + card.offsetWidth / 2;
-                const closestCenter =
-                  cards[closestIndex].getBoundingClientRect().left +
-                  cards[closestIndex].offsetWidth / 2;
-                return Math.abs(center - viewportCenter) < Math.abs(closestCenter - viewportCenter)
-                  ? index
-                  : closestIndex;
-              },
-              0,
-            ) + 1
-          : Math.min(
-              railCount,
-              Math.max(1, Math.floor(railProgress * railCount) + 1),
-            );
-        const label = activeIndex.toString().padStart(2, "0");
-        if (railNumber.textContent !== label) railNumber.textContent = label;
+
+      const viewportCenter = viewportWidth / 2;
+      let nextActive = 1;
+      let closest = Infinity;
+      railCardCenters.forEach((restCenter, index) => {
+        const center = restCenter + railTrackX;
+        const distance = Math.abs(center - viewportCenter);
+        if (distance < closest) {
+          closest = distance;
+          nextActive = index + 1;
+        }
+        if (railMoving && isNearViewport(railMetric)) {
+          // Screenshots drift against the card for a window-into-depth feel.
+          const offset = Math.max(-1, Math.min(1, (center - viewportCenter) / viewportWidth));
+          writeStyle(
+            railImages[index],
+            "transform",
+            `translate3d(${(offset * -34).toFixed(2)}px, 0, 0) scale(1.14)`,
+          );
+        } else if (!railMoving) {
+          writeStyle(railImages[index], "transform", "");
+        }
+      });
+      if (!railCardCenters.length) {
+        nextActive = Math.min(railCount, Math.max(1, Math.floor(railProgress * railCount) + 1));
+      }
+      if (railNumber && nextActive !== railActiveIndex) {
+        const direction = nextActive > railActiveIndex ? 1 : -1;
+        railActiveIndex = nextActive;
+        railNumber.textContent = nextActive.toString().padStart(2, "0");
+        if (!reducedMotion) {
+          railNumber.animate(
+            [
+              { transform: `translateY(${direction * 70}%)`, opacity: 0 },
+              { transform: "translateY(0)", opacity: 1 },
+            ],
+            { duration: 520, easing: "cubic-bezier(0.19, 1, 0.22, 1)" },
+          );
+        }
       }
 
       const aboutActive = Boolean(
@@ -485,6 +557,42 @@ export function FluxClientEffects() {
         }
       });
 
+      if (isNearViewport(spotlightMetric)) {
+        const spotlightY = scrollY + viewportHeight * 0.5;
+        let nextSpotlight: HTMLElement | null = null;
+        let spotlightDistance = Infinity;
+        spotlightMetrics.forEach((metric, index) => {
+          const distance = Math.abs(metric.top + metric.height / 2 - spotlightY);
+          if (distance < spotlightDistance) {
+            spotlightDistance = distance;
+            nextSpotlight = spotlightEntries[index];
+          }
+        });
+        if (nextSpotlight !== activeSpotlight) {
+          activeSpotlight?.removeAttribute("data-active");
+          activeSpotlight = nextSpotlight;
+          (activeSpotlight as HTMLElement | null)?.setAttribute("data-active", "");
+        }
+      }
+
+      if (expMetric && isNearViewport(expMetric)) {
+        const expLine = scrollY + viewportHeight * 0.55;
+        writeNumber(
+          expList,
+          "--exp-p",
+          clamp((expLine - expMetric.top) / Math.max(1, expMetric.height)),
+          (value) => value.toFixed(4),
+        );
+        expItems.forEach((item, index) => {
+          const passed = expItemTops[index] <= expLine;
+          if (item.hasAttribute("data-passed") !== passed) {
+            item.toggleAttribute("data-passed", passed);
+          }
+        });
+      }
+
+      if (contactPointerActive || isNearViewport(contactMetric, 0)) updateContactLetters();
+
       const focusY = scrollY + viewportHeight * 0.48;
       let activeWedge: string | undefined;
       let activeWedgeDistance = Infinity;
@@ -500,6 +608,38 @@ export function FluxClientEffects() {
       }
     };
 
+    const updateContactLetters = () => {
+      if (!finePointer || !contactChars.length) return;
+      const near = isNearViewport(contactMetric, 0) && lastPointerAt > -Infinity;
+      let anyActive = false;
+      const radius = Math.max(140, viewportWidth * 0.12);
+      contactChars.forEach((char, index) => {
+        const center = contactCharCenters[index];
+        if (!near || !center) {
+          writeStyle(char, "transform", "");
+          return;
+        }
+        const dx = center.x - globalThis.scrollX - pointerX;
+        const dy = center.y - scrollY - pointerY;
+        const distance = Math.hypot(dx, dy);
+        if (distance >= radius) {
+          writeStyle(char, "transform", "");
+          return;
+        }
+        anyActive = true;
+        const force = (1 - distance / radius) ** 2;
+        const push = force * 26;
+        const unitX = distance ? dx / distance : 0;
+        const unitY = distance ? dy / distance : -1;
+        writeStyle(
+          char,
+          "transform",
+          `translate3d(${(unitX * push).toFixed(2)}px, ${(unitY * push).toFixed(2)}px, 0) rotate(${(unitX * force * 10).toFixed(2)}deg)`,
+        );
+      });
+      contactPointerActive = anyActive;
+    };
+
     const updatePointerEffects = () => {
       if (!finePointer) return;
       const normalizedX = pointerX / viewportWidth;
@@ -512,6 +652,7 @@ export function FluxClientEffects() {
       archivePointerY = y;
       updateAtmosphereTransform();
       updateArchiveTransform();
+      updateContactLetters();
       writeStyle(heroSvg, "transform", `translate3d(${x}px, ${y}px, 0)`);
       writeStyle(heroOrbits, "transform", `translate(${x * 1.5}px, ${y * 1.5}px)`);
       writeStyle(heroNodes, "transform", `translate(${x * -2}px, ${y * -2}px)`);
@@ -619,6 +760,9 @@ export function FluxClientEffects() {
     };
 
     const onPointerLeave = () => {
+      lastPointerAt = -Infinity;
+      pointerDirty = true;
+      schedule();
       hoveredInteractive = null;
       ringRef.current?.classList.remove("hover");
       dotRef.current?.classList.remove("hover");

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { LiveClock } from "@/components/shared/LiveClock";
 import { SplitText } from "@/components/shared/SplitText";
 import type { WordToken } from "@/components/shared/types";
 
@@ -21,6 +22,7 @@ export function Hero({
       <div className="hero-meta">
         <div className="hero-location">
           <span className="hero-eyebrow">{eyebrow}</span>
+          <LiveClock className="hero-clock" />
         </div>
       </div>
       <SplitText

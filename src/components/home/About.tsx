@@ -13,7 +13,7 @@ export function About({ paragraphs }: Readonly<{
   paragraphs: readonly AboutParagraph[];
 }>) {
   return (
-    <section className={styles.section} id="about" aria-labelledby="about-title">
+    <section className={styles.section} data-about-spotlight id="about" aria-labelledby="about-title">
       <div className={styles.heading}>
         <span className={styles.eyebrow}>03 / About</span>
         <span className={styles.eyebrow}>New Delhi, India · IST</span>
@@ -31,9 +31,9 @@ export function About({ paragraphs }: Readonly<{
             <div><dt>Education</dt><dd>B.Tech CSE · GGSIPU · Expected 2027</dd></div>
           </dl>
         </div>
-        <div className={styles.entries}>
+        <div className={styles.entries} data-about-entries>
           {paragraphs.map((paragraph) => (
-            <article className={styles.entry} key={paragraph.number}>
+            <article className={styles.entry} data-about-entry key={paragraph.number}>
               <span className={styles.index} aria-hidden="true">{paragraph.number}</span>
               <div><h3>{paragraph.label}</h3><p>{paragraph.text}</p></div>
             </article>
