@@ -96,7 +96,7 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "storefront-nextjs",
     index: "06",
-    name: "StoreFrontNextjs",
+    name: "StoreFront",
     company: "Personal",
     year: "2024",
     role: "Product Engineer",
@@ -161,7 +161,7 @@ export const portfolioGridProjects: Project[] = [
   {
     id: "wonderhood-nextjs",
     index: "10",
-    name: "WonderhoodNextJS",
+    name: "Wonderhood Website",
     company: "Wonderhood",
     year: "2022",
     role: "Software Developer I",

@@ -145,7 +145,7 @@ export const homeHero = {
     { text: "working across web and mobile." },
   ],
   summary:
-    "I build web and mobile products with React, Next.js, and React Native, alongside AI agents and workflows. My work spans learning apps, commerce, developer tools, and college publishing systems.",
+    "I build products with React, Next.js, and React Native, alongside AI agents and workflows. My work spans learning apps, commerce, developer tools, and college publishing systems.",
   signals: [
     "React / Next.js / TypeScript / React Native",
     "Frontend / product systems / AI workflows",
@@ -184,7 +184,7 @@ export const chapters = [
     headline: "Examples from my work.",
     emphasis: "my work.",
     copy: [
-      "Immibot evolved from Flowise-based Advisor, tracking, and FSW workflows into streamed official-source search with persisted citations and guest-to-account continuity.",
+      "Immibot evolved from Flowise-based Advisor, tracking, and Federal Skilled Worker (FSW) workflows into streamed official-source search with persisted citations and guest-to-account continuity.",
       "Wonderhood Lighthouse performance moved 35→90+ and Ionic→React Native. BPIT gained inline CMS workflows.",
     ],
   },
@@ -205,7 +205,7 @@ export const experience: Experience[] = [
   {
     title: "Product Engineer Intern",
     company: "Philblocks Private Limited",
-    date: "Jun 2026 - Sep 2026",
+    date: "Jun 2026 - Jul 2026",
     companyUrl: "https://ideapost.top",
     bullets: [
       "Built Ideapost's AI post-generation workflow with **Next.js**, **TypeScript**, and **LangGraph**. Coordinated agents to plan posts, write drafts for LinkedIn, X, and Facebook, then review and revise them, with progress tracking in the editor.",
@@ -221,7 +221,7 @@ export const experience: Experience[] = [
     bullets: [
       "Built Immibot’s chat interface, APIs, authentication, conversation storage, and administration tools.",
       "Built guest identity, usage quotas, persisted conversations, and automatic guest-to-Clerk account transfer.",
-      "Shipped separate Flowise Advisor/Search workflows, generated follow-ups, progress tracking, orientation rules, and FSW scoring before the Perplexity migration.",
+      "Shipped separate Flowise Advisor/Search workflows, generated follow-ups, progress tracking, orientation rules, and Federal Skilled Worker (FSW) scoring before the Perplexity migration.",
       "Implemented PostHog instrumentation across chat, feedback, consultation CTAs, document uploads, and product events.",
       "Built role-protected program, orientation, province, user, and professional administration alongside Azure-backed document workflows and shared Stripe credit infrastructure.",
     ],

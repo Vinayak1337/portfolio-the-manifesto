@@ -8,12 +8,12 @@ import "./immibot.css";
 export const metadata: Metadata = {
   title: "Immibot | Full-Stack AI Workflow Case Study",
   description:
-    "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and FSW workflows.",
+    "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and Federal Skilled Worker (FSW) workflows.",
   alternates: { canonical: "/work/immibot" },
   openGraph: {
     title: "Immibot | Full-Stack AI Workflow Case Study",
     description:
-      "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and FSW workflows.",
+      "Immibot case study: streamed official-source immigration search, persisted citations, guest-to-account continuity, and earlier Flowise Advisor and Federal Skilled Worker (FSW) workflows.",
     url: "/work/immibot",
     type: "article",
     images: [
@@ -153,7 +153,8 @@ export default function ImmibotCaseStudy() {
               </p>
               <p>
                 I owned the product layers around two generations of Immibot: the original
-                Flowise Advisor/Search, tracking, orientation, and FSW workflows, and the later
+                Flowise Advisor/Search, tracking, orientation, and Federal Skilled Worker (FSW)
+                workflows, and the later
                 Perplexity-powered official-source search experience with persisted citations
                 and guest-to-account continuity.
               </p>
