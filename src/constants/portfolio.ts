@@ -145,7 +145,7 @@ export const homeHero = {
     { text: "working across web and mobile." },
   ],
   summary:
-    "I build products with React, Next.js, and React Native, alongside AI agents and workflows. My work spans learning apps, commerce, developer tools, and college publishing systems.",
+    "I build products end to end with React, Next.js, and React Native, and lately a lot of AI agents and workflows. I've shipped learning apps for kids, online stores, developer tools, and a college website.",
   signals: [
     "React / Next.js / TypeScript / React Native",
     "Frontend / product systems / AI workflows",
@@ -193,11 +193,11 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I've been coding since 2019, with 3+ years of professional experience building web and mobile products. At Philblocks, I built Ideapost's AI content workflow, matched generated posts to each user's writing tone, and developed its authentication and billing systems.",
-    "At BPIT, I built inline editing tools so departments could update content directly on their pages, with analytics and deployment previews.",
-    "At RemoteHire, I built Immibot's Flowise Advisor and eligibility workflows, then its streamed, cited search and guest-to-account conversation flow.",
-    "At Wonderhood, I built commerce workflows, helped move the mobile product from Ionic to React Native, and shipped reporting for teachers.",
-    "I contribute fixes upstream: Checkstyle, the official Express v5 codemod, and the Jenkins Azure AD plugin.",
+    "I've been writing code since 2019 and working professionally for over three years. Most recently, at Philblocks, I built the AI engine behind Ideapost, which drafts social posts in each user's own voice, along with its sign-in and billing.",
+    "At BPIT, I led a team of three to rebuild the college website from scratch, with an editor that lets each department update its own pages.",
+    "At RemoteHire, I built most of Immibot, an immigration research assistant: first on Flowise workflows, then on streamed search with citations from official government sources.",
+    "At Wonderhood, I moved the website to Next.js (Lighthouse went from 35 to 90+), led the switch from Ionic to React Native, and built a dashboard for teachers.",
+    "Outside work, I send fixes upstream to Checkstyle, the official Express v5 codemod, and a Jenkins sign-in plugin.",
   ],
 };
 
@@ -208,10 +208,10 @@ export const experience: Experience[] = [
     date: "Jun 2026 - Jul 2026",
     companyUrl: "https://ideapost.top",
     bullets: [
-      "Built Ideapost's AI post-generation workflow with **Next.js**, **TypeScript**, and **LangGraph**. Coordinated agents to plan posts, write drafts for LinkedIn, X, and Facebook, then review and revise them, with progress tracking in the editor.",
-      "Built tone matching from users' own posts: analyzed writing patterns, retrieved relevant examples with **MongoDB Atlas Vector Search**, and used them to guide drafts and flag changes in tone. Kept generated posts out of the user's writing samples so they would not skew future results.",
-      "Added **MongoDB** run locks, distributed rate limits, provider checks, and retries so users could not start overlapping AI runs and failed requests could recover safely. Integrated model providers through **Vercel AI Gateway** and added logs, diagnostics, and credit refunds for unsuccessful runs.",
-      "Moved authentication from **Firebase** to **Clerk**, synced users through webhooks, and protected routes by role. Built **Razorpay** credit-based billing with payment webhooks, a transaction ledger, refunds, and admin controls; added **Mixpanel** events to track product use.",
+      "Built the AI engine behind Ideapost with **Next.js**, **TypeScript**, and **LangGraph**. A set of agents plans each post, drafts it for LinkedIn, X, and Facebook, then reviews and revises it, while the editor shows their progress.",
+      "Made drafts sound like the person posting them. The system studies a user's past posts, pulls the most relevant examples with **MongoDB Atlas Vector Search**, and uses them to guide new drafts and flag when the tone drifts. Generated posts stay out of those samples so they don't skew later results.",
+      "Made AI runs dependable: **MongoDB** locks stop anyone from starting two runs at once, and rate limits and retries absorb provider failures. Models are routed through **Vercel AI Gateway**, and a failed run refunds its credits.",
+      "Moved sign-in from **Firebase** to **Clerk** with role-based access, and built credit-based billing on **Razorpay** with webhooks, a transaction ledger, refunds, and admin controls. Added **Mixpanel** to see how people actually use the product.",
     ],
   },
   {
@@ -219,11 +219,11 @@ export const experience: Experience[] = [
     company: "RemoteHire",
     date: "Feb 2024 - Nov 2024",
     bullets: [
-      "Built Immibot’s chat interface, APIs, authentication, conversation storage, and administration tools.",
-      "Built guest identity, usage quotas, persisted conversations, and automatic guest-to-Clerk account transfer.",
-      "Shipped separate Flowise Advisor/Search workflows, generated follow-ups, progress tracking, orientation rules, and Federal Skilled Worker (FSW) scoring before the Perplexity migration.",
-      "Implemented PostHog instrumentation across chat, feedback, consultation CTAs, document uploads, and product events.",
-      "Built role-protected program, orientation, province, user, and professional administration alongside Azure-backed document workflows and shared Stripe credit infrastructure.",
+      "Owned most of Immibot's full-stack work, first full-time and later part-time: the chat, sign-in, data, admin tools, analytics, and deployment.",
+      "Let visitors try Immibot without an account, within usage limits, and carried their conversations over automatically when they signed up with Clerk.",
+      "Built the first version on Flowise: Advisor and Search modes, suggested follow-up questions, progress tracking, orientation, and Federal Skilled Worker (FSW) eligibility scoring.",
+      "Rebuilt search on Perplexity Sonar, streaming answers from official Canadian, US, and Australian sources, with each citation saved alongside its message.",
+      "Built the admin side for programs, provinces, users, and professionals, plus document handling on Azure, shared Stripe credits, and PostHog tracking across the product.",
     ],
   },
   {
@@ -231,11 +231,11 @@ export const experience: Experience[] = [
     company: "Wonderhood",
     date: "Nov 2021 - Feb 2024",
     bullets: [
-      "Developed Wonderhood’s web and mobile apps using React, Next.js, React Native, Ionic, and Expo.",
-      "Rebuilt the e-commerce and content site with Shopify GraphQL, SDK flows, blogs, articles, courses, toys, and cart functionality.",
-      "Migrated the platform to Next.js using ISR, SSG, SSR, and CSR, improving Lighthouse performance from 35 to 90+.",
-      "Led the Ionic to React Native migration with child-centric UI, custom video players, game players, progress capture, and resume states.",
-      "Converted MyLearning into a teacher dashboard with React, Vite, TypeScript, analytics, cohort filtering, and per-student reporting.",
+      "Joined as an intern and stayed on as Software Developer I, working across Wonderhood's website and mobile app.",
+      "Moved the website to Next.js with ISR, SSG, and CSR, taking Lighthouse performance from 35 to 90+.",
+      "Rebuilt the store and content site on Shopify GraphQL: toys, courses, blogs, articles, and the cart.",
+      "Led the move from Ionic to React Native and redesigned the app for young children, including video and game players that remember where a child left off.",
+      "Turned MyLearning into a dashboard for teachers, with course progress, assessments, per-student reports, and Mixpanel tracking.",
     ],
   },
   {
@@ -243,8 +243,8 @@ export const experience: Experience[] = [
     company: "Possibillion Technologies",
     date: "Sep 2021 - Nov 2021",
     bullets: [
-      "Worked on tourism, social, and video slideshow MVPs with the internship team.",
-      "Built landing pages, admin panels, and REST backends with React, Express, MongoDB, Socket.io, Swagger, S3, and FFmpeg.",
+      "Led a group of four interns and shipped three MVPs: a tourism booking site, a video slideshow generator, and a social app.",
+      "Built their landing pages, admin panels, and APIs with React, Express, MongoDB, Socket.io, FFmpeg, and AWS S3.",
     ],
   },
 ];
@@ -252,9 +252,9 @@ export const experience: Experience[] = [
 export const openSourceContributions: OpenSourceContribution[] = [
   {
     project: "checkstyle/checkstyle",
-    org: "Java static-analysis tool",
+    org: "Java static-analysis tool · 8k+ stars",
     summary:
-      "Specified all default properties for SuppressionCommentFilter, and fixed LineLength violation-comment placement in Javadoc.",
+      "Documented every default property of SuppressionCommentFilter and fixed where LineLength violation comments land in Javadoc.",
     proof: "Static-analysis defaults and Javadoc linting",
     links: [
       {
@@ -271,7 +271,7 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "expressjs/codemod",
     org: "Official Express org · v5 migration tooling",
     summary:
-      "Updated package.json handling in the Express v5 migration recipe so framework upgrades preserve package metadata correctly.",
+      "Fixed how the Express v5 migration recipe rewrites package.json, so upgrading keeps your package metadata intact.",
     proof: "Express v5 migration recipe",
     links: [
       {
@@ -284,7 +284,7 @@ export const openSourceContributions: OpenSourceContribution[] = [
     project: "jenkinsci/azure-ad-plugin",
     org: "Jenkins plugin · authentication workflow",
     summary:
-      "Fixed sign-in when the Referer header is missing in the Jenkins Azure AD authentication flow.",
+      "Fixed Azure AD sign-in to Jenkins failing when the browser sends no Referer header.",
     proof: "Missing-Referer sign-in fix",
     links: [
       {
@@ -761,7 +761,7 @@ export type AboutWedge = (typeof aboutWedges)[number];
 
 export const aboutParagraphs = about.paragraphs.map((paragraph, index) => ({
   number: String(index + 1).padStart(2, "0"),
-  label: ["PRODUCT ENGINEERING / 2026", "BPIT / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
+  label: ["PHILBLOCKS / 2026", "BPIT / 2025", "REMOTEHIRE / 2024", "WONDERHOOD / 2021–2024", "OPEN SOURCE"][index],
   text: paragraph,
   wedge: aboutWedges[index % aboutWedges.length],
 }));

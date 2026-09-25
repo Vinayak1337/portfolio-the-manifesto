@@ -45,7 +45,7 @@ export function WorkIndex({
         />
         <div className="work-header-copy">
           <p>
-            additional projects {startIndex.toString().padStart(2, "0")}-
+            Projects {startIndex.toString().padStart(2, "0")}-
             {(startIndex + projects.length - 1).toString().padStart(2, "0")}
           </p>
           <a href="/archive">All work <ArrowIcon /></a>

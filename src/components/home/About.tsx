@@ -21,14 +21,14 @@ export function About({ paragraphs }: Readonly<{
       <div className={styles.layout}>
         <div className={styles.intro}>
           <h2 id="about-title">Web, mobile,<br /><em>and the backend.</em></h2>
-          <p>I build React interfaces, mobile apps, and AI workflows backed by the APIs that connect them.</p>
+          <p>I build React and React Native apps, the APIs behind them, and the AI workflows that tie it all together.</p>
           <div className={styles.links}>
             <a href={person.resume} target="_blank" rel="noopener noreferrer">Read my resume <span aria-hidden="true">↗</span></a>
             <a href={person.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           </div>
           <dl className={styles.meta}>
             <div><dt>Core stack</dt><dd>React · Next.js · TypeScript · React Native</dd></div>
-            <div><dt>Education</dt><dd>B.Tech CSE · GGSIPU · Expected 2027</dd></div>
+            <div><dt>Education</dt><dd>B.Tech CSE · GGSIPU · 2024 to 2027 (expected)<br />Diploma in Computer Engineering · Ambedkar Institute of Technology · 2018 to 2021</dd></div>
           </dl>
         </div>
         <div className={styles.entries} data-about-entries>

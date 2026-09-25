@@ -19,7 +19,7 @@ export const portfolioGridProjects: Project[] = [
     name: "Nutrlife",
     company: "Personal",
     year: "2026",
-    role: "Mobile / Full-Stack Product Engineer",
+    role: "Solo build",
     category: "PERSONAL",
     tags: ["React Native", "Expo", "Clerk", "Redux Saga", "NestJS", "MongoDB"],
     image: "/assets/nutrilife-preview.webp",
@@ -27,7 +27,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Mobile nutrition app with Clerk auth, onboarding goals, camera food analysis, meal logs, macro tracking, water reminders, calendar, and insights.",
     outcome:
-      "A nutrition app prototype for logging meals from photos, tracking daily nutrients and water, and reviewing meal history.",
+      "Snap a photo of a meal and AI logs it for you. It also tracks water, shows your week on a calendar, and installs as an Android app.",
   },
   {
     id: "ai-chat-vsc-extension",
@@ -35,7 +35,7 @@ export const portfolioGridProjects: Project[] = [
     name: "AI Chat / VS Code Extension",
     company: "Personal",
     year: "2024",
-    role: "AI Tooling Engineer",
+    role: "Solo build",
     category: "PERSONAL",
     tags: ["TypeScript", "VS Code API", "React webview", "OpenAI", "Gemini"],
     image: "/assets/ai-chat-vscode-agent.webp",
@@ -43,7 +43,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "VS Code AI assistant with React webview UI, provider switching, project memory, file attachments, and code-write actions.",
     outcome:
-      "An editor-native AI workflow that keeps planning, review, debugging, context files, and write-back actions inside the developer workspace.",
+      "An AI chat that lives inside VS Code. It reads the files you point it at, switches between OpenAI and Gemini, and writes changes straight back into the editor.",
   },
   {
     id: "relics-audit",
@@ -51,7 +51,7 @@ export const portfolioGridProjects: Project[] = [
     name: "RelicsAudit",
     company: "Relics Esports",
     year: "2020",
-    role: "Developer",
+    role: "Community Lead & Bot Builder",
     category: "COMMUNITY",
     tags: ["Discord.js", "Node", "MongoDB", "Brawl Stars API"],
     image: "/assets/relics-audit.webp",
@@ -59,7 +59,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Discord bot for real-time club monitoring, verification, and ladder tracking for the Relics organization.",
     outcome:
-      "Automated club monitoring, member verification, and ladder tracking using Discord commands and the Brawl Stars API.",
+      "Built for the Relics esports community, which grew to 50,000+ members. It watched club activity, verified members, and tracked ladder standings through the Brawl Stars API.",
   },
   {
     id: "immibot",
@@ -75,7 +75,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Immigration research assistant with streamed answers from government sources, saved citations, and conversation history across signup.",
     outcome:
-      "Built streaming search, saved citations, and conversation history that transfers from a guest session to an account. Migrated search from Flowise to Perplexity.",
+      "An immigration research assistant that answers from official Canadian, US, and Australian sources. I built the streamed search with citations, and made guest chats carry over when someone signs up.",
   },
   {
     id: "bpit-site-redesign",
@@ -83,7 +83,7 @@ export const portfolioGridProjects: Project[] = [
     name: "BPIT Site Redesign",
     company: "BPIT Tech Team",
     year: "2025",
-    role: "Tech Lead / Institutional Project",
+    role: "Team Lead · BPIT Tech Team",
     category: "INSTITUTIONAL",
     tags: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "PostHog"],
     image: "/assets/bpit.webp",
@@ -91,7 +91,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Official college tech team site built from scratch with an inline click-to-edit CMS for live content updates.",
     outcome:
-      "Built inline content editing for department pages, with analytics and Vercel previews for reviewing changes.",
+      "I led a team of three to rebuild the college website from scratch. Departments edit their own pages in place, with a preview before anything goes live.",
   },
   {
     id: "storefront-nextjs",
@@ -99,7 +99,7 @@ export const portfolioGridProjects: Project[] = [
     name: "StoreFront",
     company: "Personal",
     year: "2024",
-    role: "Product Engineer",
+    role: "Solo build",
     category: "PERSONAL",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Thermal Print"],
     image: "/assets/storefront-dashboard.webp",
@@ -108,7 +108,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Billing and inventory app with item organization, order creation, analytics, secure sessions, and Bluetooth thermal printing.",
     outcome:
-      "A shop operations system that helps small retailers manage orders, inventory, analytics, and receipts from one dashboard.",
+      "A point-of-sale and inventory app for small shops: take orders, track stock, see what's selling, and print receipts on a Bluetooth thermal printer.",
   },
   {
     id: "relics-general-bot",
@@ -124,7 +124,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Modmail, role management, cross-server announcements, and utility commands for Discord communities.",
     outcome:
-      "A community management bot that helps Discord teams handle support, announcements, roles, moderation, and daily operations.",
+      "The everyday bot for the Relics Discord servers: support tickets through modmail, role management, and announcements across servers.",
   },
   {
     id: "tourney-ticketeer",
@@ -140,7 +140,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Discord bot for tournament payment ticketing, payment methods, logs, and role assignment.",
     outcome:
-      "A tournament operations bot that turns payments, ticketing, and role fulfillment into a repeatable workflow.",
+      "Ran tournament sign-ups on Discord: took payments through tickets, logged them, and handed out roles once a team was confirmed.",
   },
   {
     id: "wonderlearn-react-native",
@@ -156,7 +156,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Mobile app for kids aged 2-6 with games, videos, custom players, and resume states after an Ionic to React Native rewrite.",
     outcome:
-      "A kids' learning app for guided videos, games, and activities with parent-safe navigation and progress continuity.",
+      "A learning app for kids aged 2 to 6. I led its move from Ionic to React Native and built video and game players that remember where a child left off.",
   },
   {
     id: "wonderhood-nextjs",
@@ -204,7 +204,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Backend for NFT-oriented account, asset, upload, and authentication workflows.",
     outcome:
-      "A layered Express/MongoDB API handling accounts, asset uploads, ownership flows, and authentication for an NFT marketplace client.",
+      "The API behind an NFT marketplace: accounts, sign-in, asset uploads, and ownership transfers, built on Express and MongoDB.",
   },
   {
     id: "company-data-scraper",
@@ -212,7 +212,7 @@ export const portfolioGridProjects: Project[] = [
     name: "Company Data Scraper",
     company: "Personal",
     year: "2022",
-    role: "Data Product Engineer",
+    role: "Solo build",
     category: "PERSONAL",
     tags: ["Python", "Django", "HTMX", "Scraping", "Dashboard"],
     image: "/assets/company-data-scraper-dashboard.webp",
@@ -220,7 +220,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Django + HTMX job intelligence dashboard that tracks company career pages, normalizes roles, and filters India-first opportunities.",
     outcome:
-      "A searchable job pipeline with company tracking, ATS-aware scraping, tech tags, work-mode filters, and direct application links.",
+      "Watches company career pages and pulls openings into one searchable board, with filters for tech stack and work mode and a direct link to apply.",
   },
   {
     id: "cadillacs-server",
@@ -236,7 +236,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Freelance backend API with admin/community routes, JWT auth, persisted content models, and Swagger documentation.",
     outcome:
-      "An Express API with JWT authentication, admin and community routes, stored content, and Swagger documentation.",
+      "A backend for a client's community app, with JWT sign-in, separate admin and member routes, and Swagger docs for the API.",
   },
   {
     id: "autism-detector",
@@ -260,7 +260,7 @@ export const portfolioGridProjects: Project[] = [
     name: "Face Recognition",
     company: "Personal",
     year: "2021",
-    role: "Personal",
+    role: "Personal project",
     category: "PERSONAL",
     tags: ["React", "Node", "MongoDB", "Clarifai", "Auth"],
     image: "/assets/face-frontend.webp",
@@ -271,6 +271,8 @@ export const portfolioGridProjects: Project[] = [
     ],
     blurb:
       "Bundled frontend and backend for image upload, face detection, authentication, and usage tracking.",
+    outcome:
+      "Upload a photo and it finds the faces in it using the Clarifai API, with sign-in and a running count of images each user has checked.",
   },
   {
     id: "dating-app",
@@ -323,7 +325,7 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "Triggrr producer dashboard for event rules, webhook/slack actions, operational health, retries, logs, and dead-letter queue visibility.",
     outcome:
-      "A multi-tenant event automation service: define rules that watch incoming events and fire webhooks, emails, or Slack actions, with queues, retries, and DLQ visibility.",
+      "An event automation service for multiple clients. Set rules on incoming events and it fires webhooks, emails, or Slack messages, with queues, retries, and a view of anything that failed.",
   },
   {
     id: "my-learning-react",
@@ -372,6 +374,8 @@ export const portfolioGridProjects: Project[] = [
     ],
     blurb:
       "Bundled tourism platform with landing page, admin dashboard, bookings, blogs, coupons, and backend APIs.",
+    outcome:
+      "A tourism booking platform from my internship: the public site, an admin dashboard, bookings, blogs, coupons, and the API behind them.",
   },
   {
     id: "e-commerce-pwa",
@@ -379,13 +383,15 @@ export const portfolioGridProjects: Project[] = [
     name: "E-Commerce PWA",
     company: "Personal",
     year: "2021",
-    role: "Personal",
+    role: "Personal project",
     category: "PERSONAL",
     tags: ["React", "Redux", "Firebase", "Stripe", "GraphQL"],
     image: "/assets/crwn.webp",
     link: "https://crwn-clothing-pwa.netlify.app/",
     blurb:
       "E-commerce PWA with Google auth, cart, checkout, and Stripe payment flow.",
+    outcome:
+      "An installable clothing store with Google sign-in, a cart, and Stripe checkout.",
   },
   {
     id: "star-wars-dashboard",
@@ -539,7 +545,7 @@ export const portfolioGridProjects: Project[] = [
     name: "Postman Clone",
     company: "Personal",
     year: "2024",
-    role: "Developer Tool Prototype",
+    role: "Solo build",
     category: "PERSONAL",
     tags: ["Next.js", "App Router", "Redux Toolkit", "Saga", "Tailwind"],
     image: "/assets/postman-clone-response-preview.webp",
@@ -547,6 +553,6 @@ export const portfolioGridProjects: Project[] = [
     blurb:
       "API client prototype with request-building state, collection-style structure, and Redux/Saga workflow experiments.",
     outcome:
-      "An API client prototype for composing requests and organizing collections, using Redux Toolkit and Saga for request state and Prisma for storage.",
+      "A lightweight API client for building requests and saving them into collections. Request state runs through Redux Toolkit and Saga, with Prisma for storage.",
   },
 ];
