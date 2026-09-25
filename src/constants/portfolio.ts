@@ -197,7 +197,7 @@ export const about = {
     "At BPIT, I led a team of three to rebuild the college website from scratch, with an editor that lets each department update its own pages.",
     "At RemoteHire, I built most of Immibot, an immigration research assistant: first on Flowise workflows, then on streamed search with citations from official government sources.",
     "At Wonderhood, I moved the website to Next.js (Lighthouse went from 35 to 90+), led the switch from Ionic to React Native, and built a dashboard for teachers.",
-    "Outside work, I send fixes upstream to Checkstyle, the official Express v5 codemod, and a Jenkins sign-in plugin.",
+    "Outside work, I've sent fixes upstream to Checkstyle, the official Express v5 codemod, and a Jenkins sign-in plugin.",
   ],
 };
 

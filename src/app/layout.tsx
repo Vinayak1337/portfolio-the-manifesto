@@ -8,6 +8,7 @@ import { person, seoKeywords, site } from "@/constants/portfolio";
 import "./globals.css";
 import "./restyle-v2.css";
 import "./motion.css";
+import "./work-sections.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

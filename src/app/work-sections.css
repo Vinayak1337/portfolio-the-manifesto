@@ -1,0 +1,216 @@
+/*
+ * Selected projects rail + More work list: readability pass.
+ *
+ * Labels were 8-9px monospace and descriptions 11px (monospace on the rail,
+ * 70% opacity in the list). This raises the floor to 11px for labels and
+ * 14-15px sans for anything meant to be read, and replaces opacity fades with
+ * real colours so contrast holds on both the paper and dark hover states.
+ */
+
+/* ---------- Rail ---------- */
+
+.variant-atlas .rail-sec .rail-card p {
+  max-width: 44ch;
+  color: var(--atlas-light);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.variant-atlas .rail-sec .rail-role {
+  color: var(--atlas-light);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.variant-atlas .rail-sec .rail-tech-tags {
+  color: var(--atlas-paper-deep);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.variant-atlas .rail-sec .rail-foot {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.variant-atlas .rail-sec .rail-action,
+.variant-atlas .rail-sec .rail-link-menu summary {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.variant-atlas .rail-sec .rail-counter-total,
+.variant-atlas .rail-sec .rail-counter-scroll,
+.variant-atlas .rail-sec .rail-section-tag {
+  font-size: 11px;
+}
+
+.variant-atlas .rail-sec .rail-seam-index {
+  font-size: 10px;
+}
+
+/* Keyboard focus: a clear ring on the whole card, not just the inner link. */
+.variant-atlas .rail-card:has(.rail-card-main:focus-visible),
+.variant-atlas .rail-card-direct:focus-visible {
+  outline: 3px solid var(--atlas-signal);
+  outline-offset: 10px;
+}
+
+.variant-atlas .rail-card-main:focus-visible {
+  outline: none;
+}
+
+@media (min-width: 981px) {
+  /* "hidden" still lets the browser scroll the pin sideways to reveal a
+   * focused card, which knocked the transform-driven rail out of alignment.
+   * "clip" can't be scrolled; FluxClientEffects scrolls the page instead. */
+  .variant-atlas .rail-sec .pin {
+    overflow: clip;
+  }
+
+  /* Cards with several links used to stack a "View links" menu under the
+   * card, making it taller than the others and pushing the menu below the
+   * pinned viewport on shorter screens. Dock it into the action row instead
+   * and open the panel upwards. */
+  .variant-atlas .rail-card:has(> .rail-link-menu) {
+    position: relative;
+  }
+
+  .variant-atlas .rail-card:not(.rail-card-direct) > .rail-link-menu {
+    position: absolute;
+    right: 48px;
+    bottom: 0;
+    z-index: 5;
+    margin: 0;
+  }
+
+  .variant-atlas .rail-card > .rail-link-menu summary {
+    min-width: 0;
+    min-height: 44px;
+    padding: 0 0 2px;
+    border-width: 0 0 2px;
+  }
+
+  .variant-atlas .rail-card > .rail-link-menu .project-link-menu-panel {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 10px);
+    margin: 0;
+  }
+}
+
+.variant-atlas .rail-link-menu .project-link-menu-panel {
+  width: min(240px, 80vw);
+  padding: 8px;
+  border: 1px solid var(--atlas-ink);
+  background: var(--atlas-paper);
+  box-shadow: 8px 8px 0 rgb(0 0 0 / 28%);
+}
+
+.variant-atlas .rail-link-menu .project-link-menu-panel a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--atlas-rule);
+  color: var(--atlas-ink);
+  font-size: 14px;
+}
+
+.variant-atlas .rail-link-menu .project-link-menu-panel a:hover,
+.variant-atlas .rail-link-menu .project-link-menu-panel a:focus-visible {
+  background: var(--atlas-field);
+  color: var(--atlas-light);
+}
+
+@media (min-width: 981px) and (max-height: 760px) {
+  /* Short laptop screens: keep the longer description inside the card. */
+  .variant-atlas .rail-sec .rail-card p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 640px) {
+  .variant-atlas .rail-sec .rail-card p {
+    font-size: 15px;
+  }
+}
+
+/* ---------- More work ---------- */
+
+.variant-atlas .work-section .work-role {
+  color: currentColor;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  opacity: 1;
+}
+
+.variant-atlas .work-section .work-desc {
+  max-width: 60ch;
+  color: var(--atlas-ink-soft);
+  font-size: 15px;
+  line-height: 1.55;
+  opacity: 1;
+  text-wrap: pretty;
+}
+
+.variant-atlas .work-section .work-num,
+.variant-atlas .work-section .work-tags,
+.variant-atlas .work-section .work-year,
+.variant-atlas .work-section .work-action,
+.variant-atlas .work-section .work-link-menu summary {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.variant-atlas .work-section .work-tags {
+  line-height: 1.6;
+}
+
+.variant-atlas .work-section .work-header-copy p,
+.variant-atlas .work-section .work-header-copy a {
+  font-size: 14px;
+}
+
+/* On the dark hover/open state the soft ink would disappear. */
+.variant-atlas .work-row:is(:hover, :focus-visible, :focus-within) .work-desc,
+.variant-atlas .work-bundle[open] .work-row .work-desc {
+  color: var(--atlas-paper-deep);
+}
+
+.variant-atlas .work-row:focus-visible {
+  outline: 3px solid var(--atlas-signal);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  /* The arrow alone marks the row as a link (its accessible name already
+   * says "Open <project>"), leaving the description the full width. */
+  .variant-atlas .work-section .work-action > span:first-child {
+    display: none;
+  }
+
+  .variant-atlas .work-section .work-row {
+    grid-template-columns: 34px minmax(0, 1fr) 28px;
+  }
+
+  .variant-atlas .work-section .work-action {
+    min-width: 28px;
+    justify-content: flex-end;
+  }
+
+  /* Descriptions are short, plain sentences now; show them in full. */
+  .variant-atlas .work-section .work-desc {
+    display: block;
+    overflow: visible;
+    font-size: 14px;
+    -webkit-line-clamp: unset;
+  }
+}

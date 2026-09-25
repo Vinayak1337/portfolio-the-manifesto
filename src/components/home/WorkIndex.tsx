@@ -56,6 +56,8 @@ export function WorkIndex({
           const primaryLink = project.link ?? project.links?.[0]?.href ?? null;
           const hasPrimaryLink = Boolean(primaryLink);
           const link = externalLinkProps(primaryLink);
+          const descriptionId = `work-desc-${project.id}`;
+          const linkLabel = `Open ${project.name}${link.target ? " (opens in a new tab)" : ""}`;
           const displayIndex = (index + startIndex).toString().padStart(2, "0");
           const description = project.outcome ?? project.blurb;
           const actionLabel = project.links?.length && !hasPrimaryLink
@@ -69,9 +71,9 @@ export function WorkIndex({
               <span className="work-title-block">
                 <RollText className="work-name" text={project.name} />
                 <span className="work-role">{project.role}</span>
-                <span className="work-desc">{description}</span>
+                <span className="work-desc" id={descriptionId}>{description}</span>
               </span>
-              <span className="work-tags">{project.tags.slice(0, 4).join(" / ")}</span>
+              <span className="work-tags">{project.tags.slice(0, 4).join(" · ")}</span>
               <span className="work-year">{`'${project.year.slice(2)}`}</span>
               <span className={`work-action ${!hasPrimaryLink && !project.links?.length ? "work-action-muted" : ""}`}>
                 <span>{actionLabel}</span>
@@ -105,7 +107,8 @@ export function WorkIndex({
                   className="work-row"
                   data-work-row
                   data-project-id={project.id}
-                  aria-label={`Open ${project.name} project`}
+                  aria-label={linkLabel}
+                  aria-describedby={descriptionId}
                   {...link}
                 >
                   {content}
@@ -126,7 +129,8 @@ export function WorkIndex({
                   className="work-row work-row-bundle"
                   data-work-row
                   data-project-id={project.id}
-                  aria-label={`Open ${project.name} project surfaces`}
+                  aria-label={`Show links for ${project.name}`}
+                  aria-describedby={descriptionId}
                 >
                   {content}
                 </summary>
@@ -154,7 +158,8 @@ export function WorkIndex({
               data-work-row
               data-project-id={project.id}
               key={project.id}
-              aria-label={`Open ${project.name} project`}
+              aria-label={linkLabel}
+              aria-describedby={descriptionId}
               {...link}
             >
               {content}

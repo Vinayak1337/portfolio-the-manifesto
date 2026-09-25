@@ -45,25 +45,27 @@ export function WorkCarousel({
             className="rail-title"
             tokens={[{ text: "Selected" }, { text: "projects.", emphasis: true }]}
           />
-          <div className="rail-counter" aria-live="polite">
+          <div className="rail-counter">
             <span className="rail-section-tag">02 / Selected work</span>
-            <span className="rail-number-mask">
+            <span className="rail-number-mask" aria-hidden="true">
               <span className="big" data-rail-number>
                 01
               </span>
             </span>
-            <span className="rail-counter-total">
+            <span className="rail-counter-total" aria-hidden="true">
               / {projects.length.toString().padStart(2, "0")}
             </span>
-            <span className="rail-counter-scroll"> - SCROLL</span>
+            <span className="rail-counter-scroll" aria-hidden="true"> - SCROLL</span>
           </div>
         </div>
 
-        <div className="rail-track" data-rail-track>
+        <div className="rail-track" data-rail-track role="list" aria-label="Selected projects">
           {projects.map((project, index) => {
             const primaryLink = project.link ?? project.links?.[0]?.href ?? null;
             const hasPrimaryLink = Boolean(primaryLink);
             const link = externalLinkProps(primaryLink);
+            const descriptionId = `rail-desc-${project.id}`;
+            const linkLabel = `Open ${project.name}${link.target ? " (opens in a new tab)" : ""}`;
             const content = (
               <>
                 <div className="rail-cover">
@@ -86,10 +88,11 @@ export function WorkCarousel({
                 </div>
                 <h3>{project.name}</h3>
                 <span className="rail-role">{project.role}</span>
-                <span className="rail-tech-tags" aria-label={`${project.name} technologies`}>
-                  {project.tags.slice(0, 4).join(" / ")}
+                <span className="rail-tech-tags">
+                  <span className="sr-only">Built with </span>
+                  {project.tags.slice(0, 4).join(" · ")}
                 </span>
-                <p>{project.outcome ?? project.tags.slice(0, 4).join(" / ")}</p>
+                <p id={descriptionId}>{project.outcome ?? project.tags.slice(0, 4).join(" / ")}</p>
                 <span className="rail-action">
                   <span>{hasPrimaryLink ? "View project" : "Private project"}</span>
                   <span aria-hidden="true">{hasPrimaryLink ? <ArrowIcon /> : "—"}</span>
@@ -99,11 +102,12 @@ export function WorkCarousel({
 
             if (project.links?.length) {
               return (
-                <div className="rail-item" data-reveal key={project.id}>
+                <div className="rail-item" data-reveal key={project.id} role="listitem">
                   <article className="rail-card">
                     <a
                       className="rail-card-main"
-                      aria-label={`Open ${project.name} project`}
+                      aria-label={linkLabel}
+                      aria-describedby={descriptionId}
                       {...link}
                     >
                       {content}
@@ -121,7 +125,7 @@ export function WorkCarousel({
 
             if (!hasPrimaryLink) {
               return (
-                <div className="rail-item" data-reveal key={project.id}>
+                <div className="rail-item" data-reveal key={project.id} role="listitem">
                   <article className="rail-card rail-card-direct rail-card-static">
                     {content}
                   </article>
@@ -131,10 +135,11 @@ export function WorkCarousel({
             }
 
             return (
-              <div className="rail-item" data-reveal key={project.id}>
+              <div className="rail-item" data-reveal key={project.id} role="listitem">
                 <a
                   className="rail-card rail-card-direct"
-                  aria-label={`Open ${project.name} project`}
+                  aria-label={linkLabel}
+                  aria-describedby={descriptionId}
                   {...link}
                 >
                   {content}

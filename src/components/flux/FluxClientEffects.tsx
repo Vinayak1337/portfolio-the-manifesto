@@ -770,6 +770,22 @@ export function FluxClientEffects() {
       activeMagnetic = null;
     };
 
+    // The rail moves with page scroll, so a keyboard user tabbing to a card that
+    // is translated off-screen would lose sight of their focus. Scroll the page
+    // to the point where that card sits in the middle of the viewport.
+    const onRailFocus = (event: FocusEvent) => {
+      if (!railMetric || railTravel <= 0 || viewportWidth <= 980) return;
+      const target = event.target instanceof HTMLElement ? event.target : null;
+      if (!target?.matches(":focus-visible")) return;
+      const card = target.closest<HTMLElement>(".rail-card");
+      const index = card ? railCards.indexOf(card) : -1;
+      if (index < 0) return;
+      const progress = clamp((railCardCenters[index] - viewportWidth / 2) / railTravel);
+      const top = railMetric.top + progress * Math.max(1, railMetric.height - viewportHeight);
+      if (Math.abs(top - globalThis.scrollY) < 4) return;
+      globalThis.scrollTo({ behavior: reducedMotion ? "instant" : "smooth", top });
+    };
+
     const onResize = () => {
       globalThis.clearTimeout(resizeTimer);
       resizeTimer = globalThis.setTimeout(() => {
@@ -782,6 +798,7 @@ export function FluxClientEffects() {
     schedule();
     globalThis.addEventListener("scroll", onScroll, { passive: true });
     globalThis.addEventListener("resize", onResize);
+    railTrack?.addEventListener("focusin", onRailFocus);
     if (finePointer) {
       globalThis.addEventListener("pointermove", onPointerMove, { passive: true });
       document.documentElement.addEventListener("pointerleave", onPointerLeave);
@@ -792,6 +809,7 @@ export function FluxClientEffects() {
       globalThis.clearTimeout(resizeTimer);
       globalThis.removeEventListener("scroll", onScroll);
       globalThis.removeEventListener("resize", onResize);
+      railTrack?.removeEventListener("focusin", onRailFocus);
       globalThis.removeEventListener("pointermove", onPointerMove);
       document.documentElement.removeEventListener("pointerleave", onPointerLeave);
       document.documentElement.classList.remove("is-scrolling");
