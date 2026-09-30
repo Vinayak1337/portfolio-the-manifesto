@@ -194,7 +194,7 @@ export const chapters = [
 export const about = {
   headline: "Web and mobile development.",
   paragraphs: [
-    "I've been writing code since 2019 and working professionally for over three years. Most recently, at Philblocks, I built the AI engine behind Ideapost, which drafts social posts in each user's own voice, along with its sign-in and billing.",
+    "I've been writing code since 2019 and working professionally for over three years. At Philblocks, I built Ideapost's AI post-generation workflow and tone matching from users' own writing, along with authentication, credit billing, and safeguards for reliable AI runs.",
     "At BPIT, I led a team of three to rebuild the college website from scratch, with an editor that lets each department update its own pages.",
     "At RemoteHire, I built most of Immibot, an immigration research assistant: first on Flowise workflows, then on streamed search with citations from official government sources.",
     "At Wonderhood, I moved the website to Next.js (Lighthouse went from 35 to 90+), led the switch from Ionic to React Native, and built a dashboard for teachers.",
@@ -206,14 +206,14 @@ export const experience: Experience[] = [
   {
     title: "Product Engineer Intern",
     company: "Philblocks Private Limited",
-    date: "Jun 2026 - Jul 2026",
+    date: "June - July 2026",
     location: "Remote",
     companyUrl: "https://ideapost.top",
     bullets: [
-      "Built Ideapost's AI post-generation workflow with **Next.js**, **TypeScript**, and **LangGraph**: agents plan each post, write drafts for LinkedIn, X, and Facebook, then review and revise them.",
-      "Built tone matching from users' own posts: analyzed their writing patterns, retrieved relevant examples with **MongoDB Atlas Vector Search**, and used them to guide drafts and flag changes in tone.",
-      "Implemented **Clerk** authentication and **Razorpay** credit-based billing with payment webhooks, a transaction ledger, and refunds, and added **Mixpanel** to track product use.",
-      "Added **MongoDB** run locks, rate limits, and retries to prevent overlapping runs and recover from AI provider failures, with models routed through **Vercel AI Gateway**.",
+      "Built Ideapost's AI post-generation workflow with **Next.js**, **TypeScript**, and **LangGraph**. Coordinated agents to plan posts, write drafts for LinkedIn, X, and Facebook, then review and revise them, with progress tracking in the editor.",
+      "Built tone matching from users' own posts: analyzed writing patterns, retrieved relevant examples with **MongoDB Atlas Vector Search**, and used them to guide drafts and flag changes in tone. Kept generated posts out of the user's writing samples so they would not skew future results.",
+      "Added **MongoDB** run locks, distributed rate limits, provider checks, and retries to prevent overlapping AI runs and recover failed requests. Integrated model providers through **Vercel AI Gateway** and added logs, diagnostics, and credit refunds for unsuccessful runs.",
+      "Moved authentication from **Firebase** to **Clerk**, synced users through webhooks, and protected routes by role. Built **Razorpay** credit-based billing with payment webhooks, a stackable transaction ledger, refunds, and admin controls; added **Mixpanel** events to track product use.",
     ],
   },
   {
